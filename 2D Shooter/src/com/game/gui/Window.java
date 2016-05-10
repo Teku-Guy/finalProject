@@ -1,6 +1,6 @@
 package com.game.gui;
 
-import com.game.runner.Main;
+import com.game.gui.Main;
 
 import javax.swing.*;
 import java.awt.*;

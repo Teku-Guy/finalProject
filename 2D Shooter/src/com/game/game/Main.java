@@ -1,9 +1,9 @@
-/**
+package com.game.game; /**
  * Created by Gustavo & Jessus on 5/9/16.
  */
-package com.game.runner;
 
 import com.game.gui.Window;
+import com.game.*;
 
 import java.awt.Canvas;
 import java.awt.Color;
@@ -14,22 +14,42 @@ public class Main extends Canvas implements Runnable{
 
     private static final long serialVersionUID = 1671921912898282466L;
 
-    public static final int WIDTH = 640, HEIGHT = WIDTH / 12 * 9;
+    public static int WIDTH, HEIGHT;
 
     private Window window;
     private Thread thread;
     private boolean running = false;
 
-    public Main() {
-        window = new Window( "2D Shooter", this);
-    }
+    private Handler handler;
+    private Menu menu;
 
+    public enum STATE {
+        Menu,
+        Help,
+        Game,
+        End
+    };
+
+    public static STATE gameState = STATE.Menu;
+
+    public Main() {
+        window = new Window("2D Shooter", this);
+        handler = new Handler();
+        menu = new Menu(this, handler);
+        this.addKeyListener(new KeyInput(handler));
+        this.addMouseListener(menu);
+
+        WIDTH = window.frame.getWidth();
+        HEIGHT = window.frame.getHeight();
+    }
+    //Run the thread
     public synchronized void start(){
         thread = new Thread(this);
         thread.start();
         running = true;
     }
 
+    //Stop running the thread
     public synchronized void stop(){
         try{
             running = false;
@@ -38,6 +58,7 @@ public class Main extends Canvas implements Runnable{
         }
     }
 
+    //When it is run the FPS Counter will keep Counting need the tik method
     public void run(){
         long lastTime = System.nanoTime();
         double amountOfTicks = 60.0;
@@ -67,10 +88,16 @@ public class Main extends Canvas implements Runnable{
         stop();
     }
 
+    //Run every Second
     private void tick(){
+
+        if(gameState == STATE.Menu || gameState == STATE.End){
+            menu.tick();
+        }
 
     }
 
+    //This renders the back ground in the JFrame
     private void render(){
         BufferStrategy bs = this.getBufferStrategy();
 
@@ -82,12 +109,26 @@ public class Main extends Canvas implements Runnable{
         Graphics g = bs.getDrawGraphics();
 
         g.setColor(Color.BLACK);
-        g.fillRect(0, 0, window.frame.getWidth(), window.frame.getHeight());
+        g.fillRect(0, 0, WIDTH, HEIGHT);
+
+        handler.render(g);
+
+        if(gameState == STATE.Game)
+        {
+            //hud.render(g);
+        }
+        else if(gameState == STATE.Menu || gameState == STATE.Help || gameState == STATE.End){
+            menu.render(g);
+        }
+
+        //g.setColor(Color.WHITE);
+        //g.drawString("2D Shooter", ((window.frame.getWidth()/2) - 30), 20);
 
         g.dispose();
         bs.show();
     }
 
+    //This Could be used as the velocity max and min setter
     /*public static float clamp(float var, float min, float max){
         if(var >= max)
             return var = max;

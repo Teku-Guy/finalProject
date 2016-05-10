@@ -1,6 +1,6 @@
 package com.game.gui;
 
-import com.game.runner.Main;
+import com.game.game.Main;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,14 +17,15 @@ public class Window{
     public Window(String title, Main main){
         frame = new JFrame(title);
 
-        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        frame.setUndecorated(true);
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH); //full screen in window mode
+        frame.setUndecorated(true); //Gets Rid of the Bar on top of the Window
 
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.add(main);
         frame.setVisible(true);
 
-        GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().setFullScreenWindow(frame);
+        GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().setFullScreenWindow(frame); //Take over the whole screen
+
 
         main.start();
     }

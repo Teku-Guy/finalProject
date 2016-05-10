@@ -10,6 +10,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 
+
 public class Main extends Canvas implements Runnable{
 
     private static final long serialVersionUID = 1671921912898282466L;
@@ -98,6 +99,7 @@ public class Main extends Canvas implements Runnable{
 
     public static void main(String[] args) {
         new Main();
+        System.out.println("Test");
     }
 }
 

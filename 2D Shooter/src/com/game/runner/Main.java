@@ -10,18 +10,18 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 
-
 public class Main extends Canvas implements Runnable{
 
     private static final long serialVersionUID = 1671921912898282466L;
 
     public static final int WIDTH = 640, HEIGHT = WIDTH / 12 * 9;
 
+    private Window window;
     private Thread thread;
     private boolean running = false;
 
     public Main() {
-        new Window(WIDTH, HEIGHT, "2D Shooter", this);
+        window = new Window( "2D Shooter", this);
     }
 
     public synchronized void start(){
@@ -82,24 +82,23 @@ public class Main extends Canvas implements Runnable{
         Graphics g = bs.getDrawGraphics();
 
         g.setColor(Color.BLACK);
-        g.fillRect(0, 0, WIDTH, HEIGHT);
+        g.fillRect(0, 0, window.frame.getWidth(), window.frame.getHeight());
 
         g.dispose();
         bs.show();
     }
 
-    public static float clamp(float var, float min, float max){
+    /*public static float clamp(float var, float min, float max){
         if(var >= max)
             return var = max;
         else if(var <= min)
             return var = min;
         else
             return var;
-    }
+    }*/
 
     public static void main(String[] args) {
         new Main();
-
     }
 }
 

@@ -35,7 +35,33 @@ public class Menu extends MouseAdapter{
         int my = e.getY();
 
         if(this.main.gameState == STATE.Menu){
-            //Action for Menu Go here
+            //play button
+            if(mouseOver(mx, my, 210, 150, 200, 64)){
+                main.gameState = STATE.Game;
+                //handler.addObject(new Player(Game.WIDTH/2-32, Game.HEIGHT/2-32, ID.Player, handler));
+                handler.clearEnemys();
+                //handler.addObject(new BasicEnemy((Main.WIDTH /2)-48, -120, ID.BasicEnemy, handler));
+
+            }
+
+            //help Button
+            if(mouseOver(mx, my, 210, 250, 200, 64)){
+                main.gameState = STATE.Help;
+            }
+
+            //quit button
+            if(mouseOver(mx, my, 210, 350, 200, 64)){
+                System.exit(1);
+            }
+
+        }
+
+        else if(this.main.gameState == STATE.Help) {
+           //back button
+            if(mouseOver(mx, my, 210, 350, 200, 64)){
+                main.gameState = STATE.Menu;
+                return;
+            }
         }
     }
 

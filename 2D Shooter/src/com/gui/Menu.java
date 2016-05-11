@@ -21,6 +21,7 @@ public class Menu extends MouseAdapter{
     private Handler handler;
     //private HUD hud;
     private Random r = new Random();
+    private String title = "2D Shooter";
 
     public Menu(Main main, Handler handler){ //, HUD hud){
         this.main = main;
@@ -37,7 +38,7 @@ public class Menu extends MouseAdapter{
 
         if(this.main.gameState == STATE.Menu){
             //play button
-            if(mouseOver(mx, my, 210, 150, 200, 64)){
+            if(mouseOver(mx, my, Main.WIDTH/2 - 550, 450, 200, 64)){
                 main.gameState = STATE.Game;
                 //handler.addObject(new Player(Game.WIDTH/2-32, Game.HEIGHT/2-32, ID.Player, handler));
                 handler.clearEnemys();
@@ -46,12 +47,12 @@ public class Menu extends MouseAdapter{
             }
 
             //help Button
-            if(mouseOver(mx, my, 210, 250, 200, 64)){
+            if(mouseOver(mx, my, Main.WIDTH/2 - 550, 550, 200, 64)){
                 main.gameState = STATE.Help;
             }
 
             //quit button
-            if(mouseOver(mx, my, 210, 350, 200, 64)){
+            if(mouseOver(mx, my, Main.WIDTH/2 - 550, 650, 200, 64)){
                 System.exit(1);
             }
 
@@ -80,23 +81,25 @@ public class Menu extends MouseAdapter{
 
     public void render(Graphics g){
         if(main.gameState == STATE.Menu){
-            Font fnt = new Font("arial", 1, 50);
+            Font fnt = new Font("arial", 1, 70);
             Font fnt2 = new Font("arail", 1, 30);
 
             g.setFont(fnt);
             g.setColor(Color.WHITE);
-            g.drawString("2D Shooter", ((Main.WIDTH / 2) - 30), 30);
+            int w2 = g.getFontMetrics().stringWidth(title) / 2;
+            int h2 = g.getFontMetrics().getHeight();
+            g.drawString(title, Main.WIDTH / 2 - w2, h2);
 
             g.setFont(fnt2);
             g.setColor(Color.WHITE);
-            g.drawString("Play", 270, 190);
-            g.drawRect(210, 150, 200, 64);
+            g.drawString("Play", Main.WIDTH / 2 - (g.getFontMetrics().stringWidth("Play")+420), 490);
+            g.drawRect(Main.WIDTH/2 - 550, 450, 200, 64);
 
-            g.drawString("Help", 270, 290);
-            g.drawRect(210, 250, 200, 64);
+            g.drawString("Help", Main.WIDTH / 2 - (g.getFontMetrics().stringWidth("Help")+420), 590);
+            g.drawRect(Main.WIDTH/2 - 550, 550, 200, 64);
 
-            g.drawString("Quit", 270, 390);
-            g.drawRect(210, 350, 200, 64);
+            g.drawString("Quit", Main.WIDTH / 2 - (g.getFontMetrics().stringWidth("Quit")+420), 690);
+            g.drawRect(Main.WIDTH/2 - 550, 650, 200, 64);
         }else if(main.gameState == STATE.Help){
 
             Font fnt = new Font("arial", 1, 50);

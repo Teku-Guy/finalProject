@@ -26,7 +26,6 @@ public class Window{
 
         GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().setFullScreenWindow(frame); //Take over the whole screen
 
-
         main.start();
     }
 }

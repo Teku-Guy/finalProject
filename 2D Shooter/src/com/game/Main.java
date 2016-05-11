@@ -6,12 +6,16 @@ import com.gui.Window;
 import com.input.Handler;
 import com.gui.Menu;
 import com.input.KeyInput;
-
+import com.graphics.Sprite;
+import com.graphics.SpriteSheet;
 
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
+import java.awt.image.BufferedImage;
+import javax.imageio.ImageIO;
+import java.io.IOException;
 
 public class Main extends Canvas implements Runnable{
 
@@ -25,6 +29,14 @@ public class Main extends Canvas implements Runnable{
 
     private Handler handler;
     private Menu menu;
+
+    public static SpriteSheet PWalkR;
+    public static SpriteSheet PWalkL;
+    public static BufferedImage PJumpR;
+    public static BufferedImage PJumpL;
+    public static SpriteSheet ZWalkR;
+    public static SpriteSheet ZWalkL;
+    public static BufferedImage Bullet;
 
     public enum STATE {
         Menu,
@@ -45,6 +57,23 @@ public class Main extends Canvas implements Runnable{
         WIDTH = window.frame.getWidth();
         HEIGHT = window.frame.getHeight();
     }
+    //Loads stuff
+    public void init(){
+       PWalkR = new SpriteSheet("/res/PWalkingRight.png");
+       PWalkL = new SpriteSheet("/res/PWalkingLeft.png");
+      try {
+          PJumpL = ImageIO.read(getClass().getResource("/res/PJumpLeft.png"));
+          PJumpR = ImageIO.read(getClass().getResource("/res/PJumpRight.png"));
+          Bullet = ImageIO.read(getClass().getResource("/res/Bullet.png"));
+      }catch(IOException io){
+          System.out.println("Images Failed to load!");
+      }
+          System.out.println("Player Sprites loaded!");
+
+        ZWalkR = new SpriteSheet("/res/ZWalkingRight.png");
+        ZWalkL = new SpriteSheet("/res/ZWalkingLeft.png");
+        System.out.println("Zombie Sprites loaded");
+    }
     //Run the thread
     public synchronized void start(){
         thread = new Thread(this);
@@ -63,6 +92,7 @@ public class Main extends Canvas implements Runnable{
 
     //When it is run the FPS Counter will keep Counting need the tik method
     public void run(){
+        init();
         long lastTime = System.nanoTime();
         double amountOfTicks = 60.0;
         double ns = 1000000000 / amountOfTicks;
@@ -119,6 +149,7 @@ public class Main extends Canvas implements Runnable{
         if(gameState == STATE.Game)
         {
             //hud.render(g);
+
         }
         else if(gameState == STATE.Menu || gameState == STATE.Help || gameState == STATE.End){
             menu.render(g);

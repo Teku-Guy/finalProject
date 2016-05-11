@@ -56,6 +56,9 @@ public class Player extends GameObject {
         x += velX;
         y += velY;
     }
+    public void checkCollison(){
+
+    }
 
 
 

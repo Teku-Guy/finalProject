@@ -96,7 +96,7 @@ public class Main extends Canvas implements Runnable{
         PJumpLeft = new Sprite(PJumpLSheet, 1, 1);
         Bullet = new Sprite(BulletSheet, 1, 1);
         System.out.println("Player Sprites loaded!");
-
+        //will do this later
 
         System.out.println("Zombie Sprites loaded");
     }

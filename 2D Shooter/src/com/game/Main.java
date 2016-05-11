@@ -30,25 +30,13 @@ public class Main extends Canvas implements Runnable{
     private Handler handler;
     private Menu menu;
 
-
-    public static Sprite[] PlayerJumpL = new Sprite[1];
-    public static Sprite[] PlayerJumpR = new Sprite[1];
-    public static Sprite[] Bullets = new Sprite[1];
-    public static Sprite[] PlayerWalkR = new Sprite[5];
-    public static Sprite[] PlayerWalkL = new Sprite[5];
-    public static Sprite PJumpLeft;
-    public static Sprite PJumpRight;
-    public static Sprite Bullet;
-
-    public static SpriteSheet PJumpLSheet;
-    public static SpriteSheet PJumpRSheet;
-    public static SpriteSheet PWalkRSheet;
-    public static SpriteSheet PWalkLSheet;
-    public static SpriteSheet ZWalkRSheet;
-    public static SpriteSheet ZWalkLSheet;
-    public static SpriteSheet BulletSheet;
-
-
+    public static SpriteSheet PWalkR;
+    public static SpriteSheet PWalkL;
+    public static BufferedImage PJumpR;
+    public static BufferedImage PJumpL;
+    public static SpriteSheet ZWalkR;
+    public static SpriteSheet ZWalkL;
+    public static BufferedImage Bullet;
 
     public enum STATE {
         Menu,
@@ -71,33 +59,19 @@ public class Main extends Canvas implements Runnable{
     }
     //Loads stuff
     public void init(){
-      //  PJumpR = new SpriteSheet("/res/PJumpRight.png");
-        //PJumpL = new SpriteSheet("/res/PJumpLeft.png");
-        PWalkRSheet = new SpriteSheet("/res/PWalkingRight.png");
-        PWalkLSheet = new SpriteSheet("/res/PWalkingLeft.png");
-        BulletSheet = new SpriteSheet("/res/BulletSheet.png");
-        for(int i = 0; i < PlayerWalkR.length; i++){
-            PlayerWalkR[i] = new Sprite(PWalkRSheet, i++, i);
-        }
-        for(int i = 0; i < PlayerWalkL.length; i++){
-            PlayerWalkL[i] = new Sprite(PWalkLSheet, i++, i);
-        }
-        for(int i = 0; i < PlayerJumpR.length; i++){
-            PlayerJumpR[i] = new Sprite(PJumpRSheet, i++, i);
-        }
-        for(int i = 0; i < PlayerJumpL.length; i++){
-            PlayerJumpL[i] = new Sprite(PJumpLSheet, i++, i);
-        }
-        for(int i = 0; i < Bullets.length; i++){
-            Bullets[i] = new Sprite(BulletSheet,i++, i);
+       PWalkR = new SpriteSheet("/res/PWalkingRight.png");
+       PWalkL = new SpriteSheet("/res/PWalkingLeft.png");
+      try {
+          PJumpL = ImageIO.read(getClass().getResource("/res/PJumpLeft.png"));
+          PJumpR = ImageIO.read(getClass().getResource("/res/PJumpRight.png"));
+          Bullet = ImageIO.read(getClass().getResource("/res/Bullet.png"));
+      }catch(IOException io){
+          System.out.println("Images Failed to load!");
+      }
+          System.out.println("Player Sprites loaded!");
 
-        }
-        PJumpRight = new Sprite(PJumpRSheet, 1, 1);
-        PJumpLeft = new Sprite(PJumpLSheet, 1, 1);
-        Bullet = new Sprite(BulletSheet, 1, 1);
-        System.out.println("Player Sprites loaded!");
-
-
+        ZWalkR = new SpriteSheet("/res/ZWalkingRight.png");
+        ZWalkL = new SpriteSheet("/res/ZWalkingLeft.png");
         System.out.println("Zombie Sprites loaded");
     }
     //Run the thread

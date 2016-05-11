@@ -18,7 +18,6 @@ import com.graphics.SpriteSheet;
 public class Player extends GameObject {
     public int phase = 0;
     public boolean walking = false;
-
     public Player(int x, int y, ID id){
         super(x, y, id);
     }
@@ -56,12 +55,6 @@ public class Player extends GameObject {
     public void move(){
         x += velX;
         y += velY;
-    }
-    public void checkCollison(){
-
-    }
-    public void shootBullet(){
-
     }
 
 

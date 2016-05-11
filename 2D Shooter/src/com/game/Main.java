@@ -1,9 +1,12 @@
-package com.game.game; /**
+package com.game; /**
  * Created by Gustavo & Jessus on 5/9/16.
  */
 
-import com.game.gui.Window;
-import com.game.*;
+import com.gui.Window;
+import com.input.Handler;
+import com.gui.Menu;
+import com.input.KeyInput;
+
 
 import java.awt.Canvas;
 import java.awt.Color;

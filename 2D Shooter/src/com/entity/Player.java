@@ -17,7 +17,11 @@ import com.graphics.SpriteSheet;
 
 public class Player extends GameObject {
     public int phase = 0;
+    public int facing = 0;
+
     public boolean walking = false;
+    public boolean jumping = false;
+    public boolean falling = true;
     public Player(int x, int y, ID id){
         super(x, y, id);
     }

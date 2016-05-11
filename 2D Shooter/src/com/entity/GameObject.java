@@ -5,11 +5,18 @@ import java.awt.Rectangle;
 
 public abstract class GameObject {
 
-    protected float x, y;
+    protected int x, y;
     protected ID id;
-    protected float velX, velY;
+    protected int velX, velY;
 
-    public GameObject(float x, float y, ID id){
+    public int facing = 0;
+
+    public boolean jumping = false;
+
+    public boolean falling = true;
+
+
+    public GameObject(int x, int y, ID id){
         this.x = x;
         this.y = y;
         this.id = id;
@@ -28,11 +35,11 @@ public abstract class GameObject {
         this.y = y;
     }
 
-    public float getX(){
+    public int getX(){
         return x;
     }
 
-    public float getY(){
+    public int getY(){
         return y;
     }
 
@@ -44,19 +51,19 @@ public abstract class GameObject {
         return id;
     }
 
-    public void setVelX(float velX){
+    public void setVelX(int velX){
         this.velX = velX;
     }
 
-    public void setVelY(float velY){
+    public void setVelY(int velY){
         this.velY = velY;
     }
 
-    public float getVelX(){
+    public int getVelX(){
         return velX;
     }
 
-    public float getVelY(){
+    public int getVelY(){
         return velY;
     }
 

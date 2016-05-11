@@ -60,7 +60,7 @@ public class Menu extends MouseAdapter{
 
         else if(this.main.gameState == STATE.Help) {
            //back button
-            if(mouseOver(mx, my, 210, 350, 200, 64)){
+            if(mouseOver(mx, my, Main.WIDTH / 2-100, 550, 200, 64)){
                 main.gameState = STATE.Menu;
                 return;
             }
@@ -108,14 +108,16 @@ public class Menu extends MouseAdapter{
 
             g.setFont(fnt);
             g.setColor(Color.WHITE);
-            g.drawString("Help", 240, 70);
+            g.drawString("Help", Main.WIDTH / 2 - (g.getFontMetrics().stringWidth("Help") / 2), 100);
 
             g.setFont(fnt3);
-            g.drawString("Use WASD keys on your keyboard to move your Player and dodge enemies!", 30, 210);
+            String s = "Use WASD keys on your keyboard to move your Player and Click your mouse to kill enemies!";
+            int w = g.getFontMetrics().stringWidth(s) / 2;
+            g.drawString(s, Main.WIDTH / 2 - w, 310);
 
             g.setFont(fnt2);
-            g.drawRect(210, 350, 200, 64);
-            g.drawString("Back", 270, 390);
+            g.drawRect(Main.WIDTH / 2-100, 550, 200, 64);
+            g.drawString("Back", Main.WIDTH / 2 - (g.getFontMetrics().stringWidth("Back") / 2), 590);
 
         }else if(main.gameState == STATE.End){
 

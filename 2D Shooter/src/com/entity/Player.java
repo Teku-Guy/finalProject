@@ -7,17 +7,20 @@ import java.awt.*;
  */
 import java.awt.Graphics;
 
-
+import com.input.KeyInput;
 import com.game.Main;
 import com.input.Handler;
 import com.entity.ID;
 import com.graphics.Sprite;
 import com.graphics.SpriteSheet;
+import com.input.KeyInput;
 
 
 public class Player extends GameObject {
     public int phase = 0;
     public int facing = 0;
+
+    private KeyInput key;
 
     public boolean walking = false;
     public boolean jumping = false;

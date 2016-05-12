@@ -84,6 +84,9 @@ public class Main extends Canvas implements Runnable{
         handler.addObject(new Player(100, 100, 32, 32, ID.Player));
 
 
+        handler.createLevel();
+
+
         WIDTH = window.frame.getWidth();
         HEIGHT = window.frame.getHeight();
     }
@@ -216,7 +219,7 @@ public class Main extends Canvas implements Runnable{
         Graphics g = bs.getDrawGraphics();
 
         //g.setColor(Color.BLACK);
-        g.setColor(null);
+        g.setColor(Color.LIGHT_GRAY);
         g.fillRect(0, 0, WIDTH, HEIGHT);
 
         g.setColor(Color.GREEN);

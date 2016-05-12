@@ -12,6 +12,7 @@ import java.awt.event.KeyEvent;
 public class KeyInput extends KeyAdapter {
 
     private Handler handler;
+    public int tempPhase = 0;
     private boolean[] keyDown = new boolean[4];
 
 
@@ -48,7 +49,7 @@ public class KeyInput extends KeyAdapter {
                 }
                 if(key == KeyEvent.VK_A){
                     tempObject.setVelX(-5);
-                    keyDown[3] = true;
+                    keyDown[3] = true;  
                 }
             }
         }

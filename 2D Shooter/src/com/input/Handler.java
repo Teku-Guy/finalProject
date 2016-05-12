@@ -67,10 +67,10 @@ public class Handler {
     }
 
     public void createLevel(){
-        for(int i = 0; i < tile.size(); i++){
-            addTile(new Grass(0, 0, 64 ,64 , true, ID.Tile));
+        for(int i = 0; i < 20; i++){
+            addTile(new Grass(i*64, i*64, 64 ,64 , true, ID.Tile));
 
-            System.out.println(i);
+            //System.out.println(i);
 
         }
 

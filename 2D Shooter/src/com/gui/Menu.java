@@ -60,7 +60,7 @@ public class Menu extends MouseAdapter{
 
         else if(this.main.gameState == STATE.Help) {
            //back button
-            if(mouseOver(mx, my, Main.WIDTH / 2-100, 550, 200, 64)){
+            if(mouseOver(mx, my, 50, 550, 200, 64)){
                 main.gameState = STATE.Menu;
                 return;
             }
@@ -89,7 +89,6 @@ public class Menu extends MouseAdapter{
             int w2 = g.getFontMetrics().stringWidth(title) / 2;
             int h2 = g.getFontMetrics().getHeight();
             g.drawString(title, Main.WIDTH / 2 - w2, h2);
-
             g.setFont(fnt2);
             g.setColor(Color.WHITE);
             g.drawString("Play", 120, 490);
@@ -97,7 +96,7 @@ public class Menu extends MouseAdapter{
 
             g.drawString("Help", 120, 590);
             g.drawRect(50, 550, 200, 64);
-
+            //Hello
             g.drawString("Quit", 120, 690);
             g.drawRect(50, 650, 200, 64);
 

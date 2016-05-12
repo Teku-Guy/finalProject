@@ -19,7 +19,12 @@ public class Zombie extends GameObject{
         super(x , y, width, height, id);
     }
 
+    public void checkIfHit(){
 
+    }
+    public void chasePlayer(){
+
+    }
 
     public void render(Graphics g) {
 
@@ -27,6 +32,10 @@ public class Zombie extends GameObject{
     }
 
     public void tick() {
+
+        chasePlayer();
+
+        checkIfHit();
 
     }
 

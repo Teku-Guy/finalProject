@@ -22,7 +22,7 @@ public class Player extends GameObject {
     public boolean walking = false;
     public boolean jumping = false;
     public boolean falling = true;
-    private Handler handler;
+    private Handler handler = new Handler();
 
     public Player(int x, int y, int width, int height, ID id){
         super(x, y, width, height, id);

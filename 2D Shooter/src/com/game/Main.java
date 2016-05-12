@@ -79,7 +79,9 @@ public class Main extends Canvas implements Runnable{
         this.addKeyListener(new KeyInput(handler));
         this.addMouseListener(menu);
 
+
         handler.addObject(new Player(100, 100, 32, 32, ID.Player));
+
 
         WIDTH = window.frame.getWidth();
         HEIGHT = window.frame.getHeight();
@@ -124,7 +126,6 @@ public class Main extends Canvas implements Runnable{
 
 
 
-        handler.addObject(new Player(200, 200, 50, 50, ID.Player));
         System.out.println("Player Sprites loaded!");
 
         ZWalkRSheet = new SpriteSheet("/res/ZWalkingRight.png");
@@ -140,7 +141,7 @@ public class Main extends Canvas implements Runnable{
         System.out.println("Zombie Sprites loaded");
 
 
-        handler.addObject(new Player(200, 200, 50, 50, ID.Player));
+        //handler.addObject(new Player(200, 200, 50, 50, ID.Player));
         System.out.println("Player Object created!");
 
     }
@@ -194,10 +195,11 @@ public class Main extends Canvas implements Runnable{
 
     //Run every Second
     private void tick(){
-
+        handler.tick();
         if(gameState == STATE.Menu || gameState == STATE.End){
             menu.tick();
         }
+
 
     }
 
@@ -212,13 +214,16 @@ public class Main extends Canvas implements Runnable{
 
         Graphics g = bs.getDrawGraphics();
 
-        g.setColor(Color.BLACK);
+        //g.setColor(Color.BLACK);
+        g.setColor(null);
         g.fillRect(0, 0, WIDTH, HEIGHT);
 
         g.setColor(Color.GREEN);
         g.drawString("FPS: "+frames, 10,15);
 
         handler.render(g);
+
+
 
         if(gameState == STATE.Game)
         {

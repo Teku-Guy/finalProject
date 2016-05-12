@@ -3,6 +3,7 @@ package com.input; /**
  */
 
 import com.entity.*;
+import com.game.Main;
 
 import java.awt.Graphics;
 import java.util.LinkedList;
@@ -13,6 +14,9 @@ public class Handler {
     public LinkedList<Tile> tile = new LinkedList<>();
 
     public void tick(){
+
+
+        createLevel();
         for(int i = 0; i < object.size(); i++){
             GameObject tempObject = object.get(i);
 
@@ -20,20 +24,21 @@ public class Handler {
 
             tempObject.tick();
 
+
         }
+
     }
 
     public void render(Graphics g){
         for(int i = 0; i < object.size(); i++){
-            for(int j = 0; j < tile.size(); j++){
-
                 GameObject tempObject = object.get(i);
-                Tile tempTile = tile.get(j);
-                tempObject.render(g);
-                tempTile.render(g);
-            }
-
+            tempObject.render(g);
         }
+        for(int i = 0 ; i < tile.size(); i++){
+            Tile tempTile = tile.get(i);
+            tempTile.render(g);
+        }
+
     }
 
     public void clearEnemys(){
@@ -62,7 +67,13 @@ public class Handler {
     }
 
     public void createLevel(){
-        //TODO
+        for(int i = 0; i < tile.size(); i++){
+            addTile(new Grass(0, 0, 64 ,64 , true, ID.Tile));
+
+            System.out.println(i);
+
+        }
+
 
     }
 }

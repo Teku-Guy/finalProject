@@ -29,6 +29,7 @@ public class Player extends GameObject {
 
 
 
+
     private KeyInput key;
     private Handler handler = new Handler();
 
@@ -51,8 +52,10 @@ public class Player extends GameObject {
                     g.drawImage(Main.PlayerWalkL[0].getBufferedImage(), x, y, null);
 
              } else {
+                 Thread imageLoad = new Thread();
+                 imageLoad.start();
                  try{
-                     Thread.sleep(100);
+                     imageLoad.sleep(100);
                      g.drawImage(Main.PlayerWalkL[phase].getBufferedImage(), x, y, null);
                  }catch(InterruptedException e){
                      System.out.println("Somethings up");
@@ -68,8 +71,10 @@ public class Player extends GameObject {
                      g.drawImage(Main.PlayerWalkR[0].getBufferedImage(), x, y, null);
                  }
                  else{
+                     Thread imageLoad = new Thread();
+                     imageLoad.start();
                      try{
-                         Thread.sleep(100);
+                         imageLoad.sleep(100);
                          g.drawImage(Main.PlayerWalkR[phase].getBufferedImage(), x, y, null);
                      }catch(InterruptedException e){
                          System.out.println("Somethings up!");

@@ -184,8 +184,8 @@ public class Main extends Canvas implements Runnable{
                 tick();
                 delta--;
             }
-            if(running)
-                render();
+
+            render();
             frames++;
 
             if(System.currentTimeMillis() - timer > 1000){
@@ -195,6 +195,9 @@ public class Main extends Canvas implements Runnable{
             }
         }
         stop();
+    }
+    public void gameLoop(){
+
     }
 
     //Run every Second

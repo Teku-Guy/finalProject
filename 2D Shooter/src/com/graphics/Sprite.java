@@ -21,4 +21,6 @@ public class Sprite {
     public BufferedImage getBufferedImage(){
         return image;
     }
+
+
 }

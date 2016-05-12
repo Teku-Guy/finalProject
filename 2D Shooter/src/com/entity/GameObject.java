@@ -5,21 +5,29 @@ import java.awt.Rectangle;
 
 public abstract class GameObject {
 
-    protected int x, y;
+    protected int x, y, width, height;
     protected ID id;
     protected int velX, velY;
 
 
 
-    public GameObject(int x, int y, ID id){
+    public GameObject(int x, int y, int width, int  height, ID id){
         this.x = x;
         this.y = y;
         this.id = id;
+        this.width = width;
+        this.height = height;
     }
 
     public abstract void tick();
     public abstract void render(Graphics g);
-    public abstract Rectangle getBounds();
+
+
+    public Rectangle getBounds() {
+        return new Rectangle(x, y, width, height);
+    }
+
+
 
 
     public void setX(int x){

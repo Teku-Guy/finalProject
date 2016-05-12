@@ -33,11 +33,18 @@ public class Main extends Canvas implements Runnable{
     public static Sprite[] PlayerJumpL = new Sprite[1];
     public static Sprite[] PlayerJumpR = new Sprite[1];
     public static Sprite[] Bullets = new Sprite[1];
+    public static Sprite[] GrassTile = new Sprite[1];
+    public static Sprite[] StoneTile = new Sprite[1];
+    public static Sprite[] FloatingTile = new Sprite[1];
     public static Sprite[] PlayerWalkR = new Sprite[5];
     public static Sprite[] PlayerWalkL = new Sprite[5];
+
     public static Sprite PJumpLeft;
     public static Sprite PJumpRight;
     public static Sprite Bullet;
+    public static Sprite Grass;
+    public static Sprite Stone;
+    public static Sprite Floating;
 
     public static SpriteSheet PJumpLSheet;
     public static SpriteSheet PJumpRSheet;
@@ -46,6 +53,10 @@ public class Main extends Canvas implements Runnable{
     public static SpriteSheet ZWalkRSheet;
     public static SpriteSheet ZWalkLSheet;
     public static SpriteSheet BulletSheet;
+    public static SpriteSheet GrassSheet;
+    public static SpriteSheet StoneSheet;
+    public static SpriteSheet FloatingSheet;
+
 
     public enum STATE {
         Menu,
@@ -69,9 +80,18 @@ public class Main extends Canvas implements Runnable{
     //Loads stuff
     public void init(){
 
+
+        BulletSheet = new SpriteSheet("/res/Bullet.png");
+        GrassSheet = new SpriteSheet("/res/Bullet.png");
+        StoneSheet = new SpriteSheet("/res/Stone.png");
+        Grass = new Sprite(GrassSheet, 1, 1);
+        Bullet = new Sprite(BulletSheet, 1, 1);
+        Stone = new Sprite(StoneSheet, 1, 1);
+
+        System.out.println("Map Entities loaded!");
+
         PWalkRSheet = new SpriteSheet("/res/PWalkingRight.png");
         PWalkLSheet = new SpriteSheet("/res/PWalkingLeft.png");
-        BulletSheet = new SpriteSheet("/res/BulletSheet.png");
         for(int i = 0; i < PlayerWalkR.length; i++){
             PlayerWalkR[i] = new Sprite(PWalkRSheet, i++, i);
         }
@@ -85,14 +105,28 @@ public class Main extends Canvas implements Runnable{
             PlayerJumpL[i] = new Sprite(PJumpLSheet, i++, i);
         }
         for(int i = 0; i < Bullets.length; i++){
-                        Bullets[i] = new Sprite(BulletSheet,i++, i);
+            Bullets[i] = new Sprite(BulletSheet,i++, i);
         }
+        for(int i = 0; i < GrassTile.length; i++){
+            GrassTile[i] = new Sprite(GrassSheet, i++, i);
+        }
+        for(int i = 0; i < StoneTile.length; i++){
+            StoneTile[i] = new Sprite(StoneSheet, i++, i);
+        }
+        for(int i = 0 ; i < FloatingTile.length; i++){
+            FloatingTile[i] = new Sprite(FloatingSheet, i++, i);
+        }
+
         PJumpRight = new Sprite(PJumpRSheet, 1, 1);
         PJumpLeft = new Sprite(PJumpLSheet, 1, 1);
-        Bullet = new Sprite(BulletSheet, 1, 1);
+
+
         System.out.println("Player Sprites loaded!");
 
         System.out.println("Zombie Sprites loaded");
+
+
+
     }
     //Run the thread
     public synchronized void start(){

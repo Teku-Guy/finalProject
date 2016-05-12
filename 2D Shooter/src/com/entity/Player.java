@@ -17,14 +17,19 @@ import com.input.KeyInput;
 
 
 public class Player extends GameObject {
-    public int phase = 0;
-    public int facing = 0;
 
-    private KeyInput key;
+    public int phase = 0;
+    public static int facing = 0;
+
 
     public boolean walking = false;
     public boolean jumping = false;
     public boolean falling = true;
+    public static boolean still = true;
+
+
+
+    private KeyInput key;
     private Handler handler = new Handler();
 
     public Player(int x, int y, int width, int height, ID id){
@@ -41,9 +46,9 @@ public class Player extends GameObject {
              if (jumping) {
                  g.drawImage(Main.PJumpLeft.getBufferedImage(), x, y, null);
 
-             } else if (walking) {
-                 for(int i = 0; i < Main.PlayerWalkL.length; i++)
-                    g.drawImage(Main.PlayerWalkL[i].getBufferedImage(), x, y, null);
+             } else if (still) {
+
+                    g.drawImage(Main.PlayerWalkL[0].getBufferedImage(), x, y, null);
 
              } else {
                  try{
@@ -59,11 +64,17 @@ public class Player extends GameObject {
                  if(jumping ){
                      g.drawImage(Main.PJumpRight.getBufferedImage(), x,y, null);
 
-                 }else if(walking){
-                     g.drawImage(Main.PlayerWalkR[phase].getBufferedImage(), x, y, null);
+                 }else if(still){
+                     g.drawImage(Main.PlayerWalkR[0].getBufferedImage(), x, y, null);
                  }
                  else{
-                     g.drawImage(Main.PlayerWalkR[3].getBufferedImage(), x, y, null);
+                     try{
+                         Thread.sleep(100);
+                         g.drawImage(Main.PlayerWalkR[phase].getBufferedImage(), x, y, null);
+                     }catch(InterruptedException e){
+                         System.out.println("Somethings up!");
+                     }
+
                  }
 
          }

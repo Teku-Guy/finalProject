@@ -5,6 +5,7 @@ package com.input;
  */
 import com.entity.GameObject;
 import com.entity.ID;
+import com.entity.Player;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -12,6 +13,7 @@ import java.awt.event.KeyEvent;
 public class KeyInput extends KeyAdapter {
 
     private Handler handler;
+
     public int tempPhase = 0;
     private boolean[] keyDown = new boolean[4];
 
@@ -45,11 +47,15 @@ public class KeyInput extends KeyAdapter {
                 if(key == KeyEvent.VK_D){
                     tempObject.setVelX(5);
                     keyDown[2] = true;
+                    Player.facing = 1;
+                    Player.still = false;
 
                 }
                 if(key == KeyEvent.VK_A){
                     tempObject.setVelX(-5);
                     keyDown[3] = true;
+                    Player.facing = 0;
+                    Player.still = false;
                 }
             }
         }
@@ -73,10 +79,15 @@ public class KeyInput extends KeyAdapter {
                     keyDown[0] = false;
                 if(key == KeyEvent.VK_S)
                     keyDown[1] = false;
-                if(key == KeyEvent.VK_D)
+                if(key == KeyEvent.VK_D){
                     keyDown[2] = false;
-                if(key == KeyEvent.VK_A)
+                    Player.still = true;
+                }
+                if(key == KeyEvent.VK_A) {
                     keyDown[3] = false;
+                    Player.still = true;
+                }
+
 
                 //vertical movement
                 if(keyDown[0] == false && !keyDown[1])

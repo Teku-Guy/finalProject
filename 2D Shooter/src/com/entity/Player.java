@@ -22,13 +22,12 @@ public class Player extends GameObject {
     public boolean walking = false;
     public boolean jumping = false;
     public boolean falling = true;
+    private Handler handler;
     public Player(int x, int y, int width, int height, ID id){
         super(x, y, width, height, id);
     }
 
-    public void tick() {
 
-    }
 
 
     public void render(Graphics g) {
@@ -60,15 +59,61 @@ public class Player extends GameObject {
         x += velX;
         y += velY;
     }
-    public void CheckCollision(){
+    public void checkCollisionWithTile(){
+        for(Tile t : handler.tile){
+
+            if(!t.isSolid())
+                continue;
+
+            if(t.getID() == ID.Tile){
+
+                if(getBoundsT().intersects(t.getBounds())){
+                    setVelY(0);
+
+                    if(jumping){
+                        jumping = false;
+                        falling = true;
+                    }
+
+
+                }
+            }
+            else if(!falling && jumping){
+                falling = true;
+            }
+
+            if(getBoundsB().intersects(t.getBounds())){
+                setVelY(0);
+
+                if(falling)
+                {
+                    falling = false;
+                }
+                if(getBoundsL().intersects(t.getBounds())){
+                    setVelX(0);
+
+                    x = t.getX() + t.width;
+                }
+                if(getBoundsR().intersects(t.getBounds())){
+                    setVelX(0);
+
+                    x = t.getX() - t.width;
+
+                }
+            }
+
+
+        }
 
     }
 
 
-    public Rectangle getBounds(){
-       return super.getBounds();
-    }
 
+
+    public void tick() {
+        checkCollisionWithTile();
+
+    }
 
 
 

@@ -24,7 +24,21 @@ public abstract class GameObject {
 
 
     public Rectangle getBounds() {
-        return new Rectangle(x, y, width, height);
+        return new Rectangle(getX(), getY(), width, height);
+    }
+    public Rectangle getBoundsT(){
+        return new Rectangle(getX() + 10, getY(), width - 20, 5);
+    }
+    public Rectangle getBoundsB(){
+        return new Rectangle(getX() + 10, getY() + height -5, width - 20, 5);
+
+    }
+    public Rectangle getBoundsR(){
+        return new Rectangle(getX() + width - 5, getY() + 10, 5, height - 20);
+    }
+    public Rectangle getBoundsL(){
+        return new Rectangle(getX() + 10, getY() + height - 5, width - 20, 5);
+
     }
 
 
@@ -69,6 +83,8 @@ public abstract class GameObject {
     public int getVelY(){
         return velY;
     }
+
+
 
 
 

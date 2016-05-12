@@ -9,8 +9,8 @@ import java.util.LinkedList;
 
 public class Handler {
 
-    LinkedList<GameObject> object = new LinkedList<GameObject>();
-    LinkedList<Tile> tile = new LinkedList<>();
+    public LinkedList<GameObject> object = new LinkedList<GameObject>();
+    public LinkedList<Tile> tile = new LinkedList<>();
 
     public void tick(){
         for(int i = 0; i < object.size(); i++){

@@ -20,8 +20,8 @@ public class SpriteSheet {
         }
     }
 
-    public BufferedImage getSprite(int x, int y) {
-        return sheet.getSubimage(x * 32 - 32, y * 32 - 32, 32, 32);
+    public BufferedImage getSprite(int x, int y, int w, int h) {
+        return sheet.getSubimage(x, y, w, h);
     }
 
 }

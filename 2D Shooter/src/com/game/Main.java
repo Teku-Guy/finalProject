@@ -2,6 +2,9 @@ package com.game; /**
  * Created by Gustavo & Jessus on 5/9/16.
  */
 
+import com.entity.Grass;
+import com.entity.ID;
+import com.entity.Tile;
 import com.gui.Window;
 import com.input.Handler;
 import com.gui.Menu;
@@ -84,47 +87,59 @@ public class Main extends Canvas implements Runnable{
         BulletSheet = new SpriteSheet("/res/Bullet.png");
         GrassSheet = new SpriteSheet("/res/Bullet.png");
         StoneSheet = new SpriteSheet("/res/Stone.png");
-        Grass = new Sprite(GrassSheet, 1, 1);
-        Bullet = new Sprite(BulletSheet, 1, 1);
-        Stone = new Sprite(StoneSheet, 1, 1);
+        FloatingSheet = new SpriteSheet("/res/FloatingPlat.png");
+        Grass = new Sprite(GrassSheet, 1, 1, 1, 1);
+        Bullet = new Sprite(BulletSheet, 1, 1, 1, 1);
+        Stone = new Sprite(StoneSheet, 1, 1, 1, 1);
+        Floating = new Sprite(FloatingSheet,1, 1, 1, 1);
+
+        for(int i = 0; i < GrassTile.length; i++){
+            GrassTile[i] = new Sprite(GrassSheet, i++, i, i, i);
+        }
+
+        for(int i = 0; i < StoneTile.length; i++){
+            StoneTile[i] = new Sprite(StoneSheet, i++, i, i ,i);
+        }
+
+        for(int i = 0 ; i < FloatingTile.length; i++){
+            FloatingTile[i] = new Sprite(FloatingSheet, i++, i, i ,i);
+        }
+
+        for(int i = 0; i < Bullets.length; i++){
+            Bullets[i] = new Sprite(BulletSheet,i++, i, i ,i);
+        }
 
         System.out.println("Map Entities loaded!");
 
         PWalkRSheet = new SpriteSheet("/res/PWalkingRight.png");
         PWalkLSheet = new SpriteSheet("/res/PWalkingLeft.png");
+        PJumpRSheet = new SpriteSheet("/res/PJumpRight.png");
+        PJumpLSheet = new SpriteSheet("/res/PJumpLeft.png");
+
         for(int i = 0; i < PlayerWalkR.length; i++){
-            PlayerWalkR[i] = new Sprite(PWalkRSheet, i++, i);
-        }
-        for(int i = 0; i < PlayerWalkL.length; i++){
-            PlayerWalkL[i] = new Sprite(PWalkLSheet, i++, i);
-        }
-        for(int i = 0; i < PlayerJumpR.length; i++){
-            PlayerJumpR[i] = new Sprite(PJumpRSheet, i++, i);
-        }
-        for(int i = 0; i < PlayerJumpL.length; i++){
-            PlayerJumpL[i] = new Sprite(PJumpLSheet, i++, i);
-        }
-        for(int i = 0; i < Bullets.length; i++){
-            Bullets[i] = new Sprite(BulletSheet,i++, i);
-        }
-        for(int i = 0; i < GrassTile.length; i++){
-            GrassTile[i] = new Sprite(GrassSheet, i++, i);
-        }
-        for(int i = 0; i < StoneTile.length; i++){
-            StoneTile[i] = new Sprite(StoneSheet, i++, i);
-        }
-        for(int i = 0 ; i < FloatingTile.length; i++){
-            FloatingTile[i] = new Sprite(FloatingSheet, i++, i);
+            PlayerWalkR[i] = new Sprite(PWalkRSheet, i++, i, i , i);
         }
 
-        PJumpRight = new Sprite(PJumpRSheet, 1, 1);
-        PJumpLeft = new Sprite(PJumpLSheet, 1, 1);
+        for(int i = 0; i < PlayerWalkL.length; i++){
+            PlayerWalkL[i] = new Sprite(PWalkLSheet, i++, i, i ,i);
+        }
+
+        for(int i = 0; i < PlayerJumpR.length; i++){
+            PlayerJumpR[i] = new Sprite(PJumpRSheet, i++, i, i ,i);
+        }
+
+        for(int i = 0; i < PlayerJumpL.length; i++){
+           PlayerJumpL[i] = new Sprite(PJumpLSheet, i++, i, i ,i);
+        }
+
+        PJumpRight = new Sprite(PJumpRSheet, 1, 1, 1, 1);
+        PJumpLeft = new Sprite(PJumpLSheet, 1, 1, 1, 1);
 
 
         System.out.println("Player Sprites loaded!");
 
         System.out.println("Zombie Sprites loaded");
-
+        Grass g = new Grass(30, 30, 30, 30, true, ID.Tile);
 
 
     }
@@ -133,6 +148,7 @@ public class Main extends Canvas implements Runnable{
         thread = new Thread(this);
         thread.start();
         running = true;
+
     }
 
     //Stop running the thread

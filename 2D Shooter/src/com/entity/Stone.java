@@ -17,6 +17,6 @@ public class Stone extends Tile {
     }
 
     public void render(Graphics g) {
-        g.drawImage(Main.Grass.getBufferedImage(), x, y, null);
+        g.drawImage(Main.Stone.getBufferedImage(), x, y, null);
     }
 }

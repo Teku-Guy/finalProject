@@ -13,6 +13,6 @@ public class FloatingPlatform extends Tile {
     }
 
     public void render(Graphics g) {
-        g.drawImage(Main.Grass.getBufferedImage(), x, y, null);
+        g.drawImage(Main.Floating.getBufferedImage(), x, y, null);
     }
 }

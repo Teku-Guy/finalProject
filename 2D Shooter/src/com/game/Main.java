@@ -43,6 +43,8 @@ public class Main extends Canvas implements Runnable{
     public static Sprite[] FloatingTile = new Sprite[1];
     public static Sprite[] PlayerWalkR = new Sprite[5];
     public static Sprite[] PlayerWalkL = new Sprite[5];
+    public static Sprite[] ZWalkR = new Sprite[3];
+    public static Sprite[] ZWalkL = new Sprite[3];
 
     public static Sprite PJumpLeft;
     public static Sprite PJumpRight;
@@ -141,8 +143,21 @@ public class Main extends Canvas implements Runnable{
         handler.addObject(new Player(200, 200, 50, 50, ID.Player));
         System.out.println("Player Sprites loaded!");
 
+        ZWalkRSheet = new SpriteSheet("/res/ZWalkingRight.png");
+        ZWalkLSheet = new SpriteSheet("/res/ZWalkingLeft.png");
+
+        for(int i = 0; i < ZWalkR.length; i++){
+            ZWalkR[i] = new Sprite(ZWalkRSheet, i++, i, i ,i);
+        }
+
+        for(int i = 0; i < ZWalkL.length; i++){
+            ZWalkL[i] = new Sprite(ZWalkLSheet, i++, i, i ,i);
+        }
         System.out.println("Zombie Sprites loaded");
 
+
+        handler.addObject(new Player(200, 200, 50, 50, ID.Player));
+        System.out.println("Player Object created!");
 
     }
     //Run the thread

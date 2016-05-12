@@ -59,6 +59,13 @@ public class Player extends GameObject {
         x += velX;
         y += velY;
     }
+    public void checkCollisionWithEnemy(){
+        for(GameObject object : handler.object){
+
+        }
+
+    }
+
     public void checkCollisionWithTile(){
         for(Tile t : handler.tile){
 

@@ -27,6 +27,7 @@ public class Main extends Canvas implements Runnable{
 
     public static int WIDTH, HEIGHT;
 
+    private int frames;
     private Window window;
     private Thread thread;
     private boolean running = false;
@@ -134,7 +135,7 @@ public class Main extends Canvas implements Runnable{
         }
 
         for(int i = 0; i < PlayerJumpL.length; i++){
-           PlayerJumpL[i] = new Sprite(PJumpLSheet, i++, i, i ,i);
+            PlayerJumpL[i] = new Sprite(PJumpLSheet, i++, i, i ,i);
         }
 
         PJumpRight = new Sprite(PJumpRSheet, 1, 1, 1, 1);
@@ -185,7 +186,7 @@ public class Main extends Canvas implements Runnable{
         double ns = 1000000000 / amountOfTicks;
         double delta = 0;
         long timer =  System.currentTimeMillis();
-        int frames = 0;
+        frames = 0;
         running = true;
         while(running){
             long now = System.nanoTime();
@@ -231,6 +232,8 @@ public class Main extends Canvas implements Runnable{
         g.setColor(Color.BLACK);
         g.fillRect(0, 0, WIDTH, HEIGHT);
 
+        g.setColor(Color.GREEN);
+        g.drawString("FPS: "+frames, WIDTH/2 - g.getFontMetrics().stringWidth("FPS: ")*(((21)*(2)/2)+1),10);
 
         handler.render(g);
 
@@ -240,7 +243,7 @@ public class Main extends Canvas implements Runnable{
 
         }
         else if(gameState == STATE.Menu || gameState == STATE.Help || gameState == STATE.End){
-           menu.render(g);
+            menu.render(g);
 
 
         }

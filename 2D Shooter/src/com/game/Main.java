@@ -36,6 +36,7 @@ public class Main extends Canvas implements Runnable{
     private Menu menu;
 
 
+
     public static Sprite[] PlayerJumpL = new Sprite[1];
     public static Sprite[] PlayerJumpR = new Sprite[1];
     public static Sprite[] PlayerWalkR = new Sprite[5];

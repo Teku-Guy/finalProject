@@ -32,15 +32,24 @@ public class Player extends GameObject {
 
 
     public void render(Graphics g) {
+        phase++;
+        phase %= Main.PlayerWalkL.length;
          if(facing == 0) {
              if (jumping) {
                  g.drawImage(Main.PJumpLeft.getBufferedImage(), x, y, null);
 
              } else if (walking) {
-                 g.drawImage(Main.PlayerWalkL[phase].getBufferedImage(), x, y, null);
+                 for(int i = 0; i < Main.PlayerWalkL.length; i++)
+                    g.drawImage(Main.PlayerWalkL[i].getBufferedImage(), x, y, null);
 
              } else {
-                 g.drawImage(Main.PlayerWalkL[3].getBufferedImage(), x, y, null);
+                 try{
+                     Thread.sleep(100);
+                     g.drawImage(Main.PlayerWalkL[phase].getBufferedImage(), x, y, null);
+                 }catch(InterruptedException e){
+                     System.out.println("Somethings up");
+                 }
+
              }
          }
          else if(facing == 1){
@@ -120,6 +129,7 @@ public class Player extends GameObject {
 
     public void tick() {
         checkCollisionWithTile();
+
 
     }
 

@@ -44,6 +44,7 @@ public class KeyInput extends KeyAdapter {
                 if(key == KeyEvent.VK_D){
                     tempObject.setVelX(5);
                     keyDown[2] = true;
+
                 }
                 if(key == KeyEvent.VK_A){
                     tempObject.setVelX(-5);

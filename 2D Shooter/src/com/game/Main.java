@@ -83,6 +83,8 @@ public class Main extends Canvas implements Runnable{
         this.addKeyListener(new KeyInput(handler));
         this.addMouseListener(menu);
 
+        handler.addObject(new Player(100, 100, 32, 32, ID.Player));
+
         WIDTH = window.frame.getWidth();
         HEIGHT = window.frame.getHeight();
     }
@@ -233,7 +235,7 @@ public class Main extends Canvas implements Runnable{
         g.fillRect(0, 0, WIDTH, HEIGHT);
 
         g.setColor(Color.GREEN);
-        g.drawString("FPS: "+frames, WIDTH/2 - g.getFontMetrics().stringWidth("FPS: ")*(((21)*(2)/2)+1),10);
+        g.drawString("FPS: "+frames, 10,15);
 
         handler.render(g);
 
@@ -244,8 +246,6 @@ public class Main extends Canvas implements Runnable{
         }
         else if(gameState == STATE.Menu || gameState == STATE.Help || gameState == STATE.End){
             menu.render(g);
-
-
         }
 
         //g.setColor(Color.WHITE);

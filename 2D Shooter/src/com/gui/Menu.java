@@ -38,7 +38,7 @@ public class Menu extends MouseAdapter{
 
         if(this.main.gameState == STATE.Menu){
             //play button
-            if(mouseOver(mx, my, Main.WIDTH/2 - 550, 450, 200, 64)){
+            if(mouseOver(mx, my, 50, 450, 200, 64)){
                 main.gameState = STATE.Game;
                 //handler.addObject(new Player(Game.WIDTH/2-32, Game.HEIGHT/2-32, ID.Player, handler));
                 handler.clearEnemys();
@@ -47,12 +47,12 @@ public class Menu extends MouseAdapter{
             }
 
             //help Button
-            if(mouseOver(mx, my, Main.WIDTH/2 - 550, 550, 200, 64)){
+            if(mouseOver(mx, my, 50, 550, 200, 64)){
                 main.gameState = STATE.Help;
             }
 
             //quit button
-            if(mouseOver(mx, my, Main.WIDTH/2 - 550, 650, 200, 64)){
+            if(mouseOver(mx, my, 50, 650, 200, 64)){
                 System.exit(1);
             }
 
@@ -92,14 +92,14 @@ public class Menu extends MouseAdapter{
 
             g.setFont(fnt2);
             g.setColor(Color.WHITE);
-            g.drawString("Play", Main.WIDTH / 2 - (g.getFontMetrics().stringWidth("Play")+420), 490);
-            g.drawRect(Main.WIDTH/2 - 550, 450, 200, 64);
+            g.drawString("Play", 120, 490);
+            g.drawRect(50, 450, 200, 64);
 
-            g.drawString("Help", Main.WIDTH / 2 - (g.getFontMetrics().stringWidth("Help")+420), 590);
-            g.drawRect(Main.WIDTH/2 - 550, 550, 200, 64);
+            g.drawString("Help", 120, 590);
+            g.drawRect(50, 550, 200, 64);
 
-            g.drawString("Quit", Main.WIDTH / 2 - (g.getFontMetrics().stringWidth("Quit")+420), 690);
-            g.drawRect(Main.WIDTH/2 - 550, 650, 200, 64);
+            g.drawString("Quit", 120, 690);
+            g.drawRect(50, 650, 200, 64);
 
         }else if(main.gameState == STATE.Help){
 

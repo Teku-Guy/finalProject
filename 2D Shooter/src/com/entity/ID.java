@@ -6,12 +6,7 @@ package com.entity;
 public enum ID {
 
     Player(),
-    Tile,
-    BasicEnemy(),
-    FastEnemy(),
-    SmartEnemy(),
-    EnemyBoss(),
-    MenuParticle(),
-    Trail();
+    Tile(),
+    Zombie();
 
 }

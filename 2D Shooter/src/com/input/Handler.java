@@ -15,7 +15,7 @@ public class Handler {
     public void tick(){
         for(int i = 0; i < object.size(); i++){
             GameObject tempObject = object.get(i);
-            Tile tempTile = tile.get(i);
+
 
 
             tempObject.tick();
@@ -25,11 +25,14 @@ public class Handler {
 
     public void render(Graphics g){
         for(int i = 0; i < object.size(); i++){
-            GameObject tempObject = object.get(i);
-            Tile tempTile = tile.get(i);
+            for(int j = 0; j < tile.size(); j++){
 
-            tempObject.render(g);
-            tempTile.render(g);
+                GameObject tempObject = object.get(i);
+                Tile tempTile = tile.get(j);
+                tempObject.render(g);
+                tempTile.render(g);
+            }
+
         }
     }
 

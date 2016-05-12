@@ -11,6 +11,7 @@ import com.gui.Menu;
 import com.input.KeyInput;
 import com.graphics.Sprite;
 import com.graphics.SpriteSheet;
+import com.entity.*;
 
 import java.awt.Canvas;
 import java.awt.Color;
@@ -32,6 +33,7 @@ public class Main extends Canvas implements Runnable{
 
     private Handler handler;
     private Menu menu;
+
 
     public static Sprite[] PlayerJumpL = new Sprite[1];
     public static Sprite[] PlayerJumpR = new Sprite[1];
@@ -59,6 +61,7 @@ public class Main extends Canvas implements Runnable{
     public static SpriteSheet GrassSheet;
     public static SpriteSheet StoneSheet;
     public static SpriteSheet FloatingSheet;
+
 
 
     public enum STATE {
@@ -135,11 +138,10 @@ public class Main extends Canvas implements Runnable{
         PJumpRight = new Sprite(PJumpRSheet, 1, 1, 1, 1);
         PJumpLeft = new Sprite(PJumpLSheet, 1, 1, 1, 1);
 
-
+        handler.addObject(new Player(200, 200, 50, 50, ID.Player));
         System.out.println("Player Sprites loaded!");
 
         System.out.println("Zombie Sprites loaded");
-        Grass g = new Grass(30, 30, 30, 30, true, ID.Tile);
 
 
     }
@@ -214,6 +216,7 @@ public class Main extends Canvas implements Runnable{
         g.setColor(Color.BLACK);
         g.fillRect(0, 0, WIDTH, HEIGHT);
 
+
         handler.render(g);
 
         if(gameState == STATE.Game)
@@ -222,7 +225,9 @@ public class Main extends Canvas implements Runnable{
 
         }
         else if(gameState == STATE.Menu || gameState == STATE.Help || gameState == STATE.End){
-            menu.render(g);
+           menu.render(g);
+
+
         }
 
         //g.setColor(Color.WHITE);

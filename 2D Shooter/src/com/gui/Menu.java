@@ -100,6 +100,7 @@ public class Menu extends MouseAdapter{
 
             g.drawString("Quit", Main.WIDTH / 2 - (g.getFontMetrics().stringWidth("Quit")+420), 690);
             g.drawRect(Main.WIDTH/2 - 550, 650, 200, 64);
+
         }else if(main.gameState == STATE.Help){
 
             Font fnt = new Font("arial", 1, 50);

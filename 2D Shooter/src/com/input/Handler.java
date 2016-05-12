@@ -1,8 +1,8 @@
 package com.input; /**
  * Created by Gustavo_Muratalla on 5/10/16.
  */
-import com.entity.ID;
-import com.entity.GameObject;
+
+import com.entity.*;
 
 import java.awt.Graphics;
 import java.util.LinkedList;
@@ -10,21 +10,26 @@ import java.util.LinkedList;
 public class Handler {
 
     LinkedList<GameObject> object = new LinkedList<GameObject>();
+    LinkedList<Tile> tile = new LinkedList<>();
 
     public void tick(){
         for(int i = 0; i < object.size(); i++){
             GameObject tempObject = object.get(i);
+            Tile tempTile = tile.get(i);
+
 
             tempObject.tick();
+
         }
     }
 
     public void render(Graphics g){
         for(int i = 0; i < object.size(); i++){
             GameObject tempObject = object.get(i);
-
+            Tile tempTile = tile.get(i);
 
             tempObject.render(g);
+            tempTile.render(g);
         }
     }
 
@@ -47,6 +52,15 @@ public class Handler {
     }
     public void removeObject(GameObject object){
         this.object.remove(object);
+    }
+
+    public void addTile(Tile newTile){
+        tile.add(newTile);
+    }
+
+    public void createLevel(){
+        //TODO
+
     }
 }
 

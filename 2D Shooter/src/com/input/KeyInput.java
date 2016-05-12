@@ -49,7 +49,7 @@ public class KeyInput extends KeyAdapter {
                 }
                 if(key == KeyEvent.VK_A){
                     tempObject.setVelX(-5);
-                    keyDown[3] = true;  
+                    keyDown[3] = true;
                 }
             }
         }

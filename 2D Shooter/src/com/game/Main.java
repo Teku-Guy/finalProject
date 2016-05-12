@@ -84,7 +84,7 @@ public class Main extends Canvas implements Runnable{
         handler.addObject(new Player(100, 100, 32, 32, ID.Player));
 
 
-        handler.createLevel();
+        //handler.createLevel();
 
 
         WIDTH = window.frame.getWidth();
@@ -95,7 +95,7 @@ public class Main extends Canvas implements Runnable{
 
 
         BulletSheet = new SpriteSheet("/res/Bullet.png");
-        GrassSheet = new SpriteSheet("/res/Bullet.png");
+        GrassSheet = new SpriteSheet("/res/Grass.png");
         StoneSheet = new SpriteSheet("/res/Stone.png");
         FloatingSheet = new SpriteSheet("/res/FloatingPlat.png");
 

@@ -91,13 +91,13 @@ public class Menu extends MouseAdapter{
             g.drawString(title, Main.WIDTH / 2 - w2, h2);
             g.setFont(fnt2);
             g.setColor(Color.WHITE);
-            g.drawString("Play", 120, 490);
+            g.drawString("Play", 110, 490);
             g.drawRect(50, 450, 200, 64);
 
-            g.drawString("Help", 120, 590);
+            g.drawString("Help", 110, 590);
             g.drawRect(50, 550, 200, 64);
             //Hello
-            g.drawString("Quit", 120, 690);
+            g.drawString("Quit", 110, 690);
             g.drawRect(50, 650, 200, 64);
 
         }else if(main.gameState == STATE.Help){

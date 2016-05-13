@@ -5,6 +5,7 @@ package com.game; /**
 import com.entity.Grass;
 import com.entity.*;
 import com.entity.Tile;
+import com.gui.HUD;
 import com.gui.Window;
 import com.input.Handler;
 import com.gui.Menu;
@@ -33,6 +34,7 @@ public class Main extends Canvas implements Runnable{
 
     private Handler handler;
     private Menu menu;
+    private HUD hud;
     public static Player player;
     public static Grass grass;
 
@@ -76,12 +78,13 @@ public class Main extends Canvas implements Runnable{
     public Main() {
         window = new Window("2D Shooter", this);
         handler = new Handler();
+        hud = new HUD();
         menu = new Menu(this, handler);
         this.addKeyListener(new KeyInput(handler));
         this.addMouseListener(menu);
 
 
-
+        handler.createLevel();
 
 
         WIDTH = window.frame.getWidth();
@@ -150,8 +153,6 @@ public class Main extends Canvas implements Runnable{
 
         System.out.println("Player Object created!");
 
-        //handler.createLevel();
-
         System.out.println("Level created!");
 
 
@@ -219,7 +220,11 @@ public class Main extends Canvas implements Runnable{
     private void tick(){
         handler.tick();
 
-        if(gameState == STATE.Menu || gameState == STATE.End){
+        if(gameState == STATE.Game)
+        {
+            hud.tick();
+        }
+        else if(gameState == STATE.Menu || gameState == STATE.End){
             menu.tick();
         }
 
@@ -244,8 +249,8 @@ public class Main extends Canvas implements Runnable{
         g.setColor(Color.LIGHT_GRAY);
         g.fillRect(0, 0, WIDTH, HEIGHT);
 
-        g.setColor(Color.GREEN);
-        g.drawString("FPS: "+frames, 10,15);
+        //g.setColor(Color.GREEN);
+        //g.drawString("FPS: "+frames, 10,15);
 
         handler.render(g);
 
@@ -253,7 +258,7 @@ public class Main extends Canvas implements Runnable{
 
         if(gameState == STATE.Game)
         {
-            //hud.render(g);
+            hud.render(g);
 
         }
         else if(gameState == STATE.Menu || gameState == STATE.Help || gameState == STATE.End){

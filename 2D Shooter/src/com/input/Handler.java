@@ -11,7 +11,7 @@ import java.util.LinkedList;
 public class Handler {
 
     public LinkedList<GameObject> object = new LinkedList<GameObject>();
-    public LinkedList<Tile> tile = new LinkedList<>();
+    public LinkedList<Tile> tile = new LinkedList<Tile>();
 
     public void tick(){
 
@@ -64,7 +64,7 @@ public class Handler {
     }
 
     public void createLevel(){
-        for(int i = 0; i <= 15; i++) {
+        for(int i = 0; i <= 5; i++) {
 
             addTile(new Grass((i*32), 700, 64, 64, true, ID.Tile));
 

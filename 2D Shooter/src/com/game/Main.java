@@ -36,6 +36,7 @@ public class Main extends Canvas implements Runnable{
     private Handler handler;
     private Menu menu;
     public static Player player;
+    public static Grass grass;
 
 
     public static Sprite[] PlayerJumpL = new Sprite[1];
@@ -152,11 +153,15 @@ public class Main extends Canvas implements Runnable{
         //handler.addObject(new Player(200, 200, 50, 50, ID.Player));
         System.out.println("Player Object created!");
 
+
+
+
     }
     //Run the thread
     public synchronized void start(){
         thread = new Thread(this);
         thread.start();
+
         running = true;
 
     }
@@ -173,7 +178,7 @@ public class Main extends Canvas implements Runnable{
 
     //When it is run the FPS Counter will keep Counting need the tik method
     public void run(){
-        init();
+       init();
 
         long lastTime = System.nanoTime();
         double amountOfTicks = 60.0;

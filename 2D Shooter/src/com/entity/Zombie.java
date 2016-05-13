@@ -42,6 +42,7 @@ public class Zombie extends GameObject{
 
         velX = ((-1/distance) * diffX);
         velY = ((-1/distance) * diffY);
+
         if(x < Main.player.getX()){
             facing = 1;
         }

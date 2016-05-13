@@ -14,6 +14,8 @@ import com.entity.ID;
 import com.graphics.Sprite;
 import com.graphics.SpriteSheet;
 import com.input.KeyInput;
+import java.util.LinkedList;
+
 
 
 public class Player extends GameObject {
@@ -37,6 +39,7 @@ public class Player extends GameObject {
 
 
     public void render(Graphics g) {
+
         phase++;
         phase %= Main.PlayerWalkL.length;
          if(facing == 0) {

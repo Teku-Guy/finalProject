@@ -36,9 +36,9 @@ public class Zombie extends GameObject{
         x += velX;
         y += velY;
 
-        float diffX = x - player.getX() - 8;
-        float diffY = y - player.getY() - 8;
-        float distance = (float) Math.sqrt( ( x-player.getX() ) * ( x-player.getX() ) + ( y-player.getY() ) * ( y-player.getY() ) );
+        float diffX = x - Main.player.getX() - 8;
+        float diffY = y - Main.player.getY() - 8;
+        float distance = (float) Math.sqrt( ( x - Main.player.getX() ) * ( x-Main.player.getX() ) + ( y-Main.player.getY() ) * ( y-Main.player.getY() ) );
 
         velX = ((-1/distance) * diffX);
         velY = ((-1/distance) * diffY);

@@ -32,9 +32,10 @@ public class Main extends Canvas implements Runnable{
     private Thread thread;
     private boolean running = false;
 
+
     private Handler handler;
     private Menu menu;
-
+    public static Player player;
 
 
     public static Sprite[] PlayerJumpL = new Sprite[1];
@@ -80,8 +81,8 @@ public class Main extends Canvas implements Runnable{
         this.addKeyListener(new KeyInput(handler));
         this.addMouseListener(menu);
 
-
-        handler.addObject(new Player(100, 100, 32, 32, ID.Player));
+        player = new Player(100, 100, 32, 32, ID.Player);
+        handler.addObject(player);
         handler.addObject(new Zombie(300, 100, 32, 32, ID.Zombie));
 
         //handler.createLevel();

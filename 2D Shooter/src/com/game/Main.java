@@ -3,7 +3,7 @@ package com.game; /**
  */
 
 import com.entity.Grass;
-import com.entity.ID;
+import com.entity.*;
 import com.entity.Tile;
 import com.gui.Window;
 import com.input.Handler;

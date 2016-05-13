@@ -78,7 +78,7 @@ public class Zombie extends GameObject{
                     g.drawImage(Main.ZWalkR[phase].getBufferedImage(), (int)x, (int)y, null);
                 }catch(InterruptedException e){
                     System.out.println("Somethings up!");
-                }
+                }//
 
             }
 

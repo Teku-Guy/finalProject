@@ -83,7 +83,10 @@ public class Main extends Canvas implements Runnable{
 
         player = new Player(100, 100, 32, 32, ID.Player);
         handler.addObject(player);
+        handler.clearEnemies();
+
         handler.addObject(new Zombie(300, 100, 32, 32, ID.Zombie));
+
 
         //handler.createLevel();
 

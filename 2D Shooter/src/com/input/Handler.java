@@ -38,12 +38,12 @@ public class Handler {
 
     }
 
-    public void clearEnemys(){
+    public void clearEnemies(){
         for(int i = 0; i <object.size(); i++){
             GameObject tempObject = object.get(i);
 
-            if(tempObject.getId() != ID.Player){
-                object.clear();
+            if(tempObject.getId() == ID.Zombie){
+                object.remove(i);
 
                 //This removes the player after they lost
                 //if(Main.gameState != Main.STATE.End)

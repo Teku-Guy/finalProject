@@ -40,10 +40,8 @@ public class Menu extends MouseAdapter{
             //play button
             if(mouseOver(mx, my, 50, 450, 200, 64)){
                 main.gameState = STATE.Game;
-                //handler.addObject(new Player(Game.WIDTH/2-32, Game.HEIGHT/2-32, ID.Player, handler));
-                handler.clearEnemys();
-                //handler.addObject(new BasicEnemy((Main.WIDTH /2)-48, -120, ID.BasicEnemy, handler));
-
+                handler.addObject(Main.player);
+               // handler.clearEnemys();
             }
 
             //help Button

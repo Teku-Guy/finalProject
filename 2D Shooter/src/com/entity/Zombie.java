@@ -16,14 +16,14 @@ public class Zombie extends GameObject{
     private Handler handler;
     private Player player;
 
-    public int phase = 0;
-    public static int facing = 0;
+    private int phase = 0;
+    private int facing = 0;
 
 
-    public boolean walking = false;
-    public boolean jumping = false;
-    public boolean falling = true;
-    public static boolean still = true;
+    private boolean walking = false;
+    private boolean jumping = false;
+    private boolean falling = true;
+    private boolean still = false;
 
     public Zombie(float x, float y, int width, int height, ID id){
         super(x , y, width, height, id);

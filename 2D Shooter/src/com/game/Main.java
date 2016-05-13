@@ -207,7 +207,6 @@ public class Main extends Canvas implements Runnable{
             if(System.currentTimeMillis() - timer > 1000){
                 timer += 10000;
                 System.out.println("FPS: "+ frames);
-                frames = 0;
             }
         }
         stop();
@@ -246,7 +245,7 @@ public class Main extends Canvas implements Runnable{
         g.fillRect(0, 0, WIDTH, HEIGHT);
 
         g.setColor(Color.GREEN);
-       // g.drawString("FPS: "+frames, 10,15);
+        g.drawString("FPS: "+frames, 10,15);
 
         handler.render(g);
 

@@ -86,6 +86,9 @@ public class Player extends GameObject {
     public void move(){
         x += velX;
         y += velY;
+
+        x = Main.clamp((int)x, 0, Main.WIDTH-31);
+        y = Main.clamp((int)y, 0, Main.HEIGHT-53);
     }
 
     public void checkCollisionWithEnemy(){
@@ -143,12 +146,23 @@ public class Player extends GameObject {
 
     }
 
+    private void collision(){
+        for(int i = 0; i < handler.object.size(); i++){
 
+            GameObject tempObject = handler.object.get(i);
 
+            if(tempObject.getId() == ID.Zombie){
+                //collision code
+                if(getBounds().intersects(tempObject.getBounds())){
+                    //HUD.HEALTH -= 2;
+                }
+            }
+        }
+    }
 
     public void tick() {
         move();
-
+        collision();
         checkCollisionWithTile();
     }
 

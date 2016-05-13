@@ -262,14 +262,14 @@ public class Main extends Canvas implements Runnable{
     }
 
     //This Could be used as the velocity max and min setter
-    /*public static float clamp(float var, float min, float max){
+    public static float clamp(float var, float min, float max){
         if(var >= max)
             return var = max;
         else if(var <= min)
             return var = min;
         else
             return var;
-    }*/
+    }
 
     public static void main(String[] args) {
         new Main();

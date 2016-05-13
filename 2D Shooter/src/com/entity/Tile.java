@@ -8,19 +8,26 @@ import java.awt.*;
 import java.awt.Graphics;
 
 
+import com.game.Main;
+import com.input.Handler;
+import com.entity.ID;
+import com.graphics.Sprite;
+import com.graphics.SpriteSheet;
+
+
 public abstract class Tile{
-    public float x, y;
+    public int x, y;
 
     public int width, height;
 
     public boolean solid;
 
-    public float velY, velX;
+    public int velY, velX;
 
     public ID id;
 
 
-    public Tile(float x, float y, int width, int height,boolean solid, ID id){
+    public Tile(int x, int y, int width, int height, boolean soild,  ID id){
         this.x = x;
         this.y = y;
         this.width = width;
@@ -36,14 +43,12 @@ public abstract class Tile{
 
     public abstract void render(Graphics g);
 
-    public abstract void tick();
-
-    public float getX(){
+    public int getX(){
         return x;
     }
 
 
-    public float getY(){
+    public int getY(){
         return y;
     }
 
@@ -82,7 +87,7 @@ public abstract class Tile{
     }
 
     public Rectangle getBounds(){
-        return new Rectangle((int)getX(), (int)getY(), width, height);
+        return new Rectangle(getX(), getY(), width, height);
     }
 }
 

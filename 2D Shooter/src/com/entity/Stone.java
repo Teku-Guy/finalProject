@@ -17,11 +17,6 @@ public class Stone extends Tile {
     }
 
     public void render(Graphics g) {
-        g.drawImage(Main.Stone.getBufferedImage(), (int)x, (int)y, null);
-    }
-
-    @Override
-    public void tick() {
-
+        g.drawImage(Main.Stone.getBufferedImage(), x, y, null);
     }
 }

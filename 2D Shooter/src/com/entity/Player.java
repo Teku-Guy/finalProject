@@ -148,6 +148,7 @@ public class Player extends GameObject {
 
     public void tick() {
         move();
+
         checkCollisionWithTile();
 
 

@@ -19,25 +19,22 @@ public class Handler {
         createLevel();
         for(int i = 0; i < object.size(); i++){
             GameObject tempObject = object.get(i);
-
-
-
             tempObject.tick();
-
-
         }
+
 
     }
 
     public void render(Graphics g){
         for(int i = 0; i < object.size(); i++){
-                GameObject tempObject = object.get(i);
+            GameObject tempObject = object.get(i);
             tempObject.render(g);
         }
         for(int i = 0 ; i < tile.size(); i++){
             Tile tempTile = tile.get(i);
             tempTile.render(g);
         }
+
 
     }
 

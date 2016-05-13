@@ -169,13 +169,14 @@ public class Main extends Canvas implements Runnable{
     //When it is run the FPS Counter will keep Counting need the tik method
     public void run(){
         init();
+
         long lastTime = System.nanoTime();
         double amountOfTicks = 60.0;
         double ns = 1000000000 / amountOfTicks;
         double delta = 0;
         long timer =  System.currentTimeMillis();
         frames = 0;
-        running = true;
+
         while(running){
             long now = System.nanoTime();
             delta += (now - lastTime) / ns;
@@ -220,13 +221,14 @@ public class Main extends Canvas implements Runnable{
         }
 
         Graphics g = bs.getDrawGraphics();
+        super.paint(g);
 
         //g.setColor(Color.BLACK);
         g.setColor(Color.LIGHT_GRAY);
         g.fillRect(0, 0, WIDTH, HEIGHT);
 
         g.setColor(Color.GREEN);
-        g.drawString("FPS: "+frames, 10,15);
+       // g.drawString("FPS: "+frames, 10,15);
 
         handler.render(g);
 
@@ -260,6 +262,8 @@ public class Main extends Canvas implements Runnable{
 
     public static void main(String[] args) {
         new Main();
+        //mostly for ubuntu
+        System.setProperty("sun.java2d.opengl", "true");
     }
 }
 

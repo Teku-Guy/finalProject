@@ -36,14 +36,14 @@ public class Zombie extends GameObject{
         x += velX;
         y += velY;
 
-        float diffX = x - Main.player.getX() - 8;
-        float diffY = y - Main.player.getY() - 8;
+        float diffX = x - Main.player.getX() - 30;
+        float diffY = y - Main.player.getY() + 6;
         float distance = (float) Math.sqrt( ( x - Main.player.getX() ) * ( x-Main.player.getX() ) + ( y-Main.player.getY() ) * ( y-Main.player.getY() ) );
 
         velX = ((-1/distance) * diffX);
         velY = ((-1/distance) * diffY);
 
-        //handler.addObject(new Trail(x, y, ID.Trail, Color.GREEN, 16, 16, 0.02f, handler));
+       // handler.addObject(new Trail(x, y, ID.Trail, Color.GREEN, 16, 16, 0.02f, handler));
     }
 
     public void render(Graphics g) {

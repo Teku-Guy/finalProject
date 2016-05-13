@@ -37,25 +37,25 @@ public class KeyInput extends KeyAdapter {
                 //key Events for player 1
 
                 if(key == KeyEvent.VK_W){
-                    tempObject.setVelY(-5);
+                    tempObject.setVelY(-10);
                     keyDown[0] = true;
                 }
                 if(key == KeyEvent.VK_S){
-                    tempObject.setVelY(5);
+                    tempObject.setVelY(10);
                     keyDown[1] = true;
                 }
                 if(key == KeyEvent.VK_D){
-                    tempObject.setVelX(5);
+                    tempObject.setVelX(2);
                     keyDown[2] = true;
-                    Player.facing = 1;
-                    Player.still = false;
+                    //Player.facing = 1;
+                    //Player.still = false;
 
                 }
                 if(key == KeyEvent.VK_A){
-                    tempObject.setVelX(-5);
+                    tempObject.setVelX(-2);
                     keyDown[3] = true;
-                    Player.facing = 0;
-                    Player.still = false;
+                    //Player.facing = 0;
+                    //Player.still = false;
                 }
             }
         }
@@ -81,11 +81,11 @@ public class KeyInput extends KeyAdapter {
                     keyDown[1] = false;
                 if(key == KeyEvent.VK_D){
                     keyDown[2] = false;
-                    Player.still = true;
+                    //Player.still = true;
                 }
                 if(key == KeyEvent.VK_A) {
                     keyDown[3] = false;
-                    Player.still = true;
+                    //Player.still = true;
                 }
 
 

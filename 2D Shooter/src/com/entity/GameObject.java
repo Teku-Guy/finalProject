@@ -3,12 +3,17 @@ package com.entity;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
-public abstract class GameObject {
+public abstract class  GameObject {
 
     protected float x, y;
     protected int width, height;
     protected ID id;
     protected float velX, velY;
+
+    protected boolean walking = false;
+    protected boolean jumping = false;
+    protected boolean falling = true;
+    protected static boolean still = true;
 
 
 
@@ -85,8 +90,35 @@ public abstract class GameObject {
         return velY;
     }
 
+    public static boolean isStill() {
+        return still;
+    }
 
+    public static void setStill(boolean still) {
+        GameObject.still = still;
+    }
 
+    public boolean isFalling() {
+        return falling;
+    }
 
+    public void setFalling(boolean falling) {
+        this.falling = falling;
+    }
 
+    public boolean isWalking() {
+        return walking;
+    }
+
+    public void setWalking(boolean walking) {
+        this.walking = walking;
+    }
+
+    public boolean isJumping() {
+        return jumping;
+    }
+
+    public void setJumping(boolean jumping) {
+        this.jumping = jumping;
+    }
 }

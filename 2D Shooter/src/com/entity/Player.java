@@ -14,8 +14,10 @@ import com.entity.ID;
 import com.graphics.Sprite;
 import com.graphics.SpriteSheet;
 import com.input.KeyInput;
-import java.util.LinkedList;
+import com.sun.corba.se.spi.ior.ObjectId;
 
+import java.util.LinkedList;
+import java.util.Objects;
 
 
 public class Player extends GameObject {
@@ -26,13 +28,13 @@ public class Player extends GameObject {
     public int phase = 0;
     public static int facing = 0;
 
-    public boolean walking = false;
-    public boolean jumping = false;
-    public boolean falling = true;
-    public static boolean still = true;
+    private float gravity = 0.05f;
+    private final float MAX_SPEED = 10;
 
-    public Player(float x, float y, int width, int height, ID id){
+
+    public Player(float x, float y, int width, int height, Handler handler, ID id){
         super(x, y, width, height, id);
+        this.handler = handler;
     }
 
 
@@ -53,12 +55,12 @@ public class Player extends GameObject {
              } else {
                  Thread imageLoad = new Thread();
                  imageLoad.start();
-                 try{
-                     imageLoad.sleep(100);
+                 //try{
+                   //  imageLoad.sleep(100);
                      g.drawImage(Main.PlayerWalkL[phase].getBufferedImage(), (int)x, (int)y, null);
-                 }catch(InterruptedException e){
-                     System.out.println("Somethings up");
-                 }
+                 //}catch(InterruptedException e){
+                  //   System.out.println("Somethings up");
+                // }
 
              }
          }
@@ -72,85 +74,52 @@ public class Player extends GameObject {
                  else{
                      Thread imageLoad = new Thread();
                      imageLoad.start();
-                     try{
-                         imageLoad.sleep(100);
+                     //try{
+                      //   imageLoad.sleep(100);
                          g.drawImage(Main.PlayerWalkR[phase].getBufferedImage(), (int)x, (int)y, null);
-                     }catch(InterruptedException e){
-                         System.out.println("Somethings up!");
-                     }
+                     //}catch(InterruptedException e){
+                     //    System.out.println("Somethings up!");
+                     //}
 
                  }
 
          }
+
+
+        Graphics2D g2d = (Graphics2D) g;
+
+        //g.setColor(Color.black);
+        //g2d.draw(getBounds());
+        //g2d.draw(getBoundsTop());
+
     }
     public void move(){
         x += velX;
         y += velY;
 
+        if (falling || jumping){
+            velY+= gravity;
+        }
+        if (velY > MAX_SPEED){
+            velY = MAX_SPEED;
+        }
+
         x = Main.clamp((int)x, 0, Main.WIDTH-31);
         y = Main.clamp((int)y, 0, Main.HEIGHT-53);
     }
 
-    public void checkCollisionWithEnemy(){
-        for(GameObject object : handler.object){
-
-        }
-
-    }
-
-    public void checkCollisionWithTile(){
-        for(Tile t : handler.tile){
-
-            if(!t.isSolid())
-                continue;
-
-            if(t.getID() == ID.Tile){
-
-                if(getBoundsT().intersects(t.getBounds())){
-                    setVelY(0);
-
-                    if(jumping){
-                        jumping = false;
-                        falling = true;
-                    }
-
-
-                }
-            }
-            else if(!falling && jumping){
-                falling = true;
-            }
-
-            if(getBoundsB().intersects(t.getBounds())){
-                setVelY(0);
-
-                if(falling)
-                {
-                    falling = false;
-                }
-                if(getBoundsL().intersects(t.getBounds())){
-                    setVelX(0);
-
-                    x = t.getX() + t.width;
-                }
-                if(getBoundsR().intersects(t.getBounds())){
-                    setVelX(0);
-
-                    x = t.getX() - t.width;
-
-                }
-            }
-
-
-        }
-
-    }
-
     private void collision(){
-        for(int i = 0; i < handler.object.size(); i++){
 
+        for (int i= 0; i < handler.object.size(); i++){
             GameObject tempObject = handler.object.get(i);
 
+            /*if(tempObject.getId() == ID.Player){
+                if(getBounds().intersects(tempObject.getBounds())) {
+                    velY = 0;
+                    falling = false;
+                    jumping = false;
+                }
+            }*/
             if(tempObject.getId() == ID.Zombie){
                 //collision code
                 if(getBounds().intersects(tempObject.getBounds())){
@@ -160,10 +129,16 @@ public class Player extends GameObject {
         }
     }
 
+    public Rectangle getBounds(){
+        return new Rectangle((int)x+22, (int)y+23, 25, height);
+    }
+    public Rectangle getBoundsTop(){
+        return new Rectangle((int)x+22, (int)y,  25, 23);
+    }
+
     public void tick() {
         move();
         collision();
-        checkCollisionWithTile();
     }
 
 

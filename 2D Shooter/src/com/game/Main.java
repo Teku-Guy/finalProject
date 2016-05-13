@@ -82,7 +82,7 @@ public class Main extends Canvas implements Runnable{
         this.addKeyListener(new KeyInput(handler));
         this.addMouseListener(menu);
 
-        player = new Player(100, 100, 32, 32, ID.Player);
+        player = new Player(100, 100, 32, 32, handler, ID.Player);
         handler.addObject(player);
         handler.clearEnemies();
 

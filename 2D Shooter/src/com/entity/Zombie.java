@@ -20,10 +20,7 @@ public class Zombie extends GameObject{
     private int facing = 0;
 
 
-    private boolean walking = false;
-    private boolean jumping = false;
-    private boolean falling = true;
-    private boolean still = false;
+    private float gravity = 0f;
 
     public Zombie(float x, float y, int width, int height, ID id){
         super(x , y, width, height, id);
@@ -93,8 +90,11 @@ public class Zombie extends GameObject{
     }
 
     public void tick() {
-
         chasePlayer();
+
+        if (falling || jumping){
+            velY += gravity;
+        }
 
         checkIfHit();
 

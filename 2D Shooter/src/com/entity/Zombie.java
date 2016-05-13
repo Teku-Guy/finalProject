@@ -42,6 +42,12 @@ public class Zombie extends GameObject{
 
         velX = ((-1/distance) * diffX);
         velY = ((-1/distance) * diffY);
+        if(x < Main.player.getX()){
+            facing = 1;
+        }
+        else if(x > Main.player.getX()){
+            facing = 0;
+        }
 
        // handler.addObject(new Trail(x, y, ID.Trail, Color.GREEN, 16, 16, 0.02f, handler));
     }

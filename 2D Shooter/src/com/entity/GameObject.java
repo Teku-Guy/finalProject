@@ -13,7 +13,6 @@ public abstract class  GameObject {
     protected boolean walking = false;
     protected boolean jumping = false;
     protected boolean falling = true;
-    protected static boolean still = true;
 
 
 
@@ -88,14 +87,6 @@ public abstract class  GameObject {
 
     public float getVelY(){
         return velY;
-    }
-
-    public static boolean isStill() {
-        return still;
-    }
-
-    public static void setStill(boolean still) {
-        GameObject.still = still;
     }
 
     public boolean isFalling() {

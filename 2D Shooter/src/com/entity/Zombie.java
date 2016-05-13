@@ -18,6 +18,8 @@ public class Zombie extends GameObject{
 
     private int phase = 0;
     private int facing = 0;
+    private boolean still = false;
+    private int counter = 0;
 
 
     private float gravity = 0f;
@@ -39,7 +41,9 @@ public class Zombie extends GameObject{
 
         velX = ((-1/distance) * diffX);
         velY = ((-1/distance) * diffY);
-
+        if(x == Main.player.getX() && y == Main.player.getX()){
+            still = true;
+        }
         if(x < Main.player.getX()){
             facing = 1;
         }
@@ -47,10 +51,14 @@ public class Zombie extends GameObject{
             facing = 0;
         }
 
+
        // handler.addObject(new Trail(x, y, ID.Trail, Color.GREEN, 16, 16, 0.02f, handler));
     }
 
     public void render(Graphics g) {
+        counter++;
+        if (counter % 1000 == 0)
+              counter = 0;
         phase++;
         phase %= Main.ZWalkL.length;
         if(facing == 0) {
@@ -59,15 +67,7 @@ public class Zombie extends GameObject{
                 g.drawImage(Main.ZWalkL[0].getBufferedImage(), (int)x, (int)y, null);
 
             } else {
-                Thread imageLoad = new Thread();
-                imageLoad.start();
-                try{
-                    imageLoad.sleep(100);
-                    g.drawImage(Main.ZWalkL[phase].getBufferedImage(), (int)x, (int)y, null);
-                }catch(InterruptedException e){
-                    System.out.println("Somethings up");
-                }
-
+                g.drawImage(Main.ZWalkL[phase].getBufferedImage(), (int)x, (int)y, null);
             }
         }
         else if(facing == 1){
@@ -75,14 +75,7 @@ public class Zombie extends GameObject{
                 g.drawImage(Main.ZWalkR[0].getBufferedImage(), (int)x, (int)y, null);
             }
             else{
-                Thread imageLoad = new Thread();
-                imageLoad.start();
-                try{
-                    imageLoad.sleep(100);
-                    g.drawImage(Main.ZWalkR[phase].getBufferedImage(), (int)x, (int)y, null);
-                }catch(InterruptedException e){
-                    System.out.println("Somethings up!");
-                }//
+                g.drawImage(Main.ZWalkR[phase].getBufferedImage(), (int)x, (int)y, null);
 
             }
 

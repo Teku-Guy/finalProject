@@ -13,9 +13,7 @@ import com.graphics.Sprite;
 import com.graphics.SpriteSheet;
 import com.entity.*;
 
-import java.awt.Canvas;
-import java.awt.Color;
-import java.awt.Graphics;
+import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
@@ -233,6 +231,8 @@ public class Main extends Canvas implements Runnable{
 
         Graphics g = bs.getDrawGraphics();
         super.paint(g);
+
+        Graphics g2d = (Graphics2D) g;
 
         //g.setColor(Color.BLACK);
         g.setColor(Color.LIGHT_GRAY);

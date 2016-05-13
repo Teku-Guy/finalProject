@@ -2,9 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2005e7ce-c536-430f-9abd-61656ccf9718" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2D Shooter/src/com/gui/Camera.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2D Shooter/src/com/entity/Zombie.java" afterPath="$PROJECT_DIR$/2D Shooter/src/com/entity/Zombie.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2D Shooter/src/com/input/Handler.java" afterPath="$PROJECT_DIR$/2D Shooter/src/com/input/Handler.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../._.DS_Store" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../out/production/2D Shooter/com/entity/Player.class" afterPath="$PROJECT_DIR$/../out/production/2D Shooter/com/entity/Player.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../out/production/2D Shooter/com/game/Main$STATE.class" afterPath="$PROJECT_DIR$/../out/production/2D Shooter/com/game/Main$STATE.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../out/production/2D Shooter/com/game/Main.class" afterPath="$PROJECT_DIR$/../out/production/2D Shooter/com/game/Main.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../out/production/2D Shooter/com/input/Handler.class" afterPath="$PROJECT_DIR$/../out/production/2D Shooter/com/input/Handler.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../out/production/2D Shooter/com/input/KeyInput.class" afterPath="$PROJECT_DIR$/../out/production/2D Shooter/com/input/KeyInput.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/workspace.xml" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../2D Shooter/src/com/entity/Player.java" afterPath="$PROJECT_DIR$/../2D Shooter/src/com/entity/Player.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../2D Shooter/src/com/game/Main.java" afterPath="$PROJECT_DIR$/../2D Shooter/src/com/game/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../2D Shooter/src/com/input/Handler.java" afterPath="$PROJECT_DIR$/../2D Shooter/src/com/input/Handler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../2D Shooter/src/com/input/KeyInput.java" afterPath="$PROJECT_DIR$/../2D Shooter/src/com/input/KeyInput.java" />
     </list>
     <ignored path="finalProject.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,7 +44,7 @@
   </component>
   <component name="Git.Settings">
     <option name="UPDATE_CHANGES_POLICY" value="SHELVE" />
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -58,12 +66,12 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="4" />
-    <option name="y" value="23" />
-    <option name="width" value="1276" />
-    <option name="height" value="777" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1616" />
+    <option name="height" value="876" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
@@ -90,6 +98,7 @@
     <panes>
       <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -100,11 +109,10 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../McKeerio/McKeerio" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../2D Shooter" />
   </component>
   <component name="RunManager" selected="Application.Main">
     <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -399,7 +407,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="4" y="23" width="1276" height="777" extended-state="6" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />

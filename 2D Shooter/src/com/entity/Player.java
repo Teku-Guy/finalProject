@@ -27,6 +27,8 @@ public class Player extends GameObject {
 
     public int phase = 0;
     public static int facing = 0;
+    private int counter = 0 ;
+    public static boolean still = true;
 
     private float gravity = 0.05f;
     private final float MAX_SPEED = 10;
@@ -42,26 +44,21 @@ public class Player extends GameObject {
 
     public void render(Graphics g) {
 
-        phase++;
-        phase %= Main.PlayerWalkL.length;
+        counter++;
+        if (counter % 100 == 0) {
+            counter = 0;
+            phase++;
+            phase %= Main.PlayerWalkL.length;
+        }
          if(facing == 0) {
              if (jumping) {
                  g.drawImage(Main.PJumpLeft.getBufferedImage(), (int)x, (int)y, null);
 
              } else if (still) {
-
-                    g.drawImage(Main.PlayerWalkL[0].getBufferedImage(), (int)x, (int)y, null);
+                 g.drawImage(Main.PlayerWalkL[0].getBufferedImage(), (int)x, (int)y, null);
 
              } else {
-                 Thread imageLoad = new Thread();
-                 imageLoad.start();
-                 //try{
-                   //  imageLoad.sleep(100);
-                     g.drawImage(Main.PlayerWalkL[phase].getBufferedImage(), (int)x, (int)y, null);
-                 //}catch(InterruptedException e){
-                  //   System.out.println("Somethings up");
-                // }
-
+                 g.drawImage(Main.PlayerWalkL[phase].getBufferedImage(), (int)x, (int)y, null);
              }
          }
          else if(facing == 1){
@@ -72,14 +69,7 @@ public class Player extends GameObject {
                      g.drawImage(Main.PlayerWalkR[0].getBufferedImage(), (int)x, (int)y, null);
                  }
                  else{
-                     Thread imageLoad = new Thread();
-                     imageLoad.start();
-                     //try{
-                      //   imageLoad.sleep(100);
-                         g.drawImage(Main.PlayerWalkR[phase].getBufferedImage(), (int)x, (int)y, null);
-                     //}catch(InterruptedException e){
-                     //    System.out.println("Somethings up!");
-                     //}
+                     g.drawImage(Main.PlayerWalkR[phase].getBufferedImage(), (int)x, (int)y, null);
 
                  }
 

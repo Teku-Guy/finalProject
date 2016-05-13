@@ -12,6 +12,7 @@ public class Handler {
 
     public LinkedList<GameObject> object = new LinkedList<GameObject>();
     public LinkedList<Tile> tile = new LinkedList<Tile>();
+    public Tile maps[] = new Tile[10];
 
     public void tick(){
 
@@ -64,9 +65,9 @@ public class Handler {
     }
 
     public void createLevel(){
-        for(int i = 0; i <= 5; i++) {
 
-            addTile(new Grass((i*32), 700, 64, 64, true, ID.Tile));
+
+        for(int i = 0; i <= 5; i++) {
 
             //System.out.println(i);
         }

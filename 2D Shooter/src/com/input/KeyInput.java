@@ -47,15 +47,15 @@ public class KeyInput extends KeyAdapter {
                 if(key == KeyEvent.VK_D){
                     tempObject.setVelX(2);
                     keyDown[2] = true;
-                    //Player.facing = 1;
-                    //Player.still = false;
+                    Player.facing = 1;
+                    Player.still = false;
 
                 }
                 if(key == KeyEvent.VK_A){
                     tempObject.setVelX(-2);
                     keyDown[3] = true;
-                    //Player.facing = 0;
-                    //Player.still = false;
+                    Player.facing = 0;
+                    Player.still = false;
                 }
             }
         }
@@ -81,11 +81,11 @@ public class KeyInput extends KeyAdapter {
                     keyDown[1] = false;
                 if(key == KeyEvent.VK_D){
                     keyDown[2] = false;
-                    //Player.still = true;
+                    Player.still = true;
                 }
                 if(key == KeyEvent.VK_A) {
                     keyDown[3] = false;
-                    //Player.still = true;
+                    Player.still = true;
                 }
 
 

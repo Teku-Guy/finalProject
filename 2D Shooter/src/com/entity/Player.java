@@ -25,16 +25,21 @@ public class Player extends GameObject {
     private KeyInput key;
     private Handler handler = new Handler();
 
-    public int phase = 0;
+    public int frame = 0;
+    public int frameDelay = 0;
+    public boolean isWalking = false;
+
+    private Handler handle;
+
     public static int facing = 0;
 
     private float gravity = 0.05f;
     private final float MAX_SPEED = 10;
 
 
-    public Player(float x, float y, int width, int height, Handler handler, ID id){
-        super(x, y, width, height, id);
-        this.handler = handler;
+    public Player(float x, float y, int width, int height,boolean solid, ID id, Handler handler){
+        super(x, y, width, height, solid, id, handler);
+        //this.handler = handler;
     }
 
 
@@ -42,8 +47,8 @@ public class Player extends GameObject {
 
     public void render(Graphics g) {
 
-        phase++;
-        phase %= Main.PlayerWalkL.length;
+        //phase++;
+        //phase %= Main.PlayerWalkL.length;
          if(facing == 0) {
              if (jumping) {
                  g.drawImage(Main.PJumpLeft.getBufferedImage(), (int)x, (int)y, null);
@@ -57,7 +62,7 @@ public class Player extends GameObject {
                  imageLoad.start();
                  //try{
                    //  imageLoad.sleep(100);
-                     g.drawImage(Main.PlayerWalkL[phase].getBufferedImage(), (int)x, (int)y, null);
+                     g.drawImage(Main.PlayerWalkL[frame].getBufferedImage(), (int)x, (int)y, null);
                  //}catch(InterruptedException e){
                   //   System.out.println("Somethings up");
                 // }
@@ -76,7 +81,7 @@ public class Player extends GameObject {
                      imageLoad.start();
                      //try{
                       //   imageLoad.sleep(100);
-                         g.drawImage(Main.PlayerWalkR[phase].getBufferedImage(), (int)x, (int)y, null);
+                         g.drawImage(Main.PlayerWalkR[frame].getBufferedImage(), (int)x, (int)y, null);
                      //}catch(InterruptedException e){
                      //    System.out.println("Somethings up!");
                      //}
@@ -104,8 +109,40 @@ public class Player extends GameObject {
             velY = MAX_SPEED;
         }
 
-        x = Main.clamp((int)x, 0, Main.WIDTH-31);
-        y = Main.clamp((int)y, 0, Main.HEIGHT-53);
+        for (Tile t: handler.tiles) {
+            if(!t.isSolid())
+                continue;
+            if(t.getID() == ID.wall){
+                if(getBoundsTop().intersects(t.getBounds())){
+                    setVelY(0);
+
+                    if (jumping) {
+                        jumping = false;
+                        gravity= 0.5f;
+                        falling = true;
+                    }
+                }
+
+                else if(!falling&& !jumping){
+                    gravity = 0.5f;
+                }
+                if (getBoundsBottom().intersects(t.getBounds())){
+                    setVelY(0);
+
+                    if (falling)
+                        falling = false;
+                }
+
+                if (getBoundsLeft().intersects(t.getBounds())){
+                    setVelY(0);
+
+                    x = t.getX() - t.width;
+                }
+            }
+        }
+
+        //x = Main.clamp((int)x, 0, Main.WIDTH-31);
+        //y = Main.clamp((int)y, 0, Main.HEIGHT-53);
     }
 
     private void collision(){

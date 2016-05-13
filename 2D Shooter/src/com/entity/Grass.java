@@ -12,7 +12,7 @@ import java.awt.image.BufferedImage;
 
 public class Grass extends Tile {
 
-    public Grass(int x, int y, int width,int height, boolean solid, ID id){
+    public Grass(float x, float y, int width,int height, boolean solid, ID id){
         super(x, y,  width, height,  solid, id);
 
 
@@ -20,6 +20,11 @@ public class Grass extends Tile {
     }
 
     public void render(Graphics g) {
-           g.drawImage(Main.Grass.getBufferedImage(), x, y, null);
+           g.drawImage(Main.Grass.getBufferedImage(), (int)x, (int)y, null);
+    }
+
+    @Override
+    public void tick() {
+
     }
 }

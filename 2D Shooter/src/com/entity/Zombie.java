@@ -22,8 +22,8 @@ public class Zombie extends GameObject{
 
     private float gravity = 0f;
 
-    public Zombie(float x, float y, int width, int height, ID id){
-        super(x , y, width, height, id);
+    public Zombie(float x, float y, int width, int height,boolean solid, ID id, Handler handler){
+        super(x, y, width, height, solid, id, handler);
     }
 
     public void checkIfHit(){

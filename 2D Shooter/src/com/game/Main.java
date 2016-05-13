@@ -82,11 +82,11 @@ public class Main extends Canvas implements Runnable{
         this.addKeyListener(new KeyInput(handler));
         this.addMouseListener(menu);
 
-        player = new Player(100, 100, 32, 32, handler, ID.Player);
+        player = new Player(100, 100, 32, 32, true, ID.Player, handler);
         handler.addObject(player);
         handler.clearEnemies();
 
-        handler.addObject(new Zombie(300, 100, 32, 32, ID.Zombie));
+        handler.addObject(new Zombie(300, 100, 32, 32, true, ID.Zombie, handler));
 
 
         //handler.createLevel();
@@ -224,7 +224,7 @@ public class Main extends Canvas implements Runnable{
 
     //This renders the back ground in the JFrame
     private void render(){
-        BufferStrategy bs = this.getBufferStrategy();
+        BufferStrategy bs = getBufferStrategy();
 
         if(bs == null){
             this.createBufferStrategy(3);

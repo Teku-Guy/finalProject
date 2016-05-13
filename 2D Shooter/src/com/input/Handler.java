@@ -11,11 +11,14 @@ import java.util.LinkedList;
 public class Handler {
 
     public LinkedList<GameObject> object = new LinkedList<GameObject>();
-    public LinkedList<Tile> tile = new LinkedList<Tile>();
+    public LinkedList<Tile> tiles = new LinkedList<>();
+
 
     public void tick(){
-
-
+        //Loops through Linked List of tiles and calls each tick
+        for(Tile tile : tiles){
+            tile.tick();
+        }
         createLevel();
         for(int i = 0; i < object.size(); i++){
             GameObject tempObject = object.get(i);
@@ -30,8 +33,8 @@ public class Handler {
             GameObject tempObject = object.get(i);
             tempObject.render(g);
         }
-        for(int i = 0 ; i < tile.size(); i++){
-            Tile tempTile = tile.get(i);
+        for(int i = 0 ; i < tiles.size(); i++){
+            Tile tempTile = tiles.get(i);
             tempTile.render(g);
         }
 
@@ -60,18 +63,86 @@ public class Handler {
     }
 
     public void addTile(Tile newTile){
-        tile.add(newTile);
+        tiles.add(newTile);
+    }
+
+
+    public void removeTile(Tile targetTile){
+        tiles.remove(targetTile);
+    }
+    public void createSingleWall(int loop, boolean[]ledge, int location){
+        if(loop < ledge.length && ledge[loop]){
+            addTile(new Wall((location)*32,664, 32, 32, true, ID.wall,this));
+            addTile(new Wall((location)*32,632, 32, 32, true, ID.wall,this));
+            addTile(new Wall((location)*32,600, 32, 32, true, ID.wall,this));
+            addTile(new Wall((location)*32,568, 32, 32, true, ID.wall,this));
+        }
+    }
+    public void createMedWall(int loop, boolean[] ledge, int location){
+        if(loop < ledge.length && ledge[loop]){
+            addTile(new Wall((loop+location)*32,664, 32, 32, true, ID.wall,this));
+            addTile(new Wall((loop+location)*32,632, 32, 32, true, ID.wall,this));
+            addTile(new Wall((loop+location)*32,600, 32, 32, true, ID.wall,this));
+            addTile(new Wall((loop+location)*32,568, 32, 32, true, ID.wall,this));
+        }
+    }
+    public void createPlatforms(int loop, boolean[] plat, int location){
+        if(loop < plat.length && plat[loop]){
+            addTile(new Wall(loop*32, 400, 32, 32, true, ID.wall, this));
+        }
+        if(loop < plat.length && plat[loop]){
+            addTile(new Wall((loop+location)*32, 240, 32, 32, true, ID.wall, this));
+        }
+    }
+    public void createBounds(int loop){
+        addTile(new Wall(loop*32, Main.HEIGHT*4-64, 32, 32, true, ID.wall, this));
+        addTile(new Wall(loop*32, 0, 32, 32, true, ID.wall, this));
+
+
     }
 
     public void createLevel(){
-        for(int i = 0; i <= 5; i++) {
+        boolean[] plat = {
+                false, false,false ,false ,false,
+                false, false,false ,false ,false,
+                false, false,false ,false ,false,
+                true, true, true, true,
+                false, false,false ,false ,false,
+                true, true, true, true,
+                false, false,false ,false ,false,
+                true, true, true, true,
+                false, false,false ,false ,false,
+                false, false,false ,false ,false,
+                true, true, true, true,
+                false, false,false ,false ,false,
+                true, true, true, true,
+                false, false,false ,false ,false,
+                true, true, true, true,
+                false, false,false ,false ,false,
+                true, true, true, true,
+                false, false,false ,false ,false,
+                true, true, true, true,
+                false, false,false ,false ,false};
+        boolean[] ledge ={false,true,true,true,
+                false,false};
 
-            addTile(new Grass((i*32), 700, 64, 64, true, ID.Tile));
 
-            //System.out.println(i);
+        for(int i = 0; i <= Main.WIDTH *4 /32 * 10; i++){
+            createBounds(i);
+            createPlatforms(i, plat, 4);
+            createPlatforms(i, plat, 50);
+            createMedWall(i, ledge, 4);
+            createMedWall(i, ledge, 10);
+            createSingleWall(i, ledge, 20);
+            createSingleWall(i, ledge, 30);
+            createSingleWall(i, ledge, 40);
+            createMedWall(i, ledge, 50);
+            createMedWall(i, ledge, 80);
+            createMedWall(i, ledge, 110);
+            createMedWall(i, ledge, 140);
+
+
         }
-
-
     }
 }
 

@@ -8,11 +8,16 @@ import java.awt.*;
  * Created by jessus on 5/11/16.
  */
 public class FloatingPlatform extends Tile {
-    public FloatingPlatform(int x, int y, int width,int height, boolean solid, ID id){
+    public FloatingPlatform(float x, float y, int width,int height, boolean solid, ID id){
         super(x, y,  width, height,  solid, id);
     }
 
     public void render(Graphics g) {
-        g.drawImage(Main.Floating.getBufferedImage(), x, y, null);
+        g.drawImage(Main.Floating.getBufferedImage(), (int)x, (int)y, null);
+    }
+
+    @Override
+    public void tick() {
+
     }
 }

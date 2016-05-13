@@ -69,7 +69,7 @@ public class Main extends Canvas implements Runnable{
         Help,
         Game,
         End
-    };
+    }
 
     public static STATE gameState = STATE.Menu;
 
@@ -82,7 +82,7 @@ public class Main extends Canvas implements Runnable{
 
 
         handler.addObject(new Player(100, 100, 32, 32, ID.Player));
-
+        handler.addObject(new Zombie(300, 100, 32, 32, ID.Zombie));
 
         //handler.createLevel();
 
@@ -160,6 +160,7 @@ public class Main extends Canvas implements Runnable{
     //Stop running the thread
     public synchronized void stop(){
         try{
+            thread.join();
             running = false;
         }catch(Exception e){
             e.printStackTrace();
@@ -204,6 +205,7 @@ public class Main extends Canvas implements Runnable{
     //Run every Second
     private void tick(){
         handler.tick();
+
         if(gameState == STATE.Menu || gameState == STATE.End){
             menu.tick();
         }

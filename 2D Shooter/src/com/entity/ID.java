@@ -7,6 +7,6 @@ public enum ID {
 
     Player(),
     Tile(),
-    Zombie();
+    Zombie()
 
 }

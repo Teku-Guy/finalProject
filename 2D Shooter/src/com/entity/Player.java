@@ -18,22 +18,18 @@ import com.input.KeyInput;
 
 public class Player extends GameObject {
 
+    private KeyInput key;
+    private Handler handler = new Handler();
+
     public int phase = 0;
     public static int facing = 0;
-
 
     public boolean walking = false;
     public boolean jumping = false;
     public boolean falling = true;
     public static boolean still = true;
 
-
-
-
-    private KeyInput key;
-    private Handler handler = new Handler();
-
-    public Player(int x, int y, int width, int height, ID id){
+    public Player(float x, float y, int width, int height, ID id){
         super(x, y, width, height, id);
     }
 
@@ -45,18 +41,18 @@ public class Player extends GameObject {
         phase %= Main.PlayerWalkL.length;
          if(facing == 0) {
              if (jumping) {
-                 g.drawImage(Main.PJumpLeft.getBufferedImage(), x, y, null);
+                 g.drawImage(Main.PJumpLeft.getBufferedImage(), (int)x, (int)y, null);
 
              } else if (still) {
 
-                    g.drawImage(Main.PlayerWalkL[0].getBufferedImage(), x, y, null);
+                    g.drawImage(Main.PlayerWalkL[0].getBufferedImage(), (int)x, (int)y, null);
 
              } else {
                  Thread imageLoad = new Thread();
                  imageLoad.start();
                  try{
                      imageLoad.sleep(100);
-                     g.drawImage(Main.PlayerWalkL[phase].getBufferedImage(), x, y, null);
+                     g.drawImage(Main.PlayerWalkL[phase].getBufferedImage(), (int)x, (int)y, null);
                  }catch(InterruptedException e){
                      System.out.println("Somethings up");
                  }
@@ -65,17 +61,17 @@ public class Player extends GameObject {
          }
          else if(facing == 1){
                  if(jumping ){
-                     g.drawImage(Main.PJumpRight.getBufferedImage(), x,y, null);
+                     g.drawImage(Main.PJumpRight.getBufferedImage(), (int)x,(int)y, null);
 
                  }else if(still){
-                     g.drawImage(Main.PlayerWalkR[0].getBufferedImage(), x, y, null);
+                     g.drawImage(Main.PlayerWalkR[0].getBufferedImage(), (int)x, (int)y, null);
                  }
                  else{
                      Thread imageLoad = new Thread();
                      imageLoad.start();
                      try{
                          imageLoad.sleep(100);
-                         g.drawImage(Main.PlayerWalkR[phase].getBufferedImage(), x, y, null);
+                         g.drawImage(Main.PlayerWalkR[phase].getBufferedImage(), (int)x, (int)y, null);
                      }catch(InterruptedException e){
                          System.out.println("Somethings up!");
                      }
@@ -150,9 +146,6 @@ public class Player extends GameObject {
         move();
 
         checkCollisionWithTile();
-
-
-
     }
 
 

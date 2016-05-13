@@ -5,13 +5,14 @@ import java.awt.Rectangle;
 
 public abstract class GameObject {
 
-    protected int x, y, width, height;
+    protected float x, y;
+    protected int width, height;
     protected ID id;
-    protected int velX, velY;
+    protected float velX, velY;
 
 
 
-    public GameObject(int x, int y, int width, int  height, ID id){
+    public GameObject(float x, float y, int width, int  height, ID id){
         this.x = x;
         this.y = y;
         this.id = id;
@@ -24,20 +25,20 @@ public abstract class GameObject {
 
 
     public Rectangle getBounds() {
-        return new Rectangle(getX(), getY(), width, height);
+        return new Rectangle((int)getX(), (int)getY(), width, height);
     }
     public Rectangle getBoundsT(){
-        return new Rectangle(getX() + 10, getY(), width - 20, 5);
+        return new Rectangle((int)getX() + 10, (int)getY(), width - 20, 5);
     }
     public Rectangle getBoundsB(){
-        return new Rectangle(getX() + 10, getY() + height -5, width - 20, 5);
+        return new Rectangle((int)getX() + 10, (int)getY() + height -5, width - 20, 5);
 
     }
     public Rectangle getBoundsR(){
-        return new Rectangle(getX() + width - 5, getY() + 10, 5, height - 20);
+        return new Rectangle((int)getX() + width - 5, (int)getY() + 10, 5, height - 20);
     }
     public Rectangle getBoundsL(){
-        return new Rectangle(getX() + 10, getY() + height - 5, width - 20, 5);
+        return new Rectangle((int)getX() + 10, (int)getY() + height - 5, width - 20, 5);
 
     }
 
@@ -52,11 +53,11 @@ public abstract class GameObject {
         this.y = y;
     }
 
-    public int getX(){
+    public float getX(){
         return x;
     }
 
-    public int getY(){
+    public float getY(){
         return y;
     }
 
@@ -76,11 +77,11 @@ public abstract class GameObject {
         this.velY = velY;
     }
 
-    public int getVelX(){
+    public float getVelX(){
         return velX;
     }
 
-    public int getVelY(){
+    public float getVelY(){
         return velY;
     }
 

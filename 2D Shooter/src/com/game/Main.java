@@ -80,14 +80,8 @@ public class Main extends Canvas implements Runnable{
         this.addKeyListener(new KeyInput(handler));
         this.addMouseListener(menu);
 
-        player = new Player(100, 100, 32, 32, handler, ID.Player);
-        handler.addObject(player);
-        handler.clearEnemies();
-
-        handler.addObject(new Zombie(300, 100, 32, 32, ID.Zombie));
 
 
-        //handler.createLevel();
 
 
         WIDTH = window.frame.getWidth();
@@ -148,8 +142,21 @@ public class Main extends Canvas implements Runnable{
         System.out.println("Zombie Sprites loaded");
 
 
-        //handler.addObject(new Player(200, 200, 50, 50, ID.Player));
+        player = new Player(100, 100, 32, 32, handler, ID.Player);
+        handler.addObject(player);
+        handler.clearEnemies();
+
+        handler.addObject(new Zombie(300, 100, 32, 32, ID.Zombie));
+
         System.out.println("Player Object created!");
+
+        //handler.createLevel();
+
+        System.out.println("Level created!");
+
+
+
+
 
 
 

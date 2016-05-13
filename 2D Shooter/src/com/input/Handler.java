@@ -69,7 +69,7 @@ public class Handler {
 
         for(int i = 0; i <= 5; i++) {
 
-            //System.out.println(i);
+          // addTile(new Grass((i*32), 700, 64, 64, true, ID.Tile));
         }
 
 

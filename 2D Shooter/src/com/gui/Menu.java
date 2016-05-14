@@ -107,11 +107,11 @@ public class Menu extends MouseAdapter{
             Font fnt = new Font("arial", 1, 50);
             Font fnt2 = new Font("arail", 1, 30);
             Font fnt3 = new Font("arail", 1, 15);
-
+            g.drawImage(Main.Background, 0, 0, null);
             g.setFont(fnt);
             g.setColor(Color.WHITE);
             g.drawString("Help", Main.WIDTH / 2 - (g.getFontMetrics().stringWidth("Help") / 2), 100);
-            g.drawImage(Main.Background, 0, 0, null);
+
             g.setFont(fnt3);
             String s = "Use WASD keys on your keyboard to move your Player and Click your mouse to kill enemies!";
             int w = g.getFontMetrics().stringWidth(s) / 2;

@@ -65,9 +65,9 @@ public class Main extends Canvas implements Runnable{
     public static SpriteSheet GrassSheet;
     public static SpriteSheet StoneSheet;
     public static SpriteSheet FloatingSheet;
-
-
     public static BufferedImage Background;
+
+
 
     public enum STATE {
         Menu,
@@ -162,10 +162,11 @@ public class Main extends Canvas implements Runnable{
 
         try{
             Background = ImageIO.read(getClass().getResourceAsStream("/res/Background.png"));
-        }catch(IOException c){
+        }catch(IOException a){
 
             System.out.println("Background image load failed!");
         }
+
         System.out.println("Background loaded!");
 
 

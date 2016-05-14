@@ -78,9 +78,13 @@ public class Menu extends MouseAdapter{
     }
 
     public void render(Graphics g){
+
+
         if(main.gameState == STATE.Menu){
+
             Font fnt = new Font("arial", 1, 70);
-            Font fnt2 = new Font("arail", 1, 30);
+            Font fnt2 = new Font("arial", 1, 30);
+            g.drawImage(Main.Background, 0, 0, null);
 
             g.setFont(fnt);
             g.setColor(Color.WHITE);
@@ -103,7 +107,7 @@ public class Menu extends MouseAdapter{
             Font fnt = new Font("arial", 1, 50);
             Font fnt2 = new Font("arail", 1, 30);
             Font fnt3 = new Font("arail", 1, 15);
-
+            g.drawImage(Main.Background, 0, 0, null);
             g.setFont(fnt);
             g.setColor(Color.WHITE);
             g.drawString("Help", Main.WIDTH / 2 - (g.getFontMetrics().stringWidth("Help") / 2), 100);

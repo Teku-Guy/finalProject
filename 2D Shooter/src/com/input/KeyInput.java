@@ -15,6 +15,7 @@ public class KeyInput extends KeyAdapter {
     private Handler handler;
 
     public int tempPhase = 0;
+
     protected boolean[] keyDown = new boolean[4];
 
 
@@ -37,31 +38,33 @@ public class KeyInput extends KeyAdapter {
                 //key Events for player 1
 
                 if(key == KeyEvent.VK_W){
-                    tempObject.setVelY(-5);
+                    tempObject.setVelY(-4);
                     keyDown[0] = true;
                     Player.jumping = true;
                     Player.still = false;
                 }
                 if(key == KeyEvent.VK_S){
-                    tempObject.setVelY(5);
-                    keyDown[1] = true;
-                    Player.still = false;
+                  if(!Player.collided) {
+                      tempObject.setVelY(1);
+                      keyDown[1] = true;
+                      Player.still = false;
+                  }
                 }
                 if(key == KeyEvent.VK_D){
-                    tempObject.setVelX(5);
+                    tempObject.setVelX(1);
                     keyDown[2] = true;
                     Player.facing = 1;
                     Player.still = false;
 
                 }
                 if(key == KeyEvent.VK_A){
-                    tempObject.setVelX(-5);
+                    tempObject.setVelX(-1);
                     keyDown[3] = true;
                     Player.facing = 0;
                     Player.still = false;
                 }
                 if(key == KeyEvent.VK_SPACE){
-
+                    Player.shoot = true;
 
                 }
             }
@@ -82,9 +85,8 @@ public class KeyInput extends KeyAdapter {
                 //key Events for player 1
 
                 if(key == KeyEvent.VK_W)
-                   // tempObject.setVelY(0);
-                    Player.jumping = false;
                     keyDown[0] = false;
+                    Player.jumping = false;
                     Player.still = true;
                 if(key == KeyEvent.VK_S)
                     keyDown[1] = false;
@@ -98,7 +100,8 @@ public class KeyInput extends KeyAdapter {
                     Player.still = true;
                 }
                 if(key == KeyEvent.VK_SPACE){
-
+                    Player.shoot = false;
+                    Player.still = true;
                 }
 
 

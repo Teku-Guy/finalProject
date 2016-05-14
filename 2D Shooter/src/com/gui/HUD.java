@@ -15,7 +15,7 @@ public class HUD {
     private int level = 1;
 
     public void tick() {
-        HEALTH = Main.clamp(HEALTH, 0, 100);
+        HEALTH = Main.clamp(HEALTH, 0, 1000);
         greenValue = Main.clamp(greenValue, 0, 255);
 
         greenValue = HEALTH * 2;

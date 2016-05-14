@@ -82,13 +82,11 @@ public class Main extends Canvas implements Runnable{
         handler = new Handler();
         hud = new HUD();
         menu = new Menu(this, handler);
+        handler.createLevel();
 
         this.addKeyListener(new KeyInput(handler));
         this.addMouseListener(menu);
 
-
-
-        handler.createLevel();
         player = new Player(100, 100, 32, 32, handler, ID.Player);
 
         handler.addObject(new Zombie(300, 100, 32, 32, ID.Zombie));
@@ -108,7 +106,7 @@ public class Main extends Canvas implements Runnable{
         FloatingSheet = new SpriteSheet("/res/FloatingPlat.png");
 
         Bullet = Sprite.fromSheet(BulletSheet, 0, 0, 64 ,64);
-        Grass = Sprite.fromSheet(GrassSheet, 0, 0 , 64 ,64);
+        Grass = Sprite.fromSheet(GrassSheet, 0, 0 , 96 ,96);
         Stone = Sprite.fromSheet(StoneSheet, 0 , 0, 64 ,64);
         Floating = Sprite.fromSheet(FloatingSheet, 0, 0, 64, 64);
 
@@ -157,15 +155,6 @@ public class Main extends Canvas implements Runnable{
             ZWalkL[i] = Sprite.fromSheet(ZWalkLSheet, i, 0, 64, 64);
         }
         System.out.println("Zombie Sprites loaded");
-
-
-
-
-
-
-
-
-
 
 
 
@@ -219,16 +208,11 @@ public class Main extends Canvas implements Runnable{
         }
         stop();
     }
-    public void gameLoop(){
 
-    }
 
     //Run every Second
     private void tick(){
         handler.tick();
-
-
-
         if(gameState == STATE.Game)
         {
             hud.tick();
@@ -264,11 +248,9 @@ public class Main extends Canvas implements Runnable{
         handler.render(g);
 
 
-
         if(gameState == STATE.Game)
         {
-            hud.render(g);
-
+           hud.render(g);
         }
         else if(gameState == STATE.Menu || gameState == STATE.Help || gameState == STATE.End){
             menu.render(g);
@@ -293,6 +275,7 @@ public class Main extends Canvas implements Runnable{
 
     public static void main(String[] args) {
         new Main();
+
         //mostly for ubuntu
         System.setProperty("sun.java2d.opengl", "true");
     }

@@ -27,7 +27,7 @@ public abstract class Tile{
     public ID id;
 
 
-    public Tile(int x, int y, int width, int height, boolean soild,  ID id){
+    public Tile(int x, int y, int width, int height, boolean solid,  ID id){
         this.x = x;
         this.y = y;
         this.width = width;

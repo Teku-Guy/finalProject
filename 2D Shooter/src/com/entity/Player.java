@@ -52,7 +52,7 @@ public class Player extends GameObject {
     public void render(Graphics g) {
 
         counter++;
-        if (counter % 100 == 0) {
+        if (counter % 10 == 0) {
             counter = 0;
             phase++;
             phase %= Main.PlayerWalkL.length;
@@ -150,13 +150,18 @@ public class Player extends GameObject {
                         falling = true;
                         jumping = false;
                     }
+                    else if(tempObject.getBounds().intersects(tempTile.getBoundsT())){
+                        velY = 0;
+                        falling = true;
+
+                    }
                 }
             }
         }
     }
 
     public Rectangle getBounds(){
-        return new Rectangle((int)x, (int)y - 4, 64, height);
+        return new Rectangle((int)x, (int)y + 25, 64, height);
     }
     public Rectangle getBoundsTop(){
         return new Rectangle((int)x, (int)y - 30,  25, 23);

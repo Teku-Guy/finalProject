@@ -72,9 +72,9 @@ public class Handler {
     public void createLevel(){
 
 
-        for(int i = 0; i <= 2; i++) {
+        for(int i = 0; i <= 30; i++) {
 
-           addTile(new Grass((i*32), 975, 128, 128, true, ID.Tile));
+            addTile(new Grass((i*32), Main.HEIGHT + (700), 3000, 64, true, ID.Tile));
         }
 
 

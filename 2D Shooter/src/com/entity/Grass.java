@@ -20,6 +20,19 @@ public class Grass extends Tile {
     }
 
     public void render(Graphics g) {
-           g.drawImage(Main.Grass.getBufferedImage(), x, y, null);
+        g.drawImage(Main.Grass.getBufferedImage(), x, y, null);
+
+        Graphics2D g2d = (Graphics2D) g;
+
+        g.setColor(Color.black);
+        g2d.draw(getBounds());
+        g.setColor(Color.GREEN);
+        g2d.draw(getBoundsL());
+        g.setColor(Color.RED);
+        g2d.draw(getBoundsT());
+        g.setColor(Color.magenta);
+        g2d.draw(getBoundsB());
+        g.setColor(Color.BLUE);
+        g2d.draw(getBoundsR());
     }
 }

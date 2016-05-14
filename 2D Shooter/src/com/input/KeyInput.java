@@ -60,6 +60,10 @@ public class KeyInput extends KeyAdapter {
                     Player.facing = 0;
                     Player.still = false;
                 }
+                if(key == KeyEvent.VK_SPACE){
+
+
+                }
             }
         }
 
@@ -92,6 +96,9 @@ public class KeyInput extends KeyAdapter {
                 if(key == KeyEvent.VK_A) {
                     keyDown[3] = false;
                     Player.still = true;
+                }
+                if(key == KeyEvent.VK_SPACE){
+
                 }
 
 

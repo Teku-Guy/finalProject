@@ -7,6 +7,7 @@ import java.awt.*;
  */
 import java.awt.Graphics;
 
+
 import com.input.KeyInput;
 import com.game.Main;
 import com.input.Handler;
@@ -16,6 +17,7 @@ import com.graphics.SpriteSheet;
 import com.input.KeyInput;
 import com.sun.corba.se.spi.ior.ObjectId;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Objects;
 import com.gui.HUD;
@@ -32,6 +34,7 @@ public class Player extends GameObject {
     private int counter = 0 ;
     public static boolean still = true;
     public static boolean jumping = false;
+    public static boolean shoot = false;
 
     private float gravity = 0.05f;
     private final float MAX_SPEED = 10;
@@ -40,8 +43,8 @@ public class Player extends GameObject {
     public Player(float x, float y, int width, int height, Handler handler, ID id){
         super(x, y, width, height, id);
         this.handler = handler;
-    }
 
+    }
 
 
 
@@ -53,6 +56,7 @@ public class Player extends GameObject {
             phase++;
             phase %= Main.PlayerWalkL.length;
         }
+
          if(facing == 0) {
              if (jumping) {
                  g.drawImage(Main.PJumpLeft.getBufferedImage(), (int)x, (int)y, null);
@@ -64,7 +68,7 @@ public class Player extends GameObject {
                  g.drawImage(Main.PlayerWalkL[phase].getBufferedImage(), (int)x, (int)y, null);
              }
          }
-         else if(facing == 1){
+         else if(facing == 1){ Player.shoot = true;
                  if(jumping){
                      g.drawImage(Main.PJumpRight.getBufferedImage(), (int)x,(int)y, null);
 
@@ -75,7 +79,6 @@ public class Player extends GameObject {
                      g.drawImage(Main.PlayerWalkR[phase].getBufferedImage(), (int)x, (int)y, null);
 
                  }
-
          }
 
 
@@ -151,7 +154,7 @@ public class Player extends GameObject {
     }
 
     public Rectangle getBounds(){
-        return new Rectangle((int)x, (int)y, 64, height);
+        return new Rectangle((int)x, (int)y - 4, 64, height);
     }
     public Rectangle getBoundsTop(){
         return new Rectangle((int)x, (int)y - 30,  25, 23);
@@ -160,6 +163,7 @@ public class Player extends GameObject {
     public void tick() {
         move();
         collision();
+
     }
 
 

@@ -19,6 +19,7 @@ import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Main extends Canvas implements Runnable{
 
@@ -30,6 +31,7 @@ public class Main extends Canvas implements Runnable{
     private Window window;
     private Thread thread;
     private boolean running = false;
+
 
 
     private Handler handler;
@@ -80,8 +82,10 @@ public class Main extends Canvas implements Runnable{
         handler = new Handler();
         hud = new HUD();
         menu = new Menu(this, handler);
+
         this.addKeyListener(new KeyInput(handler));
         this.addMouseListener(menu);
+
 
 
         handler.createLevel();
@@ -92,6 +96,7 @@ public class Main extends Canvas implements Runnable{
 
         WIDTH = window.frame.getWidth();
         HEIGHT = window.frame.getHeight();
+
     }
     //Loads stuff
     public void init(){
@@ -221,6 +226,8 @@ public class Main extends Canvas implements Runnable{
     //Run every Second
     private void tick(){
         handler.tick();
+
+
 
         if(gameState == STATE.Game)
         {

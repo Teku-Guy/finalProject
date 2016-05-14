@@ -85,7 +85,10 @@ public class Main extends Canvas implements Runnable{
 
 
         handler.createLevel();
+        player = new Player(100, 100, 32, 32, handler, ID.Player);
 
+        handler.addObject(new Zombie(300, 100, 32, 32, ID.Zombie));
+        handler.addObject(player);
 
         WIDTH = window.frame.getWidth();
         HEIGHT = window.frame.getHeight();
@@ -111,6 +114,9 @@ public class Main extends Canvas implements Runnable{
         PWalkLSheet = new SpriteSheet("/res/PWalkingLeft.png");
         PJumpRSheet = new SpriteSheet("/res/PJumpRight.png");
         PJumpLSheet = new SpriteSheet("/res/PJumpLeft.png");
+
+
+        System.out.println("Level created!");
 
         PJumpLeft = Sprite.fromSheet(PJumpLSheet, 0, 0, 64,64);
         PJumpRight = Sprite.fromSheet(PJumpRSheet, 0, 0, 64, 64);
@@ -148,15 +154,8 @@ public class Main extends Canvas implements Runnable{
         System.out.println("Zombie Sprites loaded");
 
 
-        player = new Player(100, 100, 32, 32, handler, ID.Player);
-        handler.addObject(player);
-        handler.clearEnemies();
 
-        handler.addObject(new Zombie(300, 100, 32, 32, ID.Zombie));
 
-        System.out.println("Player Object created!");
-
-        System.out.println("Level created!");
 
 
 

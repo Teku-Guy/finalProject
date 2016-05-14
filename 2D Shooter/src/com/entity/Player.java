@@ -125,7 +125,22 @@ public class Player extends GameObject {
                 Tile tempTile = handler.tile.get(i);
                 GameObject tempObject = handler.object.get(j);
                 if (tempTile.getId() == ID.Tile) {
-                    if (tempTile.getBounds().intersects(tempObject.getBounds())) {
+                    if (tempObject.getBounds().intersects(tempTile.getBounds())) {
+                        velY = 0;
+                        falling = true;
+                        jumping = false;
+                    }
+                    else if(tempObject.getBounds().intersects(tempTile.getBoundsR())){
+                        velY = 0;
+                        falling = true;
+                        jumping = false;
+                    }
+                    else if(tempObject.getBounds().intersects(tempTile.getBoundsL())){
+                        velY = 0;
+                        falling = true;
+                        jumping = false;
+                    }
+                    else if(tempObject.getBounds().intersects(tempTile.getBoundsB())){
                         velY = 0;
                         falling = true;
                         jumping = false;
@@ -136,10 +151,10 @@ public class Player extends GameObject {
     }
 
     public Rectangle getBounds(){
-        return new Rectangle((int)x, (int)y - 4, 25, height);
+        return new Rectangle((int)x, (int)y, 64, height);
     }
     public Rectangle getBoundsTop(){
-        return new Rectangle((int)x+22, (int)y,  25, 23);
+        return new Rectangle((int)x, (int)y - 30,  25, 23);
     }
 
     public void tick() {

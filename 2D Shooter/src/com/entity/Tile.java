@@ -92,5 +92,21 @@ public abstract class Tile{
     public Rectangle getBounds(){
         return new Rectangle(getX(), getY(), width, height);
     }
+
+    public Rectangle getBoundsT(){
+        return new Rectangle((int)getX() + 10, (int)getY(), width - 20, 5);
+    }
+
+    public Rectangle getBoundsB(){
+        return new Rectangle((int)getX() + 10, (int)getY() + height -5, width - 20, 5);
+
+    }
+    public Rectangle getBoundsR(){
+        return new Rectangle((int)getX() + width - 5, (int)getY() + 10, 5, height - 20);
+    }
+    public Rectangle getBoundsL(){
+        return new Rectangle((int)getX() + 10, (int)getY() + height - 5, width - 20, 5);
+
+    }
 }
 

@@ -106,24 +106,16 @@ public class Player extends GameObject {
     }
 
    private void collision() {
-/*
+
         for (int i = 0; i < handler.object.size(); i++) {
             GameObject tempObject = handler.object.get(i);
-
-            if (tempObject.getId() == ID.Player) {
-                if (getBounds().intersects(tempObject.getBounds())) {
-                    //   velY = 0;
-                    falling = false;
-                    jumping = false;
-                }
-            }
             if (tempObject.getId() == ID.Zombie) {
 
                 if (getBounds().intersects(tempObject.getBounds())) {
                     HUD.HEALTH -= 1;
                 }
             }
-        }*/
+        }
         for(int i = 0; i < handler.tile.size(); i++) {
             for (int j = i; j < handler.object.size(); j++) {
                 Tile tempTile = handler.tile.get(i);

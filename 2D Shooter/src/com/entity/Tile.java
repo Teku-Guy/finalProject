@@ -57,7 +57,10 @@ public abstract class Tile{
         return solid;
     }
 
-    public ID getID(){
+    public void setID(ID id){
+        this.id = id;
+    }
+    public ID getId(){
         return id;
     }
 

@@ -37,22 +37,25 @@ public class KeyInput extends KeyAdapter {
                 //key Events for player 1
 
                 if(key == KeyEvent.VK_W){
-                    tempObject.setVelY(-10);
+                    tempObject.setVelY(-5);
                     keyDown[0] = true;
+                    Player.jumping = true;
+                    Player.still = false;
                 }
                 if(key == KeyEvent.VK_S){
-                    tempObject.setVelY(10);
+                    tempObject.setVelY(5);
                     keyDown[1] = true;
+                    Player.still = false;
                 }
                 if(key == KeyEvent.VK_D){
-                    tempObject.setVelX(2);
+                    tempObject.setVelX(5);
                     keyDown[2] = true;
                     Player.facing = 1;
                     Player.still = false;
 
                 }
                 if(key == KeyEvent.VK_A){
-                    tempObject.setVelX(-2);
+                    tempObject.setVelX(-5);
                     keyDown[3] = true;
                     Player.facing = 0;
                     Player.still = false;
@@ -75,10 +78,13 @@ public class KeyInput extends KeyAdapter {
                 //key Events for player 1
 
                 if(key == KeyEvent.VK_W)
-                    //tempObject.setVelY(0);
+                   // tempObject.setVelY(0);
+                    Player.jumping = false;
                     keyDown[0] = false;
+                    Player.still = true;
                 if(key == KeyEvent.VK_S)
                     keyDown[1] = false;
+                    Player.still = false;
                 if(key == KeyEvent.VK_D){
                     keyDown[2] = false;
                     Player.still = true;
@@ -90,8 +96,8 @@ public class KeyInput extends KeyAdapter {
 
 
                 //vertical movement
-                if(keyDown[0] == false && !keyDown[1])
-                    tempObject .setVelY(0);
+               if(keyDown[0] == false && !keyDown[1])
+                   tempObject .setVelY(0);
                 if(keyDown[2] == false && !keyDown[3])
                     tempObject .setVelX(0);
             }

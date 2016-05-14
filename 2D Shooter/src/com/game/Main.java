@@ -112,6 +112,9 @@ public class Main extends Canvas implements Runnable{
         PJumpRSheet = new SpriteSheet("/res/PJumpRight.png");
         PJumpLSheet = new SpriteSheet("/res/PJumpLeft.png");
 
+        PJumpLeft = Sprite.fromSheet(PJumpLSheet, 0, 0, 64,64);
+        PJumpRight = Sprite.fromSheet(PJumpRSheet, 0, 0, 64, 64);
+
         for(int i = 0; i < PlayerWalkR.length; i++){
             PlayerWalkR[i] = Sprite.fromSheet(PWalkRSheet, i, 0, 64, 64);
         }

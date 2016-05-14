@@ -18,6 +18,7 @@ import com.sun.corba.se.spi.ior.ObjectId;
 
 import java.util.LinkedList;
 import java.util.Objects;
+import com.gui.HUD;
 
 
 public class Player extends GameObject {
@@ -27,8 +28,10 @@ public class Player extends GameObject {
 
     public int phase = 0;
     public static int facing = 0;
+
     private int counter = 0 ;
     public static boolean still = true;
+    public static boolean jumping = false;
 
     private float gravity = 0.05f;
     private final float MAX_SPEED = 10;
@@ -62,7 +65,7 @@ public class Player extends GameObject {
              }
          }
          else if(facing == 1){
-                 if(jumping ){
+                 if(jumping){
                      g.drawImage(Main.PJumpRight.getBufferedImage(), (int)x,(int)y, null);
 
                  }else if(still){
@@ -98,27 +101,40 @@ public class Player extends GameObject {
         y = Main.clamp((int)y, 0, Main.HEIGHT-53);
     }
 
-    private void collision(){
+  /* private void collision() {
 
-        for (int i= 0; i < handler.object.size(); i++){
+        for (int i = 0; i < handler.object.size(); i++) {
             GameObject tempObject = handler.object.get(i);
 
-            /*if(tempObject.getId() == ID.Player){
-                if(getBounds().intersects(tempObject.getBounds())) {
-                    velY = 0;
+            if (tempObject.getId() == ID.Player) {
+                if (getBounds().intersects(tempObject.getBounds())) {
+                    //   velY = 0;
                     falling = false;
                     jumping = false;
                 }
-            }*/
-            if(tempObject.getId() == ID.Zombie){
-                //collision code
-                if(getBounds().intersects(tempObject.getBounds())){
-                    //HUD.HEALTH -= 2;
+            }
+            if (tempObject.getId() == ID.Zombie) {
+
+                if (getBounds().intersects(tempObject.getBounds())) {
+                    HUD.HEALTH -= 1;
+                }
+            }
+        }
+        for (int i = 0; i < handler.tile.size(); i++) {
+            for (int j = 0; j < handler.object.size(); j++) {
+                Tile tempTile = handler.tile.get(i);
+                GameObject tempObject = handler.object.get(j);
+                if (tempTile.getId() == ID.Tile) {
+                    if (tempTile.getBounds().intersects(tempObject.getBounds())) {
+                        velY = 0;
+                        falling = true;
+                        jumping = false;
+                    }
                 }
             }
         }
     }
-
+*/
     public Rectangle getBounds(){
         return new Rectangle((int)x+22, (int)y+23, 25, height);
     }
@@ -128,7 +144,7 @@ public class Player extends GameObject {
 
     public void tick() {
         move();
-        collision();
+       // collision();
     }
 
 

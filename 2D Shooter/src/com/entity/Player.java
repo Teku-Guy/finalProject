@@ -136,7 +136,7 @@ public class Player extends GameObject {
     }
 
     public Rectangle getBounds(){
-        return new Rectangle((int)x+22, (int)y+23, 25, height);
+        return new Rectangle((int)x, (int)y - 4, 25, height);
     }
     public Rectangle getBoundsTop(){
         return new Rectangle((int)x+22, (int)y,  25, 23);

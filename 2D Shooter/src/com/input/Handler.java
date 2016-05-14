@@ -12,14 +12,12 @@ public class Handler {
 
     public LinkedList<GameObject> object = new LinkedList<GameObject>();
     public LinkedList<Tile> tile = new LinkedList<Tile>();
-
     public Tile maps[] = new Tile[10];
-    private int counter = 0;
 
     public void tick(){
 
 
-
+        createLevel();
         for(int i = 0; i < object.size(); i++){
             GameObject tempObject = object.get(i);
             tempObject.tick();
@@ -33,15 +31,11 @@ public class Handler {
             GameObject tempObject = object.get(i);
             tempObject.render(g);
         }
-        for(int i = 0; i < tile.size(); i++) {
+        for(int i = 0 ; i < tile.size(); i++){
             Tile tempTile = tile.get(i);
             tempTile.render(g);
         }
-        counter++;
-        if(counter % 100 == 0){
-            counter = 0;
-            createLevel();
-        }
+
 
     }
 
@@ -70,14 +64,15 @@ public class Handler {
         tile.add(newTile);
     }
 
+    public void createLevel(){
 
-    public void createLevel() {
-        for (int i = 0; i <= 100; i++) {
-            Grass grass = new Grass(i * 32, 975, 3000, 64, true, ID.Tile);
-            addTile(grass);
+
+        for(int i = 0; i <= 2; i++) {
+
+           addTile(new Grass((i*32), 975, 128, 128, true, ID.Tile));
         }
+
+
     }
-
-
 }
 

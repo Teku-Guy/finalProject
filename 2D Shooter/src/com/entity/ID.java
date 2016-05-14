@@ -7,7 +7,7 @@ public enum ID {
 
     Player(),
     Tile(),
-    Zombie(),
-    Bullet(),
+    Grass(),
+    Zombie()
 
 }

@@ -15,7 +15,7 @@ import com.entity.ID;
 import com.graphics.Sprite;
 import com.graphics.SpriteSheet;
 import com.input.KeyInput;
-
+import com.sun.corba.se.spi.ior.ObjectId;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -35,9 +35,8 @@ public class Player extends GameObject {
     public static boolean still = true;
     public static boolean jumping = false;
     public static boolean shoot = false;
-    public static boolean collided = false;
 
-    private float gravity = 0.1f;
+    private float gravity = 0.05f;
     private final float MAX_SPEED = 10;
 
 
@@ -52,7 +51,7 @@ public class Player extends GameObject {
     public void render(Graphics g) {
 
         counter++;
-        if (counter % 10 == 0) {
+        if (counter % 100 == 0) {
             counter = 0;
             phase++;
             phase %= Main.PlayerWalkL.length;
@@ -68,11 +67,8 @@ public class Player extends GameObject {
              } else {
                  g.drawImage(Main.PlayerWalkL[phase].getBufferedImage(), (int)x, (int)y, null);
              }
-             if(shoot){
-                 g.drawImage(Main.Bullet.getBufferedImage(),(int)x - 50, (int)y, null);
-             }
          }
-         else if(facing == 1){
+         else if(facing == 1){ Player.shoot = true;
                  if(jumping){
                      g.drawImage(Main.PJumpRight.getBufferedImage(), (int)x,(int)y, null);
 
@@ -83,12 +79,7 @@ public class Player extends GameObject {
                      g.drawImage(Main.PlayerWalkR[phase].getBufferedImage(), (int)x, (int)y, null);
 
                  }
-                 if(shoot) {
-                     g.drawImage(Main.Bullet.getBufferedImage(), (int) x + 50, (int) y, null);
-                 }
-
          }
-
 
 
         Graphics2D g2d = (Graphics2D) g;
@@ -103,18 +94,36 @@ public class Player extends GameObject {
         y += velY;
 
         if (falling || jumping){
-            velY += gravity;
+            velY+= gravity;
         }
         if (velY > MAX_SPEED){
             velY = MAX_SPEED;
         }
 
-        x = Main.clamp((int)x, 0, Main.WIDTH - 31);
-        y = Main.clamp((int)y, 0, Main.HEIGHT - 53);
+        x = Main.clamp((int)x, 0, Main.WIDTH-31);
+        y = Main.clamp((int)y, 0, Main.HEIGHT-53);
     }
 
    private void collision() {
-       for(int i = 0; i < handler.tile.size(); i++) {
+/*
+        for (int i = 0; i < handler.object.size(); i++) {
+            GameObject tempObject = handler.object.get(i);
+
+            if (tempObject.getId() == ID.Player) {
+                if (getBounds().intersects(tempObject.getBounds())) {
+                    //   velY = 0;
+                    falling = false;
+                    jumping = false;
+                }
+            }
+            if (tempObject.getId() == ID.Zombie) {
+
+                if (getBounds().intersects(tempObject.getBounds())) {
+                    HUD.HEALTH -= 1;
+                }
+            }
+        }*/
+        for(int i = 0; i < handler.tile.size(); i++) {
             for (int j = i; j < handler.object.size(); j++) {
                 Tile tempTile = handler.tile.get(i);
                 GameObject tempObject = handler.object.get(j);
@@ -123,7 +132,6 @@ public class Player extends GameObject {
                         velY = 0;
                         falling = true;
                         jumping = false;
-                        collided = true;
                     }
                     else if(tempObject.getBounds().intersects(tempTile.getBoundsR())){
                         velY = 0;
@@ -140,29 +148,13 @@ public class Player extends GameObject {
                         falling = true;
                         jumping = false;
                     }
-
-                }
-
-               if(tempObject.getId() == ID.Zombie){
-                    if (tempObject.getId() == ID.Zombie) {
-                            if (getBounds().intersects(tempObject.getBounds())) {
-                                falling = true;
-                                jumping = false;
-                                HUD.HEALTH -= 1;
-                            }
-                        }
-                    }
-
-
                 }
             }
         }
-
-
-
+    }
 
     public Rectangle getBounds(){
-        return new Rectangle((int)x, (int)y -4, 64, height);
+        return new Rectangle((int)x, (int)y - 4, 64, height);
     }
     public Rectangle getBoundsTop(){
         return new Rectangle((int)x, (int)y - 30,  25, 23);
@@ -170,7 +162,7 @@ public class Player extends GameObject {
 
     public void tick() {
         move();
-       collision();
+        collision();
 
     }
 

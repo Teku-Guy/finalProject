@@ -84,9 +84,14 @@ public class Player extends GameObject {
 
         Graphics2D g2d = (Graphics2D) g;
 
-        //g.setColor(Color.black);
-        //g2d.draw(getBounds());
-        //g2d.draw(getBoundsTop());
+        g.setColor(Color.black);
+        g2d.draw(getBounds());
+        g.setColor(Color.GREEN);
+        g2d.draw(getBoundsL());
+        g.setColor(Color.magenta);
+        g2d.draw(getBoundsB());
+        g.setColor(Color.BLUE);
+        g2d.draw(getBoundsR());
 
     }
     public void move(){
@@ -127,37 +132,22 @@ public class Player extends GameObject {
             for (int j = i; j < handler.object.size(); j++) {
                 Tile tempTile = handler.tile.get(i);
                 GameObject tempObject = handler.object.get(j);
-                if (tempTile.getId() == ID.Tile) {
-                    if (tempObject.getBounds().intersects(tempTile.getBounds())) {
+                if (tempTile.getId() == ID.Grass) {
+                    if (tempObject.getBoundsB().intersects(tempTile.getBounds())) {
                         velY = 0;
                         falling = true;
                         jumping = false;
                     }
-                    else if(tempObject.getBounds().intersects(tempTile.getBoundsR())){
-                        velY = 0;
-                        falling = true;
-                        jumping = false;
-                    }
-                    else if(tempObject.getBounds().intersects(tempTile.getBoundsL())){
-                        velY = 0;
-                        falling = true;
-                        jumping = false;
-                    }
-                    else if(tempObject.getBounds().intersects(tempTile.getBoundsB())){
-                        velY = 0;
+                    else if(tempObject.getBounds().intersects(tempTile.getBoundsR()) ||
+                            tempObject.getBounds().intersects(tempTile.getBoundsL()) ||
+                            tempObject.getBounds().intersects(tempTile.getBoundsB())){
+                        velY -= 3;
                         falling = true;
                         jumping = false;
                     }
                 }
             }
         }
-    }
-
-    public Rectangle getBounds(){
-        return new Rectangle((int)x, (int)y - 4, 64, height);
-    }
-    public Rectangle getBoundsTop(){
-        return new Rectangle((int)x, (int)y - 30,  25, 23);
     }
 
     public void tick() {

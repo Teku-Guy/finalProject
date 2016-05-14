@@ -68,7 +68,7 @@ public class Handler {
 
 
         for(int i = 0; i <= 50; i++) {
-           addTile(new Grass((i*32), Main.HEIGHT/2 + (700), 128, 128, true, ID.Tile));
+           addTile(new Grass((i*32), Main.HEIGHT/2 + (700), 128, 128, true, ID.Grass));
         }
 
 

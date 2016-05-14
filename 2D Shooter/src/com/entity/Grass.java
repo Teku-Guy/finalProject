@@ -28,8 +28,6 @@ public class Grass extends Tile {
         g2d.draw(getBounds());
         g.setColor(Color.GREEN);
         g2d.draw(getBoundsL());
-        g.setColor(Color.RED);
-        g2d.draw(getBoundsT());
         g.setColor(Color.magenta);
         g2d.draw(getBoundsB());
         g.setColor(Color.BLUE);

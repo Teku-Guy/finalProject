@@ -28,21 +28,19 @@ public abstract class  GameObject {
     public abstract void render(Graphics g);
 
 
-    public Rectangle getBounds() {
-        return new Rectangle((int)getX(), (int)getY(), width, height);
+    public Rectangle getBounds(){
+        return new Rectangle((int)getX()+21, (int)getY(), width-5, 11);
     }
-    public Rectangle getBoundsT(){
-        return new Rectangle((int)getX() + 10, (int)getY(), width - 20, 5);
-    }
+
     public Rectangle getBoundsB(){
-        return new Rectangle((int)getX() + 10, (int)getY() + height -5, width - 20, 5);
+        return new Rectangle((int)getX()+23, (int)getY()+60, width-8, 11);
 
     }
     public Rectangle getBoundsR(){
-        return new Rectangle((int)getX() + width - 5, (int)getY() + 10, 5, height - 20);
+        return new Rectangle((int)getX()+ width - 9, (int)getY() + 15, width/4, height-2);
     }
     public Rectangle getBoundsL(){
-        return new Rectangle((int)getX() + 10, (int)getY() + height - 5, width - 20, 5);
+        return new Rectangle((int)getX() + width + 8, (int)getY()+15, width/4, height - 2);
 
     }
 

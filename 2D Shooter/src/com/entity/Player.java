@@ -101,8 +101,8 @@ public class Player extends GameObject {
         y = Main.clamp((int)y, 0, Main.HEIGHT-53);
     }
 
-  /* private void collision() {
-
+   private void collision() {
+/*
         for (int i = 0; i < handler.object.size(); i++) {
             GameObject tempObject = handler.object.get(i);
 
@@ -119,8 +119,8 @@ public class Player extends GameObject {
                     HUD.HEALTH -= 1;
                 }
             }
-        }
-        for (int i = 0; i < handler.tile.size(); i++) {
+        }*/
+        for(int i = 0; i < handler.tile.size(); i++) {
             for (int j = 0; j < handler.object.size(); j++) {
                 Tile tempTile = handler.tile.get(i);
                 GameObject tempObject = handler.object.get(j);
@@ -134,7 +134,7 @@ public class Player extends GameObject {
             }
         }
     }
-*/
+
     public Rectangle getBounds(){
         return new Rectangle((int)x+22, (int)y+23, 25, height);
     }
@@ -144,7 +144,7 @@ public class Player extends GameObject {
 
     public void tick() {
         move();
-       // collision();
+        collision();
     }
 
 

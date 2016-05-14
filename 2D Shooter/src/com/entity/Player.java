@@ -35,6 +35,7 @@ public class Player extends GameObject {
     public static boolean still = true;
     public static boolean jumping = false;
     public static boolean shoot = false;
+    public static boolean collided;
 
     private float gravity = 0.05f;
     private final float MAX_SPEED = 10;
@@ -132,6 +133,7 @@ public class Player extends GameObject {
                         velY = 0;
                         falling = true;
                         jumping = false;
+                        collided = true;
                     }
                     else if(tempObject.getBounds().intersects(tempTile.getBoundsR())){
                         velY = 0;

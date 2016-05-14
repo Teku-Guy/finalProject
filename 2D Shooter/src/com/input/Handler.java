@@ -12,12 +12,12 @@ public class Handler {
 
     public LinkedList<GameObject> object = new LinkedList<GameObject>();
     public LinkedList<Tile> tile = new LinkedList<Tile>();
+    private int counter = 0;
     public Tile maps[] = new Tile[10];
 
     public void tick(){
 
 
-        createLevel();
         for(int i = 0; i < object.size(); i++){
             GameObject tempObject = object.get(i);
             tempObject.tick();
@@ -34,6 +34,11 @@ public class Handler {
         for(int i = 0 ; i < tile.size(); i++){
             Tile tempTile = tile.get(i);
             tempTile.render(g);
+        }
+        counter++;
+        if(counter % 100 == 0){
+            counter = 0;
+            createLevel();
         }
 
 

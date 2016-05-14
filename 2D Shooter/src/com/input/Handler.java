@@ -17,7 +17,7 @@ public class Handler {
     public void tick(){
 
 
-        createLevel();
+        //createLevel();
         for(int i = 0; i < object.size(); i++){
             GameObject tempObject = object.get(i);
             tempObject.tick();
@@ -67,9 +67,9 @@ public class Handler {
     public void createLevel(){
 
 
-        for(int i = 0; i <= 2; i++) {
+        for(int i = 0; i <= 10; i++) {
 
-           addTile(new Grass((i*32), 975, 128, 128, true, ID.Tile));
+           addTile(new Grass((i*32), Main.HEIGHT/2 + (700), 128, 128, true, ID.Tile));
         }
 
 

@@ -83,6 +83,8 @@ public class Main extends Canvas implements Runnable{
         hud = new HUD();
         menu = new Menu(this, handler);
 
+        handler.createLevel();
+
         this.addKeyListener(new KeyInput(handler));
         this.addMouseListener(menu);
 

@@ -121,7 +121,7 @@ public class Player extends GameObject {
             }
         }*/
         for(int i = 0; i < handler.tile.size(); i++) {
-            for (int j = 0; j < handler.object.size(); j++) {
+            for (int j = i; j < handler.object.size(); j++) {
                 Tile tempTile = handler.tile.get(i);
                 GameObject tempObject = handler.object.get(j);
                 if (tempTile.getId() == ID.Tile) {

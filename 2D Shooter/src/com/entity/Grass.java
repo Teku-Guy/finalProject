@@ -20,7 +20,7 @@ public class Grass extends Tile {
     }
 
     public void render(Graphics g) {
-        g.drawImage(Main.Grass.getBufferedImage(), x, y, null);
+        g.drawImage(Main.Grass.getBufferedImage(), x, y, width, height, null);
 
         Graphics2D g2d = (Graphics2D) g;
 

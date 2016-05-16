@@ -90,10 +90,10 @@ public abstract class Tile{
     }
 
     public Rectangle getBounds(){
-        return new Rectangle(getX(), getY()+32, width, 5);
+        return new Rectangle(getX(), getY()+height/2, width, 5);
     }
     public Rectangle getBoundsT(){
-        return new Rectangle(getX(), getY()+32, width, 5);
+        return new Rectangle(getX(), getY()+height/2, width, 5);
     }
     public Rectangle getBoundsB(){
         return new Rectangle((int)getX(), (int)getY() + 60, width - 20, 5);

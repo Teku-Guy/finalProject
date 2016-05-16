@@ -12,6 +12,7 @@ public class Handler {
 
     public LinkedList<GameObject> object = new LinkedList<GameObject>();
     public LinkedList<Tile> tile = new LinkedList<Tile>();
+
     private int counter = 0;
     public Tile maps[] = new Tile[10];
 
@@ -94,7 +95,7 @@ public class Handler {
 
         for(int i = 0; i <= 30; i++) {
 
-            addTile(new Grass((i*32), Main.HEIGHT + (700), 3000, 64, true, ID.Tile));
+            addTile(new Grass((i*32), Main.HEIGHT + (700), 64, 64, true, ID.Tile));
         }
 
 

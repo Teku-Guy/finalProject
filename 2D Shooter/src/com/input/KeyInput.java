@@ -3,6 +3,7 @@ package com.input;
 /**
  * Created by Gustavo_Muratalla on 5/10/16.
  */
+import com.entity.Bullet;
 import com.entity.GameObject;
 import com.entity.ID;
 import com.entity.Player;
@@ -17,6 +18,7 @@ public class KeyInput extends KeyAdapter {
     public int tempPhase = 0;
 
     protected boolean[] keyDown = new boolean[4];
+    private int width, height;
 
 
     public KeyInput(Handler handler){
@@ -64,7 +66,7 @@ public class KeyInput extends KeyAdapter {
                     Player.still = false;
                 }
                 if(key == KeyEvent.VK_SPACE){
-                    Player.shoot = true;
+                    handler.addObject(new Bullet(tempObject.getX(), tempObject.getY(), width, height, ID.Bullet, Player.facing * 5));
 
                 }
             }

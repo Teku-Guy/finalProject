@@ -66,8 +66,10 @@ public class KeyInput extends KeyAdapter {
                     Player.still = false;
                 }
                 if(key == KeyEvent.VK_SPACE){
-                    handler.addObject(new Bullet(tempObject.getX(), tempObject.getY(), width, height, ID.Bullet, Player.facing * 5));
-
+                    if(Player.facing == 1)
+                        handler.addObject(new Bullet(tempObject.getX(), tempObject.getY(), width, height, ID.Bullet, 5));
+                    else if(Player.facing == 0)
+                        handler.addObject(new Bullet(tempObject.getX(), tempObject.getY(), width, height, ID.Bullet, -5));
                 }
             }
         }

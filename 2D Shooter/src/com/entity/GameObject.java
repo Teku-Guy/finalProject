@@ -29,12 +29,11 @@ public abstract class  GameObject {
 
 
     public Rectangle getBounds(){
-        return new Rectangle((int)getX()+21, (int)getY(), width-5, 11);
+        return new Rectangle((int)getX()+23, (int)getY()+60, width-8, 11);
     }
 
-    public Rectangle getBoundsB(){
-        return new Rectangle((int)getX()+23, (int)getY()+60, width-8, 11);
-
+    public Rectangle getBoundsT(){
+        return new Rectangle((int)getX()+21, (int)getY(), width-5, 11);
     }
     public Rectangle getBoundsR(){
         return new Rectangle((int)getX()+ width - 9, (int)getY() + 15, width/4, height-2);

@@ -31,10 +31,6 @@ public class Zombie extends GameObject{
         super(x , y, width, height, id);
     }
 
-    public void checkIfHit(){
-
-
-    }
     public void chasePlayer(){
         x += velX;
         y += velY;
@@ -99,13 +95,21 @@ public class Zombie extends GameObject{
             }
 
         }
+
+        Graphics2D g2d = (Graphics2D) g;
+
+        /*g.setColor(Color.white);
+        g2d.draw(getBounds());
+        g.setColor(Color.GREEN);
+        g2d.draw(getBoundsT());
+        g.setColor(Color.BLUE);
+        g2d.draw(getBoundsR());
+        g.setColor(Color.RED);
+        g2d.draw(getBoundsL());*/
     }
 
     public void tick() {
         chasePlayer();
-
-        checkIfHit();
-
     }
 
 }

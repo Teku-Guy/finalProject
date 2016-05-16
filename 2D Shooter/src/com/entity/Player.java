@@ -85,9 +85,14 @@ public class Player extends GameObject {
 
         Graphics2D g2d = (Graphics2D) g;
 
-        //g.setColor(Color.black);
-        //g2d.draw(getBounds());
-        //g2d.draw(getBoundsTop());
+        g.setColor(Color.white);
+        g2d.draw(getBounds());
+        g.setColor(Color.GREEN);
+        g2d.draw(getBoundsT());
+        g.setColor(Color.BLUE);
+        g2d.draw(getBoundsR());
+        g.setColor(Color.RED);
+        g2d.draw(getBoundsL());
 
     }
     public void move(){
@@ -111,7 +116,25 @@ public class Player extends GameObject {
             GameObject tempObject = handler.object.get(i);
             if (tempObject.getId() == ID.Zombie) {
 
-                if (getBounds().intersects(tempObject.getBounds())) {
+                if (getBounds().intersects(tempObject.getBounds()) ||
+                        getBoundsT().intersects(tempObject.getBounds()) ||
+                        getBoundsL().intersects(tempObject.getBounds()) ||
+                        getBoundsR().intersects(tempObject.getBounds()) ||
+
+                        getBounds().intersects(tempObject.getBoundsT()) ||
+                        getBoundsT().intersects(tempObject.getBoundsT()) ||
+                        getBoundsL().intersects(tempObject.getBoundsT()) ||
+                        getBoundsR().intersects(tempObject.getBoundsT()) ||
+
+                        getBounds().intersects(tempObject.getBoundsL()) ||
+                        getBoundsT().intersects(tempObject.getBoundsL()) ||
+                        getBoundsL().intersects(tempObject.getBoundsL()) ||
+                        getBoundsR().intersects(tempObject.getBoundsL()) ||
+
+                        getBounds().intersects(tempObject.getBoundsR()) ||
+                        getBoundsT().intersects(tempObject.getBoundsR()) ||
+                        getBoundsL().intersects(tempObject.getBoundsR()) ||
+                        getBoundsR().intersects(tempObject.getBoundsR())) {
                     HUD.HEALTH -= 1;
                 }
             }
@@ -150,13 +173,6 @@ public class Player extends GameObject {
                 }
             }
         }
-    }
-
-    public Rectangle getBounds(){
-        return new Rectangle((int)x, (int)y + 25, 64, height);
-    }
-    public Rectangle getBoundsTop(){
-        return new Rectangle((int)x, (int)y - 30,  25, 23);
     }
 
     public void tick() {

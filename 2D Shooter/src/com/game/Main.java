@@ -257,8 +257,8 @@ public class Main extends Canvas implements Runnable{
 
         g.fillRect(0, 0, WIDTH, HEIGHT);
 
-        //g.setColor(Color.GREEN);
-        //g.drawString("FPS: "+frames, 10,15);
+        g.setColor(Color.GREEN);
+        g.drawString("FPS: "+frames, 10,15);
 
         handler.render(g);
 

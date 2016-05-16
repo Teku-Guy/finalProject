@@ -26,6 +26,7 @@ public class Main extends Canvas implements Runnable{
     private static final long serialVersionUID = 1671921912898282466L;
 
     public static int WIDTH, HEIGHT;
+    private static Main main;
 
     private int frames;
     private Window window;
@@ -92,7 +93,7 @@ public class Main extends Canvas implements Runnable{
 
         player = new Player(100, 100, 32, 32, handler, ID.Player);
 
-        handler.addObject(new Zombie(300, 100, 32, 32, ID.Zombie));
+        handler.addObject(new Zombie(300, 100, 32, 32, false , ID.Zombie));
         handler.addObject(player);
 
         WIDTH = window.frame.getWidth();
@@ -291,10 +292,18 @@ public class Main extends Canvas implements Runnable{
     }
 
     public static void main(String[] args) {
-        new Main();
+        main = new Main();
 
         //mostly for ubuntu
         System.setProperty("sun.java2d.opengl", "true");
+    }
+
+    public static Main getInstance() {
+        return main;
+    }
+
+    public Handler getHandler() {
+        return handler;
     }
 }
 

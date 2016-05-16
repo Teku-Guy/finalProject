@@ -10,9 +10,9 @@ import java.util.LinkedList;
 
 public class Handler {
 
-    public LinkedList<GameObject> object = new LinkedList<GameObject>();
-    public LinkedList<Tile> tile = new LinkedList<Tile>();
-    public LinkedList<Bullet> bullet = new LinkedList<Bullet>();
+    public static LinkedList<GameObject> object = new LinkedList<GameObject>();
+    public static LinkedList<Tile> tile = new LinkedList<Tile>();
+    public static LinkedList<Bullet> bullet = new LinkedList<Bullet>();
 
     private int counter = 0;
     public Tile maps[] = new Tile[10];
@@ -55,17 +55,16 @@ public class Handler {
 
     }
 
-    public void clearEnemies(){
+    public static void clearDeadEnemies(){
         for(int i = 0; i <object.size(); i++){
-            GameObject tempObject = object.get(i);
-
-            if(tempObject.getId() == ID.Zombie){
+            if(object.get(i) instanceof Zombie && ((Zombie)object.get(i)).isDead()) {
                 object.remove(i);
+            }
 
                 //This removes the player after they lost
                 //if(Main.gameState != Main.STATE.End)
                     //addObject(new Player((int)tempObject.getX(), (int)tempObject.getY(), ID.Player, this));
-            }
+
         }
     }
 
@@ -81,9 +80,7 @@ public class Handler {
 
     public void clearBullet(){
         for(int i = 0; i < bullet.size(); i++) {
-            Bullet tempBullet = bullet.get(i);
-
-            if (tempBullet.getId() == ID.Bullet){
+            if (bullet.get(i) instanceof Bullet){
                 bullet.remove(i);
             }
         }

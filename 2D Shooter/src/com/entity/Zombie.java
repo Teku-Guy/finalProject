@@ -14,7 +14,7 @@ import java.awt.*;
 
 public class Zombie extends GameObject{
 
-    private Handler handler = new Handler();
+    private final Handler handler;
     private Player player;
 
     private int phase = 0;
@@ -22,14 +22,17 @@ public class Zombie extends GameObject{
     private boolean still = false;
     private int counter = 0;
     private boolean jumping = false;
+    private boolean isDead = false;
     private boolean falling = true;
 
 
     private float gravity = 0.1f;
     private final float MAX_SPEED = 10;
 
-    public Zombie(float x, float y, int width, int height, ID id){
+    public Zombie(float x, float y, int width, int height, boolean isDead, ID id){
         super(x , y, width, height, id);
+        this.isDead = isDead;
+        handler = Main.getInstance().getHandler();
     }
 
     public void chasePlayer(){
@@ -71,17 +74,15 @@ public class Zombie extends GameObject{
     }
 
     private void collision(){
-        for (int i = 0; i < handler.bullet.size(); i++) {
-            Bullet tempBullet = handler.bullet.get(i);
-            if (tempBullet.getId() == ID.Bullet) {
+        for (int i = 0; i < Handler.bullet.size(); i++) {
+            Bullet tempBullet = Handler.bullet.get(i);
                 if (getBounds().intersects(tempBullet.getBounds()) ||
                         getBoundsT().intersects(tempBullet.getBounds()) ||
                         getBoundsL().intersects(tempBullet.getBounds()) ||
                         getBoundsR().intersects(tempBullet.getBounds()) ) {
                             handler.clearBullet();
-                            handler.clearEnemy();
-
-                }
+                            isDead = true;
+                    System.out.println("U JUST GOY HIT");
             }
         }
     }
@@ -113,6 +114,7 @@ public class Zombie extends GameObject{
 
         }
 
+
         Graphics2D g2d = (Graphics2D) g;
 
         /*g.setColor(Color.white);
@@ -125,9 +127,18 @@ public class Zombie extends GameObject{
         g2d.draw(getBoundsL());*/
     }
 
+    public void ifDead(){
+        if(isDead){
+            Handler.clearDeadEnemies();
+        }
+    }
     public void tick() {
         chasePlayer();
         collision();
+        ifDead();
+    }
+    public boolean isDead() {
+        return isDead;
     }
 
 }

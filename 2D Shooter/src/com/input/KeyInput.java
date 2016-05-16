@@ -32,34 +32,33 @@ public class KeyInput extends KeyAdapter {
 
     public void keyPressed(KeyEvent e){
         int key = e.getKeyCode();
-
-        for(int i = 0; i < handler.object.size(); i++){
+        for(int i = 0; i < handler.object.size(); i++) {
             GameObject tempObject = handler.object.get(i);
 
-            if(tempObject.getId() == ID.Player){
+            if (tempObject.getId() == ID.Player) {
                 //key Events for player 1
 
-                if(key == KeyEvent.VK_W){
+                if (key == KeyEvent.VK_W) {
                     tempObject.setVelY(-4);
                     keyDown[0] = true;
                     Player.jumping = true;
                     Player.still = false;
                 }
-                if(key == KeyEvent.VK_S){
-                  if(!Player.collided) {
-                      tempObject.setVelY(1);
-                      keyDown[1] = true;
-                      Player.still = false;
-                  }
+                if (key == KeyEvent.VK_S) {
+                    if (!Player.collided) {
+                        tempObject.setVelY(1);
+                        keyDown[1] = true;
+                        Player.still = false;
+                    }
                 }
-                if(key == KeyEvent.VK_D){
+                if (key == KeyEvent.VK_D) {
                     tempObject.setVelX(1);
                     keyDown[2] = true;
                     Player.facing = 1;
                     Player.still = false;
 
                 }
-                if(key == KeyEvent.VK_A){
+                if (key == KeyEvent.VK_A) {
                     tempObject.setVelX(-1);
                     keyDown[3] = true;
                     Player.facing = 0;
@@ -67,9 +66,9 @@ public class KeyInput extends KeyAdapter {
                 }
                 if(key == KeyEvent.VK_SPACE){
                     if(Player.facing == 1)
-                        handler.addObject(new Bullet(tempObject.getX(), tempObject.getY(), width, height, ID.Bullet, 5));
+                        handler.addBullet(new Bullet(tempObject.getX(), tempObject.getY(), width, height, ID.Bullet, 5, false));
                     else if(Player.facing == 0)
-                        handler.addObject(new Bullet(tempObject.getX(), tempObject.getY(), width, height, ID.Bullet, -5));
+                        handler.addBullet(new Bullet(tempObject.getX(), tempObject.getY(), width, height, ID.Bullet, -5, false));
                 }
             }
         }
@@ -79,6 +78,7 @@ public class KeyInput extends KeyAdapter {
             System.exit(0);
         }
     }
+
 
     public void keyReleased(KeyEvent e){
         int key = e.getKeyCode();

@@ -15,13 +15,16 @@ public class Bullet extends GameObject{
 
     public ID id;
 
-    public Bullet(float x, float y, int width, int height, ID id, int velX){
+    public boolean ifShotHits= false;
+
+    public Bullet(float x, float y, int width, int height, ID id, int velX, boolean ifShotHits){
         super(x,y,width,height,id);
 
         this.x = x;
         this.y = y;
         this.id = id;
         this.velX = velX;
+        this.ifShotHits = ifShotHits;
     }
 
     public void render(Graphics g) {
@@ -44,6 +47,9 @@ public class Bullet extends GameObject{
         return x;
     }
 
+    public void hit(){
+     this.ifShotHits = true;
+    }
 
     public float getY(){
         return y;

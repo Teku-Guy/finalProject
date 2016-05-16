@@ -71,13 +71,13 @@ public class Zombie extends GameObject{
     }
 
     private void collision(){
-        for (int i = 0; i < handler.object.size(); i++) {
-            GameObject tempObject = handler.object.get(i);
-            if (tempObject.getId() == ID.Bullet) {
-                if (getBounds().intersects(tempObject.getBounds()) ||
-                        getBoundsT().intersects(tempObject.getBounds()) ||
-                        getBoundsL().intersects(tempObject.getBounds()) ||
-                        getBoundsR().intersects(tempObject.getBounds()) ) {
+        for (int i = 0; i < handler.bullet.size(); i++) {
+            Bullet tempBullet = handler.bullet.get(i);
+            if (tempBullet.getId() == ID.Bullet) {
+                if (getBounds().intersects(tempBullet.getBounds()) ||
+                        getBoundsT().intersects(tempBullet.getBounds()) ||
+                        getBoundsL().intersects(tempBullet.getBounds()) ||
+                        getBoundsR().intersects(tempBullet.getBounds()) ) {
                             handler.clearBullet();
                             handler.clearEnemy();
 

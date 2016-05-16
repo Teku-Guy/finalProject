@@ -12,6 +12,7 @@ public class Handler {
 
     public LinkedList<GameObject> object = new LinkedList<GameObject>();
     public LinkedList<Tile> tile = new LinkedList<Tile>();
+    public LinkedList<Bullet> bullet = new LinkedList<Bullet>();
 
     private int counter = 0;
     public Tile maps[] = new Tile[10];
@@ -23,6 +24,11 @@ public class Handler {
             GameObject tempObject = object.get(i);
             tempObject.tick();
         }
+        for(int i = 0; i < bullet.size(); i++){
+            Bullet bulletObject = bullet.get(i);
+            bulletObject.tick();
+
+        }
 
 
     }
@@ -31,6 +37,10 @@ public class Handler {
         for(int i = 0; i < object.size(); i++){
             GameObject tempObject = object.get(i);
             tempObject.render(g);
+        }
+        for(int i = 0; i < bullet.size(); i++){
+            Bullet tempBullet = bullet.get(i);
+            tempBullet.render(g);
         }
         for(int i = 0 ; i < tile.size(); i++){
             Tile tempTile = tile.get(i);
@@ -70,17 +80,20 @@ public class Handler {
     }
 
     public void clearBullet(){
-        for(int i = 0; i <object.size(); i++) {
-            GameObject tempObject = object.get(i);
+        for(int i = 0; i < bullet.size(); i++) {
+            Bullet tempBullet = bullet.get(i);
 
-            if (tempObject.getId() == ID.Bullet){
-                object.remove(1);
+            if (tempBullet.getId() == ID.Bullet){
+                bullet.remove(i);
             }
         }
     }
 
     public void addObject(GameObject object){
         this.object.add(object);
+    }
+    public void addBullet(Bullet bullet){
+        this.bullet.add(bullet);
     }
     public void removeObject(GameObject object){
         this.object.remove(object);

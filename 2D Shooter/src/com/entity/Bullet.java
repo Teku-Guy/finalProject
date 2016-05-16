@@ -1,12 +1,11 @@
-package com.entity;
+package com.entity;/**
+ * Created by jessus on 5/14/16.
+ */
 
 import com.game.Main;
 
 import java.awt.*;
 
-/**
- * Created by jessus on 5/14/16.
- */
 public class Bullet extends GameObject{
     public float x, y;
 
@@ -21,12 +20,25 @@ public class Bullet extends GameObject{
 
         this.x = x;
         this.y = y;
-        this.width = width;
-        this.height = height;
         this.id = id;
         this.velX = velX;
     }
 
+    public void render(Graphics g) {
+        g.drawImage(Main.Bullet.getBufferedImage(), (int)x, (int)y, null);
+
+        Graphics2D g2d = (Graphics2D) g;
+
+        g.setColor(Color.white);
+        g2d.draw(getBounds());
+    }
+    public Rectangle getBounds(){
+        return new Rectangle((int)getX()+20, (int)getY()+25,  20, 15);
+    }
+
+    public void tick() {
+        x += velX;
+    }
 
     public float getX(){
         return x;
@@ -35,16 +47,5 @@ public class Bullet extends GameObject{
 
     public float getY(){
         return y;
-    }
-
-    public void tick() {
-        x += velX;
-    }
-
-    public void render(Graphics g) {
-        g.drawImage(Main.Bullet.getBufferedImage(), (int)x, (int)y, null);
-    }
-    public Rectangle getBounds(){
-        return new Rectangle((int)getX(), (int)getY(), width, height);
     }
 }

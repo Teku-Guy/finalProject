@@ -58,6 +58,26 @@ public class Handler {
         }
     }
 
+    public void clearEnemy(){
+        for(int i = 0; i <object.size(); i++) {
+            GameObject tempObject = object.get(i);
+
+            if (tempObject.getId() == ID.Zombie){
+                object.remove(1);
+            }
+        }
+    }
+
+    public void clearBullet(){
+        for(int i = 0; i <object.size(); i++) {
+            GameObject tempObject = object.get(i);
+
+            if (tempObject.getId() == ID.Bullet){
+                object.remove(1);
+            }
+        }
+    }
+
     public void addObject(GameObject object){
         this.object.add(object);
     }

@@ -3,6 +3,7 @@ package com.entity;/**
  */
 
 import com.game.Main;
+import com.gui.HUD;
 import com.input.Handler;
 import com.entity.ID;
 import com.graphics.Sprite;
@@ -39,7 +40,7 @@ public class Zombie extends GameObject{
         float diffY = y - Main.player.getY();
         float distance = (float) Math.sqrt( ( x - Main.player.getX() ) * ( x-Main.player.getX() ) + ( y-Main.player.getY() ) * ( y-Main.player.getY() ) );
 
-       velX = ((-1/distance) * diffX);
+        velX = ((-1/distance) * diffX);
         velY = ((-1/distance) * diffY);
 
         if(x == Main.player.getX() && y == Main.player.getX()){
@@ -54,19 +55,35 @@ public class Zombie extends GameObject{
         if(y > Main.player.getVelY()){
             jumping = true;
         }
-        if (falling || jumping){
-            velY += gravity;
-        }
+        //if (falling || jumping){
+           // velY += gravity;
+        //}
 
 
 
 
 
-       // x = Main.clamp((int)x, 0, Main.WIDTH);
-        y = Main.clamp((int)y, 0, Main.HEIGHT);
+        //x = Main.clamp((int)x, 0, Main.WIDTH);
+       // y = Main.clamp((int)y, 0, Main.HEIGHT);
 
 
        // handler.addObject(new Trail(x, y, ID.Trail, Color.GREEN, 16, 16, 0.02f, handler));
+    }
+
+    private void collision(){
+        for (int i = 0; i < handler.object.size(); i++) {
+            GameObject tempObject = handler.object.get(i);
+            if (tempObject.getId() == ID.Bullet) {
+                if (getBounds().intersects(tempObject.getBounds()) ||
+                        getBoundsT().intersects(tempObject.getBounds()) ||
+                        getBoundsL().intersects(tempObject.getBounds()) ||
+                        getBoundsR().intersects(tempObject.getBounds()) ) {
+                            handler.clearBullet();
+                            handler.clearEnemy();
+
+                }
+            }
+        }
     }
 
     public void render(Graphics g) {
@@ -110,6 +127,7 @@ public class Zombie extends GameObject{
 
     public void tick() {
         chasePlayer();
+        collision();
     }
 
 }

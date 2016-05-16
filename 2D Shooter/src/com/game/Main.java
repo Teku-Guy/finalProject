@@ -226,10 +226,11 @@ public class Main extends Canvas implements Runnable{
 
     //Run every Second
     private void tick(){
-        handler.tick();
+
         if(gameState == STATE.Game)
         {
             hud.tick();
+            handler.tick();
         }
         else if(gameState == STATE.Menu || gameState == STATE.End){
             menu.tick();
@@ -260,12 +261,13 @@ public class Main extends Canvas implements Runnable{
         g.setColor(Color.GREEN);
         g.drawString("FPS: "+frames, 10,15);
 
-        handler.render(g);
 
 
         if(gameState == STATE.Game)
         {
-           hud.render(g);
+            g.drawImage(Main.Background, 0, 0, null);
+            handler.render(g);
+            hud.render(g);
         }
         else if(gameState == STATE.Menu || gameState == STATE.Help || gameState == STATE.End){
             menu.render(g);

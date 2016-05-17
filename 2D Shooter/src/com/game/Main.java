@@ -33,6 +33,8 @@ public class Main extends Canvas implements Runnable {
     private Thread thread;
     private boolean running = false;
 
+    private int enemy_count = 5;
+    private int enemy_killed = 0;
 
     public Handler handler;
     private Menu menu;
@@ -91,7 +93,8 @@ public class Main extends Canvas implements Runnable {
 
         player = new Player(100, 100, 32, 32, handler, ID.Player);
 
-        handler.addObject(new Zombie(300, 100, 32, 32, false, handler, ID.Zombie));
+        handler.addEnemy(enemy_count, enemy_killed);
+        //handler.addObject(new Zombie(300, 100, 32, 32, false, handler, ID.Zombie));
         //handler.addObject(player);
 
         WIDTH = window.frame.getWidth();
@@ -231,8 +234,11 @@ public class Main extends Canvas implements Runnable {
         } else if (gameState == STATE.Menu || gameState == STATE.End) {
             menu.tick();
         }
-
-
+        if(enemy_killed >= enemy_count){
+            enemy_count += 2;
+            enemy_killed = 0;
+            handler.addEnemy(enemy_count, enemy_killed);
+        }
     }
 
     //This renders the back ground in the JFrame
@@ -281,6 +287,22 @@ public class Main extends Canvas implements Runnable {
             return var = min;
         else
             return var;
+    }
+
+    public int getEnemy_count(int enemy_count){
+        return enemy_count;
+    }
+
+    public void setEnemy_count(int enemy_count){
+        this.enemy_count = enemy_count;
+    }
+
+    public int getEnemy_killed(){
+        return enemy_killed;
+    }
+
+    public void setEnemy_killed(int enemy_killed){
+        this.enemy_killed = enemy_killed;
     }
 
     public static void main(String[] args) {

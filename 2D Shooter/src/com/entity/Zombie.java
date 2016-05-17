@@ -27,7 +27,7 @@ public class Zombie extends GameObject{
     private boolean falling = true;
 
 
-    private float gravity = 0.1f;
+    private float gravity = 0.05f;
     private final float MAX_SPEED = 10;
 
     public Zombie(float x, float y, int width, int height, boolean isDead, Handler handler, ID id){
@@ -59,9 +59,9 @@ public class Zombie extends GameObject{
         if(y > Main.player.getVelY()){
             jumping = true;
         }
-        //if (falling || jumping){
-           // velY += gravity;
-        //}
+        if (falling || jumping){
+            velY += gravity;
+        }
 
 
 
@@ -80,9 +80,10 @@ public class Zombie extends GameObject{
                         getBoundsT().intersects(tempBullet.getBounds()) ||
                         getBoundsL().intersects(tempBullet.getBounds()) ||
                         getBoundsR().intersects(tempBullet.getBounds()) ) {
-
                     handler.clearBullet();
-                    isDead = true;
+                    //isDead = true;
+                    handler.kill(this);
+                    //main.setEnemy_killed(main.getEnemy_killed()+1);
                     System.out.println("U JUST GOT HIT");
             }
         }
@@ -127,16 +128,9 @@ public class Zombie extends GameObject{
         g.setColor(Color.RED);
         g2d.draw(getBoundsL());*/
     }
-
-    public void ifDead(){
-        if(isDead){
-            Handler.clearDeadEnemies();
-        }
-    }
     public void tick() {
         chasePlayer();
         collision();
-        ifDead();
     }
     public boolean isDead() {
         return isDead;

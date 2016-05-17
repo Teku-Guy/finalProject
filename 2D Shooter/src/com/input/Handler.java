@@ -8,6 +8,8 @@ import com.gui.Window;
 
 import java.awt.Graphics;
 import java.util.LinkedList;
+import java.util.Objects;
+import java.util.Random;
 
 public class Handler {
 
@@ -16,6 +18,7 @@ public class Handler {
     public static LinkedList<Bullet> bullet = new LinkedList<Bullet>();
 
     private int counter = 0;
+    private Random r = new Random();
     public Tile maps[] = new Tile[10];
 
     public void tick(){
@@ -56,17 +59,14 @@ public class Handler {
 
     }
 
-    public static void clearDeadEnemies(){
-        for(int i = 0; i <object.size(); i++){
-            if(object.get(i) instanceof Zombie && ((Zombie)object.get(i)).isDead()) {
-                object.remove(i);
-            }
-
-                //This removes the player after they lost
-                //if(Main.gameState != Main.STATE.End)
-                    //addObject(new Player((int)tempObject.getX(), (int)tempObject.getY(), ID.Player, this));
-
+    public void addEnemy(int enemy_count, int enemy_killed){
+        for(int i = 0; i < enemy_count; i++){
+            addObject(new Zombie(r.nextInt(300), 300, 32, 32, false, this, ID.Zombie));
         }
+    }
+
+    public void kill(Zombie zombie){
+        object.remove(zombie);
     }
 
     public void clearEnemy(){

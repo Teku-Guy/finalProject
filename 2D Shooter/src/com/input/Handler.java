@@ -16,8 +16,10 @@ public class Handler {
     public static LinkedList<GameObject> object = new LinkedList<GameObject>();
     public static LinkedList<Tile> tile = new LinkedList<Tile>();
     public static LinkedList<Bullet> bullet = new LinkedList<Bullet>();
+    public static int killCount = 0;
 
     private Bullet bull;
+    private Main main;
 
     private int counter = 0;
     private Random r = new Random();
@@ -60,10 +62,11 @@ public class Handler {
 
     }
 
-    public void addEnemy(int enemy_count){
+    public void makeWave(int enemy_count){
         for(int i = 0; i < enemy_count; i++){
-            addObject(new Zombie(r.nextInt(Main.WIDTH+100), 600, 32, 32, false, this, ID.Zombie));
+            addObject(new Zombie(r.nextInt(Main.WIDTH+100), 600, 32, 32, false, this, main, ID.Zombie));
         }
+
     }
 
     public void clearEnemys(){
@@ -82,6 +85,8 @@ public class Handler {
 
     public void kill(Zombie z){
         object.remove(z);
+        killCount++;
+        System.out.println(killCount);
     }
 
     public void clearBullet(Bullet b){
@@ -101,6 +106,7 @@ public class Handler {
     public void addTile(Tile newTile){
         tile.add(newTile);
     }
+
 
     public void createLevel(){
 

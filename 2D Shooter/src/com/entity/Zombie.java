@@ -23,17 +23,19 @@ public class Zombie extends GameObject{
     private boolean still = false;
     private int counter = 0;
     private boolean jumping = false;
-    private boolean isDead = false;
+    public static boolean isDead = false;
     private boolean falling = true;
 
 
     private float gravity = 0.05f;
     private final float MAX_SPEED = 10;
 
-    public Zombie(float x, float y, int width, int height, boolean isDead, Handler handler, ID id){
+    public Zombie(float x, float y, int width, int height, boolean isDead, Handler handler, Main main, ID id){
         super(x , y, width, height, id);
         this.handler = handler;
+        this.main = main;
         this.isDead = isDead;
+
     }
 
     public void chasePlayer(){
@@ -66,8 +68,8 @@ public class Zombie extends GameObject{
 
 
 
-        x = Main.clamp((int)x, 0, Main.WIDTH);
-       // y = Main.clamp((int)y, 0, Main.HEIGHT);
+
+        y = Main.clamp((int)y, 0, Main.HEIGHT);
 
 
        // handler.addObject(new Trail(x, y, ID.Trail, Color.GREEN, 16, 16, 0.02f, handler));
@@ -81,9 +83,8 @@ public class Zombie extends GameObject{
                         getBoundsL().intersects(tempBullet.getBounds()) ||
                         getBoundsR().intersects(tempBullet.getBounds()) ) {
                     handler.clearBullet(tempBullet);
-                    //isDead = true;
+                    isDead = true;
                     handler.kill(this);
-                    main.setEnemy_killed(main.getEnemy_killed()+1); //here is the error its returning null why?
                     System.out.println("Dead");
             }
         }
@@ -131,6 +132,7 @@ public class Zombie extends GameObject{
     public void tick() {
         chasePlayer();
         collision();
+
     }
     public boolean isDead() {
         return isDead;

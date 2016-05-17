@@ -90,13 +90,12 @@ public class Main extends Canvas implements Runnable {
 
         window = new Window("2D Shooter", this);
 
-        if(gameState == STATE.Game) {
             handler.createLevel();
-            handler.addObject(new Player(500, 600, 32, 32, handler, ID.Player));
-            handler.addEnemy(enemy_count);
+            player = (new Player(500, 600, 32, 32, handler, ID.Player));
+            handler.addObject(player);
+            handler.makeWave(enemy_count);
             //handler.addObject(new Zombie(300, 100, 32, 32, false, handler, ID.Zombie));
             //handler.addObject(player);
-        }
 
         WIDTH = window.frame.getWidth();
         HEIGHT = window.frame.getHeight();
@@ -172,11 +171,7 @@ public class Main extends Canvas implements Runnable {
 
         System.out.println("Background loaded!");
 
-        if(enemy_killed >= enemy_count){
-            enemy_count += 2;
-            enemy_killed = 0;
-            handler.addEnemy(enemy_count);
-        }
+
 
     }
 
@@ -233,11 +228,14 @@ public class Main extends Canvas implements Runnable {
 
     //Run every Second
     private void tick() {
-
-        handler.tick();
-
         if (gameState == STATE.Game) {
+            handler.tick();
             hud.tick();
+            if(Handler.killCount >= enemy_count){
+                enemy_count += 10;
+                Handler.killCount = 0;
+                handler.makeWave(enemy_count);
+            }
         } else if (gameState == STATE.Menu || gameState == STATE.End) {
             menu.tick();
         }
@@ -265,10 +263,9 @@ public class Main extends Canvas implements Runnable {
         g.setColor(Color.GREEN);
         g.drawString("FPS: " + frames, 10, 15);
 
-        handler.render(g);
-
         if (gameState == STATE.Game) {
             g.drawImage(Main.Background, 0, 0, null);
+            handler.render(g);
             hud.render(g);
         } else if (gameState == STATE.Menu || gameState == STATE.Help || gameState == STATE.End) {
             menu.render(g);
@@ -294,7 +291,6 @@ public class Main extends Canvas implements Runnable {
     public int getEnemy_count(){
         return enemy_count;
     }
-
     public void setEnemy_count(int enemy_count){
         this.enemy_count = enemy_count;
     }

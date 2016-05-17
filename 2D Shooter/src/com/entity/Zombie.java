@@ -88,34 +88,41 @@ public class Zombie extends GameObject{
                 System.out.println("Dead");
             }
         }
-        for (int i = 0; i < Handler.tile.size(); i++) {
-            Tile tempTile = Handler.tile.get(i);
+        for(int i = 0; i < handler.tile.size(); i++) {
+            for (int j = 0; j < handler.object.size(); j++) {
+                Tile tempTile = handler.tile.get(i);
+                GameObject tempObject = handler.object.get(j);
                 if (tempTile.getId() == ID.Tile) {
-                        if (getBounds().intersects(tempTile.getBounds())) {
-                            velY = 0;
-                            falling = true;
-                            jumping = false;
+                    if (getBounds().intersects(tempTile.getBounds())) {
+                        velY = 0;
+                        falling = true;
+                        jumping = false;
+                        //collided = true;
+                    }
+                    else if(getBounds().intersects(tempTile.getBoundsR())){
+                        velY = 0;
+                        falling = true;
+                        jumping = false;
+                    }
+                    else if(getBounds().intersects(tempTile.getBoundsL())){
+                        velY = 0;
+                        falling = true;
+                        jumping = false;
+                    }
+                    else if(getBounds().intersects(tempTile.getBoundsB())){
+                        velY = 0;
+                        falling = true;
+                        jumping = false;
+                    }
+                    else if(getBounds().intersects(tempTile.getBoundsT())){
+                        velY = 0;
+                        falling = true;
 
-                        } else if (getBounds().intersects(tempTile.getBoundsR())) {
-                            velY = 0;
-                            falling = true;
-                            jumping = false;
-                        } else if (getBounds().intersects(tempTile.getBoundsL())) {
-                            velY = 0;
-                            falling = true;
-                            jumping = false;
-                        } else if (getBounds().intersects(tempTile.getBoundsB())) {
-                            velY = 0;
-                            falling = true;
-                            jumping = false;
-                        } else if (getBounds().intersects(tempTile.getBoundsT())) {
-                            velY = 0;
-                            falling = true;
-
-                        }
                     }
                 }
             }
+        }
+    }
 
 
 

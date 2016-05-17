@@ -232,7 +232,7 @@ public class Main extends Canvas implements Runnable {
             handler.tick();
             hud.tick();
             if(Handler.killCount >= enemy_count){
-                enemy_count += 10;
+                enemy_count += 2;
                 Handler.killCount = 0;
                 handler.makeWave(enemy_count);
             }

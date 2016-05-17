@@ -64,7 +64,7 @@ public class Handler {
 
     public void makeWave(int enemy_count){
         for(int i = 0; i < enemy_count; i++){
-            addObject(new Zombie(r.nextInt(Main.WIDTH+100), 600, 32, 32, false, this, main, ID.Zombie));
+            addObject(new Zombie(r.nextInt(Main.WIDTH+10), 600, 32, 32, false, this, main, ID.Zombie));
         }
 
     }
@@ -111,7 +111,7 @@ public class Handler {
     public void createLevel(){
 
 
-        for(int i = 0; i <= 30; i++) {
+        for(int i = 0; i <= 100; i++) {
 
             addTile(new Grass((i*32), Main.HEIGHT+700, 64, 64, true, ID.Tile));
         }

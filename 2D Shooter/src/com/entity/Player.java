@@ -38,7 +38,7 @@ public class Player extends GameObject {
     public static boolean shoot = false;
     public static boolean collided;
 
-    private float gravity = 0.05f;
+    private float gravity = 0.5f;
     private final float MAX_SPEED = 10;
 
 
@@ -101,7 +101,7 @@ public class Player extends GameObject {
         y += velY;
 
         if (falling || jumping){
-            velY+= gravity;
+            velY += gravity;
         }
         if (velY > MAX_SPEED){
             velY = MAX_SPEED;
@@ -143,30 +143,30 @@ public class Player extends GameObject {
         for(int i = 0; i < handler.tile.size(); i++) {
             for (int j = 0; j < handler.object.size(); j++) {
                 Tile tempTile = handler.tile.get(i);
-                GameObject tempObject = handler.object.get(j);
+                //GameObject tempObject = handler.object.get(j);
                 if (tempTile.getId() == ID.Tile) {
-                    if (tempObject.getBounds().intersects(tempTile.getBounds())) {
+                    if (getBounds().intersects(tempTile.getBounds())) {
                         velY = 0;
                         falling = true;
                         jumping = false;
-                        collided = true;
+                        //collided = true;
                     }
-                    else if(tempObject.getBounds().intersects(tempTile.getBoundsR())){
-                        velY = 0;
-                        falling = true;
-                        jumping = false;
-                    }
-                    else if(tempObject.getBounds().intersects(tempTile.getBoundsL())){
+                    else if(getBounds().intersects(tempTile.getBoundsR())){
                         velY = 0;
                         falling = true;
                         jumping = false;
                     }
-                    else if(tempObject.getBounds().intersects(tempTile.getBoundsB())){
+                    else if(getBounds().intersects(tempTile.getBoundsL())){
                         velY = 0;
                         falling = true;
                         jumping = false;
                     }
-                    else if(tempObject.getBounds().intersects(tempTile.getBoundsT())){
+                    else if(getBounds().intersects(tempTile.getBoundsB())){
+                        velY = 0;
+                        falling = true;
+                        jumping = false;
+                    }
+                    else if(getBounds().intersects(tempTile.getBoundsT())){
                         velY = 0;
                         falling = true;
 

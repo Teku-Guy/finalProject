@@ -21,7 +21,7 @@ import javax.imageio.ImageIO;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class Main extends Canvas implements Runnable{
+public class Main extends Canvas implements Runnable {
 
     private static final long serialVersionUID = 1671921912898282466L;
 
@@ -34,8 +34,7 @@ public class Main extends Canvas implements Runnable{
     private boolean running = false;
 
 
-
-    private Handler handler;
+    public Handler handler;
     private Menu menu;
     private HUD hud;
     public static Player player;
@@ -69,7 +68,6 @@ public class Main extends Canvas implements Runnable{
     public static BufferedImage Background;
 
 
-
     public enum STATE {
         Menu,
         Help,
@@ -93,15 +91,16 @@ public class Main extends Canvas implements Runnable{
 
         player = new Player(100, 100, 32, 32, handler, ID.Player);
 
-        handler.addObject(new Zombie(300, 100, 32, 32, false , ID.Zombie));
-        handler.addObject(player);
+        handler.addObject(new Zombie(300, 100, 32, 32, false, handler, ID.Zombie));
+        //handler.addObject(player);
 
         WIDTH = window.frame.getWidth();
         HEIGHT = window.frame.getHeight();
 
     }
+
     //Loads stuff
-    public void init(){
+    public void init() {
 
 
         BulletSheet = new SpriteSheet("/res/Bullet.png");
@@ -109,9 +108,9 @@ public class Main extends Canvas implements Runnable{
         StoneSheet = new SpriteSheet("/res/Stone.png");
         FloatingSheet = new SpriteSheet("/res/FloatingPlat.png");
 
-        Bullet = Sprite.fromSheet(BulletSheet, 0, 0, 64 ,64);
-        Grass = Sprite.fromSheet(GrassSheet, 0, 0 , 96 ,96);
-        Stone = Sprite.fromSheet(StoneSheet, 0 , 0, 64 ,64);
+        Bullet = Sprite.fromSheet(BulletSheet, 0, 0, 64, 64);
+        Grass = Sprite.fromSheet(GrassSheet, 0, 0, 96, 96);
+        Stone = Sprite.fromSheet(StoneSheet, 0, 0, 64, 64);
         Floating = Sprite.fromSheet(FloatingSheet, 0, 0, 64, 64);
 
 
@@ -125,25 +124,24 @@ public class Main extends Canvas implements Runnable{
 
         System.out.println("Level created!");
 
-        PJumpLeft = Sprite.fromSheet(PJumpLSheet, 0, 0, 64,64);
+        PJumpLeft = Sprite.fromSheet(PJumpLSheet, 0, 0, 64, 64);
         PJumpRight = Sprite.fromSheet(PJumpRSheet, 0, 0, 64, 64);
 
-        for(int i = 0; i < PlayerWalkR.length; i++){
+        for (int i = 0; i < PlayerWalkR.length; i++) {
             PlayerWalkR[i] = Sprite.fromSheet(PWalkRSheet, i, 0, 64, 64);
         }
 
-        for(int i = 0; i < PlayerWalkL.length; i++){
-            PlayerWalkL[i] =  Sprite.fromSheet(PWalkLSheet, i, 0, 64 ,64);
+        for (int i = 0; i < PlayerWalkL.length; i++) {
+            PlayerWalkL[i] = Sprite.fromSheet(PWalkLSheet, i, 0, 64, 64);
         }
 
-        for(int i = 0; i < PlayerJumpR.length; i++){
-            PlayerJumpR[i] = Sprite.fromSheet(PJumpRSheet, i, 0, 64 ,64);
+        for (int i = 0; i < PlayerJumpR.length; i++) {
+            PlayerJumpR[i] = Sprite.fromSheet(PJumpRSheet, i, 0, 64, 64);
         }
 
-        for(int i = 0; i < PlayerJumpL.length; i++){
-            PlayerJumpL[i] = Sprite.fromSheet(PJumpLSheet, i, 0, 64 ,64);
+        for (int i = 0; i < PlayerJumpL.length; i++) {
+            PlayerJumpL[i] = Sprite.fromSheet(PJumpLSheet, i, 0, 64, 64);
         }
-
 
 
         System.out.println("Player Sprites loaded!");
@@ -151,19 +149,19 @@ public class Main extends Canvas implements Runnable{
         ZWalkRSheet = new SpriteSheet("/res/ZWalkingRight.png");
         ZWalkLSheet = new SpriteSheet("/res/ZWalkingLeft.png");
 
-        for(int i = 0; i < ZWalkR.length; i++){
-            ZWalkR[i] = Sprite.fromSheet(ZWalkRSheet, i, 0, 64 ,64);
+        for (int i = 0; i < ZWalkR.length; i++) {
+            ZWalkR[i] = Sprite.fromSheet(ZWalkRSheet, i, 0, 64, 64);
         }
 
-        for(int i = 0; i < ZWalkL.length; i++){
+        for (int i = 0; i < ZWalkL.length; i++) {
             ZWalkL[i] = Sprite.fromSheet(ZWalkLSheet, i, 0, 64, 64);
         }
         System.out.println("Zombie Sprites loaded");
 
 
-        try{
+        try {
             Background = ImageIO.read(getClass().getResourceAsStream("/res/Background.png"));
-        }catch(IOException a){
+        } catch (IOException a) {
 
             System.out.println("Background image load failed!");
         }
@@ -171,11 +169,10 @@ public class Main extends Canvas implements Runnable{
         System.out.println("Background loaded!");
 
 
-
-
     }
+
     //Run the thread
-    public synchronized void start(){
+    public synchronized void start() {
         thread = new Thread(this);
         thread.start();
 
@@ -184,31 +181,31 @@ public class Main extends Canvas implements Runnable{
     }
 
     //Stop running the thread
-    public synchronized void stop(){
-        try{
+    public synchronized void stop() {
+        try {
             thread.join();
             running = false;
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     //When it is run the FPS Counter will keep Counting need the tik method
-    public void run(){
-       init();
+    public void run() {
+        init();
 
         long lastTime = System.nanoTime();
         double amountOfTicks = 60.0;
         double ns = 1000000000 / amountOfTicks;
         double delta = 0;
-        long timer =  System.currentTimeMillis();
+        long timer = System.currentTimeMillis();
         frames = 0;
 
-        while(running){
+        while (running) {
             long now = System.nanoTime();
             delta += (now - lastTime) / ns;
-            lastTime  = now;
-            while(delta >= 1){
+            lastTime = now;
+            while (delta >= 1) {
                 tick();
                 delta--;
             }
@@ -216,9 +213,9 @@ public class Main extends Canvas implements Runnable{
             render();
             frames++;
 
-            if(System.currentTimeMillis() - timer > 1000){
+            if (System.currentTimeMillis() - timer > 1000) {
                 timer += 10000;
-                System.out.println("FPS: "+ frames);
+                System.out.println("FPS: " + frames);
             }
         }
         stop();
@@ -226,14 +223,12 @@ public class Main extends Canvas implements Runnable{
 
 
     //Run every Second
-    private void tick(){
+    private void tick() {
 
-        if(gameState == STATE.Game)
-        {
+        if (gameState == STATE.Game) {
             hud.tick();
             handler.tick();
-        }
-        else if(gameState == STATE.Menu || gameState == STATE.End){
+        } else if (gameState == STATE.Menu || gameState == STATE.End) {
             menu.tick();
         }
 
@@ -241,10 +236,10 @@ public class Main extends Canvas implements Runnable{
     }
 
     //This renders the back ground in the JFrame
-    private void render(){
+    private void render() {
         BufferStrategy bs = this.getBufferStrategy();
 
-        if(bs == null){
+        if (bs == null) {
             this.createBufferStrategy(3);
             return;
         }
@@ -255,22 +250,19 @@ public class Main extends Canvas implements Runnable{
         Graphics g2d = (Graphics2D) g;
 
         //g.setColor(Color.BLACK);
-       // g.setColor(Color.LIGHT_GRAY);
+        // g.setColor(Color.LIGHT_GRAY);
 
         g.fillRect(0, 0, WIDTH, HEIGHT);
 
         g.setColor(Color.GREEN);
-        g.drawString("FPS: "+frames, 10,15);
+        g.drawString("FPS: " + frames, 10, 15);
 
 
-
-        if(gameState == STATE.Game)
-        {
+        if (gameState == STATE.Game) {
             g.drawImage(Main.Background, 0, 0, null);
             handler.render(g);
             hud.render(g);
-        }
-        else if(gameState == STATE.Menu || gameState == STATE.Help || gameState == STATE.End){
+        } else if (gameState == STATE.Menu || gameState == STATE.Help || gameState == STATE.End) {
             menu.render(g);
         }
 
@@ -282,10 +274,10 @@ public class Main extends Canvas implements Runnable{
     }
 
     //This Could be used as the velocity max and min setter
-    public static float clamp(float var, float min, float max){
-        if(var >= max)
+    public static float clamp(float var, float min, float max) {
+        if (var >= max)
             return var = max;
-        else if(var <= min)
+        else if (var <= min)
             return var = min;
         else
             return var;
@@ -298,12 +290,4 @@ public class Main extends Canvas implements Runnable{
         System.setProperty("sun.java2d.opengl", "true");
     }
 
-    public static Main getInstance() {
-        return main;
-    }
-
-    public Handler getHandler() {
-        return handler;
-    }
 }
-

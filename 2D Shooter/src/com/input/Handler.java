@@ -4,6 +4,7 @@ package com.input; /**
 
 import com.entity.*;
 import com.game.Main;
+import com.gui.Window;
 
 import java.awt.Graphics;
 import java.util.LinkedList;
@@ -78,9 +79,10 @@ public class Handler {
         }
     }
 
-    public void clearBullet(){
+    public static void clearBullet(){
         for(int i = 0; i < bullet.size(); i++) {
-            if (bullet.get(i) instanceof Bullet){
+            Bullet tempBullet = bullet.get(i);
+            if (tempBullet.getId() == ID.Bullet){
                 bullet.remove(i);
             }
         }
@@ -105,7 +107,7 @@ public class Handler {
 
         for(int i = 0; i <= 30; i++) {
 
-            addTile(new Grass((i*32), Main.HEIGHT + (700), 64, 64, true, ID.Tile));
+            addTile(new Grass((i*32), Main.HEIGHT+700, 64, 64, true, ID.Tile));
         }
 
 

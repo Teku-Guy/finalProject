@@ -14,8 +14,9 @@ import java.awt.*;
 
 public class Zombie extends GameObject{
 
-    private final Handler handler;
+    private Handler handler;
     private Player player;
+    private Main main;
 
     private int phase = 0;
     private int facing = 0;
@@ -29,10 +30,9 @@ public class Zombie extends GameObject{
     private float gravity = 0.1f;
     private final float MAX_SPEED = 10;
 
-    public Zombie(float x, float y, int width, int height, boolean isDead, ID id){
+    public Zombie(float x, float y, int width, int height, boolean isDead, Handler handler, ID id){
         super(x , y, width, height, id);
         this.isDead = isDead;
-        handler = Main.getInstance().getHandler();
     }
 
     public void chasePlayer(){
@@ -65,8 +65,7 @@ public class Zombie extends GameObject{
 
 
 
-
-        //x = Main.clamp((int)x, 0, Main.WIDTH);
+        x = Main.clamp((int)x, 0, Main.WIDTH);
        // y = Main.clamp((int)y, 0, Main.HEIGHT);
 
 
@@ -80,9 +79,10 @@ public class Zombie extends GameObject{
                         getBoundsT().intersects(tempBullet.getBounds()) ||
                         getBoundsL().intersects(tempBullet.getBounds()) ||
                         getBoundsR().intersects(tempBullet.getBounds()) ) {
-                            handler.clearBullet();
-                            isDead = true;
-                    System.out.println("U JUST GOY HIT");
+
+                    Handler.clearBullet();
+                    isDead = true;
+                    System.out.println("U JUST GOT HIT");
             }
         }
     }

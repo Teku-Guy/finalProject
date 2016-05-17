@@ -39,49 +39,38 @@ public class KeyInput extends KeyAdapter {
             if (tempObject.getId() == ID.Player) {
                 //key Events for player 1
 
-                if (key == KeyEvent.VK_W) {
-                    if(Player.canJump) {
+                if (key == KeyEvent.VK_W){
+                    if(Player.jump == 1) {
                         keyDown[0] = true;
+                        tempObject.setVelY(-15);
                         Player.jumping = true;
                         Player.still = false;
-                    }
-                    else{
-                        keyDown[0] =false;
+                        Player.jump = 0;
                     }
                 }
                 if (key == KeyEvent.VK_S) {
                     //if (Player.collided) {
                         keyDown[1] = true;
+                        tempObject.setVelY(1);
                         Player.still = false;
                     //}
                 }
                 if (key == KeyEvent.VK_D) {
                     keyDown[2] = true;
+                    tempObject.setVelX(3);
                     Player.facing = 1;
                     Player.still = false;
 
                 }
                 if (key == KeyEvent.VK_A) {
                     keyDown[3] = true;
+                    tempObject.setVelX(-3);
                     Player.facing = 0;
                     Player.still = false;
                 }
-                if(key == KeyEvent.VK_SPACE)
+
+                if(key == KeyEvent.VK_SPACE){
                     keyDown[4] = true;
-
-                if(keyDown[0])
-                    tempObject.setVelY(-15);
-
-                if(keyDown[1])
-                    tempObject.setVelY(1);
-
-                if(keyDown[2])
-                    tempObject.setVelX(3);
-
-                if(keyDown[3])
-                    tempObject.setVelX(-3);
-
-                if(keyDown[4]) {
                     if (Player.facing == 1)
                         handler.addBullet(new Bullet(tempObject.getX(), tempObject.getY(), width, height, ID.Bullet, 5, false));
                     else if (Player.facing == 0)
@@ -106,11 +95,8 @@ public class KeyInput extends KeyAdapter {
                 //key Events for player 1
 
                 if(key == KeyEvent.VK_W) {
-                    //keyDown[0] = false;
-                    //Player.still = true;
-
-                    keyDown[0] = false;
-                    if(Player.jumping) {
+                    if(Player.jump == 0) {
+                        keyDown[0] = false;
                         Player.jumping = false;
                         Player.still = false;
                     }
@@ -133,23 +119,11 @@ public class KeyInput extends KeyAdapter {
                     Player.still = true;
                 }
 
-                if(!keyDown[0])
-                    tempObject.setVelY(0);
-
-                if(!keyDown[1])
-                    tempObject.setVelY(0);
-
-                if(!keyDown[2])
-                    tempObject.setVelX(0);
-
-                if(!keyDown[3])
-                    tempObject.setVelX(0);
-
                 //vertical movement
-               /*if(keyDown[0] == false && !keyDown[1])
-                   tempObject .setVelY(0);
-                if(keyDown[2] == false && !keyDown[3])
-                    tempObject .setVelX(0);*/
+                if(!keyDown[1])
+                    tempObject .setVelY(0);
+                if(!keyDown[3])
+                    tempObject .setVelX(0);
             }
         }
     }

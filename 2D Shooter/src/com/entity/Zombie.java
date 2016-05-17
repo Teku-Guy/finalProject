@@ -27,7 +27,7 @@ public class Zombie extends GameObject{
     private boolean falling = true;
 
 
-    private float gravity = 0.05f;
+    private float gravity = 0.5f;
     private final float MAX_SPEED = 10;
 
     public Zombie(float x, float y, int width, int height, boolean isDead, Handler handler, Main main, ID id){
@@ -47,7 +47,7 @@ public class Zombie extends GameObject{
         float distance = (float) Math.sqrt( ( x - Main.player.getX() ) * ( x-Main.player.getX() ) + ( y-Main.player.getY() ) * ( y-Main.player.getY() ) );
 
         velX = ((-1/distance) * diffX);
-        velY = ((-1/distance) * diffY);
+        //velY = ((-1/distance) * diffY);
 
         if(x == Main.player.getX() && y == Main.player.getX()){
             still = true;
@@ -61,9 +61,9 @@ public class Zombie extends GameObject{
         if(y > Main.player.getVelY()){
             jumping = true;
         }
-        if (falling || jumping){
-            velY += gravity;
-        }
+
+        velY += gravity;
+
 
 
 
@@ -75,20 +75,49 @@ public class Zombie extends GameObject{
        // handler.addObject(new Trail(x, y, ID.Trail, Color.GREEN, 16, 16, 0.02f, handler));
     }
 
-    private void collision(){
+    private void collision() {
         for (int i = 0; i < Handler.bullet.size(); i++) {
             Bullet tempBullet = Handler.bullet.get(i);
-                if (getBounds().intersects(tempBullet.getBounds()) ||
-                        getBoundsT().intersects(tempBullet.getBounds()) ||
-                        getBoundsL().intersects(tempBullet.getBounds()) ||
-                        getBoundsR().intersects(tempBullet.getBounds()) ) {
-                    handler.clearBullet(tempBullet);
-                    isDead = true;
-                    handler.kill(this);
-                    System.out.println("Dead");
+            if (getBounds().intersects(tempBullet.getBounds()) ||
+                    getBoundsT().intersects(tempBullet.getBounds()) ||
+                    getBoundsL().intersects(tempBullet.getBounds()) ||
+                    getBoundsR().intersects(tempBullet.getBounds())) {
+                handler.clearBullet(tempBullet);
+                isDead = true;
+                handler.kill(this);
+                System.out.println("Dead");
             }
         }
-    }
+        for (int i = 0; i < Handler.tile.size(); i++) {
+            Tile tempTile = Handler.tile.get(i);
+                if (tempTile.getId() == ID.Tile) {
+                        if (getBounds().intersects(tempTile.getBounds())) {
+                            velY = 0;
+                            falling = true;
+                            jumping = false;
+
+                        } else if (getBounds().intersects(tempTile.getBoundsR())) {
+                            velY = 0;
+                            falling = true;
+                            jumping = false;
+                        } else if (getBounds().intersects(tempTile.getBoundsL())) {
+                            velY = 0;
+                            falling = true;
+                            jumping = false;
+                        } else if (getBounds().intersects(tempTile.getBoundsB())) {
+                            velY = 0;
+                            falling = true;
+                            jumping = false;
+                        } else if (getBounds().intersects(tempTile.getBoundsT())) {
+                            velY = 0;
+                            falling = true;
+
+                        }
+                    }
+                }
+            }
+
+
 
     public void render(Graphics g) {
         counter++;

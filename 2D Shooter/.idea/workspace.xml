@@ -1,21 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/com/entity/Zombie.java" line="133" mnemonic="9" />
-    <bookmark url="file://$PROJECT_DIR$/src/com/entity/Zombie.java" line="126" />
+    <bookmark url="file://$PROJECT_DIR$/src/com/entity/Zombie.java" line="162" mnemonic="9" />
+    <bookmark url="file://$PROJECT_DIR$/src/com/entity/Zombie.java" line="155" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bc8f8799-3138-4a98-8537-6822dfe55407" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/2D Shooter/com/entity/Player.class" afterPath="$PROJECT_DIR$/out/production/2D Shooter/com/entity/Player.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/2D Shooter/com/entity/Zombie.class" afterPath="$PROJECT_DIR$/out/production/2D Shooter/com/entity/Zombie.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/2D Shooter/com/game/Main$STATE.class" afterPath="$PROJECT_DIR$/out/production/2D Shooter/com/game/Main$STATE.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/2D Shooter/com/game/Main.class" afterPath="$PROJECT_DIR$/out/production/2D Shooter/com/game/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/2D Shooter/com/gui/Menu.class" afterPath="$PROJECT_DIR$/out/production/2D Shooter/com/gui/Menu.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/2D Shooter/com/input/Handler.class" afterPath="$PROJECT_DIR$/out/production/2D Shooter/com/input/Handler.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/entity/Zombie.java" afterPath="$PROJECT_DIR$/src/com/entity/Zombie.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/game/Main.java" afterPath="$PROJECT_DIR$/src/com/game/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/input/Handler.java" afterPath="$PROJECT_DIR$/src/com/input/Handler.java" />
     </list>
     <ignored path="2D Shooter.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -45,7 +37,7 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/game/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
+            <state relative-caret-position="-667">
               <caret line="234" column="33" selection-start-line="234" selection-start-column="33" selection-end-line="234" selection-end-column="33" />
               <folding />
             </state>
@@ -65,12 +57,12 @@
       <file leaf-file-name="Zombie.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/entity/Zombie.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="70" column="7" selection-start-line="70" selection-start-column="7" selection-end-line="70" selection-end-column="7" />
+            <state relative-caret-position="693">
+              <caret line="118" column="8" selection-start-line="118" selection-start-column="8" selection-end-line="118" selection-end-column="8" />
               <folding>
-                <element signature="e#3677#3678#0" expanded="true" />
-                <element signature="e#3706#3707#0" expanded="true" />
-                <marker date="1463512145429" expanded="true" signature="3638:3648" ph="{...}" />
+                <element signature="e#4838#4839#0" expanded="true" />
+                <element signature="e#4867#4868#0" expanded="true" />
+                <marker date="1463513026119" expanded="true" signature="4799:4809" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -79,8 +71,8 @@
       <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/entity/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1309">
-              <caret line="37" column="40" selection-start-line="37" selection-start-column="40" selection-end-line="37" selection-end-column="40" />
+            <state relative-caret-position="2431">
+              <caret line="173" column="17" selection-start-line="173" selection-start-column="17" selection-end-line="173" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -163,6 +155,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
+    <option name="y" value="-8" />
     <option name="width" value="1616" />
     <option name="height" value="876" />
   </component>
@@ -794,11 +787,18 @@
       <option name="project" value="LOCAL" />
       <updated>1463428449289</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Zombie waves set, other things fixed up dank memes ayy lmao blaze the 2d java library">
+      <created>1463512170805</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1463512170805</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="0" width="1616" height="876" extended-state="0" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -873,7 +873,8 @@
     <MESSAGE value="Fixed Grass Detection my ass&#10;" />
     <MESSAGE value="I am a sexy fuck" />
     <MESSAGE value="Stuff happened," />
-    <option name="LAST_COMMIT_MESSAGE" value="Stuff happened," />
+    <MESSAGE value="Zombie waves set, other things fixed up dank memes ayy lmao blaze the 2d java library" />
+    <option name="LAST_COMMIT_MESSAGE" value="Zombie waves set, other things fixed up dank memes ayy lmao blaze the 2d java library" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -886,16 +887,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/input/KeyInput.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="33" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/game/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1139">
@@ -1142,10 +1133,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/entity/Player.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_25/src.zip!/java/util/LinkedList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1309">
-          <caret line="37" column="40" selection-start-line="37" selection-start-column="40" selection-end-line="37" selection-end-column="40" />
+        <state relative-caret-position="151">
+          <caret line="552" column="0" selection-start-line="552" selection-start-column="0" selection-end-line="552" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1158,9 +1149,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/entity/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2431">
+          <caret line="173" column="17" selection-start-line="173" selection-start-column="17" selection-end-line="173" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/game/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
+        <state relative-caret-position="-667">
           <caret line="234" column="33" selection-start-line="234" selection-start-column="33" selection-end-line="234" selection-end-column="33" />
           <folding />
         </state>
@@ -1179,12 +1178,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/entity/Zombie.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="70" column="7" selection-start-line="70" selection-start-column="7" selection-end-line="70" selection-end-column="7" />
+        <state relative-caret-position="693">
+          <caret line="118" column="8" selection-start-line="118" selection-start-column="8" selection-end-line="118" selection-end-column="8" />
           <folding>
-            <element signature="e#3677#3678#0" expanded="true" />
-            <element signature="e#3706#3707#0" expanded="true" />
-            <marker date="1463512145429" expanded="true" signature="3638:3648" ph="{...}" />
+            <element signature="e#4838#4839#0" expanded="true" />
+            <element signature="e#4867#4868#0" expanded="true" />
+            <marker date="1463513026119" expanded="true" signature="4799:4809" ph="{...}" />
           </folding>
         </state>
       </provider>

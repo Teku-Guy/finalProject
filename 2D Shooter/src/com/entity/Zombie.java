@@ -32,6 +32,7 @@ public class Zombie extends GameObject{
 
     public Zombie(float x, float y, int width, int height, boolean isDead, Handler handler, ID id){
         super(x , y, width, height, id);
+        this.handler = handler;
         this.isDead = isDead;
     }
 
@@ -80,7 +81,7 @@ public class Zombie extends GameObject{
                         getBoundsL().intersects(tempBullet.getBounds()) ||
                         getBoundsR().intersects(tempBullet.getBounds()) ) {
 
-                    Handler.clearBullet();
+                    handler.clearBullet();
                     isDead = true;
                     System.out.println("U JUST GOT HIT");
             }

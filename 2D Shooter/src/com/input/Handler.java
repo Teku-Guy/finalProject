@@ -79,7 +79,7 @@ public class Handler {
         }
     }
 
-    public static void clearBullet(){
+    public void clearBullet(){
         for(int i = 0; i < bullet.size(); i++) {
             Bullet tempBullet = bullet.get(i);
             if (tempBullet.getId() == ID.Bullet){

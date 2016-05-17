@@ -15,6 +15,7 @@ import com.entity.ID;
 import com.graphics.Sprite;
 import com.graphics.SpriteSheet;
 import com.input.KeyInput;
+import com.sun.corba.se.impl.encoding.BufferManagerFactory;
 import com.sun.corba.se.spi.ior.ObjectId;
 
 import java.util.ArrayList;
@@ -182,7 +183,6 @@ public class Player extends GameObject {
     public void tick() {
         move();
         collision();
-
     }
 
 

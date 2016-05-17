@@ -17,6 +17,8 @@ public class Handler {
     public static LinkedList<Tile> tile = new LinkedList<Tile>();
     public static LinkedList<Bullet> bullet = new LinkedList<Bullet>();
 
+    private Bullet bull;
+
     private int counter = 0;
     private Random r = new Random();
     public Tile maps[] = new Tile[10];
@@ -33,7 +35,6 @@ public class Handler {
             bulletObject.tick();
 
         }
-
 
     }
 
@@ -59,33 +60,32 @@ public class Handler {
 
     }
 
-    public void addEnemy(int enemy_count, int enemy_killed){
+    public void addEnemy(int enemy_count){
         for(int i = 0; i < enemy_count; i++){
-            addObject(new Zombie(r.nextInt(300), 300, 32, 32, false, this, ID.Zombie));
+            addObject(new Zombie(r.nextInt(Main.WIDTH+100), 600, 32, 32, false, this, ID.Zombie));
         }
     }
 
-    public void kill(Zombie zombie){
-        object.remove(zombie);
-    }
-
-    public void clearEnemy(){
-        for(int i = 0; i <object.size(); i++) {
+    public void clearEnemys(){
+        for(int i = 0; i <object.size(); i++){
             GameObject tempObject = object.get(i);
 
-            if (tempObject.getId() == ID.Zombie){
-                object.remove(1);
+            if(tempObject.getId() != ID.Player){
+                object.clear();
+
+                //This removes the player after they lost
+                if(Main.gameState != Main.STATE.End)
+                    addObject(new Player((int)tempObject.getX(), (int)tempObject.getY(), 32, 32, this,ID.Player));
             }
         }
     }
 
-    public void clearBullet(){
-        for(int i = 0; i < bullet.size(); i++) {
-            Bullet tempBullet = bullet.get(i);
-            if (tempBullet.getId() == ID.Bullet){
-                bullet.remove(i);
-            }
-        }
+    public void kill(Zombie z){
+        object.remove(z);
+    }
+
+    public void clearBullet(Bullet b){
+        bullet.remove(b);
     }
 
     public void addObject(GameObject object){

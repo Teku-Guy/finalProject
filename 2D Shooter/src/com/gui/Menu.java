@@ -7,6 +7,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Random;
 
+import com.entity.ID;
+import com.entity.Player;
 import com.game.Main;
 import com.input.Handler;
 import com.game.Main.STATE;
@@ -19,18 +21,15 @@ public class Menu extends MouseAdapter{
 
     private Main main;
     private Handler handler;
-    //private HUD hud;
+    private Player player;
+    private HUD hud;
     private Random r = new Random();
     private String title = "2D Shooter";
 
-    public Menu(Main main, Handler handler){ //, HUD hud){
+    public Menu(Main main, Handler handler, HUD hud){
         this.main = main;
-        //this.hud = hud;
+        this.hud = hud;
         this.handler = handler;
-    }
-
-    public void mousePressed(MouseEvent e) {
-
     }
     public void mouseReleased(MouseEvent e){
         int mx = e.getX();
@@ -40,8 +39,6 @@ public class Menu extends MouseAdapter{
             //play button
             if(mouseOver(mx, my, 50, 450, 200, 64)){
                 main.gameState = STATE.Game;
-                handler.addObject(Main.player);
-               // handler.clearEnemys();
             }
 
             //help Button

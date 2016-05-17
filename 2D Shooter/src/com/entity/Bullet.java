@@ -3,6 +3,7 @@ package com.entity;/**
  */
 
 import com.game.Main;
+import com.input.Handler;
 
 import java.awt.*;
 
@@ -16,6 +17,7 @@ public class Bullet extends GameObject{
     public ID id;
 
     public boolean ifShotHits= false;
+    private Handler handler;
 
     public Bullet(float x, float y, int width, int height, ID id, int velX, boolean ifShotHits){
         super(x,y,width,height,id);
@@ -35,6 +37,7 @@ public class Bullet extends GameObject{
         g.setColor(Color.white);
         g2d.draw(getBounds());
     }
+
     public Rectangle getBounds(){
         return new Rectangle((int)getX()+20, (int)getY()+25,  20, 15);
     }

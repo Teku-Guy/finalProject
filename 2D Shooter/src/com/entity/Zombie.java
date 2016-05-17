@@ -80,11 +80,11 @@ public class Zombie extends GameObject{
                         getBoundsT().intersects(tempBullet.getBounds()) ||
                         getBoundsL().intersects(tempBullet.getBounds()) ||
                         getBoundsR().intersects(tempBullet.getBounds()) ) {
-                    handler.clearBullet();
+                    handler.clearBullet(tempBullet);
                     //isDead = true;
                     handler.kill(this);
-                    //main.setEnemy_killed(main.getEnemy_killed()+1);
-                    System.out.println("U JUST GOT HIT");
+                    main.setEnemy_killed(main.getEnemy_killed()+1); //here is the error its returning null why?
+                    System.out.println("Dead");
             }
         }
     }

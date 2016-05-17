@@ -37,6 +37,7 @@ public class Main extends Canvas implements Runnable {
     private int enemy_killed = 0;
 
     public Handler handler;
+    private Bullet bull;
     private Menu menu;
     private HUD hud;
     public static Player player;
@@ -80,22 +81,22 @@ public class Main extends Canvas implements Runnable {
     public static STATE gameState = STATE.Menu;
 
     public Main() {
-        window = new Window("2D Shooter", this);
         handler = new Handler();
         hud = new HUD();
-        menu = new Menu(this, handler);
-        handler.createLevel();
-
-        handler.createLevel();
+        menu = new Menu(this, handler, hud);
 
         this.addKeyListener(new KeyInput(handler));
         this.addMouseListener(menu);
 
-        player = new Player(100, 100, 32, 32, handler, ID.Player);
+        window = new Window("2D Shooter", this);
 
-        handler.addEnemy(enemy_count, enemy_killed);
-        //handler.addObject(new Zombie(300, 100, 32, 32, false, handler, ID.Zombie));
-        //handler.addObject(player);
+        if(gameState == STATE.Game) {
+            handler.createLevel();
+            handler.addObject(new Player(500, 600, 32, 32, handler, ID.Player));
+            handler.addEnemy(enemy_count);
+            //handler.addObject(new Zombie(300, 100, 32, 32, false, handler, ID.Zombie));
+            //handler.addObject(player);
+        }
 
         WIDTH = window.frame.getWidth();
         HEIGHT = window.frame.getHeight();
@@ -171,6 +172,11 @@ public class Main extends Canvas implements Runnable {
 
         System.out.println("Background loaded!");
 
+        if(enemy_killed >= enemy_count){
+            enemy_count += 2;
+            enemy_killed = 0;
+            handler.addEnemy(enemy_count);
+        }
 
     }
 
@@ -228,16 +234,12 @@ public class Main extends Canvas implements Runnable {
     //Run every Second
     private void tick() {
 
+        handler.tick();
+
         if (gameState == STATE.Game) {
             hud.tick();
-            handler.tick();
         } else if (gameState == STATE.Menu || gameState == STATE.End) {
             menu.tick();
-        }
-        if(enemy_killed >= enemy_count){
-            enemy_count += 2;
-            enemy_killed = 0;
-            handler.addEnemy(enemy_count, enemy_killed);
         }
     }
 
@@ -263,10 +265,10 @@ public class Main extends Canvas implements Runnable {
         g.setColor(Color.GREEN);
         g.drawString("FPS: " + frames, 10, 15);
 
+        handler.render(g);
 
         if (gameState == STATE.Game) {
             g.drawImage(Main.Background, 0, 0, null);
-            handler.render(g);
             hud.render(g);
         } else if (gameState == STATE.Menu || gameState == STATE.Help || gameState == STATE.End) {
             menu.render(g);
@@ -289,7 +291,7 @@ public class Main extends Canvas implements Runnable {
             return var;
     }
 
-    public int getEnemy_count(int enemy_count){
+    public int getEnemy_count(){
         return enemy_count;
     }
 

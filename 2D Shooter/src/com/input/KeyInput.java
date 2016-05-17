@@ -40,15 +40,20 @@ public class KeyInput extends KeyAdapter {
                 //key Events for player 1
 
                 if (key == KeyEvent.VK_W) {
-                    keyDown[0] = true;
-                    Player.jumping = true;
-                    Player.still = false;
-                }
-                if (key == KeyEvent.VK_S) {
-                    if (!Player.collided) {
-                        keyDown[1] = true;
+                    if(Player.canJump) {
+                        keyDown[0] = true;
+                        Player.jumping = true;
                         Player.still = false;
                     }
+                    else{
+                        keyDown[0] =false;
+                    }
+                }
+                if (key == KeyEvent.VK_S) {
+                    //if (Player.collided) {
+                        keyDown[1] = true;
+                        Player.still = false;
+                    //}
                 }
                 if (key == KeyEvent.VK_D) {
                     keyDown[2] = true;
@@ -100,13 +105,20 @@ public class KeyInput extends KeyAdapter {
             if(tempObject.getId() == ID.Player){
                 //key Events for player 1
 
-                if(key == KeyEvent.VK_W)
+                if(key == KeyEvent.VK_W) {
+                    //keyDown[0] = false;
+                    //Player.still = true;
+
                     keyDown[0] = false;
-                    Player.jumping = false;
-                    Player.still = true;
-                if(key == KeyEvent.VK_S)
+                    if(Player.jumping) {
+                        Player.jumping = false;
+                        Player.still = false;
+                    }
+                }
+                if(key == KeyEvent.VK_S) {
                     keyDown[1] = false;
                     Player.still = false;
+                }
                 if(key == KeyEvent.VK_D){
                     keyDown[2] = false;
                     Player.still = true;
@@ -121,12 +133,23 @@ public class KeyInput extends KeyAdapter {
                     Player.still = true;
                 }
 
+                if(!keyDown[0])
+                    tempObject.setVelY(0);
+
+                if(!keyDown[1])
+                    tempObject.setVelY(0);
+
+                if(!keyDown[2])
+                    tempObject.setVelX(0);
+
+                if(!keyDown[3])
+                    tempObject.setVelX(0);
 
                 //vertical movement
-               //if(keyDown[0] == false && !keyDown[1])
-                   //tempObject .setVelY(0);
-                //if(keyDown[2] == false && !keyDown[3])
-                    //tempObject .setVelX(0);
+               /*if(keyDown[0] == false && !keyDown[1])
+                   tempObject .setVelY(0);
+                if(keyDown[2] == false && !keyDown[3])
+                    tempObject .setVelX(0);*/
             }
         }
     }

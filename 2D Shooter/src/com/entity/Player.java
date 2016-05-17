@@ -34,6 +34,7 @@ public class Player extends GameObject {
 
     private int counter = 0 ;
     public static boolean still = true;
+    public static boolean canJump = false;
     public static boolean jumping = false;
     public static boolean shoot = false;
     public static boolean collided;
@@ -149,27 +150,31 @@ public class Player extends GameObject {
                         velY = 0;
                         falling = true;
                         jumping = false;
-                        //collided = true;
+                        collided = true;
+                        canJump = true;
                     }
                     else if(getBounds().intersects(tempTile.getBoundsR())){
                         velY = 0;
                         falling = true;
                         jumping = false;
+                        canJump = true;
                     }
                     else if(getBounds().intersects(tempTile.getBoundsL())){
                         velY = 0;
                         falling = true;
                         jumping = false;
+                        canJump = true;
                     }
                     else if(getBounds().intersects(tempTile.getBoundsB())){
                         velY = 0;
                         falling = true;
                         jumping = false;
+                        canJump = true;
                     }
                     else if(getBounds().intersects(tempTile.getBoundsT())){
                         velY = 0;
                         falling = true;
-
+                        canJump = true;
                     }
                 }
             }

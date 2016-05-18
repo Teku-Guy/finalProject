@@ -169,23 +169,27 @@ public class Player extends GameObject {
                         velY = 0;
                         falling = true;
                         jumping = false;
+                        jump = 1;
                         collided = true;
                     }
                     else if(getBounds().intersects(tempTile.getBoundsL())){
                         velY = 0;
                         falling = true;
                         jumping = false;
+                        jump = 1;
                         collided = true;
                     }
                     else if(getBounds().intersects(tempTile.getBoundsB())){
                         velY = 0;
                         falling = true;
                         jumping = false;
+                        jump = 1;
                         collided = true;
                     }
                     else if(getBounds().intersects(tempTile.getBoundsT())){
                         velY = 0;
                         falling = true;
+                        jump = 1;
                         collided = true;
                     }
                 }

@@ -65,7 +65,7 @@ public class Handler {
 
     public void makeWave(int enemy_count){
         for(int i = 0; i < enemy_count; i++){
-            addObject(new Zombie((i*64), 600, 32, 32, false, this, main, ID.Zombie));
+            addObject(new Zombie(((i*64)), 600, 32, 32, false, this, main, ID.Zombie));
         }
 
     }
@@ -118,10 +118,10 @@ public class Handler {
             addTile(new Grass((i*32), (int)(Main.window.frame.getHeight() * (.92)), 64, 64, true, ID.Tile));
         }
         for(int i = 0; i <= 22; i++){
-            addTile(new FloatPlat(0, (i*32), 64, 64, true, ID.Tile));
+            addTile(new Stone(0, (i*32), 64, 64, true, ID.Tile));
         }
         for(int i = 0; i < 20; i++){
-            addTile(new Stone((i*32), (int)(Main.window.frame.getHeight() * (.75)), 64,64, true, ID.Tile));
+            addTile(new Stone((i*32), (int)(Main.window.frame.getHeight() * (.5)), 64,64, true, ID.Tile));
             /*addTile(new Stone((i*32 + 900), 945, 64,64, true, ID.Tile));
             addTile(new Stone((i * 32 + 950), 770, 64, 64, true, ID.Tile));
             addTile(new Stone((i * 32 + 1000), 740, 64, 64, true, ID.Tile));

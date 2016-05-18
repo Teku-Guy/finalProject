@@ -1,6 +1,7 @@
 package com.gui;/**
  * Created by Gustavo_Muratalla on 5/13/16.
  */
+import com.entity.Player;
 import com.game.Main;
 import com.input.Handler;
 
@@ -13,7 +14,7 @@ public class HUD {
     private Main main;
     private float greenValue = 255f;
 
-    private float x, y;
+    private float x, y, velY, velX;
 
     private int score = 0;
     private int level = 1;
@@ -30,8 +31,11 @@ public class HUD {
         greenValue = HEALTH * 2;
 
         x += main.player.getVelX();
-        y += main.player.getVelY();
-
+        if(Player.jumping){
+            y = main.player.getY()-30;
+        }else{
+            y = main.player.getY()-30;
+        }
         //score++;
     }
 
@@ -45,9 +49,21 @@ public class HUD {
         g.setColor(Color.WHITE);
         g.drawRect((int)x, (int)y, 100, 16);
 
-
-
         //g.drawString("Score: "+ score, 15, 64);g.drawString("Points : " + Handler.points , 200, 300);
         //g.drawString("Level: "+ level, 15, 80);
+    }
+    public float getY() {
+        return y;
+    }
+
+    public void setY(int y){
+        this.y = y;
+    }
+    public float getVelY() {
+        return y;
+    }
+
+    public void setVelY(int y){
+        this.y = y;
     }
 }

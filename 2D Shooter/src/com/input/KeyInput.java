@@ -7,7 +7,6 @@ import com.entity.Bullet;
 import com.entity.GameObject;
 import com.entity.ID;
 import com.entity.Player;
-import com.game.Main;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -15,7 +14,6 @@ import java.awt.event.KeyEvent;
 public class KeyInput extends KeyAdapter {
 
     private Handler handler;
-    private Main main;
 
     public int tempPhase = 0;
 
@@ -84,8 +82,8 @@ public class KeyInput extends KeyAdapter {
         }
 
         if(key == KeyEvent.VK_ESCAPE){
-            main.gameState = Main.STATE.GameMenu;
-            //System.exit(0);
+            //gameState = state.Menu;
+            System.exit(0);
         }
     }
 

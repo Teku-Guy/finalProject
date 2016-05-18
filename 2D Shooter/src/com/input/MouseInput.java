@@ -17,8 +17,14 @@ public class MouseInput extends MouseAdapter {
     private Handler handler;
     public int width, height;
 
+    protected boolean[] buttDown = new boolean[3];
+
     public MouseInput(Handler handler){
         this.handler = handler;
+
+        buttDown[0] = false;
+        buttDown[1] = false;
+        buttDown[2] = false;
     }
     public void mousePressed(MouseEvent e) {
 
@@ -28,7 +34,9 @@ public class MouseInput extends MouseAdapter {
             if (tempObject.getId() == ID.Player) {
 
                 if (e.getButton() == e.BUTTON1) {
+                    buttDown[0] = true;
                     Player.shoot = true;
+                    Player.still = false;
                     if(Player.facing == 1)
                         handler.addBullet(new Bullet(tempObject.getX(), tempObject.getY(), width, height, ID.Bullet, 5, false));
                     else if(Player.facing == 0)
@@ -49,6 +57,8 @@ public class MouseInput extends MouseAdapter {
             if (tempObject.getId() == ID.Player) {
 
                 if (e.getButton() == e.BUTTON1) {
+                    buttDown[0] = false;
+                    Player.still = false;
                     Player.shoot = false;
                 }
                 if (e.getButton() == e.BUTTON3) {

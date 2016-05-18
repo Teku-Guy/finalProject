@@ -2,6 +2,7 @@ package com.gui;/**
  * Created by Gustavo_Muratalla on 5/13/16.
  */
 import com.game.Main;
+import com.input.Handler;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -32,7 +33,7 @@ public class HUD {
         g.setColor(Color.WHITE);
         g.drawRect(20, 20, 200, 32);
 
-        //g.drawString("Score: "+ score, 15, 64);
+        //g.drawString("Score: "+ score, 15, 64);g.drawString("Points : " + Handler.points , 200, 300);
         //g.drawString("Level: "+ level, 15, 80);
     }
 }

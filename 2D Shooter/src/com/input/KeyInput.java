@@ -73,10 +73,14 @@ public class KeyInput extends KeyAdapter {
                 if(key == KeyEvent.VK_SPACE){
                     keyDown[4] = true;
                     Player.shoot = true;
-                    if (Player.facing == 1)
+                    if (Player.facing == 1) {
+                        Player.still = false;
                         handler.addBullet(new Bullet(tempObject.getX(), tempObject.getY(), width, height, ID.Bullet, 5, false));
-                    else if (Player.facing == 0)
+                    }
+                    else if (Player.facing == 0) {
+                        Player.still = false;
                         handler.addBullet(new Bullet(tempObject.getX(), tempObject.getY(), width, height, ID.Bullet, -5, false));
+                    }
                 }
             }
         }

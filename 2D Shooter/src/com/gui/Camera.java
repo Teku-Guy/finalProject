@@ -2,6 +2,8 @@ package com.gui;/**
  * Created by Gustavo_Muratalla on 5/18/16.
  */
 
+import com.entity.GameObject;
+
 public class Camera {
 
     private float x, y;
@@ -9,6 +11,10 @@ public class Camera {
     public Camera(float x, float y){
         this.x = x;
         this.y = y;
+    }
+
+    public void tick(GameObject player){
+        x--;
     }
 
     public float getX(){

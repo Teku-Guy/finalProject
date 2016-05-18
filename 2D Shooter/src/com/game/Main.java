@@ -91,6 +91,7 @@ public class Main extends Canvas implements Runnable {
 
     public Main() {
         handler = new Handler();
+        cam = new Camera(0, 0);
         hud = new HUD();
         menu = new Menu(this, handler, hud);
 
@@ -249,6 +250,11 @@ public class Main extends Canvas implements Runnable {
     private void tick() {
         if (gameState == STATE.Game) {
             handler.tick();
+            for(int i = 0; i < handler.object.size(); i++){
+                if(handler.object.get(i).getId() == ID.Player){
+                    cam.tick(handler.object.get(i));
+                }
+            }
             hud.tick();
             if(Handler.killCount >= enemy_count){
                 enemy_count += 2;
@@ -281,12 +287,16 @@ public class Main extends Canvas implements Runnable {
 
 
         if (gameState == STATE.Game) {
+            g2d.translate((int)cam.getX(), (int)cam.getY());
             g.drawImage(Main.Background, 0, 0, null);
+
             handler.render(g);
             hud.render(g);
             g.setColor(Color.WHITE);
             g.drawString("FPS: " + frames, 10, 15);
             g.drawString("Points : " + Handler.points , 10, 30);
+
+            g2d.translate((int)-cam.getX(), (int)-cam.getY());
         } else if (gameState == STATE.Menu || gameState == STATE.GameMenu || gameState == STATE.Help || gameState == STATE.GHelp || gameState == STATE.End) {
             menu.render(g);
         }

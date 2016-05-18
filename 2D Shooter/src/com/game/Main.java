@@ -289,6 +289,7 @@ public class Main extends Canvas implements Runnable {
             g2d.translate((int)cam.getX(), (int)cam.getY());
             g.drawImage(Main.Background, 0, 0, null);
 
+
             handler.render(g);
             hud.render(g);
             g.setColor(Color.WHITE);

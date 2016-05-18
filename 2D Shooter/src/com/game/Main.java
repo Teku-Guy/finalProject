@@ -5,6 +5,7 @@ package com.game; /**
 import com.entity.Grass;
 import com.entity.*;
 import com.entity.Tile;
+import com.gui.Camera;
 import com.gui.HUD;
 import com.gui.Window;
 import com.input.Handler;
@@ -38,7 +39,7 @@ public class Main extends Canvas implements Runnable {
     private int enemy_killed = 0;
 
     public Handler handler;
-    private Bullet bull;
+    private Camera cam;
     private Menu menu;
     private HUD hud;
     public static Player player;

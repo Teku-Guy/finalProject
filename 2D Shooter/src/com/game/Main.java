@@ -5,6 +5,7 @@ package com.game; /**
 import com.entity.Grass;
 import com.entity.*;
 import com.entity.Tile;
+import com.gui.Camera;
 import com.gui.HUD;
 import com.gui.Window;
 import com.input.Handler;
@@ -34,11 +35,10 @@ public class Main extends Canvas implements Runnable {
     private Thread thread;
     private boolean running = false;
 
-    private int enemy_count = 5;
-    private int enemy_killed = 0;
+    private int enemyCount = 5;
 
     public Handler handler;
-    private Bullet bull;
+    public Camera cam;
     private Menu menu;
     private HUD hud;
     public static Player player;
@@ -78,9 +78,11 @@ public class Main extends Canvas implements Runnable {
 
 
     public enum STATE {
-        Menu,
-        Help,
         Game,
+        Menu,
+        GameMenu,
+        GHelp,
+        Help,
         End
     }
 
@@ -88,7 +90,7 @@ public class Main extends Canvas implements Runnable {
 
     public Main() {
         handler = new Handler();
-        hud = new HUD();
+        cam = new Camera(0, 0);
         menu = new Menu(this, handler, hud);
 
         this.addKeyListener(new KeyInput(handler));
@@ -98,10 +100,11 @@ public class Main extends Canvas implements Runnable {
 
         window = new Window("2D Shooter", this);
 
-            handler.createLevel();
-            player = (new Player(500, 600, 32, 32, handler, ID.Player));
-            handler.addObject(player);
-            handler.makeWave(enemy_count);
+        handler.createLevel();
+        player = (new Player(500, 600, 32, 32, handler, ID.Player));
+        hud = new HUD(player.getX()-17, player.getY());
+        handler.addObject(player);
+        handler.makeWave(enemyCount);
             //handler.addObject(new Zombie(300, 100, 32, 32, false, handler, ID.Zombie));
             //handler.addObject(player);
 
@@ -246,11 +249,16 @@ public class Main extends Canvas implements Runnable {
     private void tick() {
         if (gameState == STATE.Game) {
             handler.tick();
+            for(int i = 0; i < handler.object.size(); i++){
+                if(handler.object.get(i).getId() == ID.Player){
+                    cam.tick(handler.object.get(i));
+                }
+            }
             hud.tick();
-            if(Handler.killCount >= enemy_count){
-                enemy_count += 2;
+            if(Handler.killCount >= enemyCount){
+                enemyCount += 2;
                 Handler.killCount = 0;
-                handler.makeWave(enemy_count);
+                handler.makeWave(enemyCount);
             }
         } else if (gameState == STATE.Menu || gameState == STATE.End) {
             menu.tick();
@@ -274,17 +282,25 @@ public class Main extends Canvas implements Runnable {
         //g.setColor(Color.BLACK);
         // g.setColor(Color.LIGHT_GRAY);
 
-        g.fillRect(0, 0, WIDTH, HEIGHT);
+        //g.fillRect(0, 0, WIDTH, HEIGHT);
 
 
         if (gameState == STATE.Game) {
+            g2d.translate((int)cam.getX(), (int)cam.getY());
             g.drawImage(Main.Background, 0, 0, null);
+
             handler.render(g);
             hud.render(g);
             g.setColor(Color.WHITE);
-            g.drawString("FPS: " + frames, 10, 15);
-            g.drawString("Points : " + Handler.points , 10, 30);
-        } else if (gameState == STATE.Menu || gameState == STATE.Help || gameState == STATE.End) {
+            //g.drawString("FPS: " + frames, 10, 15);
+
+
+            g2d.translate((int)-cam.getX(), (int)-cam.getY());
+        } else if (gameState == STATE.Menu ||
+                gameState == STATE.GameMenu ||
+                gameState == STATE.Help ||
+                gameState == STATE.GHelp ||
+                gameState == STATE.End) {
             menu.render(g);
         }
 
@@ -295,7 +311,7 @@ public class Main extends Canvas implements Runnable {
         bs.show();
     }
 
-    //This Could be used as the velocity max and min setter
+    //This Set Bounds of an object
     public static float clamp(float var, float min, float max) {
         if (var >= max)
             return var = max;
@@ -305,20 +321,13 @@ public class Main extends Canvas implements Runnable {
             return var;
     }
 
-    public int getEnemy_count(){
-        return enemy_count;
+    public int getEnemyCount(){
+        return enemyCount;
     }
-    public void setEnemy_count(int enemy_count){
-        this.enemy_count = enemy_count;
-    }
-
-    public int getEnemy_killed(){
-        return enemy_killed;
+    public void setEnemyCount(int enemyCount){
+        this.enemyCount = enemyCount;
     }
 
-    public void setEnemy_killed(int enemy_killed){
-        this.enemy_killed = enemy_killed;
-    }
 
     public static void main(String[] args) {
         main = new Main();

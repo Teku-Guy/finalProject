@@ -1,6 +1,7 @@
 package com.gui;/**
  * Created by Gustavo_Muratalla on 5/13/16.
  */
+import com.entity.Player;
 import com.game.Main;
 import com.input.Handler;
 
@@ -10,10 +11,15 @@ import java.awt.Graphics;
 public class HUD {
 
     public static float HEALTH = 100;
+    private Main main;
     private float greenValue = 255f;
 
-    private int score = 0;
-    private int level = 1;
+    private float x, y, velY, velX;
+
+    public HUD(float x, float y) {
+        this.x = x;
+        this.y = y;
+    }
 
     public void tick() {
         HEALTH = Main.clamp(HEALTH, 0, 1000);
@@ -21,17 +27,25 @@ public class HUD {
 
         greenValue = HEALTH * 2;
 
-
-        //score++;
+        x += main.player.getVelX();
+        if (Player.jumping) {
+            y = main.player.getY() - 30;
+        } else {
+            y = main.player.getY() - 30;
+        }
     }
 
     public void render(Graphics g) {
         g.setColor(Color.gray);
-        g.fillRect(20, 20, 200, 32);
+        g.fillRect((int) x, (int) y, 100, 16);
+
         g.setColor(new Color(75, (int) greenValue, 0));
-        g.fillRect(20, 20, (int) HEALTH * 2, 32);
+        g.fillRect((int) x, (int) y, (int) HEALTH, 16);
+
         g.setColor(Color.WHITE);
-        g.drawRect(20, 20, 200, 32);
+        g.drawRect((int) x, (int) y, 100, 16);
+
+        g.drawString("Points : " + Handler.points , (int)x, (int)y-10);
 
         //g.drawString("Score: "+ score, 15, 64);g.drawString("Points : " + Handler.points , 200, 300);
         //g.drawString("Level: "+ level, 15, 80);

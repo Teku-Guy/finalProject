@@ -51,11 +51,33 @@ public class Menu extends MouseAdapter{
                 System.exit(1);
             }
 
-        }
+        }else if(this.main.gameState == STATE.GameMenu){
+            //play button
+            if(mouseOver(mx, my, Main.window.frame.getWidth() / 2 - 100, 450, 200, 64)){
+                main.gameState = STATE.Game;
+            }
 
+            //help Button
+            if(mouseOver(mx, my, Main.window.frame.getWidth() / 2 - 100, 550, 200, 64)){
+                main.gameState = STATE.GHelp;
+            }
+
+            //quit button
+            if(mouseOver(mx, my, Main.window.frame.getWidth() / 2 - 100, 650, 200, 64)){
+                System.exit(1);
+            }
+
+        }
+        else if(this.main.gameState == STATE.GHelp) {
+            //back button
+            if(mouseOver(mx, my, Main.WIDTH / 2-100, 550, 200, 64)){
+                main.gameState = STATE.GameMenu;
+                return;
+            }
+        }
         else if(this.main.gameState == STATE.Help) {
            //back button
-            if(mouseOver(mx, my, 50, 550, 200, 64)){
+            if(mouseOver(mx, my, Main.WIDTH / 2-100, 550, 200, 64)){
                 main.gameState = STATE.Menu;
                 return;
             }
@@ -95,9 +117,50 @@ public class Menu extends MouseAdapter{
 
             g.drawString("Help", 110, 590);
             g.drawRect(50, 550, 200, 64);
-            //Hello
+
             g.drawString("Quit", 110, 690);
             g.drawRect(50, 650, 200, 64);
+
+        }else if(main.gameState == STATE.GameMenu){
+
+            Font fnt = new Font("arial", 1, 70);
+            Font fnt2 = new Font("arial", 1, 30);
+
+            g.drawImage(Main.Background, 0, 0, null);
+            g.setFont(fnt);
+            g.setColor(Color.WHITE);
+            int w2 = g.getFontMetrics().stringWidth("Pause") / 2;
+            int h2 = g.getFontMetrics().getHeight();
+            g.drawString("Pause", Main.WIDTH / 2 - w2, Main.HEIGHT / 2 - h2);
+            g.setFont(fnt2);
+            g.setColor(Color.WHITE);
+            g.drawString("Resume", Main.WIDTH / 2 - (g.getFontMetrics().stringWidth("Resume") / 2), 490);
+            g.drawRect(Main.window.frame.getWidth() / 2 - 100, 450, 200, 64);
+
+            g.drawString("Help", Main.WIDTH / 2 - (g.getFontMetrics().stringWidth("Help") / 2), 590);
+            g.drawRect(Main.window.frame.getWidth() / 2 - 100, 550, 200, 64);
+
+            g.drawString("Quit", Main.WIDTH / 2 - (g.getFontMetrics().stringWidth("Quit") / 2), 690);
+            g.drawRect(Main.window.frame.getWidth() / 2 - 100, 650, 200, 64);
+
+        }else if(main.gameState == STATE.GHelp){
+
+            Font fnt = new Font("arial", 1, 50);
+            Font fnt2 = new Font("arail", 1, 30);
+            Font fnt3 = new Font("arail", 1, 15);
+            g.drawImage(Main.Background, 0, 0, null);
+            g.setFont(fnt);
+            g.setColor(Color.WHITE);
+            g.drawString("Help", Main.WIDTH / 2 - (g.getFontMetrics().stringWidth("Help") / 2), 100);
+
+            g.setFont(fnt3);
+            String s = "Use WASD keys on your keyboard to move your Player and Click your mouse to kill enemies!";
+            int w = g.getFontMetrics().stringWidth(s) / 2;
+            g.drawString(s, Main.WIDTH / 2 - w, 310);
+
+            g.setFont(fnt2);
+            g.drawRect(Main.WIDTH / 2-100, 550, 200, 64);
+            g.drawString("Back", Main.WIDTH / 2 - (g.getFontMetrics().stringWidth("Back") / 2), 590);
 
         }else if(main.gameState == STATE.Help){
 

@@ -49,11 +49,12 @@ public class KeyInput extends KeyAdapter {
                     }
                 }
                 if (key == KeyEvent.VK_S) {
-                    //if (Player.collided) {
+                    if (!Player.collided) {
                         keyDown[1] = true;
                         tempObject.setVelY(1);
                         Player.still = false;
-                    //}
+                    }
+                    Player.still = true;
                 }
                 if (key == KeyEvent.VK_D) {
                     keyDown[2] = true;

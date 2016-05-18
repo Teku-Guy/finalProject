@@ -120,7 +120,7 @@ public class Player extends GameObject {
             velY = MAX_SPEED;
         }
 
-        x = Main.clamp((int)x, 0, Main.WIDTH-31);
+        //x = Main.clamp((int)x, 0, Main.WIDTH-31);
         y = Main.clamp((int)y, 0, Main.HEIGHT-53);
     }
 

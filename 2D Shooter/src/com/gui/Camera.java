@@ -3,6 +3,7 @@ package com.gui;/**
  */
 
 import com.entity.GameObject;
+import com.game.Main;
 
 public class Camera {
 
@@ -14,7 +15,8 @@ public class Camera {
     }
 
     public void tick(GameObject player){
-        x--;
+        x = - player.getX() + (float)Main.window.frame.getSize().getWidth()/2;
+        y = - player.getY() + (float)Main.window.frame.getSize().getHeight()*((float)0.87);
     }
 
     public float getX(){

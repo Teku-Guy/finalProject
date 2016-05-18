@@ -10,10 +10,18 @@ import java.awt.Graphics;
 public class HUD {
 
     public static float HEALTH = 100;
+    private Main main;
     private float greenValue = 255f;
+
+    private float x, y;
 
     private int score = 0;
     private int level = 1;
+
+    public HUD(float x, float y){
+        this.x = x;
+        this.y = y;
+    }
 
     public void tick() {
         HEALTH = Main.clamp(HEALTH, 0, 1000);
@@ -21,17 +29,23 @@ public class HUD {
 
         greenValue = HEALTH * 2;
 
+        x += main.player.getVelX();
+        y += main.player.getVelY();
 
         //score++;
     }
 
     public void render(Graphics g) {
         g.setColor(Color.gray);
-        g.fillRect(20, 20, 200, 32);
+        g.fillRect((int)x, (int)y, 100, 16);
+
         g.setColor(new Color(75, (int) greenValue, 0));
-        g.fillRect(20, 20, (int) HEALTH * 2, 32);
+        g.fillRect((int)x, (int)y, (int) HEALTH, 16);
+
         g.setColor(Color.WHITE);
-        g.drawRect(20, 20, 200, 32);
+        g.drawRect((int)x, (int)y, 100, 16);
+
+
 
         //g.drawString("Score: "+ score, 15, 64);g.drawString("Points : " + Handler.points , 200, 300);
         //g.drawString("Level: "+ level, 15, 80);

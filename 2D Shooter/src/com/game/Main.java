@@ -277,8 +277,6 @@ public class Main extends Canvas implements Runnable {
         g.fillRect(0, 0, WIDTH, HEIGHT);
 
 
-        g.drawString("Points : " + Handler.points , 200, 300);
-
         if (gameState == STATE.Game) {
             g.drawImage(Main.Background, 0, 0, null);
             handler.render(g);

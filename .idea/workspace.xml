@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2a689849-47b3-45fa-a497-2e5a071d844c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2D Shooter/src/com/game/Main.java" afterPath="$PROJECT_DIR$/2D Shooter/src/com/game/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2D Shooter/src/com/input/Handler.java" afterPath="$PROJECT_DIR$/2D Shooter/src/com/input/Handler.java" />
     </list>
     <ignored path="finalProject.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -117,8 +115,8 @@
       <file leaf-file-name="Handler.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/2D Shooter/src/com/input/Handler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="120" column="80" selection-start-line="120" selection-start-column="80" selection-end-line="120" selection-end-column="80" />
+            <state relative-caret-position="150">
+              <caret line="113" column="0" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -823,7 +821,14 @@
       <option name="project" value="LOCAL" />
       <updated>1463542903776</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Fixed hard coded or fixed demensions on screen I think">
+      <created>1463543688355</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1463543688355</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -870,7 +875,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added mouselistener" />
     <MESSAGE value="Jumping code, for some reason collision detection code lags the game/breaks gravity and falling" />
     <MESSAGE value="Ok tile collision detection code works, the biggest issue is that there is lag when it collides." />
     <MESSAGE value="finalized block bound collection(to make player look like hes on the block), the lag issue still remains!" />
@@ -895,7 +899,8 @@
     <MESSAGE value="Mouse can shoot now, setting up for bullets that shoot at different trajectories(imo its gonna be the biggest thing to accomplish)" />
     <MESSAGE value="Quick animation fix when shooting with mouse" />
     <MESSAGE value="Fixed player shooting animations&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed player shooting animations&#10;" />
+    <MESSAGE value="Fixed hard coded or fixed demensions on screen I think" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed hard coded or fixed demensions on screen I think" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1277,8 +1282,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/2D Shooter/src/com/input/Handler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="120" column="80" selection-start-line="120" selection-start-column="80" selection-end-line="120" selection-end-column="80" />
+        <state relative-caret-position="150">
+          <caret line="113" column="0" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
           <folding />
         </state>
       </provider>

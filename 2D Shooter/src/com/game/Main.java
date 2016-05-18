@@ -276,13 +276,16 @@ public class Main extends Canvas implements Runnable {
 
         g.fillRect(0, 0, WIDTH, HEIGHT);
 
-        g.setColor(Color.GREEN);
-        g.drawString("FPS: " + frames, 10, 15);
+
+        g.drawString("Points : " + Handler.points , 200, 300);
 
         if (gameState == STATE.Game) {
             g.drawImage(Main.Background, 0, 0, null);
             handler.render(g);
             hud.render(g);
+            g.setColor(Color.WHITE);
+            g.drawString("FPS: " + frames, 10, 15);
+            g.drawString("Points : " + Handler.points , 10, 30);
         } else if (gameState == STATE.Menu || gameState == STATE.Help || gameState == STATE.End) {
             menu.render(g);
         }

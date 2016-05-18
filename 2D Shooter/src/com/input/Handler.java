@@ -17,6 +17,7 @@ public class Handler {
     public static LinkedList<Tile> tile = new LinkedList<Tile>();
     public static LinkedList<Bullet> bullet = new LinkedList<Bullet>();
     public static int killCount = 0;
+    public static int points = 0;
 
     private Bullet bull;
     private Main main;
@@ -86,6 +87,7 @@ public class Handler {
     public void kill(Zombie z){
         object.remove(z);
         killCount++;
+        points+=100;
         System.out.println(killCount);
     }
 

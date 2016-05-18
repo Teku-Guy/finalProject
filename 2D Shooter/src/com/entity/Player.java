@@ -193,9 +193,6 @@ public class Player extends GameObject {
         }
     }
 
-    public void shoot(){
-
-    }
 
 
     public void tick() {

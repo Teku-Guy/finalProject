@@ -13,6 +13,7 @@ import com.input.KeyInput;
 import com.graphics.Sprite;
 import com.graphics.SpriteSheet;
 import com.entity.*;
+import com.input.MouseInput;
 
 import java.awt.*;
 import java.awt.image.BufferStrategy;
@@ -92,6 +93,8 @@ public class Main extends Canvas implements Runnable {
 
         this.addKeyListener(new KeyInput(handler));
         this.addMouseListener(menu);
+        this.addMouseListener(new MouseInput(handler));
+
 
         window = new Window("2D Shooter", this);
 

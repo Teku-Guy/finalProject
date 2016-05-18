@@ -103,6 +103,7 @@ public class Handler {
         this.object.remove(object);
     }
 
+
     public void addTile(Tile newTile){
         tile.add(newTile);
     }

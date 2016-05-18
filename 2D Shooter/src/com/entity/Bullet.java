@@ -19,13 +19,14 @@ public class Bullet extends GameObject{
     public boolean ifShotHits= false;
     private Handler handler;
 
-    public Bullet(float x, float y, int width, int height, ID id, int velX, boolean ifShotHits){
+    public Bullet(float x, float y, int width, int height, ID id, int velX, int velY, boolean ifShotHits){
         super(x,y,width,height,id);
 
         this.x = x;
         this.y = y;
         this.id = id;
         this.velX = velX;
+        this.velY = velY;
         this.ifShotHits = ifShotHits;
     }
 
@@ -43,6 +44,7 @@ public class Bullet extends GameObject{
 
     public void tick() {
         x += velX;
+        y += velY;
     }
 
     public float getX(){

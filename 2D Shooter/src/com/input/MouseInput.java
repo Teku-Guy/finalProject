@@ -28,6 +28,7 @@ public class MouseInput extends MouseAdapter {
             if (tempObject.getId() == ID.Player) {
 
                 if (e.getButton() == e.BUTTON1) {
+                    Player.shoot = true;
                     if(Player.facing == 1)
                         handler.addBullet(new Bullet(tempObject.getX(), tempObject.getY(), width, height, ID.Bullet, 5, false));
                     else if(Player.facing == 0)
@@ -42,12 +43,19 @@ public class MouseInput extends MouseAdapter {
     }
 
     public void mouseReleased(MouseEvent e) {
-        if (e.getButton() == e.BUTTON1) {
-            //fire = false;
-        }
-        if (e.getButton() == e.BUTTON3) {
-            //special = false;
+        for (int i = 0; i < handler.object.size(); i++) {
+            GameObject tempObject = handler.object.get(i);
 
+            if (tempObject.getId() == ID.Player) {
+
+                if (e.getButton() == e.BUTTON1) {
+                    Player.shoot = false;
+                }
+                if (e.getButton() == e.BUTTON3) {
+                    //special = false;
+
+                }
+            }
         }
 
     }

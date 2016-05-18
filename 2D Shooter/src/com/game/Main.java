@@ -30,7 +30,7 @@ public class Main extends Canvas implements Runnable {
     private static Main main;
 
     private int frames;
-    private Window window;
+    public static Window window;
     private Thread thread;
     private boolean running = false;
 

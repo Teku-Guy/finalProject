@@ -113,7 +113,15 @@ public class Handler {
 
         for(int i = 0; i <= 100; i++) {
 
-            addTile(new Grass((i*32), Main.HEIGHT+700, 64, 64, true, ID.Tile));
+            addTile(new Grass((i*32), Main.HEIGHT + 970, 64, 64, true, ID.Tile));
+        }
+        for(int i = 0; i < 11; i++){
+            addTile(new Stone((i*32 + 900), 800, 64,64, true, ID.Tile));
+            addTile(new Stone((i*32 + 900), 945, 64,64, true, ID.Tile));
+            addTile(new Stone((i * 32 + 950), 770, 64, 64, true, ID.Tile));
+            addTile(new Stone((i * 32 + 1000), 740, 64, 64, true, ID.Tile));
+            addTile(new Stone((i * 32 + 1150), 710, 64, 64, true, ID.Tile));
+            addTile(new Stone((i * 32 + 1300), 680, 64, 64, true, ID.Tile));
         }
 
 

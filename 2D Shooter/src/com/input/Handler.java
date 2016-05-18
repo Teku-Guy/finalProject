@@ -19,10 +19,12 @@ public class Handler {
     public static int killCount = 0;
     public static int points = 0;
 
+
     private Bullet bull;
     private Main main;
 
     private int counter = 0;
+    private int counterTest = 0;
     private Random r = new Random();
     public Tile maps[] = new Tile[10];
 

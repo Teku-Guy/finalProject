@@ -294,8 +294,13 @@ public class Main extends Canvas implements Runnable {
             g.setColor(Color.WHITE);
             //g.drawString("FPS: " + frames, 10, 15);
 
+
             g2d.translate((int)-cam.getX(), (int)-cam.getY());
-        } else if (gameState == STATE.Menu || gameState == STATE.GameMenu || gameState == STATE.Help || gameState == STATE.GHelp || gameState == STATE.End) {
+        } else if (gameState == STATE.Menu ||
+                gameState == STATE.GameMenu ||
+                gameState == STATE.Help ||
+                gameState == STATE.GHelp ||
+                gameState == STATE.End) {
             menu.render(g);
         }
 

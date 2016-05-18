@@ -1,6 +1,4 @@
-package com.input;
-
-/**
+package com.input;/**
  * Created by Gustavo_Muratalla on 5/10/16.
  */
 import com.entity.Bullet;
@@ -72,6 +70,7 @@ public class KeyInput extends KeyAdapter {
 
                 if(key == KeyEvent.VK_SPACE){
                     keyDown[4] = true;
+                    Player.still = false;
                     Player.shoot = true;
                     if (Player.facing == 1)
                         handler.addBullet(new Bullet(tempObject.getX(), tempObject.getY(), width, height, ID.Bullet, 5, 0, false));

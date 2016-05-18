@@ -116,7 +116,7 @@ public class Handler {
 
         for(int i = 0; i <= 100; i++) {
 
-            addTile(new Grass((i*32), (int)(Main.window.frame.getHeight() * (.92)), 64, 64, true, ID.Tile));
+            addTile(new Grass((i*32), (int)(Main.window.frame.getHeight() * (.9325)), 64, 64, true, ID.Tile));
         }
         for(int i = 0; i < 20; i++){
             addTile(new Stone((i*32), (int)(Main.window.frame.getHeight() * (.82)), 64,64, true, ID.Tile));

@@ -43,6 +43,7 @@ public class MouseInput extends MouseAdapter {
                     if (tempObject.getId() == ID.Player) {
 
                         if (e.getButton() == e.BUTTON1) {
+                            Player.still = false;
                             if (Player.facing == 1) {
                                 if(playerObj.getVelX() > xVelocity) {
                                     Player.shoot = true;

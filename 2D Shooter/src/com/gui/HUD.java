@@ -16,10 +16,7 @@ public class HUD {
 
     private float x, y, velY, velX;
 
-    private int score = 0;
-    private int level = 1;
-
-    public HUD(float x, float y){
+    public HUD(float x, float y) {
         this.x = x;
         this.y = y;
     }
@@ -31,39 +28,26 @@ public class HUD {
         greenValue = HEALTH * 2;
 
         x += main.player.getVelX();
-        if(Player.jumping){
-            y = main.player.getY()-30;
-        }else{
-            y = main.player.getY()-30;
+        if (Player.jumping) {
+            y = main.player.getY() - 30;
+        } else {
+            y = main.player.getY() - 30;
         }
-        //score++;
     }
 
     public void render(Graphics g) {
         g.setColor(Color.gray);
-        g.fillRect((int)x, (int)y, 100, 16);
+        g.fillRect((int) x, (int) y, 100, 16);
 
         g.setColor(new Color(75, (int) greenValue, 0));
-        g.fillRect((int)x, (int)y, (int) HEALTH, 16);
+        g.fillRect((int) x, (int) y, (int) HEALTH, 16);
 
         g.setColor(Color.WHITE);
-        g.drawRect((int)x, (int)y, 100, 16);
+        g.drawRect((int) x, (int) y, 100, 16);
+
+        g.drawString("Points : " + Handler.points , (int)x, (int)y-10);
 
         //g.drawString("Score: "+ score, 15, 64);g.drawString("Points : " + Handler.points , 200, 300);
         //g.drawString("Level: "+ level, 15, 80);
-    }
-    public float getY() {
-        return y;
-    }
-
-    public void setY(int y){
-        this.y = y;
-    }
-    public float getVelY() {
-        return y;
-    }
-
-    public void setVelY(int y){
-        this.y = y;
     }
 }

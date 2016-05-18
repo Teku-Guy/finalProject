@@ -102,7 +102,7 @@ public class Main extends Canvas implements Runnable {
 
         handler.createLevel();
         player = (new Player(500, 600, 32, 32, handler, ID.Player));
-        hud = new HUD(player.getX(), player.getY());
+        hud = new HUD(player.getX()-17, player.getY());
         handler.addObject(player);
         handler.makeWave(enemyCount);
             //handler.addObject(new Zombie(300, 100, 32, 32, false, handler, ID.Zombie));
@@ -292,8 +292,7 @@ public class Main extends Canvas implements Runnable {
             handler.render(g);
             hud.render(g);
             g.setColor(Color.WHITE);
-            g.drawString("FPS: " + frames, 10, 15);
-            g.drawString("Points : " + Handler.points , 10, 30);
+            //g.drawString("FPS: " + frames, 10, 15);
 
             g2d.translate((int)-cam.getX(), (int)-cam.getY());
         } else if (gameState == STATE.Menu || gameState == STATE.GameMenu || gameState == STATE.Help || gameState == STATE.GHelp || gameState == STATE.End) {

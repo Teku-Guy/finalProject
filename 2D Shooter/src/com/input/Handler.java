@@ -119,7 +119,7 @@ public class Handler {
             addTile(new Grass((i*32), (int)(Main.window.frame.getHeight() * (.92)), 64, 64, true, ID.Tile));
         }
         for(int i = 0; i < 20; i++){
-            addTile(new Stone((i*32), (int)(Main.window.frame.getHeight() * (.82)), 64,64, true, ID.Tile));
+            addTile(new Stone((i*32), (int)(Main.window.frame.getHeight() * (.75)), 64,64, true, ID.Tile));
             /*addTile(new Stone((i*32 + 900), 945, 64,64, true, ID.Tile));
             addTile(new Stone((i * 32 + 950), 770, 64, 64, true, ID.Tile));
             addTile(new Stone((i * 32 + 1000), 740, 64, 64, true, ID.Tile));

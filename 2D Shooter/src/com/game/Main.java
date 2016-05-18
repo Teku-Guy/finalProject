@@ -78,9 +78,11 @@ public class Main extends Canvas implements Runnable {
 
 
     public enum STATE {
-        Menu,
-        Help,
         Game,
+        Menu,
+        GameMenu,
+        GHelp,
+        Help,
         End
     }
 
@@ -274,7 +276,7 @@ public class Main extends Canvas implements Runnable {
         //g.setColor(Color.BLACK);
         // g.setColor(Color.LIGHT_GRAY);
 
-        g.fillRect(0, 0, WIDTH, HEIGHT);
+        //g.fillRect(0, 0, WIDTH, HEIGHT);
 
 
         if (gameState == STATE.Game) {
@@ -284,7 +286,7 @@ public class Main extends Canvas implements Runnable {
             g.setColor(Color.WHITE);
             g.drawString("FPS: " + frames, 10, 15);
             g.drawString("Points : " + Handler.points , 10, 30);
-        } else if (gameState == STATE.Menu || gameState == STATE.Help || gameState == STATE.End) {
+        } else if (gameState == STATE.Menu || gameState == STATE.GameMenu || gameState == STATE.Help || gameState == STATE.GHelp || gameState == STATE.End) {
             menu.render(g);
         }
 

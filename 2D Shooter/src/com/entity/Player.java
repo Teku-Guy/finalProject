@@ -29,7 +29,8 @@ public class Player extends GameObject {
     private KeyInput key;
     private Handler handler = new Handler();
 
-    public int phase = 0;
+    public int phaseWalking = 0;
+    public int phaseShoot = 0;
     public static int facing = 0;
 
     private int counter = 0 ;
@@ -56,32 +57,43 @@ public class Player extends GameObject {
         counter++;
         if (counter % 10 == 0) {
             counter = 0;
-            phase++;
-            phase %= Main.PlayerWalkL.length;
+            phaseWalking++;
+            phaseShoot++;
+            phaseShoot %=Main.PlayerShootL.length;
+            phaseWalking %= Main.PlayerWalkL.length;
         }
 
          if(facing == 0) {
              if (jumping) {
                  g.drawImage(Main.PJumpLeft.getBufferedImage(), (int)x, (int)y, null);
 
-             } else if (still) {
+             }else if (still) {
                  g.drawImage(Main.PlayerWalkL[0].getBufferedImage(), (int)x, (int)y, null);
 
-             } else {
-                 g.drawImage(Main.PlayerWalkL[phase].getBufferedImage(), (int)x, (int)y, null);
+             }
+             if(shoot){
+                 g.drawImage(Main.PlayerShootL[phaseShoot].getBufferedImage(), (int)x, (int)y, null);
+             }
+             else {
+                 g.drawImage(Main.PlayerWalkL[phaseWalking].getBufferedImage(), (int)x, (int)y, null);
              }
          }
-         else if(facing == 1){ Player.shoot = true;
+         else if(facing == 1){
                  if(jumping){
                      g.drawImage(Main.PJumpRight.getBufferedImage(), (int)x,(int)y, null);
 
                  }else if(still){
                      g.drawImage(Main.PlayerWalkR[0].getBufferedImage(), (int)x, (int)y, null);
                  }
+
+                 if(shoot){
+                     g.drawImage(Main.PlayerShootR[phaseShoot].getBufferedImage(), (int)x, (int)y, null);
+                 }
                  else{
-                     g.drawImage(Main.PlayerWalkR[phase].getBufferedImage(), (int)x, (int)y, null);
+                     g.drawImage(Main.PlayerWalkR[phaseWalking].getBufferedImage(), (int) x, (int) y, null);
 
                  }
+
          }
 
 
@@ -180,6 +192,7 @@ public class Player extends GameObject {
     public void shoot(){
 
     }
+
 
     public void tick() {
         move();

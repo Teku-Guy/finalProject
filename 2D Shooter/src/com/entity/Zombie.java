@@ -3,11 +3,7 @@ package com.entity;/**
  */
 
 import com.game.Main;
-import com.gui.HUD;
 import com.input.Handler;
-import com.entity.ID;
-import com.graphics.Sprite;
-import com.graphics.SpriteSheet;
 
 import java.awt.*;
 
@@ -91,7 +87,7 @@ public class Zombie extends GameObject{
         for(int i = 0; i < handler.tile.size(); i++) {
             for (int j = 0; j < handler.object.size(); j++) {
                 Tile tempTile = handler.tile.get(i);
-                GameObject tempObject = handler.object.get(j);
+
                 if (tempTile.getId() == ID.Tile) {
                     if (getBounds().intersects(tempTile.getBounds())) {
                         velY = 0;

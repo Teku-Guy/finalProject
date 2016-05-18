@@ -32,10 +32,9 @@ public class Bullet extends GameObject{
     public void render(Graphics g) {
         g.drawImage(Main.Bullet.getBufferedImage(), (int)x, (int)y, null);
 
-        Graphics2D g2d = (Graphics2D) g;
 
-        g.setColor(Color.white);
-        g2d.draw(getBounds());
+
+
     }
 
     public Rectangle getBounds(){

@@ -50,6 +50,8 @@ public class Main extends Canvas implements Runnable {
     public static Sprite[] PlayerWalkL = new Sprite[5];
     public static Sprite[] ZWalkR = new Sprite[3];
     public static Sprite[] ZWalkL = new Sprite[3];
+    public static Sprite[] PlayerShootL = new Sprite[2];
+    public static Sprite[] PlayerShootR = new Sprite[2];
 
     public static Sprite PJumpLeft;
     public static Sprite PJumpRight;
@@ -58,12 +60,15 @@ public class Main extends Canvas implements Runnable {
     public static Sprite Stone;
     public static Sprite Floating;
 
+
     public static SpriteSheet PJumpLSheet;
     public static SpriteSheet PJumpRSheet;
     public static SpriteSheet PWalkRSheet;
     public static SpriteSheet PWalkLSheet;
     public static SpriteSheet ZWalkRSheet;
     public static SpriteSheet ZWalkLSheet;
+    public static SpriteSheet PShootL;
+    public static SpriteSheet PShootR;
     public static SpriteSheet BulletSheet;
     public static SpriteSheet GrassSheet;
     public static SpriteSheet StoneSheet;
@@ -123,9 +128,11 @@ public class Main extends Canvas implements Runnable {
         PWalkLSheet = new SpriteSheet("/res/PWalkingLeft.png");
         PJumpRSheet = new SpriteSheet("/res/PJumpRight.png");
         PJumpLSheet = new SpriteSheet("/res/PJumpLeft.png");
+        PShootL = new SpriteSheet("/res/PShootL.png");
+        PShootR = new SpriteSheet("/res/PShootR.png");
 
 
-        System.out.println("Level created!");
+
 
         PJumpLeft = Sprite.fromSheet(PJumpLSheet, 0, 0, 64, 64);
         PJumpRight = Sprite.fromSheet(PJumpRSheet, 0, 0, 64, 64);
@@ -144,6 +151,12 @@ public class Main extends Canvas implements Runnable {
 
         for (int i = 0; i < PlayerJumpL.length; i++) {
             PlayerJumpL[i] = Sprite.fromSheet(PJumpLSheet, i, 0, 64, 64);
+        }
+        for(int i = 0; i < PlayerShootR.length; i++){
+            PlayerShootR[i] = Sprite.fromSheet(PShootR,i ,0 ,64,64);
+        }
+        for(int i = 0; i < PlayerShootL.length; i++){
+            PlayerShootL[i] = Sprite.fromSheet(PShootL,i , 0 , 64, 64);
         }
 
 

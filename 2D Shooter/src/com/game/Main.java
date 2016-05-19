@@ -20,8 +20,10 @@ import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import javax.sound.sampled.*;
 
 public class Main extends Canvas implements Runnable {
 
@@ -36,6 +38,8 @@ public class Main extends Canvas implements Runnable {
     private boolean running = false;
 
     private int enemyCount = 5;
+    private int waveCount = 0;
+    private int mapCounter = 0;
 
     public Handler handler;
     public Camera cam;
@@ -277,20 +281,23 @@ public class Main extends Canvas implements Runnable {
     private void tick() {
         if (gameState == STATE.Game) {
             handler.tick();
-            for(int i = 0; i < handler.object.size(); i++){
-                if(handler.object.get(i).getId() == ID.Player){
+            for (int i = 0; i < handler.object.size(); i++) {
+                if (handler.object.get(i).getId() == ID.Player) {
                     cam.tick(handler.object.get(i));
                 }
             }
             hud.tick();
-            if(Handler.killCount >= enemyCount){
-                handler.clearEnemies();
-                enemyCount += 10;
-                Handler.killCount = 0;
-                handler.makeWave(enemyCount);
+            if (Handler.killCount >= enemyCount) {
+                if (waveCount < 2) {
+                    handler.clearEnemies();
+                    enemyCount += 10;
+                    waveCount++;
+                    Handler.killCount = 0;
+                    handler.makeWave(enemyCount);
+                }
+            } else if (gameState == STATE.Menu || gameState == STATE.End) {
+                menu.tick();
             }
-        } else if (gameState == STATE.Menu || gameState == STATE.End) {
-            menu.tick();
         }
     }
 
@@ -357,6 +364,8 @@ public class Main extends Canvas implements Runnable {
     public void setEnemyCount(int enemyCount){
         this.enemyCount = enemyCount;
     }
+
+
 
 
     public static void main(String[] args) {

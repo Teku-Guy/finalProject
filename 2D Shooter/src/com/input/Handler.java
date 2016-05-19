@@ -7,15 +7,13 @@ import com.game.Main;
 import com.gui.Window;
 
 import java.awt.Graphics;
-import java.util.LinkedList;
-import java.util.Objects;
-import java.util.Random;
+import java.util.*;
 
 public class Handler {
 
-    public static LinkedList<GameObject> object = new LinkedList<GameObject>();
-    public static LinkedList<Tile> tile = new LinkedList<Tile>();
-    public static LinkedList<Bullet> bullet = new LinkedList<Bullet>();
+    public static List<GameObject> object = new ArrayList<>();
+    public static List<Tile> tile = new ArrayList<Tile>();
+    public static List<Bullet> bullet = new ArrayList<Bullet>();
     public static int killCount = 0;
     public static int points = 0;
 
@@ -73,15 +71,15 @@ public class Handler {
     }
 
     public void clearEnemies(){
-        for(int i = 0; i <object.size(); i++){
+        for(int i = 0; i < object.size(); i++){
             GameObject tempObject = object.get(i);
-
             if(tempObject.getId() != ID.Player){
-                object.clear();
+                object.remove(i);
+                i--;
 
-                //This removes the player after they lost
-                if(Main.gameState != Main.STATE.End)
-                    addObject(new Player((int)tempObject.getX(), (int)tempObject.getY(), 32, 32, this,ID.Player));
+//                //This removes the player after they lost
+//                if(Main.gameState != Main.STATE.End)
+//                    addObject(new Player((int)tempObject.getX(), (int)tempObject.getY(), 32, 32, this,ID.Player));
             }
         }
     }

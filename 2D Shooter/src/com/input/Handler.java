@@ -7,6 +7,9 @@ import com.game.Main;
 import com.gui.Window;
 
 import java.awt.Graphics;
+import java.io.*;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -137,5 +140,14 @@ public class Handler {
 
 
     }
+    public void getMap(String s){
+        try{
+            InputStream in = getClass().getResourceAsStream(s);
+            BufferedReader br = new BufferedReader(new InputStreamReader(in));
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
 }
 

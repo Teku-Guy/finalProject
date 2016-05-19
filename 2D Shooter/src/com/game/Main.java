@@ -284,7 +284,8 @@ public class Main extends Canvas implements Runnable {
             }
             hud.tick();
             if(Handler.killCount >= enemyCount){
-                enemyCount += 2;
+                handler.clearEnemies();
+                enemyCount += 10;
                 Handler.killCount = 0;
                 handler.makeWave(enemyCount);
             }

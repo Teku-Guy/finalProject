@@ -36,6 +36,7 @@ public class Bullet extends GameObject {
 
     }
 
+
     public void collisoinWithBlock() {
         for (int i = 0; i < Handler.tile.size(); i++)
             for (int j = 0; j < Handler.bullet.size(); j++) {

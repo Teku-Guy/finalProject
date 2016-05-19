@@ -49,6 +49,7 @@ public class Handler {
         for(int i = 0; i < bullet.size(); i++){
             Bullet tempBullet = bullet.get(i);
             tempBullet.render(g);
+            limitBullets(tempBullet);
         }
         for(int i = 0 ; i < tile.size(); i++){
             Tile tempTile = tile.get(i);
@@ -61,6 +62,7 @@ public class Handler {
         }
 
 
+
     }
 
     public void makeWave(int enemy_count){
@@ -70,7 +72,7 @@ public class Handler {
 
     }
 
-    public void clearEnemys(){
+    public void clearEnemies(){
         for(int i = 0; i <object.size(); i++){
             GameObject tempObject = object.get(i);
 
@@ -93,6 +95,12 @@ public class Handler {
 
     public void clearBullet(Bullet b){
         bullet.remove(b);
+    }
+    public void limitBullets(Bullet b){
+        if(bullet.size() > 5){
+            for(int i = 0; i < bullet.size(); i++)
+                bullet.remove(i);
+        }
     }
 
     public void addObject(GameObject object){

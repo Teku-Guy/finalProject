@@ -192,6 +192,16 @@ public class Player extends GameObject {
                         jump = 1;
                         collided = true;
                     }
+                    else if(getBoundsT().intersects(tempTile.getBoundsL()) ||
+                            getBoundsT().intersects(tempTile.getBoundsR()) ||
+                            getBoundsT().intersects(tempTile.getBoundsL()) ||
+                            getBoundsT().intersects(tempTile.getBoundsR())){
+                        velX = 0;
+                        jump = 1;
+                        falling = false;
+                        jumping = false;
+                        collided = true;
+                    }
                 }
             }
         }

@@ -60,6 +60,10 @@ public class Main extends Canvas implements Runnable {
     public static Sprite Grass;
     public static Sprite Stone;
     public static Sprite Floating;
+    public static Sprite BoundR;
+    public static Sprite BoundL;
+    public static Sprite BoundT;
+    public static Sprite BoundB;
 
 
     public static SpriteSheet PJumpLSheet;
@@ -74,6 +78,10 @@ public class Main extends Canvas implements Runnable {
     public static SpriteSheet GrassSheet;
     public static SpriteSheet StoneSheet;
     public static SpriteSheet FloatingSheet;
+    public static SpriteSheet BoundRSheet;
+    public static SpriteSheet BoundLSheet;
+    public static SpriteSheet BoundTSheet;
+    public static SpriteSheet BoundBSheet;
 
     public static BufferedImage Background;
 
@@ -193,8 +201,21 @@ public class Main extends Canvas implements Runnable {
 
         System.out.println("Background loaded!");
         backgroundMusic = new Sound("/res/BackgroundM.wav");
-        backgroundMusic.loop();
+        //backgroundMusic.loop();
+
         System.out.println("Sound loaded!");
+
+        BoundRSheet = new SpriteSheet("/res/BoundsBottom.png");
+        BoundLSheet = new SpriteSheet("/res/BoundsLeft.png");
+        BoundTSheet = new SpriteSheet("/res/BoundsTop.png");
+        BoundBSheet = new SpriteSheet("/res/BoundsBottom.png");
+
+        BoundR = Sprite.fromSheet(BoundRSheet, 0, 0, 64, 64);
+        BoundL = Sprite.fromSheet(BoundLSheet, 0, 0, 64, 64);
+        BoundT = Sprite.fromSheet(BoundTSheet, 0, 0, 64, 64);
+        BoundB = Sprite.fromSheet(BoundBSheet, 0, 0, 64, 64);
+
+        System.out.println("Bounds loaded!");
 
 
 

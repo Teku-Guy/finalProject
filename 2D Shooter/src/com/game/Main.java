@@ -37,7 +37,7 @@ public class Main extends Canvas implements Runnable {
     private Thread thread;
     private boolean running = false;
 
-    private int enemyCount = 5;
+    private int enemyCount = 10;
     private int waveCount = 0;
     private int mapCounter = 0;
 
@@ -288,9 +288,9 @@ public class Main extends Canvas implements Runnable {
             }
             hud.tick();
             if (Handler.killCount >= enemyCount) {
-                if (waveCount < 2) {
+                if (waveCount < 3) {
                     handler.clearEnemies();
-                    enemyCount += 10;
+                    enemyCount += 1;
                     waveCount++;
                     Handler.killCount = 0;
                     handler.makeWave(enemyCount);

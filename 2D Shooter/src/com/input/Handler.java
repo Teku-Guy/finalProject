@@ -8,12 +8,13 @@ import com.gui.Window;
 
 import java.awt.Graphics;
 import java.util.*;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class Handler {
 
-    public static List<GameObject> object = new ArrayList<>();
-    public static List<Tile> tile = new ArrayList<Tile>();
-    public static List<Bullet> bullet = new ArrayList<Bullet>();
+    public static List<GameObject> object = new CopyOnWriteArrayList<>();
+    public static List<Tile> tile = new CopyOnWriteArrayList<Tile>();
+    public static List<Bullet> bullet = new CopyOnWriteArrayList<>();
     public static int killCount = 0;
     public static int points = 0;
 

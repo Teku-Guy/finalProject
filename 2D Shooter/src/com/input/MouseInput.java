@@ -35,8 +35,8 @@ public class MouseInput extends MouseAdapter {
                 int originY = (int)playerObj.getY();
                 double angle = Math.atan2(mX - originX, mY - originY);
                 double bulletVelocity = 10.0;
-                double xVelocity = (bulletVelocity) * Math.cos(angle);
-                double yVelocity = (bulletVelocity) * Math.sin(angle);
+                double xVelocity = (bulletVelocity) * Math.sin(angle);
+                double yVelocity = (bulletVelocity) * Math.cos(angle);
                 for (int j = 0; j < handler.object.size(); j++) {
                     GameObject tempObject = handler.object.get(j);
 
@@ -45,16 +45,14 @@ public class MouseInput extends MouseAdapter {
                         if (e.getButton() == e.BUTTON1) {
                             Player.still = false;
                             if (Player.facing == 1) {
-                                if(playerObj.getVelX() >= xVelocity) {
                                     Player.shoot = true;
-                                    handler.addBullet(new Bullet(tempObject.getX(), tempObject.getY(), width, height, ID.Bullet, (int) xVelocity, (int) -yVelocity, false));
-                                }
+                                    handler.addBullet(new Bullet(tempObject.getX(), tempObject.getY(), width, height, ID.Bullet, (int) xVelocity, (int) yVelocity, false));
+
                             }
                             else if (Player.facing == 0){
-                                if(playerObj.getVelX() >= xVelocity) {
-                                    Player.shoot = true;
-                                    handler.addBullet(new Bullet(tempObject.getX(), tempObject.getY(), width, height, ID.Bullet, (int) -xVelocity, (int) -yVelocity, false));
-                                }
+                                     Player.shoot = true;
+                                    handler.addBullet(new Bullet(tempObject.getX(), tempObject.getY(), width, height, ID.Bullet, (int) xVelocity, (int) yVelocity, false));
+
                             }
 
                         }

@@ -60,6 +60,10 @@ public class Main extends Canvas implements Runnable {
     public static Sprite Grass;
     public static Sprite Stone;
     public static Sprite Floating;
+    public static Sprite BoundR;
+    public static Sprite BoundL;
+    public static Sprite BoundT;
+    public static Sprite BoundB;
 
 
     public static SpriteSheet PJumpLSheet;
@@ -74,7 +78,14 @@ public class Main extends Canvas implements Runnable {
     public static SpriteSheet GrassSheet;
     public static SpriteSheet StoneSheet;
     public static SpriteSheet FloatingSheet;
+    public static SpriteSheet BoundRSheet;
+    public static SpriteSheet BoundLSheet;
+    public static SpriteSheet BoundTSheet;
+    public static SpriteSheet BoundBSheet;
+
     public static BufferedImage Background;
+
+    private Sound backgroundMusic;
 
 
     public enum STATE {
@@ -189,6 +200,22 @@ public class Main extends Canvas implements Runnable {
         }
 
         System.out.println("Background loaded!");
+        backgroundMusic = new Sound("/res/BackgroundM.wav");
+        //backgroundMusic.loop();
+
+        System.out.println("Sound loaded!");
+
+        BoundRSheet = new SpriteSheet("/res/BoundsBottom.png");
+        BoundLSheet = new SpriteSheet("/res/BoundsLeft.png");
+        BoundTSheet = new SpriteSheet("/res/BoundsTop.png");
+        BoundBSheet = new SpriteSheet("/res/BoundsBottom.png");
+
+        BoundR = Sprite.fromSheet(BoundRSheet, 0, 0, 64, 64);
+        BoundL = Sprite.fromSheet(BoundLSheet, 0, 0, 64, 64);
+        BoundT = Sprite.fromSheet(BoundTSheet, 0, 0, 64, 64);
+        BoundB = Sprite.fromSheet(BoundBSheet, 0, 0, 64, 64);
+
+        System.out.println("Bounds loaded!");
 
 
 
@@ -198,6 +225,7 @@ public class Main extends Canvas implements Runnable {
     public synchronized void start() {
         thread = new Thread(this);
         thread.start();
+
 
         running = true;
 
@@ -289,6 +317,7 @@ public class Main extends Canvas implements Runnable {
             g2d.translate((int)cam.getX(), (int)cam.getY());
             g.drawImage(Main.Background, 0, 0, null);
 
+
             handler.render(g);
             hud.render(g);
             g.setColor(Color.WHITE);
@@ -331,6 +360,8 @@ public class Main extends Canvas implements Runnable {
 
     public static void main(String[] args) {
         main = new Main();
+
+
 
         //mostly for ubuntu
         System.setProperty("sun.java2d.opengl", "true");

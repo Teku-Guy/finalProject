@@ -74,7 +74,10 @@ public class Main extends Canvas implements Runnable {
     public static SpriteSheet GrassSheet;
     public static SpriteSheet StoneSheet;
     public static SpriteSheet FloatingSheet;
+
     public static BufferedImage Background;
+
+    private Sound backgroundMusic;
 
 
     public enum STATE {
@@ -189,6 +192,9 @@ public class Main extends Canvas implements Runnable {
         }
 
         System.out.println("Background loaded!");
+        backgroundMusic = new Sound("/res/BackgroundM.wav");
+        backgroundMusic.loop();
+        System.out.println("Sound loaded!");
 
 
 
@@ -198,6 +204,7 @@ public class Main extends Canvas implements Runnable {
     public synchronized void start() {
         thread = new Thread(this);
         thread.start();
+
 
         running = true;
 
@@ -332,6 +339,8 @@ public class Main extends Canvas implements Runnable {
 
     public static void main(String[] args) {
         main = new Main();
+
+
 
         //mostly for ubuntu
         System.setProperty("sun.java2d.opengl", "true");

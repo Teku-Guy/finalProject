@@ -118,8 +118,8 @@ public class Main extends Canvas implements Runnable {
 
 
         player = (new Player(500, 600, 32, 32, handler, ID.Player));
-        hud = new HUD(player.getX()-17, player.getY());
         handler.addObject(player);
+        hud = new HUD(player.getX()-17, player.getY());
         handler.makeWave(enemyCount);
             //handler.addObject(new Zombie(300, 100, 32, 32, false, handler, ID.Zombie));
             //handler.addObject(player);
@@ -230,8 +230,6 @@ public class Main extends Canvas implements Runnable {
     public synchronized void start() {
         thread = new Thread(this);
         thread.start();
-
-
         running = true;
 
     }

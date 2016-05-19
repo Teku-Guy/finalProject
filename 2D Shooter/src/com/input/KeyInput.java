@@ -40,8 +40,8 @@ public class KeyInput extends KeyAdapter {
                 //key Events for player 1
 
                 if (key == KeyEvent.VK_W){
+                    keyDown[0] = true;
                     if(Player.jump == 1) {
-                        keyDown[0] = true;
                         tempObject.setVelY(-15);
                         Player.jumping = true;
                         Player.still = false;

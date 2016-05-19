@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2a689849-47b3-45fa-a497-2e5a071d844c" name="Default" comment="Bounds class">
+    <list default="true" id="2a689849-47b3-45fa-a497-2e5a071d844c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2D Shooter/src/com/input/KeyInput.java" afterPath="$PROJECT_DIR$/2D Shooter/src/com/input/KeyInput.java" />
     </list>
     <ignored path="finalProject.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -92,8 +91,8 @@
       <file leaf-file-name="MouseInput.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/2D Shooter/src/com/input/MouseInput.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-323">
-              <caret line="29" column="30" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
+            <state relative-caret-position="164">
+              <caret line="29" column="27" selection-start-line="29" selection-start-column="27" selection-end-line="29" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -790,7 +789,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed handler issues. Bullet gets rid of Zombie and itself" />
     <MESSAGE value="pretty up code" />
     <MESSAGE value="Trying to implment auto matic wave spawner and changed the way zombies are killed or removed" />
     <MESSAGE value="Fixed Collision with Player and Zombie, Improved Player Controls." />
@@ -815,7 +813,8 @@
     <MESSAGE value="Added background music, made it wtih some site called bleepbox. Bullet projectile detection through mouse is still being a pain after some testing, I'll mess around with it for a bit" />
     <MESSAGE value="Created these black bounds, we'll have to figre out how to use them :)" />
     <MESSAGE value="Bounds class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bounds class" />
+    <MESSAGE value="quick fix for Pause menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="quick fix for Pause menu" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1147,8 +1146,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/2D Shooter/src/com/input/MouseInput.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-323">
-          <caret line="29" column="30" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
+        <state relative-caret-position="164">
+          <caret line="29" column="27" selection-start-line="29" selection-start-column="27" selection-end-line="29" selection-end-column="27" />
           <folding />
         </state>
       </provider>

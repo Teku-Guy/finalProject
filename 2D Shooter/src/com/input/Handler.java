@@ -41,6 +41,9 @@ public class Handler {
     }
 
     public void render(Graphics g){
+        tile.clear();
+        createLevel();
+        System.out.println(tile.size());
         for(int i = 0; i < object.size(); i++){
             GameObject tempObject = object.get(i);
             tempObject.render(g);
@@ -54,11 +57,7 @@ public class Handler {
             Tile tempTile = tile.get(i);
             tempTile.render(g);
         }
-        counter++;
-        if(counter % 100 == 0){
-            counter = 0;
-            createLevel();
-        }
+
 
 
 

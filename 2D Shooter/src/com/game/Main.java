@@ -115,7 +115,8 @@ public class Main extends Canvas implements Runnable {
 
         window = new Window("2D Shooter", this);
 
-        handler.createLevel();
+
+
         player = (new Player(500, 600, 32, 32, handler, ID.Player));
         hud = new HUD(player.getX()-17, player.getY());
         handler.addObject(player);

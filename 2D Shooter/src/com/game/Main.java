@@ -201,7 +201,7 @@ public class Main extends Canvas implements Runnable {
 
         System.out.println("Background loaded!");
         backgroundMusic = new Sound("/res/BackgroundM.wav");
-        //backgroundMusic.loop();
+        backgroundMusic.loop();
 
         System.out.println("Sound loaded!");
 

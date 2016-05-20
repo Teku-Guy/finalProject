@@ -18,8 +18,10 @@ public class Handler {
     public static List<GameObject> object = new CopyOnWriteArrayList<GameObject>();
     public static List<Tile> tile = new CopyOnWriteArrayList<Tile>();
     public static List<Bullet> bullet = new CopyOnWriteArrayList<Bullet>();
+
     public static int killCount = 0;
     public static int points = 0;
+
     private int readMapWidth = Main.WIDTH / 2;
     private int readMapHeight = Main.HEIGHT / 2;
 
@@ -141,6 +143,8 @@ public class Handler {
             addTile(new Stone((i * 32 + 1150), 710, 64, 64, true, ID.Tile));
             addTile(new Stone((i * 32 + 1300), 680, 64, 64, true, ID.Tile));*/
         }
+
+
 
 
     }

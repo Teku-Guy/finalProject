@@ -1,5 +1,6 @@
 package com.game;
 
+import java.awt.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -14,6 +15,11 @@ import java.util.concurrent.CopyOnWriteArrayList;
  */
 public class Map {
     public List<String> map = new CopyOnWriteArrayList<String>();
+    public List<Integer> parsedMap = new CopyOnWriteArrayList<Integer>();
+
+    public void render(Graphics g){
+
+    }
 
 
 
@@ -36,14 +42,19 @@ public class Map {
     }
 
     public void createMap(){
-        for(String s : map){
-            if(s == "1"){
-                System.out.println(s);
-            }
+        for(int i = 0; i < map.size(); i++){
+            int id = Integer.parseInt(map.get(i));
+            parsedMap.add(id);
+            System.out.println(parsedMap);
         }
+
+
+
+    }
+
     }
 
 
 
 
-}
+

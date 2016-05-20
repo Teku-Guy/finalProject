@@ -21,11 +21,11 @@ public class Map {
     public void readFile(String path) {
         try (Scanner s = new Scanner(getClass().getResourceAsStream(path))){
 
-            System.out.println(s);
+
             while (s.hasNext()) {
                 map.add(s.next());
             }
-            System.out.println(map);
+
 
 
         }
@@ -33,6 +33,14 @@ public class Map {
     }
     public List<String> getMap(){
         return map;
+    }
+
+    public void createMap(){
+        for(String s : map){
+            if(s == "1"){
+                System.out.println(s);
+            }
+        }
     }
 
 

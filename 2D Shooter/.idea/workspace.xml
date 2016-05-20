@@ -6,12 +6,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bc8f8799-3138-4a98-8537-6822dfe55407" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/game/Map.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/2D Shooter/com/game/Main$STATE.class" afterPath="$PROJECT_DIR$/out/production/2D Shooter/com/game/Main$STATE.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/2D Shooter/com/game/Main.class" afterPath="$PROJECT_DIR$/out/production/2D Shooter/com/game/Main.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/2D Shooter/com/gui/Window.class" afterPath="$PROJECT_DIR$/out/production/2D Shooter/com/gui/Window.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/2D Shooter/com/input/Handler.class" afterPath="$PROJECT_DIR$/out/production/2D Shooter/com/input/Handler.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/game/Main.java" afterPath="$PROJECT_DIR$/src/com/game/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/gui/Window.java" afterPath="$PROJECT_DIR$/src/com/gui/Window.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/input/Handler.java" afterPath="$PROJECT_DIR$/src/com/input/Handler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/input/MouseInput.java" afterPath="$PROJECT_DIR$/src/com/input/MouseInput.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/game/Map.java" afterPath="$PROJECT_DIR$/src/com/game/Map.java" />
     </list>
     <ignored path="2D Shooter.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,11 +39,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/game/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2293">
-              <caret line="236" column="23" selection-start-line="236" selection-start-column="23" selection-end-line="236" selection-end-column="23" />
+            <state relative-caret-position="217">
+              <caret line="237" column="24" selection-start-line="237" selection-start-column="24" selection-end-line="237" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -63,8 +64,8 @@
       <file leaf-file-name="Map.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/game/Map.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+            <state relative-caret-position="438">
+              <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#323#331#0" expanded="true" />
@@ -124,10 +125,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Handler.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Handler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/input/Handler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
+            <state relative-caret-position="-1398">
               <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -213,9 +214,9 @@
         <option value="$PROJECT_DIR$/src/com/entity/Bullet.java" />
         <option value="$PROJECT_DIR$/src/com/input/MouseInput.java" />
         <option value="$PROJECT_DIR$/src/com/gui/Window.java" />
-        <option value="$PROJECT_DIR$/src/com/game/Main.java" />
-        <option value="$PROJECT_DIR$/src/com/game/Map.java" />
         <option value="$PROJECT_DIR$/src/com/input/Handler.java" />
+        <option value="$PROJECT_DIR$/src/com/game/Map.java" />
+        <option value="$PROJECT_DIR$/src/com/game/Main.java" />
       </list>
     </option>
   </component>
@@ -1042,12 +1043,19 @@
       <option name="project" value="LOCAL" />
       <updated>1463769369045</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Map stuff">
+      <created>1463772201149</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1463772201149</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1057,7 +1065,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32729805" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32729805" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32729805" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1128,7 +1136,8 @@
     <MESSAGE value="Pushed lag fix" />
     <MESSAGE value="CopyArrayList implementation, fixes null pointer exception issues." />
     <MESSAGE value="Fixed mouse shoot animation." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed mouse shoot animation." />
+    <MESSAGE value="Map stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="Map stuff" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1408,10 +1417,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/game/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/com/input/Handler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2293">
-          <caret line="236" column="23" selection-start-line="236" selection-start-column="23" selection-end-line="236" selection-end-column="23" />
+        <state relative-caret-position="-1398">
+          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1428,8 +1437,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/game/Map.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+        <state relative-caret-position="438">
+          <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#323#331#0" expanded="true" />
@@ -1437,10 +1446,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/input/Handler.java">
+    <entry file="file://$PROJECT_DIR$/src/com/game/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+        <state relative-caret-position="217">
+          <caret line="237" column="24" selection-start-line="237" selection-start-column="24" selection-end-line="237" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

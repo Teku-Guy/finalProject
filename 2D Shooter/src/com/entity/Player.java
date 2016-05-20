@@ -109,6 +109,7 @@ public class Player extends GameObject {
         g.setColor(Color.RED);
         g2d.draw(getBoundsL());
 
+
     }
     public void move(){
         x += velX;

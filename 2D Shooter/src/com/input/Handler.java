@@ -11,12 +11,13 @@ import java.io.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class Handler {
 
-    public static List<GameObject> object = new ArrayList<>();
-    public static List<Tile> tile = new ArrayList<Tile>();
-    public static List<Bullet> bullet = new ArrayList<Bullet>();
+    public static List<GameObject> object = new CopyOnWriteArrayList<GameObject>();
+    public static List<Tile> tile = new CopyOnWriteArrayList<Tile>();
+    public static List<Bullet> bullet = new CopyOnWriteArrayList<Bullet>();
     public static int killCount = 0;
     public static int points = 0;
 

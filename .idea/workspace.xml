@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2a689849-47b3-45fa-a497-2e5a071d844c" name="Default" comment="New photo editing software, going to make a couple backgrounds with this, love the new look tho">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2D Shooter/src/res/Background.png" afterPath="$PROJECT_DIR$/2D Shooter/src/res/Background.png" />
+    <list default="true" id="2a689849-47b3-45fa-a497-2e5a071d844c" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2D Shooter/src/res/FloatingPlat.png" afterPath="$PROJECT_DIR$/2D Shooter/src/res/FloatingPlat.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2D Shooter/src/res/Grass.png" afterPath="$PROJECT_DIR$/2D Shooter/src/res/Grass.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2D Shooter/src/res/Lava.png" afterPath="$PROJECT_DIR$/2D Shooter/src/res/Lava.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2D Shooter/src/res/PJumpLeft.png" afterPath="$PROJECT_DIR$/2D Shooter/src/res/PJumpLeft.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2D Shooter/src/res/PJumpRight.png" afterPath="$PROJECT_DIR$/2D Shooter/src/res/PJumpRight.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2D Shooter/src/res/PShootL.png" afterPath="$PROJECT_DIR$/2D Shooter/src/res/PShootL.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2D Shooter/src/res/PShootR.png" afterPath="$PROJECT_DIR$/2D Shooter/src/res/PShootR.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2D Shooter/src/res/PWalkingLeft.png" afterPath="$PROJECT_DIR$/2D Shooter/src/res/PWalkingLeft.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2D Shooter/src/res/PWalkingRight.png" afterPath="$PROJECT_DIR$/2D Shooter/src/res/PWalkingRight.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2D Shooter/src/res/Stone.png" afterPath="$PROJECT_DIR$/2D Shooter/src/res/Stone.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2D Shooter/src/res/ZWalkingLeft.png" afterPath="$PROJECT_DIR$/2D Shooter/src/res/ZWalkingLeft.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2D Shooter/src/res/ZWalkingRight.png" afterPath="$PROJECT_DIR$/2D Shooter/src/res/ZWalkingRight.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="finalProject.iws" />
@@ -970,7 +980,14 @@
       <option name="project" value="LOCAL" />
       <updated>1463709225522</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="New photo editing software, going to make a couple backgrounds with this, probably going to have to tune the other images to make them fit with the backdrops. Looks high quality though.">
+      <created>1463714235717</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1463714235717</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1017,7 +1034,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed Collision with Player and Zombie, Improved Player Controls." />
     <MESSAGE value="Fixed a bug trying to add a limit when you jump." />
     <MESSAGE value="Bullet animation pretty nice" />
     <MESSAGE value="Fixed bug where you can clip through block pressing down, games coming along :)" />
@@ -1042,7 +1058,8 @@
     <MESSAGE value="Fixed lists" />
     <MESSAGE value="Fixed stone size" />
     <MESSAGE value="that was easy, blocks render at full image now" />
-    <option name="LAST_COMMIT_MESSAGE" value="that was easy, blocks render at full image now" />
+    <MESSAGE value="New photo editing software, going to make a couple backgrounds with this, probably going to have to tune the other images to make them fit with the backdrops. Looks high quality though." />
+    <option name="LAST_COMMIT_MESSAGE" value="New photo editing software, going to make a couple backgrounds with this, probably going to have to tune the other images to make them fit with the backdrops. Looks high quality though." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

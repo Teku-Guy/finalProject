@@ -23,6 +23,7 @@ import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.concurrent.CopyOnWriteArrayList;
 import javax.sound.sampled.*;
 
 public class Main extends Canvas implements Runnable {
@@ -44,9 +45,11 @@ public class Main extends Canvas implements Runnable {
     public Handler handler;
     public Camera cam;
     private Menu menu;
+    private Map map;
     private HUD hud;
     public static Player player;
     public static Grass grass;
+
 
 
     public static Sprite[] PlayerJumpL = new Sprite[1];
@@ -110,6 +113,7 @@ public class Main extends Canvas implements Runnable {
         handler = new Handler();
         cam = new Camera(0, 0);
         menu = new Menu(this, handler, hud);
+        map = new Map();
 
         this.addKeyListener(new KeyInput(handler));
         this.addMouseListener(menu);
@@ -214,7 +218,7 @@ public class Main extends Canvas implements Runnable {
 
         System.out.println("Background loaded!");
         backgroundMusic = new Sound("/res/sounds/song.wav");
-      //  backgroundMusic.loop();
+        backgroundMusic.loop();
 
         System.out.println("Sound loaded!");
 
@@ -230,6 +234,8 @@ public class Main extends Canvas implements Runnable {
 
         System.out.println("Bounds loaded!");
 
+        map.readFile("/res/Tiles.txt");
+        map.createMap();
 
 
     }

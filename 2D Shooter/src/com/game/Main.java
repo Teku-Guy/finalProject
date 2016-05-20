@@ -140,8 +140,8 @@ public class Main extends Canvas implements Runnable {
 
         Bullet = Sprite.fromSheet(BulletSheet, 0, 0, 64, 64);
         Grass = Sprite.fromSheet(GrassSheet, 0, 0, 96, 96);
-        Stone = Sprite.fromSheet(StoneSheet, 0, 0, 64, 64);
-        Floating = Sprite.fromSheet(FloatingSheet, 0, 0, 64, 64);
+        Stone = Sprite.fromSheet(StoneSheet, 0, 0, 96, 96);
+        Floating = Sprite.fromSheet(FloatingSheet, 0, 0, 96, 96);
 
 
         System.out.println("Map Entities loaded!");

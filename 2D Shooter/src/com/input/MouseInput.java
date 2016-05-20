@@ -45,15 +45,16 @@ public class MouseInput extends MouseAdapter {
                     if (tempObject.getId() == ID.Player) {
 
                         if (e.getButton() == e.BUTTON1) {
-                            Player.still = false;
                             if (Player.facing == 1) {
                                 if(handler.bullet.size() < 6)
+                                    Player.still = false;
                                     Player.shoot = true;
                                     handler.addBullet(new Bullet(tempObject.getX(), tempObject.getY(), width, height, ID.Bullet, (int) xVelocity, (int) yVelocity, false));
 
                             }
                             else if (Player.facing == 0){
                                 if(handler.bullet.size() < 6)
+                                     Player.still = false;
                                      Player.shoot = true;
                                     handler.addBullet(new Bullet(tempObject.getX(), tempObject.getY(), width, height, ID.Bullet, (int) xVelocity, (int) yVelocity, false));
 

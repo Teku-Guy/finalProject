@@ -42,8 +42,8 @@ public class Map {
     }
 
     public void createMap(){
-        for(String s : map){
-            int id = Integer.parseInt(s);
+        for(int i = 0; i < map.size(); i++){
+            int id = Integer.parseInt(map.get(i));
             parsedMap.add(id);
             System.out.println(parsedMap);
         }

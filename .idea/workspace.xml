@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2a689849-47b3-45fa-a497-2e5a071d844c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2D Shooter/src/com/entity/Player.java" afterPath="$PROJECT_DIR$/2D Shooter/src/com/entity/Player.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2D Shooter/src/com/game/Map.java" afterPath="$PROJECT_DIR$/2D Shooter/src/com/game/Map.java" />
     </list>
     <ignored path="finalProject.iws" />
@@ -121,8 +120,8 @@
       <file leaf-file-name="Map.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/2D Shooter/src/com/game/Map.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="47" column="42" selection-start-line="47" selection-start-column="42" selection-end-line="47" selection-end-column="42" />
+            <state relative-caret-position="284">
+              <caret line="46" column="30" selection-start-line="46" selection-start-column="30" selection-end-line="46" selection-end-column="30" />
               <folding>
                 <element signature="e#415#424#0" expanded="true" />
               </folding>
@@ -266,6 +265,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="finalProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="2D Shooter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="blocks" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1007,7 +1028,14 @@
       <option name="project" value="LOCAL" />
       <updated>1463715398426</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="Made it so that the list it takes is now ints instead of Strings, not sure if its much help ,but it may make life easier later on. I also realise the text file map size might be a bit broken I'll fix it up.">
+      <created>1463785444491</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1463785444491</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1054,7 +1082,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed bug where you can clip through block pressing down, games coming along :)" />
     <MESSAGE value="lol forgot to add animation pngs derp" />
     <MESSAGE value="Messing around with stone blocks, parallel collision is broken, also we need to make a list of things we need to accomplish this week along with mouse detection/diagonal bullet shots." />
     <MESSAGE value="Mouse can shoot now, setting up for bullets that shoot at different trajectories(imo its gonna be the biggest thing to accomplish)" />
@@ -1079,7 +1106,8 @@
     <MESSAGE value="New photo editing software, going to make a couple backgrounds with this, probably going to have to tune the other images to make them fit with the backdrops. Looks high quality though." />
     <MESSAGE value="HD UPDATE TO PICTURES, look really cool" />
     <MESSAGE value="Altered GObj bounds, a bit more closer when walking on top of a block" />
-    <option name="LAST_COMMIT_MESSAGE" value="Altered GObj bounds, a bit more closer when walking on top of a block" />
+    <MESSAGE value="Made it so that the list it takes is now ints instead of Strings, not sure if its much help ,but it may make life easier later on. I also realise the text file map size might be a bit broken I'll fix it up." />
+    <option name="LAST_COMMIT_MESSAGE" value="Made it so that the list it takes is now ints instead of Strings, not sure if its much help ,but it may make life easier later on. I also realise the text file map size might be a bit broken I'll fix it up." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1411,8 +1439,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/2D Shooter/src/com/game/Map.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="47" column="42" selection-start-line="47" selection-start-column="42" selection-end-line="47" selection-end-column="42" />
+        <state relative-caret-position="284">
+          <caret line="46" column="30" selection-start-line="46" selection-start-column="30" selection-end-line="46" selection-end-column="30" />
           <folding>
             <element signature="e#415#424#0" expanded="true" />
           </folding>

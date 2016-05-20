@@ -57,6 +57,7 @@ public class Main extends Canvas implements Runnable {
     public static Sprite[] ZWalkL = new Sprite[3];
     public static Sprite[] PlayerShootL = new Sprite[2];
     public static Sprite[] PlayerShootR = new Sprite[2];
+    public static Sprite[] LavaFlow = new Sprite[5];
 
     public static Sprite PJumpLeft;
     public static Sprite PJumpRight;
@@ -68,6 +69,7 @@ public class Main extends Canvas implements Runnable {
     public static Sprite BoundL;
     public static Sprite BoundT;
     public static Sprite BoundB;
+    public static Sprite Lava;
 
 
     public static SpriteSheet PJumpLSheet;
@@ -82,6 +84,7 @@ public class Main extends Canvas implements Runnable {
     public static SpriteSheet GrassSheet;
     public static SpriteSheet StoneSheet;
     public static SpriteSheet FloatingSheet;
+    public static SpriteSheet LavaSheet;
     public static SpriteSheet BoundRSheet;
     public static SpriteSheet BoundLSheet;
     public static SpriteSheet BoundTSheet;
@@ -137,12 +140,17 @@ public class Main extends Canvas implements Runnable {
         GrassSheet = new SpriteSheet("/res/Grass.png");
         StoneSheet = new SpriteSheet("/res/Stone.png");
         FloatingSheet = new SpriteSheet("/res/FloatingPlat.png");
+        LavaSheet = new SpriteSheet("/res/Lava.png");
 
         Bullet = Sprite.fromSheet(BulletSheet, 0, 0, 64, 64);
         Grass = Sprite.fromSheet(GrassSheet, 0, 0, 96, 96);
         Stone = Sprite.fromSheet(StoneSheet, 0, 0, 96, 96);
         Floating = Sprite.fromSheet(FloatingSheet, 0, 0, 96, 96);
 
+        for(int i = 0; i < LavaFlow.length; i++){
+            LavaFlow[i] = Sprite.fromSheet(LavaSheet, i ,0,96,96);
+
+        }
 
         System.out.println("Map Entities loaded!");
 

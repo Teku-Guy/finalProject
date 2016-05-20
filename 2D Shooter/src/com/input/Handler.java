@@ -48,6 +48,7 @@ public class Handler {
     public void render(Graphics g) {
         tile.clear();
         createLevel();
+
         System.out.println(tile.size());
         for (int i = 0; i < object.size(); i++) {
             GameObject tempObject = object.get(i);
@@ -129,7 +130,8 @@ public class Handler {
             addTile(new Grass((i * 32), (int) (Main.window.frame.getHeight() * (.92)), 96, 96, true, ID.Tile));
         }
         for (int i = 0; i <= 22; i++) {
-            addTile(new Stone(0, (i * 32), 64, 64, true, ID.Tile));
+            addTile(new Stone(0, (i * 32), 96, 96, true, ID.Tile));
+            addTile(new Lava(0, (i*32), 96, 96, true, ID.Tile));
         }
         for (int i = 0; i < 20; i++) {
             addTile(new Stone((i * 32), (int) (Main.window.frame.getHeight() * (.5)), 96, 96, true, ID.Tile));

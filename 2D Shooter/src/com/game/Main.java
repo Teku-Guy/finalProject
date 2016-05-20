@@ -144,8 +144,8 @@ public class Main extends Canvas implements Runnable {
 
         Bullet = Sprite.fromSheet(BulletSheet, 0, 0, 64, 64);
         Grass = Sprite.fromSheet(GrassSheet, 0, 0, 96, 96);
-        Stone = Sprite.fromSheet(StoneSheet, 0, 0, 96, 96);
-        Floating = Sprite.fromSheet(FloatingSheet, 0, 0, 96, 96);
+        Stone = Sprite.fromSheet(StoneSheet, 0, 0, 64, 64);
+        Floating = Sprite.fromSheet(FloatingSheet, 0, 0, 64, 64);
 
         for(int i = 0; i < LavaFlow.length; i++){
             LavaFlow[i] = Sprite.fromSheet(LavaSheet, i ,0,96,96);

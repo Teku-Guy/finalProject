@@ -81,7 +81,7 @@ public class Zombie extends GameObject{
                 handler.clearBullet(tempBullet);
                 isDead = true;
                 handler.kill(this);
-                System.out.println("Dead");
+                //System.out.println("Dead");
             }
         }
         for(int i = 0; i < handler.tile.size(); i++) {
@@ -101,11 +101,6 @@ public class Zombie extends GameObject{
                         jumping = false;
                     }
                     else if(getBounds().intersects(tempTile.getBoundsL())){
-                        velY = 0;
-                        falling = true;
-                        jumping = false;
-                    }
-                    else if(getBounds().intersects(tempTile.getBoundsB())){
                         velY = 0;
                         falling = true;
                         jumping = false;

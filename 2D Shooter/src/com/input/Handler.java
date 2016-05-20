@@ -49,7 +49,7 @@ public class Handler {
         tile.clear();
         createLevel();
 
-        System.out.println(tile.size());
+
         for (int i = 0; i < object.size(); i++) {
             GameObject tempObject = object.get(i);
             tempObject.render(g);

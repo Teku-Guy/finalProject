@@ -1,45 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2a689849-47b3-45fa-a497-2e5a071d844c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2D Shooter/src/res/blocks/BoundsBottom.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2D Shooter/src/res/blocks/BoundsLeft.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2D Shooter/src/res/blocks/BoundsRight.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2D Shooter/src/res/blocks/BoundsTop.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2D Shooter/src/res/blocks/Bullet.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2D Shooter/src/res/blocks/FloatingPlat.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2D Shooter/src/res/blocks/Grass.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2D Shooter/src/res/blocks/Lava.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2D Shooter/src/res/blocks/Stone.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2D Shooter/src/res/enemies/ZWalkingLeft.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2D Shooter/src/res/enemies/ZWalkingRight.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2D Shooter/src/res/player/PJumpLeft.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2D Shooter/src/res/player/PJumpRight.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2D Shooter/src/res/player/PShootL.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2D Shooter/src/res/player/PShootR.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2D Shooter/src/res/player/PWalkingLeft.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2D Shooter/src/res/player/PWalkingRight.png" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/2D Shooter/src/res/BoundsBottom.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/2D Shooter/src/res/BoundsLeft.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/2D Shooter/src/res/BoundsRight.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/2D Shooter/src/res/BoundsTop.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/2D Shooter/src/res/Bullet.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/2D Shooter/src/res/FloatingPlat.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/2D Shooter/src/res/Grass.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/2D Shooter/src/res/Lava.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/2D Shooter/src/res/PJumpLeft.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/2D Shooter/src/res/PJumpRight.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/2D Shooter/src/res/PShootL.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/2D Shooter/src/res/PShootR.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/2D Shooter/src/res/PWalkingLeft.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/2D Shooter/src/res/PWalkingRight.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/2D Shooter/src/res/Stone.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/2D Shooter/src/res/ZWalkingLeft.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/2D Shooter/src/res/ZWalkingRight.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2D Shooter/src/com/game/Main.java" afterPath="$PROJECT_DIR$/2D Shooter/src/com/game/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2D Shooter/src/com/gui/Window.java" afterPath="$PROJECT_DIR$/2D Shooter/src/com/gui/Window.java" />
-    </list>
+    <list default="true" id="2a689849-47b3-45fa-a497-2e5a071d844c" name="Default" comment="" />
     <ignored path="finalProject.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -91,7 +53,7 @@
       <file leaf-file-name="Grass.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/2D Shooter/src/com/entity/Grass.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
+            <state relative-caret-position="195">
               <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="24" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -103,7 +65,7 @@
       <file leaf-file-name="Window.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/2D Shooter/src/com/gui/Window.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
+            <state relative-caret-position="405">
               <caret line="30" column="8" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
               <folding />
             </state>
@@ -113,7 +75,7 @@
       <file leaf-file-name="Stone.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/2D Shooter/src/com/entity/Stone.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
+            <state relative-caret-position="330">
               <caret line="24" column="33" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -125,7 +87,7 @@
       <file leaf-file-name="Tile.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/2D Shooter/src/com/entity/Tile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="945">
+            <state relative-caret-position="1035">
               <caret line="101" column="74" selection-start-line="101" selection-start-column="74" selection-end-line="101" selection-end-column="74" />
               <folding>
                 <element signature="e#1309#1310#0" expanded="true" />
@@ -142,7 +104,7 @@
       <file leaf-file-name="Handler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/2D Shooter/src/com/input/Handler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1650">
+            <state relative-caret-position="1785">
               <caret line="129" column="35" selection-start-line="129" selection-start-column="35" selection-end-line="129" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -237,6 +199,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -470,142 +434,10 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$USER_HOME$/Downloads/Artifact" />
-  </component>
-  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
-    <UpdatedFiles>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Updated from server" />
-        <option name="myStatusName" value="Changed on server" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="CHANGED_ON_SERVER" />
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Updated" />
-          <option name="myStatusName" value="Changed" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/2D Shooter/src/com/entity/GameObject.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/2D Shooter/src/com/entity/Player.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/2D Shooter/src/com/game/Main.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/2D Shooter/src/com/gui/Window.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/2D Shooter/src/com/input/Handler.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/2D Shooter/src/com/input/KeyInput.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/2D Shooter/src/res/Background.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/2D Shooter/src/res/FloatingPlat.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/2D Shooter/src/res/Grass.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/2D Shooter/src/res/PJumpLeft.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/2D Shooter/src/res/PJumpRight.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/2D Shooter/src/res/PShootL.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/2D Shooter/src/res/PShootR.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/2D Shooter/src/res/PWalkingLeft.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/2D Shooter/src/res/PWalkingRight.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/2D Shooter/src/res/Stone.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/2D Shooter/src/res/ZWalkingLeft.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/2D Shooter/src/res/ZWalkingRight.png</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Created" />
-          <option name="myStatusName" value="Created" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/2D Shooter/src/com/entity/Lava.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/2D Shooter/src/res/Lava.png</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Deleted" />
-          <option name="myStatusName" value="Deleted" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="true" />
-          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Restored" />
-          <option name="myStatusName" value="Will be restored" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="RESTORED" />
-        </FILE-GROUP>
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Modified" />
-        <option name="myStatusName" value="Modified" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MODIFIED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Skipped" />
-        <option name="myStatusName" value="Skipped" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SKIPPED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with conflicts" />
-        <option name="myStatusName" value="Will be merged with conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_CONFLICTS" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with tree conflicts" />
-        <option name="myStatusName" value="Merged with tree conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with property conflicts" />
-        <option name="myStatusName" value="Will be merged with property conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged" />
-        <option name="myStatusName" value="Will be merged" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Not in repository" />
-        <option name="myStatusName" value="Not in repository" />
-        <option name="mySupportsDeletion" value="true" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="UNKNOWN" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally added" />
-        <option name="myStatusName" value="Locally added" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_ADDED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally removed" />
-        <option name="myStatusName" value="Locally removed" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_REMOVED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Switched" />
-        <option name="myStatusName" value="Switched" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SWITCHED" />
-      </FILE-GROUP>
-    </UpdatedFiles>
   </component>
   <component name="RunManager" selected="Application.Main">
     <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -1160,13 +992,11 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32627118" sideWeight="0.36285266" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32062146" sideWeight="0.73824453" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32909605" sideWeight="0.43887147" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32062146" sideWeight="0.2617555" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32964602" sideWeight="0.497552" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1175,13 +1005,15 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39689267" sideWeight="0.4208464" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32964602" sideWeight="0.497552" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39689267" sideWeight="0.4208464" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32627118" sideWeight="0.36285266" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32062146" sideWeight="0.2617555" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291536" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3276644" sideWeight="0.495116" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1358,11 +1190,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/2D Shooter/src/res/PWalkingRight.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/2D Shooter/src/res/PWalkingRight.png" />
     <entry file="file://$PROJECT_DIR$/2D Shooter/src/res/Background.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1371,26 +1199,10 @@
     <entry file="file://$PROJECT_DIR$/2D Shooter/src/com/entity/Spawner.java" />
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/src.zip!/java/util/zip/ZipFile.java" />
     <entry file="jar:///usr/lib/jvm/jdk1.8.0_91/src.zip!/java/awt/image/BufferedImage.java" />
-    <entry file="file://$PROJECT_DIR$/2D Shooter/src/res/PJumpRight.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/2D Shooter/src/res/PWalkingLeft.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/2D Shooter/src/res/PShootR.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/2D Shooter/src/res/PShootL.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/2D Shooter/src/res/PJumpRight.png" />
+    <entry file="file://$PROJECT_DIR$/2D Shooter/src/res/PWalkingLeft.png" />
+    <entry file="file://$PROJECT_DIR$/2D Shooter/src/res/PShootR.png" />
+    <entry file="file://$PROJECT_DIR$/2D Shooter/src/res/PShootL.png" />
     <entry file="file://$PROJECT_DIR$/2D Shooter/src/com/input/MouseInput.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="245">
@@ -1399,11 +1211,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/2D Shooter/src/res/FloatingPlat.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/2D Shooter/src/res/FloatingPlat.png" />
     <entry file="file://$PROJECT_DIR$/2D Shooter/src/com/entity/FloatPlat.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -1433,16 +1241,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/2D Shooter/src/res/Grass.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/2D Shooter/src/res/Stone.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/2D Shooter/src/res/Grass.png" />
+    <entry file="file://$PROJECT_DIR$/2D Shooter/src/res/Stone.png" />
     <entry file="file://$PROJECT_DIR$/2D Shooter/src/com/game/Sound.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -1506,7 +1306,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/2D Shooter/src/com/entity/Stone.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
+        <state relative-caret-position="330">
           <caret line="24" column="33" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1516,7 +1316,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/2D Shooter/src/com/entity/Tile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="945">
+        <state relative-caret-position="1035">
           <caret line="101" column="74" selection-start-line="101" selection-start-column="74" selection-end-line="101" selection-end-column="74" />
           <folding>
             <element signature="e#1309#1310#0" expanded="true" />
@@ -1531,7 +1331,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/2D Shooter/src/com/input/Handler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1650">
+        <state relative-caret-position="1785">
           <caret line="129" column="35" selection-start-line="129" selection-start-column="35" selection-end-line="129" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1549,7 +1349,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/2D Shooter/src/com/entity/Grass.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
+        <state relative-caret-position="195">
           <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="24" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1559,7 +1359,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/2D Shooter/src/com/gui/Window.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
+        <state relative-caret-position="405">
           <caret line="30" column="8" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
           <folding />
         </state>

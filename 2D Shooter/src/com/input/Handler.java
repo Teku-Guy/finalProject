@@ -126,13 +126,13 @@ public class Handler {
     public void createLevel() {
 
         for (int i = 0; i <= 50; i++) {
-            addTile(new Grass((i * 32), (int) (Main.window.frame.getHeight() * (.92)), 64, 64, true, ID.Tile));
+            addTile(new Grass((i * 32), (int) (Main.window.frame.getHeight() * (.92)), 96, 96, true, ID.Tile));
         }
         for (int i = 0; i <= 22; i++) {
             addTile(new Stone(0, (i * 32), 64, 64, true, ID.Tile));
         }
         for (int i = 0; i < 20; i++) {
-            addTile(new Stone((i * 32), (int) (Main.window.frame.getHeight() * (.5)), 64, 64, true, ID.Tile));
+            addTile(new Stone((i * 32), (int) (Main.window.frame.getHeight() * (.5)), 96, 96, true, ID.Tile));
             /*addTile(new Stone((i*32 + 900), 945, 64,64, true, ID.Tile));
             addTile(new Stone((i * 32 + 950), 770, 64, 64, true, ID.Tile));
             addTile(new Stone((i * 32 + 1000), 740, 64, 64, true, ID.Tile));

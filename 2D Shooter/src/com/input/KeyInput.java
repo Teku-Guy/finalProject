@@ -44,7 +44,7 @@ public class KeyInput extends KeyAdapter {
                     if(Player.jump == 1) {
                         tempObject.setVelY(-15);
                         Player.jumping = true;
-                        Player.still = false;
+                        Player.still = true;
                         Player.jump = 0;
                     }
                 }
@@ -52,7 +52,7 @@ public class KeyInput extends KeyAdapter {
                     if (!Player.collided) {
                         keyDown[1] = true;
                         tempObject.setVelY(1);
-                        Player.still = false;
+                        Player.still = true;
                     }
                     Player.still = true;
                 }
@@ -61,6 +61,7 @@ public class KeyInput extends KeyAdapter {
                     tempObject.setVelX(3);
                     Player.facing = 1;
                     Player.still = false;
+                    Player.walking = true;
 
                 }
                 if (key == KeyEvent.VK_A) {
@@ -68,6 +69,7 @@ public class KeyInput extends KeyAdapter {
                     tempObject.setVelX(-3);
                     Player.facing = 0;
                     Player.still = false;
+                    Player.walking = true;
                 }
 
                 if(key == KeyEvent.VK_SPACE){
@@ -101,20 +103,27 @@ public class KeyInput extends KeyAdapter {
                     if(Player.jump == 0) {
                         keyDown[0] = false;
                         Player.jumping = false;
-                        Player.still = false;
+                        Player.still = true;
+                }
+                    if(key == KeyEvent.VK_SPACE){
+                    keyDown[4] = false;
+                    Player.shoot = false;
+                    Player.still = true;
                     }
                 }
                 if(key == KeyEvent.VK_S) {
                     keyDown[1] = false;
-                    Player.still = false;
+                    Player.still = true;
                 }
                 if(key == KeyEvent.VK_D){
                     keyDown[2] = false;
                     Player.still = true;
+                    Player.walking = false;
                 }
                 if(key == KeyEvent.VK_A) {
                     keyDown[3] = false;
                     Player.still = true;
+                    Player.walking = false;
                 }
                 if(key == KeyEvent.VK_SPACE){
                     keyDown[4] = false;

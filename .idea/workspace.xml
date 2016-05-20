@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="2a689849-47b3-45fa-a497-2e5a071d844c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2D Shooter/src/com/entity/GameObject.java" afterPath="$PROJECT_DIR$/2D Shooter/src/com/entity/GameObject.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2D Shooter/src/com/entity/Player.java" afterPath="$PROJECT_DIR$/2D Shooter/src/com/entity/Player.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2D Shooter/src/com/gui/Window.java" afterPath="$PROJECT_DIR$/2D Shooter/src/com/gui/Window.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2D Shooter/src/com/input/KeyInput.java" afterPath="$PROJECT_DIR$/2D Shooter/src/com/input/KeyInput.java" />
     </list>
     <ignored path="finalProject.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,7 +38,7 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/2D Shooter/src/com/game/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="530">
+            <state relative-caret-position="746">
               <caret line="151" column="0" selection-start-line="151" selection-start-column="0" selection-end-line="151" selection-end-column="0" />
               <folding />
             </state>
@@ -55,28 +57,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameObject.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/2D Shooter/src/com/entity/GameObject.java">
+      <file leaf-file-name="KeyInput.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/2D Shooter/src/com/input/KeyInput.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="193">
+              <caret line="125" column="42" selection-start-line="125" selection-start-column="42" selection-end-line="125" selection-end-column="42" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameObject.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/2D Shooter/src/com/entity/GameObject.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="31">
               <caret line="31" column="59" selection-start-line="31" selection-start-column="59" selection-end-line="31" selection-end-column="59" />
               <folding>
                 <element signature="e#655#656#0" expanded="true" />
                 <element signature="e#736#737#0" expanded="true" />
                 <element signature="e#1646#1647#0" expanded="true" />
                 <element signature="e#1673#1674#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Camera.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/2D Shooter/src/com/gui/Camera.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="18" column="79" selection-start-line="18" selection-start-column="79" selection-end-line="18" selection-end-column="79" />
-              <folding>
-                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -111,8 +113,8 @@
       <file leaf-file-name="Window.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/2D Shooter/src/com/gui/Window.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="25" column="7" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
+            <state relative-caret-position="522">
+              <caret line="32" column="21" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -155,11 +157,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Player.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/2D Shooter/src/com/entity/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2808">
-              <caret line="183" column="33" selection-start-line="183" selection-start-column="33" selection-end-line="183" selection-end-column="33" />
+            <state relative-caret-position="270">
+              <caret line="36" column="39" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -196,20 +198,20 @@
         <option value="$PROJECT_DIR$/2D Shooter/src/com/entity/Stone.java" />
         <option value="$PROJECT_DIR$/2D Shooter/src/com/entity/Grass.java" />
         <option value="$PROJECT_DIR$/2D Shooter/src/com/entity/FloatPlat.java" />
-        <option value="$PROJECT_DIR$/2D Shooter/src/com/input/KeyInput.java" />
         <option value="$PROJECT_DIR$/2D Shooter/src/com/gui/HUD.java" />
         <option value="$PROJECT_DIR$/2D Shooter/src/com/gui/Menu.java" />
         <option value="$PROJECT_DIR$/2D Shooter/src/com/game/Save.java" />
-        <option value="$PROJECT_DIR$/2D Shooter/src/com/entity/Player.java" />
         <option value="$PROJECT_DIR$/2D Shooter/src/com/gui/Camera.java" />
         <option value="$PROJECT_DIR$/2D Shooter/src/com/game/Sound.java" />
         <option value="$PROJECT_DIR$/2D Shooter/src/com/input/MouseInput.java" />
         <option value="$PROJECT_DIR$/2D Shooter/src/com/entity/Bounds.java" />
-        <option value="$PROJECT_DIR$/2D Shooter/src/com/gui/Window.java" />
         <option value="$PROJECT_DIR$/2D Shooter/src/com/game/Main.java" />
         <option value="$PROJECT_DIR$/2D Shooter/src/com/entity/Lava.java" />
         <option value="$PROJECT_DIR$/2D Shooter/src/com/input/Handler.java" />
         <option value="$PROJECT_DIR$/2D Shooter/src/com/entity/GameObject.java" />
+        <option value="$PROJECT_DIR$/2D Shooter/src/com/gui/Window.java" />
+        <option value="$PROJECT_DIR$/2D Shooter/src/com/input/KeyInput.java" />
+        <option value="$PROJECT_DIR$/2D Shooter/src/com/entity/Player.java" />
       </list>
     </option>
   </component>
@@ -998,7 +1000,14 @@
       <option name="project" value="LOCAL" />
       <updated>1463714992032</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="Altered GObj bounds, a bit more closer when walking on top of a block">
+      <created>1463715398426</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1463715398426</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1045,7 +1054,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Bullet animation pretty nice" />
     <MESSAGE value="Fixed bug where you can clip through block pressing down, games coming along :)" />
     <MESSAGE value="lol forgot to add animation pngs derp" />
     <MESSAGE value="Messing around with stone blocks, parallel collision is broken, also we need to make a list of things we need to accomplish this week along with mouse detection/diagonal bullet shots." />
@@ -1070,7 +1078,8 @@
     <MESSAGE value="that was easy, blocks render at full image now" />
     <MESSAGE value="New photo editing software, going to make a couple backgrounds with this, probably going to have to tune the other images to make them fit with the backdrops. Looks high quality though." />
     <MESSAGE value="HD UPDATE TO PICTURES, look really cool" />
-    <option name="LAST_COMMIT_MESSAGE" value="HD UPDATE TO PICTURES, look really cool" />
+    <MESSAGE value="Altered GObj bounds, a bit more closer when walking on top of a block" />
+    <option name="LAST_COMMIT_MESSAGE" value="Altered GObj bounds, a bit more closer when walking on top of a block" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1249,16 +1258,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/2D Shooter/src/com/input/KeyInput.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="42" column="42" selection-start-line="42" selection-start-column="42" selection-end-line="42" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/2D Shooter/src/com/gui/HUD.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="333">
@@ -1378,14 +1377,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/2D Shooter/src/com/game/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="530">
-          <caret line="151" column="0" selection-start-line="151" selection-start-column="0" selection-end-line="151" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/2D Shooter/src/res/Background.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1429,14 +1420,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/2D Shooter/src/com/gui/Window.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="25" column="7" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/2D Shooter/src/com/entity/Lava.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -1447,17 +1430,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/2D Shooter/src/com/entity/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2808">
-          <caret line="183" column="33" selection-start-line="183" selection-start-column="33" selection-end-line="183" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/2D Shooter/src/com/entity/GameObject.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
+        <state relative-caret-position="31">
           <caret line="31" column="59" selection-start-line="31" selection-start-column="59" selection-end-line="31" selection-end-column="59" />
           <folding>
             <element signature="e#655#656#0" expanded="true" />
@@ -1465,6 +1440,40 @@
             <element signature="e#1646#1647#0" expanded="true" />
             <element signature="e#1673#1674#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2D Shooter/src/com/game/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="746">
+          <caret line="151" column="0" selection-start-line="151" selection-start-column="0" selection-end-line="151" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2D Shooter/src/com/input/KeyInput.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="125" column="42" selection-start-line="125" selection-start-column="42" selection-end-line="125" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2D Shooter/src/com/gui/Window.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="32" column="21" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2D Shooter/src/com/entity/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="36" column="39" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>

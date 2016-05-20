@@ -38,6 +38,7 @@ public class Player extends GameObject {
     public static float jump = 0;
     public static boolean jumping = false;
     public static boolean shoot = false;
+    public static boolean walking = true;
     public static boolean collided;
 
     private float gravity = 0.5f;
@@ -74,7 +75,7 @@ public class Player extends GameObject {
              if(shoot){
                  g.drawImage(Main.PlayerShootL[phaseShoot].getBufferedImage(), (int)x, (int)y, null);
              }
-             else {
+             else if(walking) {
                  g.drawImage(Main.PlayerWalkL[phaseWalking].getBufferedImage(), (int)x, (int)y, null);
              }
          }
@@ -89,7 +90,7 @@ public class Player extends GameObject {
                  if(shoot){
                      g.drawImage(Main.PlayerShootR[phaseShoot].getBufferedImage(), (int)x, (int)y, null);
                  }
-                 else{
+                 else if(walking){
                      g.drawImage(Main.PlayerWalkR[phaseWalking].getBufferedImage(), (int) x, (int) y, null);
 
                  }

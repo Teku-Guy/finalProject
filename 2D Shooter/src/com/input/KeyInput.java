@@ -60,16 +60,25 @@ public class KeyInput extends KeyAdapter {
                     keyDown[2] = true;
                     tempObject.setVelX(3);
                     Player.facing = 1;
-                    Player.still = false;
-                    Player.walking = true;
-
+                    if(keyDown[0] || Player.jumping) {
+                        Player.still = true;
+                        Player.walking = false;
+                    } else if(!keyDown[0] || !Player.jumping){
+                        Player.still = false;
+                        Player.walking = true;
+                    }
                 }
                 if (key == KeyEvent.VK_A) {
                     keyDown[3] = true;
                     tempObject.setVelX(-3);
                     Player.facing = 0;
-                    Player.still = false;
-                    Player.walking = true;
+                    if(keyDown[0] || Player.jumping) {
+                        Player.still = true;
+                        Player.walking = false;
+                    } else if(!keyDown[0] || !Player.jumping){
+                        Player.still = false;
+                        Player.walking = true;
+                    }
                 }
 
                 if(key == KeyEvent.VK_SPACE){

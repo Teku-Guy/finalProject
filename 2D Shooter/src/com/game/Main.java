@@ -4,7 +4,6 @@ package com.game; /**
 
 import com.entity.Grass;
 import com.entity.*;
-import com.entity.Tile;
 import com.gui.Camera;
 import com.gui.HUD;
 import com.gui.Window;
@@ -13,18 +12,13 @@ import com.gui.Menu;
 import com.input.KeyInput;
 import com.graphics.Sprite;
 import com.graphics.SpriteSheet;
-import com.entity.*;
 import com.input.MouseInput;
 
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
-import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.concurrent.CopyOnWriteArrayList;
-import javax.sound.sampled.*;
 
 public class Main extends Canvas implements Runnable {
 
@@ -140,11 +134,11 @@ public class Main extends Canvas implements Runnable {
     public void init() {
 
 
-        BulletSheet = new SpriteSheet("/res/Bullet.png");
-        GrassSheet = new SpriteSheet("/res/Grass.png");
-        StoneSheet = new SpriteSheet("/res/Stone.png");
-        FloatingSheet = new SpriteSheet("/res/FloatingPlat.png");
-        LavaSheet = new SpriteSheet("/res/Lava.png");
+        BulletSheet = new SpriteSheet("/res/player/Bullet.png");
+        GrassSheet = new SpriteSheet("/res/blocks/Grass.png");
+        StoneSheet = new SpriteSheet("/res/blocks/Stone.png");
+        FloatingSheet = new SpriteSheet("/res/blocks/FloatingPlat.png");
+        LavaSheet = new SpriteSheet("/res/blocks/Lava.png");
 
         Bullet = Sprite.fromSheet(BulletSheet, 0, 0, 64, 64);
         Grass = Sprite.fromSheet(GrassSheet, 0, 0, 96, 96);
@@ -158,12 +152,12 @@ public class Main extends Canvas implements Runnable {
 
         System.out.println("Map Entities loaded!");
 
-        PWalkRSheet = new SpriteSheet("/res/PWalkingRight.png");
-        PWalkLSheet = new SpriteSheet("/res/PWalkingLeft.png");
-        PJumpRSheet = new SpriteSheet("/res/PJumpRight.png");
-        PJumpLSheet = new SpriteSheet("/res/PJumpLeft.png");
-        PShootL = new SpriteSheet("/res/PShootL.png");
-        PShootR = new SpriteSheet("/res/PShootR.png");
+        PWalkRSheet = new SpriteSheet("/res/player/PWalkingRight.png");
+        PWalkLSheet = new SpriteSheet("/res/player/PWalkingLeft.png");
+        PJumpRSheet = new SpriteSheet("/res/player/PJumpRight.png");
+        PJumpLSheet = new SpriteSheet("/res/player/PJumpLeft.png");
+        PShootL = new SpriteSheet("/res/player/PShootL.png");
+        PShootR = new SpriteSheet("/res/player/PShootR.png");
 
 
 
@@ -196,8 +190,8 @@ public class Main extends Canvas implements Runnable {
 
         System.out.println("Player Sprites loaded!");
 
-        ZWalkRSheet = new SpriteSheet("/res/ZWalkingRight.png");
-        ZWalkLSheet = new SpriteSheet("/res/ZWalkingLeft.png");
+        ZWalkRSheet = new SpriteSheet("/res/enemies/ZWalkingRight.png");
+        ZWalkLSheet = new SpriteSheet("/res/enemies/ZWalkingLeft.png");
 
         for (int i = 0; i < ZWalkR.length; i++) {
             ZWalkR[i] = Sprite.fromSheet(ZWalkRSheet, i, 0, 64, 64);
@@ -222,10 +216,10 @@ public class Main extends Canvas implements Runnable {
 
         System.out.println("Sound loaded!");
 
-        BoundRSheet = new SpriteSheet("/res/BoundsBottom.png");
-        BoundLSheet = new SpriteSheet("/res/BoundsLeft.png");
-        BoundTSheet = new SpriteSheet("/res/BoundsTop.png");
-        BoundBSheet = new SpriteSheet("/res/BoundsBottom.png");
+        BoundRSheet = new SpriteSheet("/res/blocks/BoundsBottom.png");
+        BoundLSheet = new SpriteSheet("/res/blocks/BoundsLeft.png");
+        BoundTSheet = new SpriteSheet("/res/blocks/BoundsTop.png");
+        BoundBSheet = new SpriteSheet("/res/blocks/BoundsBottom.png");
 
         BoundR = Sprite.fromSheet(BoundRSheet, 0, 0, 64, 64);
         BoundL = Sprite.fromSheet(BoundLSheet, 0, 0, 64, 64);

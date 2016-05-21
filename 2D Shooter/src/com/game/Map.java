@@ -30,6 +30,7 @@ public class Map {
 
             while (s.hasNext()) {
                 map.add(s.next());
+
             }
 
 
@@ -45,7 +46,7 @@ public class Map {
         for(int i = 0; i < map.size(); i++){
             int id = Integer.parseInt(map.get(i));
             parsedMap.add(id);
-            System.out.println(parsedMap);
+           // System.out.println(parsedMap);
         }
 
 

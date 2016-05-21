@@ -127,8 +127,22 @@ public class Handler {
 
 
     public void createLevel() {
+        int[] testMap =
+                {       1,1,1,1,1,
+                        0,0,0,0,0,
+                        2,2,2,2,2
+                };
+        for(int i = 0; i < testMap.length; i++){
+            if(testMap[i] == 2){
+                addTile(new Grass((i * 32), (int) (Main.window.frame.getHeight() * (.92)), 96, 96, true, ID.Tile));
+            }
+            else if(testMap[i] == 1){
+                addTile(new Stone(0, (i * 32), 96, 96, true, ID.Tile));
+            }
+        }
 
-        for (int i = 0; i <= 50; i++) {
+      /*  for (int i = 0; i <= 50; i++) {
+
             addTile(new Grass((i * 32), (int) (Main.window.frame.getHeight() * (.92)), 96, 96, true, ID.Tile));
         }
         for (int i = 0; i <= 22; i++) {
@@ -141,8 +155,8 @@ public class Handler {
             addTile(new Stone((i * 32 + 950), 770, 64, 64, true, ID.Tile));
             addTile(new Stone((i * 32 + 1000), 740, 64, 64, true, ID.Tile));
             addTile(new Stone((i * 32 + 1150), 710, 64, 64, true, ID.Tile));
-            addTile(new Stone((i * 32 + 1300), 680, 64, 64, true, ID.Tile));*/
-        }
+            addTile(new Stone((i * 32 + 1300), 680, 64, 64, true, ID.Tile));
+        }*/
 
 
 

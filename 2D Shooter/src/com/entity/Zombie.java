@@ -38,6 +38,7 @@ public class Zombie extends GameObject{
         x += velX;
         y += velY;
 
+
         float diffX = x - Main.player.getX();
         float diffY = y - Main.player.getY();
         float distance = (float) Math.sqrt( ( x - Main.player.getX() ) * ( x-Main.player.getX() ) + ( y-Main.player.getY() ) * ( y-Main.player.getY() ) );
@@ -55,7 +56,18 @@ public class Zombie extends GameObject{
             facing = 0;
         }
         if(y > Main.player.getVelY()){
+            for(int i = 0; i < Handler.object.size(); i++){
+                 if(Handler.object.get(i).getId()== ID.Zombie){
+                     GameObject tempZombie = Handler.object.get(i);
+                     tempZombie.setVelY(-(int)Main.player.getVelY());
+                     if(tempZombie.getVelY() <= Main.player.getVelY()){
+                         setVelY(0);
+                     }
+
+                 }
+            }
             jumping = true;
+
         }
 
         velY += gravity;

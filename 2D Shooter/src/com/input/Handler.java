@@ -71,8 +71,8 @@ public class Handler {
 
     public void makeWave(int enemy_count) {
         for (int i = 0; i < (enemy_count); i++) {
-            addObject(new Zombie(r.nextInt(1000), 300, 32, 32, false, this, main, ID.Zombie));
-            addObject(new Zombie(100+r.nextInt(1000), 300, 32, 32, false, this, main, ID.Zombie));
+            addObject(new Zombie(r.nextInt(1000), 800, 32, 32, false, this, main, ID.Zombie));
+            addObject(new Zombie(100+r.nextInt(1000), 800, 32, 32, false, this, main, ID.Zombie));
         }
     }
 

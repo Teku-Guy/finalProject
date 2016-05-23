@@ -122,7 +122,8 @@ public class Player extends GameObject {
             velY = MAX_SPEED;
         }
 
-        //x = Main.clamp((int)x, 0, Main.WIDTH-31);
+
+        // x = Main.clamp((int)x, 0, Main.WIDTH-31);
         y = Main.clamp((int)y, 0, Main.HEIGHT-53);
     }
 
@@ -159,6 +160,12 @@ public class Player extends GameObject {
             for (int j = 0; j < handler.object.size(); j++) {
                 Tile tempTile = handler.tile.get(i);
                 //GameObject tempObject = handler.object.get(j)
+                if(tempTile.getId() == ID.Bounds){
+                    if (getBounds().intersects(tempTile.getBoundsL()) || getBounds().intersects(tempTile.getBoundsR()))
+                        velX = 0;
+                        collided = true;
+                }
+
                 if (tempTile.getId() == ID.Tile) {
                     if (getBounds().intersects(tempTile.getBounds())) {
                         velY = 0;

@@ -118,7 +118,7 @@ public class Main extends Canvas implements Runnable {
 
 
 
-        player = (new Player(500, 600, 32, 32, handler, ID.Player));
+        player = (new Player(800, 600, 32, 32, handler, ID.Player));
         handler.addObject(player);
         hud = new HUD(player.getX()-17, player.getY());
         handler.makeWave(enemyCount);

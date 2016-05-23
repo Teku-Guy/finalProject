@@ -70,10 +70,10 @@ public class Handler {
     }
 
     public void makeWave(int enemy_count) {
-        for (int i = 0; i < enemy_count; i++) {
-            addObject(new Zombie(((i * 64)), 600, 32, 32, false, this, main, ID.Zombie));
+        for (int i = 0; i < (enemy_count); i++) {
+            addObject(new Zombie(r.nextInt(1000), 300, 32, 32, false, this, main, ID.Zombie));
+            addObject(new Zombie(100+r.nextInt(1000), 300, 32, 32, false, this, main, ID.Zombie));
         }
-
     }
 
     public void clearEnemies() {
@@ -127,39 +127,24 @@ public class Handler {
 
 
     public void createLevel() {
-        int[] testMap =
-                {       1,1,1,1,1,
-                        0,0,0,0,0,
-                        2,2,2,2,2
-                };
-        for(int i = 0; i < testMap.length; i++){
-            if(testMap[i] == 2){
-                addTile(new Grass((i * 32), (int) (Main.window.frame.getHeight() * (.92)), 96, 96, true, ID.Tile));
-            }
-            else if(testMap[i] == 1){
-                addTile(new Stone(0, (i * 32), 96, 96, true, ID.Tile));
-            }
-        }
-
-      /*  for (int i = 0; i <= 50; i++) {
+        for (int i = 0; i <= 50; i++) {
 
             addTile(new Grass((i * 32), (int) (Main.window.frame.getHeight() * (.92)), 96, 96, true, ID.Tile));
         }
         for (int i = 0; i <= 22; i++) {
-            addTile(new Stone(0, (i * 32), 96, 96, true, ID.Tile));
-            addTile(new Lava(0, (i*32), 96, 96, true, ID.Tile));
+           // addTile(new Stone(0, (i * 32), 96, 96, true, ID.Tile));
+            //addTile(new Lava(0, (i * 32), 96, 96, true, ID.Tile));
         }
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 3; i++) {
             addTile(new Stone((i * 32), (int) (Main.window.frame.getHeight() * (.5)), 96, 96, true, ID.Tile));
-            /*addTile(new Stone((i*32 + 900), 945, 64,64, true, ID.Tile));
-            addTile(new Stone((i * 32 + 950), 770, 64, 64, true, ID.Tile));
-            addTile(new Stone((i * 32 + 1000), 740, 64, 64, true, ID.Tile));
-            addTile(new Stone((i * 32 + 1150), 710, 64, 64, true, ID.Tile));
-            addTile(new Stone((i * 32 + 1300), 680, 64, 64, true, ID.Tile));
-        }*/
+            addTile(new Stone((i*32) + 200, (int) (Main.window.frame.getHeight() * (.5)), 96, 96, true, ID.Tile));
+            addTile(new Stone((i*32) + 600, (int) (Main.window.frame.getHeight() * (.75)), 96, 96, true, ID.Tile));
+            addTile(new Stone((i*32) + 800, (int) (Main.window.frame.getHeight() * (.4)), 96, 96, true, ID.Tile));
+            addTile(new Stone((i*32) + 1000, (int) (Main.window.frame.getHeight() * (.2)), 96, 96, true, ID.Tile));
+            addTile(new Stone((i*32) + 1200, (int) (Main.window.frame.getHeight() * (.8)), 96, 96, true, ID.Tile));
 
 
-
+        }
 
     }
 }

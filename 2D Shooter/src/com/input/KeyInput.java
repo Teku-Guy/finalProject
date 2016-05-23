@@ -63,7 +63,7 @@ public class KeyInput extends KeyAdapter {
                     if(keyDown[0] || Player.jumping) {
                         Player.still = true;
                         Player.walking = false;
-                    } else if(!keyDown[0] || !Player.jumping){
+                    } else if(!keyDown[0] || !Player.jumping && !Player.collided){
                         Player.still = false;
                         Player.walking = true;
                     }
@@ -75,7 +75,7 @@ public class KeyInput extends KeyAdapter {
                     if(keyDown[0] || Player.jumping) {
                         Player.still = true;
                         Player.walking = false;
-                    } else if(!keyDown[0] || !Player.jumping){
+                    } else if(!keyDown[0] || !Player.jumping && !Player.collided){
                         Player.still = false;
                         Player.walking = true;
                     }

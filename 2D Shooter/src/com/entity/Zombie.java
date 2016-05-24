@@ -55,7 +55,7 @@ public class Zombie extends GameObject{
             facing = 0;
         }
 
-        if(velY > Main.player.velY){
+        if(velY > Main.player.velY && distance >= 2) {
             for(int i = 0; i < Handler.object.size(); i++){
                 if(Handler.object.get(i).getId() == ID.Zombie){
                     GameObject tempZombie = Handler.object.get(i);

@@ -55,17 +55,17 @@ public class Zombie extends GameObject{
             facing = 0;
         }
 
-        if(velY > Main.player.velY && distance >= 2) {
+        if(y < Main.player.y ){//&& distance >= 2) {
             for(int i = 0; i < Handler.object.size(); i++){
                 if(Handler.object.get(i).getId() == ID.Zombie){
                     GameObject tempZombie = Handler.object.get(i);
-                    tempZombie.velY = ((int)Main.player.velY);
+                    tempZombie.velY = -1;
                 }
             }
             jumping = true;
 
         }
-        else if(velY < Main.player.velY){
+        else if(y >= Main.player.y){
             for(int i = 0; i < Handler.object.size(); i++){
                 if(Handler.object.get(i).getId() == ID.Zombie){
                     GameObject tempZombie = Handler.object.get(i);
@@ -77,7 +77,7 @@ public class Zombie extends GameObject{
         }
 
 
-       // velY+=gravity;
+
         y = Main.clamp((int)y, 0, Main.HEIGHT);
     }
 

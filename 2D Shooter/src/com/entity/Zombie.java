@@ -18,9 +18,9 @@ public class Zombie extends GameObject{
     private int facing = 0;
     private boolean still = false;
     private int counter = 0;
-    private boolean jumping = false;
+    private boolean jumping;
     public static boolean isDead = false;
-    private boolean falling = true;
+    private boolean falling;
 
 
     private float gravity = 0.5f;
@@ -44,7 +44,6 @@ public class Zombie extends GameObject{
         float distance = (float) Math.sqrt( ( x - Main.player.getX() ) * ( x-Main.player.getX() ) + ( y-Main.player.getY() ) * ( y-Main.player.getY() ) );
 
         velX = ((-1/distance) * diffX);
-        //velY = ((-1/distance) * diffY);
 
         if(x == Main.player.getX() && y == Main.player.getX()){
             still = true;
@@ -55,32 +54,31 @@ public class Zombie extends GameObject{
         else if(x > Main.player.getX()){
             facing = 0;
         }
-        if(y > Main.player.getVelY()){
-            for(int i = 0; i < Handler.object.size(); i++){
-                 if(Handler.object.get(i).getId()== ID.Zombie){
-                     GameObject tempZombie = Handler.object.get(i);
-                     tempZombie.setVelY(-(int)Main.player.getVelY());
-                     if(tempZombie.getVelY() <= Main.player.getVelY()){
-                         setVelY(0);
-                     }
 
-                 }
+        if(velY > Main.player.velY){
+            for(int i = 0; i < Handler.object.size(); i++){
+                if(Handler.object.get(i).getId() == ID.Zombie){
+                    GameObject tempZombie = Handler.object.get(i);
+                    tempZombie.velY = ((int)Main.player.velY);
+                }
             }
             jumping = true;
 
         }
+        else if(velY < Main.player.velY){
+            for(int i = 0; i < Handler.object.size(); i++){
+                if(Handler.object.get(i).getId() == ID.Zombie){
+                    GameObject tempZombie = Handler.object.get(i);
+                    tempZombie.velY += gravity;
 
-        velY += gravity;
+                }
+            }
+            jumping = false;
+        }
 
 
-
-
-
-
+       // velY+=gravity;
         y = Main.clamp((int)y, 0, Main.HEIGHT);
-
-
-       // handler.addObject(new Trail(x, y, ID.Trail, Color.GREEN, 16, 16, 0.02f, handler));
     }
 
     private void collision() {
@@ -169,8 +167,9 @@ public class Zombie extends GameObject{
         g2d.draw(getBoundsL());*/
     }
     public void tick() {
-        chasePlayer();
         collision();
+        chasePlayer();
+
 
     }
     public boolean isDead() {

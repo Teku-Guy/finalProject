@@ -71,8 +71,8 @@ public class Handler {
 
     public void makeWave(int enemy_count) {
         for (int i = 0; i < (enemy_count); i++) {
-            addObject(new Zombie(r.nextInt(1000), 800, 32, 32, false, this, main, ID.Zombie));
-            addObject(new Zombie(100+r.nextInt(1000), 800, 32, 32, false, this, main, ID.Zombie));
+            addObject(new Zombie(r.nextInt(1000), (int) (Main.window.frame.getHeight() * (.89)-96), 32, 32, false, this, main, ID.Zombie));
+            addObject(new Zombie(100+r.nextInt(1000), (int) (Main.window.frame.getHeight() * (.89)-96), 32, 32, false, this, main, ID.Zombie));
         }
     }
 
@@ -129,7 +129,7 @@ public class Handler {
     public void createLevel() {
         for (int i = 0; i <= 50; i++) {
 
-            addTile(new Grass((i * 32), (int) (Main.window.frame.getHeight() * (.92)), 96, 96, true, ID.Tile));
+            addTile(new Grass((i * 32), (int) (Main.window.frame.getHeight() * (.89)), 96, 96, true, ID.Tile));
         }
         for (int i = 0; i <= 22; i++) {
            // addTile(new Stone(0, (i * 32), 96, 96, true, ID.Tile));
@@ -138,7 +138,7 @@ public class Handler {
         for (int i = 0; i < 3; i++) {
             addTile(new Stone((i * 32), (int) (Main.window.frame.getHeight() * (.5)), 96, 96, true, ID.Tile));
             addTile(new Stone((i*32) + 200, (int) (Main.window.frame.getHeight() * (.5)), 96, 96, true, ID.Tile));
-            addTile(new Stone((i*32) + 600, (int) (Main.window.frame.getHeight() * (.75)), 96, 96, true, ID.Tile));
+            addTile(new Stone((i*32) + 600, (int) (Main.window.frame.getHeight() * (.65)), 96, 96, true, ID.Tile));
             addTile(new Stone((i*32) + 800, (int) (Main.window.frame.getHeight() * (.4)), 96, 96, true, ID.Tile));
             addTile(new Stone((i*32) + 1000, (int) (Main.window.frame.getHeight() * (.2)), 96, 96, true, ID.Tile));
             addTile(new Stone((i*32) + 1200, (int) (Main.window.frame.getHeight() * (.8)), 96, 96, true, ID.Tile));

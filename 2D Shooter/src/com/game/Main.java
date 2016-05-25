@@ -368,7 +368,8 @@ public class Main extends Canvas implements Runnable {
     public int getEnemyCount(){
         return enemyCount;
     }
-    public void setEnemyCount(int enemyCount){
+    public void setEnemyCount(int enemyCount)
+    {
         this.enemyCount = enemyCount;
     }
 

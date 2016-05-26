@@ -4,11 +4,10 @@ package com.game; /**
 
 import com.entity.Grass;
 import com.entity.*;
-import com.gui.Camera;
-import com.gui.HUD;
+import com.gui.*;
+import com.gui.Menu;
 import com.gui.Window;
 import com.input.Handler;
-import com.gui.Menu;
 import com.input.KeyInput;
 import com.graphics.Sprite;
 import com.graphics.SpriteSheet;
@@ -44,7 +43,7 @@ public class Main extends Canvas implements Runnable {
     public static Player player;
     public static Grass grass;
 
-
+    private BufferedImage level = null;
 
     public static Sprite[] PlayerJumpL = new Sprite[1];
     public static Sprite[] PlayerJumpR = new Sprite[1];
@@ -116,7 +115,7 @@ public class Main extends Canvas implements Runnable {
 
         window = new Window("2D Shooter", this);
 
-
+        MapLoader loader = new MapLoader();
 
         player = (new Player(window.frame.getWidth()/2-64, (window.frame.getHeight() / 3), 64, 64, handler, ID.Player));
         handler.addObject(player);

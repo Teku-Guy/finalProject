@@ -17,7 +17,7 @@ public class KeyInput extends KeyAdapter {
 
     public int tempPhase = 0;
 
-    protected boolean[] keyDown = new boolean[5];
+    public boolean[] keyDown = new boolean[5];
     private int width, height;
 
 

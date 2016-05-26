@@ -27,12 +27,12 @@ import com.gui.HUD;
 
 public class Player extends GameObject {
 
-    private KeyInput key;
     private Handler handler = new Handler();
 
     public int phaseWalking = 0;
     public int phaseShoot = 0;
     public static int facing = 0;
+    public KeyInput key;
 
     private int counter = 0;
     public static boolean still = true;
@@ -192,7 +192,8 @@ public class Player extends GameObject {
         Rectangle rect = getBounds();
         Rectangle top = new Rectangle(rect.x, rect.y, rect.width, 5);
         if (top.intersects(tileRect)) {
-            velY = 0.1f;
+            //key.keyDown[0] = false;
+            velY = 1;
             falling = true;
             jumping = false;
             //collided = true;

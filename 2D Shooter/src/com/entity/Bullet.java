@@ -41,10 +41,7 @@ public class Bullet extends GameObject {
         for (int i = 0; i < Handler.tile.size(); i++)
             for (int j = 0; j < Handler.bullet.size(); j++) {
                 Bullet tempBullet = Handler.bullet.get(j);
-                if (tempBullet.getBounds().intersects(Handler.tile.get(i).getBounds())
-                        || tempBullet.getBounds().intersects(Handler.tile.get(i).getBoundsT())
-                        || tempBullet.getBounds().intersects(Handler.tile.get(i).getBoundsR())
-                        || tempBullet.getBounds().intersects(Handler.tile.get(i).getBoundsL())) {
+                if (tempBullet.getBounds().intersects(Handler.tile.get(i).getBounds())) {
                     Handler.bullet.remove(j);
                     j--;
                 }

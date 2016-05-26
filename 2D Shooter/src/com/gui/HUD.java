@@ -14,11 +14,11 @@ public class HUD {
     private Main main;
     private float greenValue = 255f;
 
-    private float x, y, velY, velX;
+    private float xOffset, yOffset;
 
     public HUD(float x, float y) {
-        this.x = x;
-        this.y = y;
+        this.xOffset = x;
+        this.yOffset = y;
     }
 
     public void tick() {
@@ -26,26 +26,19 @@ public class HUD {
         greenValue = Main.clamp(greenValue, 0, 255);
 
         greenValue = HEALTH * 2;
-
-        x += main.player.getVelX();
-        if (Player.jumping) {
-            y = main.player.getY() - 30;
-        } else {
-            y = main.player.getY() - 30;
-        }
     }
 
     public void render(Graphics g) {
         g.setColor(Color.gray);
-        g.fillRect((int) x, (int) y, 100, 16);
+        g.fillRect((int) (Main.player.getX() + xOffset), (int) (Main.player.getY() + yOffset), 100, 16);
 
         g.setColor(new Color(75, (int) greenValue, 0));
-        g.fillRect((int) x, (int) y, (int) HEALTH, 16);
+        g.fillRect((int)(Main.player.getX() + xOffset), (int) (Main.player.getY() + yOffset), (int) HEALTH, 16);
 
         g.setColor(Color.WHITE);
-        g.drawRect((int) x, (int) y, 100, 16);
+        g.drawRect((int) (Main.player.getX() + xOffset), (int) (Main.player.getY() + yOffset), 100, 16);
 
-        g.drawString("Points : " + Handler.points , (int)x, (int)y-10);
+        g.drawString("Points : " + Handler.points , (int)(Main.player.getX() + xOffset), (int)(Main.player.getY() + yOffset)-10);
 
         //g.drawString("Score: "+ score, 15, 64);g.drawString("Points : " + Handler.points , 200, 300);
         //g.drawString("Level: "+ level, 15, 80);

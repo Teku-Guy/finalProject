@@ -21,6 +21,7 @@ import com.sun.corba.se.spi.ior.ObjectId;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Objects;
+
 import com.gui.HUD;
 
 
@@ -33,24 +34,22 @@ public class Player extends GameObject {
     public int phaseShoot = 0;
     public static int facing = 0;
 
-    private int counter = 0 ;
+    private int counter = 0;
     public static boolean still = true;
-    public static float jump = 0;
+    public static int jump = 0;
     public static boolean jumping = false;
     public static boolean shoot = false;
     public static boolean walking = true;
     public static boolean collided;
 
-    private float gravity = 0.5f;
+    private float gravity = 0.1f;
     private final float MAX_SPEED = 10;
 
 
-    public Player(float x, float y, int width, int height, Handler handler, ID id){
+    public Player(float x, float y, int width, int height, Handler handler, ID id) {
         super(x, y, width, height, id);
         this.handler = handler;
-
     }
-
 
 
     public void render(Graphics g) {
@@ -60,166 +59,150 @@ public class Player extends GameObject {
             counter = 0;
             phaseWalking++;
             phaseShoot++;
-            phaseShoot %=Main.PlayerShootL.length;
+            phaseShoot %= Main.PlayerShootL.length;
             phaseWalking %= Main.PlayerWalkL.length;
         }
 
-         if(facing == 0) {
-             if (jumping) {
-                 g.drawImage(Main.PJumpLeft.getBufferedImage(), (int)x, (int)y, null);
+        if (facing == 0) {
+            if (jumping) {
+                g.drawImage(Main.PJumpLeft.getBufferedImage(), (int) x, (int) y, null);
 
-             }else if (still) {
-                 g.drawImage(Main.PlayerWalkL[0].getBufferedImage(), (int)x, (int)y, null);
+            } else if (still) {
+                g.drawImage(Main.PlayerWalkL[0].getBufferedImage(), (int) x, (int) y, null);
 
-             }
-             if(shoot){
-                 g.drawImage(Main.PlayerShootL[phaseShoot].getBufferedImage(), (int)x, (int)y, null);
-             }
-             else if(walking) {
-                 g.drawImage(Main.PlayerWalkL[phaseWalking].getBufferedImage(), (int)x, (int)y, null);
-             }
-         }
-         else if(facing == 1){
-                 if(jumping){
-                     g.drawImage(Main.PJumpRight.getBufferedImage(), (int)x,(int)y, null);
+            }
+            if (shoot) {
+                g.drawImage(Main.PlayerShootL[phaseShoot].getBufferedImage(), (int) x, (int) y, null);
+            } else if (walking) {
+                g.drawImage(Main.PlayerWalkL[phaseWalking].getBufferedImage(), (int) x, (int) y, null);
+            }
+        } else if (facing == 1) {
+            if (jumping) {
+                g.drawImage(Main.PJumpRight.getBufferedImage(), (int) x, (int) y, null);
 
-                 }else if(still){
-                     g.drawImage(Main.PlayerWalkR[0].getBufferedImage(), (int)x, (int)y, null);
-                 }
+            } else if (still) {
+                g.drawImage(Main.PlayerWalkR[0].getBufferedImage(), (int) x, (int) y, null);
+            }
 
-                 if(shoot){
-                     g.drawImage(Main.PlayerShootR[phaseShoot].getBufferedImage(), (int)x, (int)y, null);
-                 }
-                 else if(walking){
-                     g.drawImage(Main.PlayerWalkR[phaseWalking].getBufferedImage(), (int) x, (int) y, null);
+            if (shoot) {
+                g.drawImage(Main.PlayerShootR[phaseShoot].getBufferedImage(), (int) x, (int) y, null);
+            } else if (walking) {
+                g.drawImage(Main.PlayerWalkR[phaseWalking].getBufferedImage(), (int) x, (int) y, null);
 
-                 }
+            }
 
-         }
+        }
 
 
         Graphics2D g2d = (Graphics2D) g;
 
         g.setColor(Color.white);
         g2d.draw(getBounds());
-        g.setColor(Color.GREEN);
-        g2d.draw(getBoundsT());
-        g.setColor(Color.BLUE);
-        g2d.draw(getBoundsR());
-        g.setColor(Color.RED);
-        g2d.draw(getBoundsL());
+
+        Rectangle rect = getBounds();
+        Rectangle top = new Rectangle(rect.x, rect.y, rect.width, 5);
+        Rectangle bottom = new Rectangle(rect.x, rect.y + rect.height - 5, rect.width, 5);
+        Rectangle left = new Rectangle(rect.x, rect.y, 5, rect.height);
+        Rectangle right = new Rectangle(rect.x + rect.width - 5, rect.y, 5, rect.height);
+        g.setColor(Color.red);
+        g2d.draw(top);
+        g2d.draw(bottom);
+        g2d.draw(left);
+        g2d.draw(right);
 
 
     }
-    public void move(){
+
+    public void move() {
         x += velX;
         y += velY;
 
-        if (falling || jumping){
-            velY += gravity;
-        }
-        if (velY > MAX_SPEED){
+        velY += gravity;
+        if (velY > MAX_SPEED) {
             velY = MAX_SPEED;
         }
 
 
-        x = Main.clamp((int)x, 0, Main.WIDTH);
-        y = Main.clamp((int)y, 0, Main.HEIGHT-53);
+        x = Main.clamp((int) x, 0, Main.WIDTH);
+        y = Main.clamp((int) y, 0, Main.HEIGHT - 53);
     }
 
-   private void collision() {
-
+    private void collision() {
         for (int i = 0; i < handler.object.size(); i++) {
             GameObject tempObject = handler.object.get(i);
             if (tempObject.getId() == ID.Zombie) {
-
-                if (getBounds().intersects(tempObject.getBounds()) ||
-                        getBoundsT().intersects(tempObject.getBounds()) ||
-                        getBoundsL().intersects(tempObject.getBounds()) ||
-                        getBoundsR().intersects(tempObject.getBounds()) ||
-
-                        getBounds().intersects(tempObject.getBoundsT()) ||
-                        getBoundsT().intersects(tempObject.getBoundsT()) ||
-                        getBoundsL().intersects(tempObject.getBoundsT()) ||
-                        getBoundsR().intersects(tempObject.getBoundsT()) ||
-
-                        getBounds().intersects(tempObject.getBoundsL()) ||
-                        getBoundsT().intersects(tempObject.getBoundsL()) ||
-                        getBoundsL().intersects(tempObject.getBoundsL()) ||
-                        getBoundsR().intersects(tempObject.getBoundsL()) ||
-
-                        getBounds().intersects(tempObject.getBoundsR()) ||
-                        getBoundsT().intersects(tempObject.getBoundsR()) ||
-                        getBoundsL().intersects(tempObject.getBoundsR()) ||
-                        getBoundsR().intersects(tempObject.getBoundsR())) {
+                if (getBounds().intersects(tempObject.getBounds())) {
                     HUD.HEALTH -= 1;
                 }
             }
         }
-        for(int i = 0; i < handler.tile.size(); i++) {
-            for (int j = 0; j < handler.object.size(); j++) {
-                Tile tempTile = handler.tile.get(i);
-                //GameObject tempObject = handler.object.get(j)
-                if(tempTile.getId() == ID.Bounds){
-                    if (getBounds().intersects(tempTile.getBoundsL()) || getBounds().intersects(tempTile.getBoundsR()))
-                        velX = 0;
-                        collided = true;
-                }
-
-                if (tempTile.getId() == ID.Tile) {
-                    if (getBounds().intersects(tempTile.getBounds())) {
-                        velY = 0;
-                        falling = true;
-                        jumping = false;
-                        jump = 1;
-                        collided = true;
-                    }
-                    else if(getBounds().intersects(tempTile.getBoundsR())){
-                        velY = 0;
-                        falling = true;
-                        jumping = false;
-                        jump = 1;
-                        collided = true;
-                    }
-                    else if(getBounds().intersects(tempTile.getBoundsL())){
-                        velY = 0;
-                        falling = true;
-                        jumping = false;
-                        jump = 1;
-                        collided = true;
-                    }
-                    else if(getBounds().intersects(tempTile.getBoundsT())){
-                        velY = 0;
-                        falling = true;
-                        jump = 1;
-                        collided = true;
-                    }
-                    else if(getBoundsT().intersects(tempTile.getBoundsL()) ||
-                            getBoundsT().intersects(tempTile.getBoundsR()) ||
-                            getBoundsT().intersects(tempTile.getBoundsL()) ||
-                            getBoundsT().intersects(tempTile.getBoundsR())){
-                        velX = 0;
-                        jump = 1;
-                        falling = false;
-                        jumping = false;
-                        collided = true;
-                    }
-                }
+        for (int i = 0; i < handler.tile.size(); i++) {
+            Tile tempTile = handler.tile.get(i);
+            if (tempTile.getId() == ID.Bounds) {
+                if (getBounds().intersects(tempTile.getBounds()) || getBounds().intersects(tempTile.getBounds()))
+                    velX = 0;
+                collided = true;
             }
+
+            if (tempTile.getId() == ID.Tile) {
+                Rectangle rect = getBounds();
+                Rectangle tileRect = tempTile.getBounds();
+                if (!rect.intersects(tileRect)) {
+                    continue;
+                }
+                jump = 1;
+                collideBottom(tileRect);
+                collideTop(tileRect);
+                collideLeft(tileRect);
+                collideRight(tileRect);
+            }
+        }
+    }
+
+    private void collideBottom(Rectangle tileRect) {
+        Rectangle rect = getBounds();
+        Rectangle bottom = new Rectangle(rect.x, rect.y + rect.height - 5, rect.width, 5);
+        if (bottom.intersects(tileRect)) {
+            velY = -0.1f;
+            falling = true;
+        }
+    }
+
+    private void collideLeft(Rectangle tileRect) {
+        Rectangle rect = getBounds();
+        Rectangle left = new Rectangle(rect.x, rect.y, 5, rect.height);
+        if (left.intersects(tileRect)) {
+            velX = 0;
+            falling = true;
+            jumping = false;
+        }
+    }
+
+    private void collideRight(Rectangle tileRect) {
+        Rectangle rect = getBounds();
+        Rectangle right = new Rectangle(rect.x + rect.width - 5, rect.y, 5, rect.height);
+        if (right.intersects(tileRect)) {
+            velX = 0f;
+            falling = true;
+            jumping = false;
+        }
+    }
+
+    private void collideTop(Rectangle tileRect) {
+        Rectangle rect = getBounds();
+        Rectangle top = new Rectangle(rect.x, rect.y, rect.width, 5);
+        if (top.intersects(tileRect)) {
+            velY = 0.1f;
+            falling = true;
+            jumping = false;
+            //collided = true;
         }
     }
 
     public void tick() {
         move();
         collision();
-
     }
-
-
-
-
-
-
 
 
 }

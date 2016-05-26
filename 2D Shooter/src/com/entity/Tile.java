@@ -90,17 +90,7 @@ public abstract class Tile{
     }
 
     public Rectangle getBounds(){
-        return new Rectangle(getX()+25, getY()+height-6, width/2+6, 5);
-    }
-    public Rectangle getBoundsT(){
-        return new Rectangle(getX()+25, getY()+height/2, width/2+6, 5);
-    }
-    public Rectangle getBoundsR(){
-        return new Rectangle(getX()+25, getY() + 40, 12, height/3-6);
-    }
-    public Rectangle getBoundsL(){
-        return new Rectangle(getX() + (25+26), getY() + 40, 12, height/3-6);
-
+        return new Rectangle(getX(), getY(), width, height);
     }
 }
 

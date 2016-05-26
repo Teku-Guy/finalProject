@@ -118,9 +118,9 @@ public class Main extends Canvas implements Runnable {
 
 
 
-        player = (new Player(window.frame.getWidth()/2-64, (window.frame.getHeight() / 3), 32, 32, handler, ID.Player));
+        player = (new Player(window.frame.getWidth()/2-64, (window.frame.getHeight() / 3), 64, 64, handler, ID.Player));
         handler.addObject(player);
-        hud = new HUD(player.getX()-17, player.getY());
+        hud = new HUD(-17, -32);
         handler.makeWave(enemyCount);
             //handler.addObject(new Zombie(300, 100, 32, 32, false, handler, ID.Zombie));
             //handler.addObject(player);
@@ -141,13 +141,12 @@ public class Main extends Canvas implements Runnable {
         LavaSheet = new SpriteSheet("/res/blocks/Lava.png");
 
         Bullet = Sprite.fromSheet(BulletSheet, 0, 0, 64, 64);
-        Grass = Sprite.fromSheet(GrassSheet, 0, 0, 96, 96);
-        Stone = Sprite.fromSheet(StoneSheet, 0, 0, 64, 64);
-        Floating = Sprite.fromSheet(FloatingSheet, 0, 0, 64, 64);
+        Grass = Sprite.fromSheet(GrassSheet, 0, 0, 51, 54);
+        Stone = Sprite.fromSheet(StoneSheet, 0, 0, 51, 54);
+        Floating = Sprite.fromSheet(FloatingSheet, 0, 0, 51, 54);
 
-        for(int i = 0; i < LavaFlow.length; i++){
-            LavaFlow[i] = Sprite.fromSheet(LavaSheet, i ,0,96,96);
-
+        for(int i = 0; i < LavaFlow.length; i++) {
+            LavaFlow[i] = new Sprite(LavaSheet.getSprite(i * 96, 0, 55, 57), 55, 57);
         }
 
         System.out.println("Map Entities loaded!");

@@ -42,7 +42,7 @@ public class KeyInput extends KeyAdapter {
                 if (key == KeyEvent.VK_W){
                     keyDown[0] = true;
                     if(Player.jump == 1) {
-                        tempObject.setVelY(-15);
+                        tempObject.setVelY(-7);
                         Player.jumping = true;
                         Player.still = true;
                         Player.jump = 0;
@@ -113,12 +113,12 @@ public class KeyInput extends KeyAdapter {
                         keyDown[0] = false;
                         Player.jumping = false;
                         Player.still = true;
+                    }
                 }
-                    if(key == KeyEvent.VK_SPACE){
+                if(key == KeyEvent.VK_SPACE){
                     keyDown[4] = false;
                     Player.shoot = false;
                     Player.still = true;
-                    }
                 }
                 if(key == KeyEvent.VK_S) {
                     keyDown[1] = false;
@@ -139,12 +139,6 @@ public class KeyInput extends KeyAdapter {
                     Player.shoot = false;
                     Player.still = true;
                 }
-
-                //vertical movement
-                if(!keyDown[1])
-                    tempObject .setVelY(0);
-                if(!keyDown[3])
-                    tempObject .setVelX(0);
             }
         }
     }

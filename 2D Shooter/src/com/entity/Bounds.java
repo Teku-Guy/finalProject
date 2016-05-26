@@ -21,12 +21,6 @@ public class Bounds extends Tile {
 
         g.setColor(Color.white);
         g2d.draw(getBounds());
-        g.setColor(Color.GREEN);
-        g2d.draw(getBoundsT());
-        g.setColor(Color.BLUE);
-        g2d.draw(getBoundsR());
-        g.setColor(Color.RED);
-        g2d.draw(getBoundsL());
 
     }
 }

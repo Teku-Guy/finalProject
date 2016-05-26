@@ -140,6 +140,9 @@ public class KeyInput extends KeyAdapter {
                     Player.still = true;
                 }
             }
+
+            if(!keyDown[0])
+                tempObject.setVelY(0);
         }
     }
 

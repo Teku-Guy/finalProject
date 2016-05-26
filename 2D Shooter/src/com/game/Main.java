@@ -115,8 +115,6 @@ public class Main extends Canvas implements Runnable {
 
         window = new Window("2D Shooter", this);
 
-        player = (new Player(window.frame.getWidth()/2-64, (window.frame.getHeight() / 3), 64, 64, handler, ID.Player));
-        handler.addObject(player);
         hud = new HUD(-17, -32);
         handler.makeWave(enemyCount);
             //handler.addObject(new Zombie(300, 100, 32, 32, false, handler, ID.Zombie));
@@ -377,6 +375,22 @@ public class Main extends Canvas implements Runnable {
         int h = image.getHeight();
 
         System.out.println("Width: " + w + "Height: "+ h);
+
+        for(int xx = 0; xx < h; xx++){
+            for(int yy = 0; yy< w; yy++) {
+                int pixel = image.getRGB(xx, yy);
+                int red = (pixel >> 16) & 0xff;
+                int green = (pixel >> 8) & 0Xff;
+                int blue = (pixel) & 0xff;
+
+                if(red == 255 && green == 255 && blue == 255){
+                    handler.addObject(player);
+                }
+
+
+            }
+        }
+
     }
 
     public static void main(String[] args) {

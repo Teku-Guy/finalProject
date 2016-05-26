@@ -115,8 +115,6 @@ public class Main extends Canvas implements Runnable {
 
         window = new Window("2D Shooter", this);
 
-        MapLoader loader = new MapLoader();
-
         player = (new Player(window.frame.getWidth()/2-64, (window.frame.getHeight() / 3), 64, 64, handler, ID.Player));
         handler.addObject(player);
         hud = new HUD(-17, -32);
@@ -132,6 +130,8 @@ public class Main extends Canvas implements Runnable {
     //Loads stuff
     public void init() {
 
+        MapLoader loader = new MapLoader();
+        level = loader.loadImage("res/levels/level.png");
 
         BulletSheet = new SpriteSheet("/res/player/Bullet.png");
         GrassSheet = new SpriteSheet("/res/blocks/Grass.png");
@@ -229,6 +229,7 @@ public class Main extends Canvas implements Runnable {
        // map.readFile("/res/Map.txt");
         //map.createMap();
 
+        LoadImageLevel(level);
 
     }
 
@@ -371,13 +372,15 @@ public class Main extends Canvas implements Runnable {
         this.enemyCount = enemyCount;
     }
 
+    public void LoadImageLevel(BufferedImage image){
+        int w = image.getWidth();
+        int h = image.getHeight();
 
-
+        System.out.println("Width: " + w + "Height: "+ h);
+    }
 
     public static void main(String[] args) {
         main = new Main();
-
-
 
         //mostly for ubuntu
         System.setProperty("sun.java2d.opengl", "true");

@@ -109,8 +109,9 @@ public class KeyInput extends KeyAdapter {
                 //key Events for player 1
 
                 if(key == KeyEvent.VK_W) {
+                    keyDown[0] = false;
                     if(Player.jump == 0) {
-                        keyDown[0] = false;
+                        tempObject.setVelY(0);
                         Player.jumping = false;
                         Player.still = true;
                     }
@@ -126,11 +127,13 @@ public class KeyInput extends KeyAdapter {
                 }
                 if(key == KeyEvent.VK_D){
                     keyDown[2] = false;
+                    tempObject.setVelX(0);
                     Player.still = true;
                     Player.walking = false;
                 }
                 if(key == KeyEvent.VK_A) {
                     keyDown[3] = false;
+                    tempObject.setVelX(0);
                     Player.still = true;
                     Player.walking = false;
                 }
@@ -140,11 +143,6 @@ public class KeyInput extends KeyAdapter {
                     Player.still = true;
                 }
             }
-
-            if(!keyDown[0])
-                tempObject.setVelY(0);
-            if(!keyDown[2] || !keyDown[3])
-                tempObject.setVelX(0);
         }
     }
 

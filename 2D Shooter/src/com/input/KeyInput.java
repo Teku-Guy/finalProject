@@ -41,12 +41,12 @@ public class KeyInput extends KeyAdapter {
 
                 if (key == KeyEvent.VK_W){
                     keyDown[0] = true;
-                    //if(Player.jump == 1) {
+                    if(Player.jump == 1) {
                         tempObject.setVelY(-7);
                         Player.jumping = true;
                         Player.still = true;
                         Player.jump = 0;
-                    //}
+                    }
                 }
                 if (key == KeyEvent.VK_S) {
                     if (!Player.collided) {

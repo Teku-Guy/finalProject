@@ -22,6 +22,7 @@ public class Handler {
 
     public static int killCount = 0;
     public static int points = 0;
+    public static int levelCount = 1;
 
     private int readMapWidth = Main.WIDTH / 2;
     private int readMapHeight = Main.HEIGHT / 2;
@@ -51,7 +52,15 @@ public class Handler {
     public void render(Graphics g) {
         tile.clear();
         //createLevel();
-        LoadImageLevel(Main.level);
+        if(levelCount == 1){
+            LoadImageLevel(Main.level1);
+        }
+        else if(levelCount == 2){
+            LoadImageLevel(Main.level2);
+        }
+        else if(levelCount == 3){
+            LoadImageLevel(Main.level3);
+        }
 
         for (int i = 0; i < object.size(); i++) {
             GameObject tempObject = object.get(i);
@@ -74,6 +83,9 @@ public class Handler {
         for (int i = 0; i < (enemy_count); i++) {
             addObject(new Zombie(r.nextInt(1000), (int) (Main.window.frame.getHeight() * (.89)-96), 64, 64, false, this, main, ID.Zombie));
             addObject(new Zombie(100+r.nextInt(1000), (int) (Main.window.frame.getHeight() * (.89)-96), 64, 64, false, this, main, ID.Zombie));
+            if(Main.waveCount == 3){
+                levelCount++;
+            }
         }
     }
 
@@ -144,10 +156,13 @@ public class Handler {
                 }
 
 
+
+
             }
         }
 
     }
+
 
     public void createLevel() {
         for (int i = 0; i <= 50; i++) {

@@ -32,7 +32,7 @@ public class Main extends Canvas implements Runnable {
     private boolean running = false;
 
     private int enemyCount = 10;
-    private int waveCount = 0;
+    public static int waveCount = 0;
     private int mapCounter = 0;
 
     public Handler handler;
@@ -44,7 +44,9 @@ public class Main extends Canvas implements Runnable {
     public static Grass grass;
 
     public MapLoader loader = new MapLoader();
-    public static BufferedImage level;
+    public static BufferedImage level1;
+    public static BufferedImage level2;
+    public static BufferedImage level3;
 
     public static Sprite[] PlayerJumpL = new Sprite[1];
     public static Sprite[] PlayerJumpR = new Sprite[1];
@@ -131,7 +133,7 @@ public class Main extends Canvas implements Runnable {
     //Loads stuff
     public void init() {
 
-        level = loader.loadImage("/res/level1.png");
+        level1 = loader.loadImage("/res/level1.png");
 
         BulletSheet = new SpriteSheet("/res/player/Bullet.png");
         GrassSheet = new SpriteSheet("/res/blocks/Grass.png");
@@ -294,13 +296,37 @@ public class Main extends Canvas implements Runnable {
             }
             hud.tick();
             if (Handler.killCount >= enemyCount) {
-                if (waveCount < 3) {
-                    handler.clearEnemies();
-                    enemyCount += 1;
-                    waveCount++;
-                    Handler.killCount = 0;
-                    handler.makeWave(enemyCount);
+                if(Handler.levelCount == 1) {
+                    waveCount = 0;
+                    if (waveCount < 3) {
+                        handler.clearEnemies();
+                        enemyCount += 1;
+                        waveCount++;
+                        Handler.killCount = 0;
+                        handler.makeWave(enemyCount);
+                    }
                 }
+                if(Handler.levelCount == 2){
+                    waveCount = 0;
+                    if (waveCount < 3) {
+                        handler.clearEnemies();
+                        enemyCount += 1;
+                        waveCount++;
+                        Handler.killCount = 0;
+                        handler.makeWave(enemyCount);
+                    }
+                }
+                if(Handler.levelCount == 3){
+                   waveCount = 0;
+                    if (waveCount < 3) {
+                        handler.clearEnemies();
+                        enemyCount += 1;
+                        waveCount++;
+                        Handler.killCount = 0;
+                        handler.makeWave(enemyCount);
+                    }
+                }
+
             } else if (gameState == STATE.Menu || gameState == STATE.End) {
                 menu.tick();
             }

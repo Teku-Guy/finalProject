@@ -17,6 +17,7 @@ public class MapLoader {
             image = ImageIO.read(getClass().getResource(path));
         } catch (IOException e) {
             e.printStackTrace();
+            System.err.println(e);
         }
         return image;
     }

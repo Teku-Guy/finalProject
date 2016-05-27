@@ -49,7 +49,7 @@ public class Handler {
 
     public void render(Graphics g) {
         tile.clear();
-        createLevel();
+        //createLevel();
 
 
         for (int i = 0; i < object.size(); i++) {

@@ -43,7 +43,8 @@ public class Main extends Canvas implements Runnable {
     public static Player player;
     public static Grass grass;
 
-    private BufferedImage level = null;
+    public MapLoader loader = new MapLoader();
+    private BufferedImage level;
 
     public static Sprite[] PlayerJumpL = new Sprite[1];
     public static Sprite[] PlayerJumpR = new Sprite[1];
@@ -130,8 +131,7 @@ public class Main extends Canvas implements Runnable {
     //Loads stuff
     public void init() {
 
-        MapLoader loader = new MapLoader();
-        //level = loader.loadImage("res/levels/level.png");
+        level = loader.loadImage("/res/levels/level.png");
 
         BulletSheet = new SpriteSheet("/res/player/Bullet.png");
         GrassSheet = new SpriteSheet("/res/blocks/Grass.png");
@@ -386,7 +386,7 @@ public class Main extends Canvas implements Runnable {
                 int blue = (pixel) & 0xff;
 
                 if(red == 255 && green == 255 && blue == 255){
-
+                    handler.addTile(new Stone((xx * 51), (yy*54), 51, 54, true, ID.Tile));
                 }
 
 

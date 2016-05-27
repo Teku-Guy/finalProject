@@ -131,7 +131,7 @@ public class Main extends Canvas implements Runnable {
     //Loads stuff
     public void init() {
 
-        level = loader.loadImage("/res/levels/level.png");
+        level = loader.loadImage("/res/level1.png");
 
         BulletSheet = new SpriteSheet("/res/player/Bullet.png");
         GrassSheet = new SpriteSheet("/res/blocks/Grass.png");
@@ -331,6 +331,7 @@ public class Main extends Canvas implements Runnable {
             g2d.translate((int)cam.getX(), (int)cam.getY());
             g.drawImage(Main.Background, 0, 0, null);
 
+            LoadImageLevel(level);
 
             handler.render(g);
             hud.render(g);
@@ -373,8 +374,11 @@ public class Main extends Canvas implements Runnable {
     }
 
     public void LoadImageLevel(BufferedImage image){
-        int w = image.getWidth();
-        int h = image.getHeight();
+        int wI = image.getWidth();
+        int hI = image.getHeight();
+
+        int h = hI;
+        int w = wI;
 
         System.out.println("Width: " + w + "Height: "+ h);
 

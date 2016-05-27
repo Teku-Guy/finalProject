@@ -97,7 +97,8 @@ public class Zombie extends GameObject {
         Rectangle rect = getBounds();
         Rectangle bottom = new Rectangle(rect.x, rect.y + rect.height - 5, rect.width, 5);
         if (bottom.intersects(tileRect)) {
-            velY = -0.1f;
+            y = (float)tileRect.getY() - height;
+            velY = 0;
             falling = true;
         }
     }
@@ -126,7 +127,8 @@ public class Zombie extends GameObject {
         Rectangle rect = getBounds();
         Rectangle top = new Rectangle(rect.x, rect.y, rect.width, 5);
         if (top.intersects(tileRect)) {
-            velY = 0.1f;
+            y = (float)tileRect.getY() + (float)(height/1.125);
+            velY = 1;
             falling = true;
             jumping = false;
             //collided = true;
@@ -163,6 +165,8 @@ public class Zombie extends GameObject {
 
         g.setColor(Color.white);
         g2d.draw(getBounds());
+
+
     }
 
     public void tick() {

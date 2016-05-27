@@ -96,18 +96,21 @@ public class Player extends GameObject {
 
         Graphics2D g2d = (Graphics2D) g;
 
-        g.setColor(Color.white);
+        g.setColor(Color.cyan);
         g2d.draw(getBounds());
 
         Rectangle rect = getBounds();
-        Rectangle top = new Rectangle(rect.x, rect.y, rect.width, 5);
-        Rectangle bottom = new Rectangle(rect.x, rect.y + rect.height - 5, rect.width, 5);
-        Rectangle left = new Rectangle(rect.x, rect.y, 5, rect.height);
-        Rectangle right = new Rectangle(rect.x + rect.width - 5, rect.y, 5, rect.height);
+        Rectangle top = new Rectangle(rect.x+(15/2), rect.y, rect.width-15, 5);
+        Rectangle bottom = new Rectangle(rect.x+(15/2), rect.y + rect.height - 5, rect.width-15, 5);
+        Rectangle left = new Rectangle(rect.x, rect.y+(15/2), 5, rect.height-15);
+        Rectangle right = new Rectangle(rect.x + rect.width - 5, rect.y+(15/2), 5, rect.height-15);
         g.setColor(Color.red);
         g2d.draw(top);
+        g.setColor(Color.blue);
         g2d.draw(bottom);
+        g.setColor(Color.green);
         g2d.draw(left);
+        g.setColor(Color.white);
         g2d.draw(right);
 
 
@@ -151,21 +154,11 @@ public class Player extends GameObject {
                     continue;
                 }
                 jump = 1;
-                collideBottom(tileRect);
                 collideTop(tileRect);
+                collideBottom(tileRect);
                 collideLeft(tileRect);
                 collideRight(tileRect);
             }
-        }
-    }
-
-    private void collideBottom(Rectangle tileRect) {
-        Rectangle rect = getBounds();
-        Rectangle bottom = new Rectangle(rect.x, rect.y + rect.height - 5, rect.width, 5);
-        if (bottom.intersects(tileRect)) {
-            y = (float)tileRect.getY() - height;
-            velY = 0;
-            falling = true;
         }
     }
 
@@ -173,7 +166,7 @@ public class Player extends GameObject {
         Rectangle rect = getBounds();
         Rectangle left = new Rectangle(rect.x, rect.y, 5, rect.height);
         if (left.intersects(tileRect)) {
-            x = (float)tileRect.getX();
+            x = (float)-tileRect.getX()+width;
             velX = 0;
             falling = true;
             jumping = false;
@@ -184,9 +177,20 @@ public class Player extends GameObject {
         Rectangle rect = getBounds();
         Rectangle right = new Rectangle(rect.x + rect.width - 5, rect.y, 5, rect.height);
         if (right.intersects(tileRect)) {
-            velX = 0f;
+            x = (float)tileRect.getX() + width;
+            velY = 0;
+            velX = 0;
             falling = true;
             jumping = false;
+        }
+    }
+    private void collideBottom(Rectangle tileRect) {
+        Rectangle rect = getBounds();
+        Rectangle bottom = new Rectangle(rect.x, rect.y + rect.height - 5, rect.width, 5);
+        if (bottom.intersects(tileRect)) {
+            y = (float)tileRect.getY() - height;
+            velY = 0;
+            falling = true;
         }
     }
 

@@ -44,7 +44,7 @@ public class Main extends Canvas implements Runnable {
     public static Grass grass;
 
     public MapLoader loader = new MapLoader();
-    private BufferedImage level;
+    public static BufferedImage level;
 
     public static Sprite[] PlayerJumpL = new Sprite[1];
     public static Sprite[] PlayerJumpR = new Sprite[1];
@@ -229,7 +229,7 @@ public class Main extends Canvas implements Runnable {
        // map.readFile("/res/Map.txt");
         //map.createMap();
 
-        LoadImageLevel(level);
+        //LoadImageLevel(level);
 
     }
 
@@ -330,9 +330,11 @@ public class Main extends Canvas implements Runnable {
         if (gameState == STATE.Game) {
             g2d.translate((int)cam.getX(), (int)cam.getY());
             g.drawImage(Main.Background, 0, 0, null);
+            //handler.LoadImageLevel(level);
 
             handler.render(g);
             hud.render(g);
+
 
             g2d.translate((int)cam.getX(), (int)cam.getY());
             g.setColor(Color.WHITE);
@@ -373,28 +375,7 @@ public class Main extends Canvas implements Runnable {
         this.enemyCount = enemyCount;
     }
 
-    public void LoadImageLevel(BufferedImage image){
-        int w = image.getWidth();
-        int h = image.getHeight();
 
-        System.out.println("Width: " + w + "Height: "+ h);
-
-        for(int i = 0; i < h; i++){
-            for(int j = 0; j < w; j++) {
-                int pixel = image.getRGB(i, j);
-                int red = (pixel >> 16) & 0xff;
-                int green = (pixel >> 8) & 0xff;
-                int blue = (pixel) & 0xff;
-
-                if(red == 255 && green == 255 && blue == 255){
-                    handler.addTile(new Stone((i * 51), (j*54), 51, 54, true, ID.Tile));
-                }
-
-
-            }
-        }
-
-    }
 
     public static void main(String[] args) {
         main = new Main();

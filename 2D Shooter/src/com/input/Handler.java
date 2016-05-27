@@ -7,6 +7,7 @@ import com.game.Main;
 import com.gui.Window;
 
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
 import java.io.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -50,7 +51,7 @@ public class Handler {
     public void render(Graphics g) {
         tile.clear();
         //createLevel();
-
+        LoadImageLevel(Main.level);
 
         for (int i = 0; i < object.size(); i++) {
             GameObject tempObject = object.get(i);
@@ -125,6 +126,28 @@ public class Handler {
         tile.add(newTile);
     }
 
+    public void LoadImageLevel(BufferedImage image){
+        int w = image.getWidth();
+        int h = image.getHeight();
+        addTile(new Stone((51), (54), 51, 54, true, ID.Tile));
+        System.out.println("Width: " + w + "Height: "+ h);
+
+        for(int i = 0; i < h; i++){
+            for(int j = 0; j < w; j++) {
+                int pixel = image.getRGB(i, j);
+                int red = (pixel >> 16) & 0xff;
+                int green = (pixel >> 8) & 0xff;
+                int blue = (pixel) & 0xff;
+
+                if(red == 255 && green == 255 && blue == 255){
+                   addTile(new Stone((i * 51), (j*54), 51, 54, true, ID.Tile));
+                }
+
+
+            }
+        }
+
+    }
 
     public void createLevel() {
         for (int i = 0; i <= 50; i++) {

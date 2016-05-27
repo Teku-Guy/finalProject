@@ -126,7 +126,7 @@ public class Player extends GameObject {
         }
 
 
-        x = Main.clamp((int) x, 0, Main.WIDTH);
+        //x = Main.clamp((int) x, 0, Main.WIDTH);
         y = Main.clamp((int) y, 0, Main.HEIGHT - 53);
     }
 

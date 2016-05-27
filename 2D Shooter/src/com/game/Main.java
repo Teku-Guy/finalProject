@@ -229,7 +229,7 @@ public class Main extends Canvas implements Runnable {
        // map.readFile("/res/Map.txt");
         //map.createMap();
 
-        //LoadImageLevel(level);
+        LoadImageLevel(level);
 
     }
 
@@ -331,10 +331,10 @@ public class Main extends Canvas implements Runnable {
             g2d.translate((int)cam.getX(), (int)cam.getY());
             g.drawImage(Main.Background, 0, 0, null);
 
-            LoadImageLevel(level);
-
             handler.render(g);
             hud.render(g);
+
+            g2d.translate((int)cam.getX(), (int)cam.getY());
             g.setColor(Color.WHITE);
             //g.drawString("FPS: " + frames, 10, 15);
 
@@ -374,23 +374,20 @@ public class Main extends Canvas implements Runnable {
     }
 
     public void LoadImageLevel(BufferedImage image){
-        int wI = image.getWidth();
-        int hI = image.getHeight();
-
-        int h = hI;
-        int w = wI;
+        int w = image.getWidth();
+        int h = image.getHeight();
 
         System.out.println("Width: " + w + "Height: "+ h);
 
-        for(int xx = 0; xx < h; xx++){
-            for(int yy = 0; yy< w; yy++) {
-                int pixel = image.getRGB(xx, yy);
+        for(int i = 0; i < h; i++){
+            for(int j = 0; j < w; j++) {
+                int pixel = image.getRGB(i, j);
                 int red = (pixel >> 16) & 0xff;
-                int green = (pixel >> 8) & 0Xff;
+                int green = (pixel >> 8) & 0xff;
                 int blue = (pixel) & 0xff;
 
                 if(red == 255 && green == 255 && blue == 255){
-                    handler.addTile(new Stone((xx * 51), (yy*54), 51, 54, true, ID.Tile));
+                    handler.addTile(new Stone((i * 51), (j*54), 51, 54, true, ID.Tile));
                 }
 
 

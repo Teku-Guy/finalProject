@@ -28,7 +28,7 @@ public class Window{
         frame.setPreferredSize(new Dimension(Main.WIDTH, Main.HEIGHT));
         frame.setSize(new Dimension(Main.WIDTH, Main.HEIGHT));
 
-       GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().setFullScreenWindow(frame); //Take over the whole screen
+        //GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().setFullScreenWindow(frame); //Take over the whole screen
 
         main.start();
     }

@@ -119,7 +119,7 @@ public class Main extends Canvas implements Runnable {
         window = new Window("2D Shooter", this);
 
         hud = new HUD(-17, -32);
-        player = (new Player(window.frame.getWidth()/2-64, (window.frame.getHeight() / 3), 64, 64, handler, ID.Player));
+        player = new Player(0, 0, 64, 64, handler, ID.Player);
         handler.addObject(player);
         handler.makeWave(enemyCount);
             //handler.addObject(new Zombie(300, 100, 32, 32, false, handler, ID.Zombie));

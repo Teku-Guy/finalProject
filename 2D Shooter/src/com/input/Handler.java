@@ -30,6 +30,8 @@ public class Handler {
     private Bullet bull;
     private Main main;
 
+    private int counterp = 1;
+
     private int counter = 0;
     private Random r = new Random();
     public Tile maps[] = new Tile[10];
@@ -141,11 +143,11 @@ public class Handler {
     public void LoadImageLevel(BufferedImage image){
         int w = image.getWidth();
         int h = image.getHeight();
-        addTile(new Stone((51), (54), 51, 54, true, ID.Tile));
+
         System.out.println("Width: " + w + "Height: "+ h);
 
-        for(int i = 0; i < h; i++){
-            for(int j = 0; j < w; j++) {
+        for(int i = 0; i < w; i++){
+            for(int j = 0; j < h; j++) {
                 int pixel = image.getRGB(i, j);
                 int red = (pixel >> 16) & 0xff;
                 int green = (pixel >> 8) & 0xff;
@@ -154,7 +156,13 @@ public class Handler {
                 if(red == 255 && green == 255 && blue == 255){
                    addTile(new Stone((i * 51), (j*54), 51, 54, true, ID.Tile));
                 }
-
+                if(counterp == 1) {
+                    if (red == 100 && green == 100 && blue == 100) {
+                        Main.player.setX(i * 51);
+                        Main.player.setY(j * 54);
+                        counterp--;
+                    }
+                }
 
 
 

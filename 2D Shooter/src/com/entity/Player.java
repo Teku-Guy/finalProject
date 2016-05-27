@@ -163,7 +163,8 @@ public class Player extends GameObject {
         Rectangle rect = getBounds();
         Rectangle bottom = new Rectangle(rect.x, rect.y + rect.height - 5, rect.width, 5);
         if (bottom.intersects(tileRect)) {
-            velY = -0.1f;
+            y = (float)tileRect.getY() - height;
+            velY = 0;
             falling = true;
         }
     }
@@ -172,6 +173,7 @@ public class Player extends GameObject {
         Rectangle rect = getBounds();
         Rectangle left = new Rectangle(rect.x, rect.y, 5, rect.height);
         if (left.intersects(tileRect)) {
+            x = (float)tileRect.getX();
             velX = 0;
             falling = true;
             jumping = false;
@@ -192,8 +194,9 @@ public class Player extends GameObject {
         Rectangle rect = getBounds();
         Rectangle top = new Rectangle(rect.x, rect.y, rect.width, 5);
         if (top.intersects(tileRect)) {
-            //key.keyDown[0] = false;
+            y = (float)tileRect.getY() + (float)(height/1.125);
             velY = 1;
+            jump = 0;
             falling = true;
             jumping = false;
             //collided = true;

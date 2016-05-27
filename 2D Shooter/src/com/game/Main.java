@@ -116,6 +116,8 @@ public class Main extends Canvas implements Runnable {
         window = new Window("2D Shooter", this);
 
         hud = new HUD(-17, -32);
+        player = (new Player(window.frame.getWidth()/2-64, (window.frame.getHeight() / 3), 64, 64, handler, ID.Player));
+        handler.addObject(player);
         handler.makeWave(enemyCount);
             //handler.addObject(new Zombie(300, 100, 32, 32, false, handler, ID.Zombie));
             //handler.addObject(player);
@@ -129,7 +131,7 @@ public class Main extends Canvas implements Runnable {
     public void init() {
 
         MapLoader loader = new MapLoader();
-        level = loader.loadImage("res/levels/level.png");
+        //level = loader.loadImage("res/levels/level.png");
 
         BulletSheet = new SpriteSheet("/res/player/Bullet.png");
         GrassSheet = new SpriteSheet("/res/blocks/Grass.png");
@@ -227,7 +229,7 @@ public class Main extends Canvas implements Runnable {
        // map.readFile("/res/Map.txt");
         //map.createMap();
 
-        LoadImageLevel(level);
+        //LoadImageLevel(level);
 
     }
 
@@ -384,7 +386,7 @@ public class Main extends Canvas implements Runnable {
                 int blue = (pixel) & 0xff;
 
                 if(red == 255 && green == 255 && blue == 255){
-                    handler.addObject(player);
+
                 }
 
 

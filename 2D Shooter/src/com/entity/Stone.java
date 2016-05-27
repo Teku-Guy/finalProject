@@ -12,5 +12,21 @@ public class Stone extends Tile {
 
     public void render(Graphics g) {
         g.drawImage(Main.Stone.getBufferedImage(), x, y, width, height, null);
+
+        Graphics2D g2d = (Graphics2D) g;
+
+        g.setColor(Color.white);
+        g2d.draw(getBounds());
+
+        Rectangle rect = getBounds();
+        Rectangle top = new Rectangle(rect.x, rect.y, rect.width, 5);
+        Rectangle bottom = new Rectangle(rect.x, rect.y + rect.height - 5, rect.width, 5);
+        Rectangle left = new Rectangle(rect.x, rect.y, 5, rect.height);
+        Rectangle right = new Rectangle(rect.x + rect.width - 5, rect.y, 5, rect.height);
+        g.setColor(Color.red);
+        g2d.draw(top);
+        g2d.draw(bottom);
+        g2d.draw(left);
+        g2d.draw(right);
     }
 }

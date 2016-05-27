@@ -143,6 +143,8 @@ public class KeyInput extends KeyAdapter {
 
             if(!keyDown[0])
                 tempObject.setVelY(0);
+            if(!keyDown[2] || !keyDown[3])
+                tempObject.setVelX(0);
         }
     }
 

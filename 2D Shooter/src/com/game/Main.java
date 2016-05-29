@@ -355,7 +355,7 @@ public class Main extends Canvas implements Runnable {
 
         if (gameState == STATE.Game) {
             g2d.translate((int)cam.getX(), (int)cam.getY());
-            g.drawImage(Main.Background, -1801, 0, null);
+            g.drawImage(Main.Background, -1801, -1350, null);
             //handler.LoadImageLevel(level);
 
             handler.render(g);

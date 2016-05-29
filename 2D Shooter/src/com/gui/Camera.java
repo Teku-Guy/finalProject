@@ -19,7 +19,7 @@ public class Camera {
         y = - player.getY() + (float)Main.window.frame.getSize().getHeight()/2;
 
         //x = Main.clamp((int)0, 0, Main.WIDTH+500);
-        y = Main.clamp((int)0, 0, Main.HEIGHT);
+        //y = Main.clamp((int)0, 0, Main.HEIGHT);
 
     }
 

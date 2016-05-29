@@ -166,7 +166,7 @@ public class Player extends GameObject {
         Rectangle rect = getBounds();
         Rectangle left = new Rectangle(rect.x, rect.y+(15/2), 5, rect.height-15);
         if (left.intersects(tileRect)) {
-            x = (float)tileRect.getX() + (width-10);
+            x = (float)(tileRect.getX() + (width-12));
             velX = 0;
             falling = true;
             jumping = false;
@@ -177,7 +177,7 @@ public class Player extends GameObject {
         Rectangle rect = getBounds();
         Rectangle right = new Rectangle(rect.x + rect.width - 5, rect.y+(15/2), 5, rect.height-15);
         if (right.intersects(tileRect)) {
-            x = (float)tileRect.getX() - (width+4);
+            x = ((float)tileRect.getX() - width);
             velY = 0;
             velX = 0;
             falling = true;

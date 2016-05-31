@@ -43,4 +43,7 @@ public class HUD {
         //g.drawString("Score: "+ score, 15, 64);g.drawString("Points : " + Handler.points , 200, 300);
         //g.drawString("Level: "+ level, 15, 80);
     }
+    public int getScore(){
+        return Handler.points;
+    }
 }

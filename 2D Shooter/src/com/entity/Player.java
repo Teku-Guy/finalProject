@@ -104,14 +104,14 @@ public class Player extends GameObject {
         Rectangle bottom = new Rectangle(rect.x+(15/2), rect.y + rect.height - 5, rect.width-15, 5);
         Rectangle left = new Rectangle(rect.x, rect.y+(15/2), 5, rect.height-15);
         Rectangle right = new Rectangle(rect.x + rect.width - 5, rect.y+(15/2), 5, rect.height-15);
-        g.setColor(Color.red);
+    /*    g.setColor(Color.red);
         g2d.draw(top);
         g.setColor(Color.blue);
         g2d.draw(bottom);
         g.setColor(Color.green);
         g2d.draw(left);
         g.setColor(Color.white);
-        g2d.draw(right);
+        g2d.draw(right);*/
 
 
     }
@@ -210,6 +210,7 @@ public class Player extends GameObject {
     public void tick() {
         move();
         collision();
+
     }
 
 

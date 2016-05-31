@@ -182,7 +182,7 @@ public class Menu extends MouseAdapter{
             g.drawString("Back", Main.WIDTH / 2 - (g.getFontMetrics().stringWidth("Back") / 2), 590);
 
         }else if(main.gameState == STATE.End){
-
+            g.drawImage(Main.Background, 0, 0, null);
             Font fnt = new Font("arial", 1, 50);
             Font fnt2 = new Font("arail", 1, 30);
             Font fnt3 = new Font("arail", 1, 18);
@@ -192,7 +192,7 @@ public class Menu extends MouseAdapter{
             g.drawString("Game Over", 170, 70);
 
             //g.setFont(fnt3);
-            // g.drawString("You lost! Your Score: " + ((int)hud.getScore()), 190, 210);
+             g.drawString("You lost! Your Score: " + Handler.points, 190, 210);
 
             g.setFont(fnt2);
             g.drawRect(110, 350, 200, 64);

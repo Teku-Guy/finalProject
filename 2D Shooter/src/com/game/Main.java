@@ -38,7 +38,6 @@ public class Main extends Canvas implements Runnable {
     public Handler handler;
     public Camera cam;
     private Menu menu;
-    private Map map;
     private HUD hud;
     public static Player player;
     public static Grass grass;
@@ -109,7 +108,6 @@ public class Main extends Canvas implements Runnable {
         handler = new Handler();
         cam = new Camera(0, 0);
         menu = new Menu(this, handler, hud);
-        map = new Map();
 
         this.addKeyListener(new KeyInput(handler));
         this.addMouseListener(menu);
@@ -133,7 +131,7 @@ public class Main extends Canvas implements Runnable {
     //Loads stuff
     public void init() {
 
-        level1 = loader.loadImage("/res/level1.png");
+        level1 = loader.loadImage("/res/level2.png");
         level2 = loader.loadImage("/res/level1.png");
         level3 = loader.loadImage("/res/level1.png");
 
@@ -291,6 +289,9 @@ public class Main extends Canvas implements Runnable {
     private void tick() {
         if (gameState == STATE.Game) {
             handler.tick();
+            if(hud.HEALTH == 0){
+                gameState = STATE.End;
+            }
             for (int i = 0; i < handler.object.size(); i++) {
                 if (handler.object.get(i).getId() == ID.Player) {
                     cam.tick(handler.object.get(i));
@@ -299,7 +300,7 @@ public class Main extends Canvas implements Runnable {
             hud.tick();
             if (Handler.killCount >= enemyCount) {
                 if(Handler.levelCount == 1) {
-                    waveCount = 0;
+
                     if (waveCount < 3) {
                         handler.clearEnemies();
                         enemyCount += 1;
@@ -309,7 +310,7 @@ public class Main extends Canvas implements Runnable {
                     }
                 }
                 if(Handler.levelCount == 2){
-                    waveCount = 0;
+
                     if (waveCount < 3) {
                         handler.clearEnemies();
                         enemyCount += 1;
@@ -319,7 +320,7 @@ public class Main extends Canvas implements Runnable {
                     }
                 }
                 if(Handler.levelCount == 3){
-                   waveCount = 0;
+
                     if (waveCount < 3) {
                         handler.clearEnemies();
                         enemyCount += 1;
@@ -327,6 +328,9 @@ public class Main extends Canvas implements Runnable {
                         Handler.killCount = 0;
                         handler.makeWave(enemyCount);
                     }
+                }
+                if(waveCount == 3){
+                    Handler.levelCount++;
                 }
 
             } else if (gameState == STATE.Menu || gameState == STATE.End) {

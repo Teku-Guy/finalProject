@@ -48,19 +48,18 @@ public class Handler {
             bulletObject.tick();
 
         }
+        System.out.println(levelCount);
 
     }
 
     public void render(Graphics g) {
         tile.clear();
         //createLevel();
-        if(levelCount == 1){
+        if (levelCount == 1) {
             LoadImageLevel(Main.level1);
-        }
-        else if(levelCount == 2){
+        } else if (levelCount == 2) {
             LoadImageLevel(Main.level2);
-        }
-        else if(levelCount == 3){
+        } else if (levelCount == 3) {
             LoadImageLevel(Main.level3);
         }
 
@@ -83,8 +82,8 @@ public class Handler {
 
     public void makeWave(int enemy_count) {
         for (int i = 0; i < (enemy_count); i++) {
-            addObject(new Zombie(64+r.nextInt(1000), (int) (Main.window.frame.getHeight() * (.89)-96), 64, 64, false, this, main, ID.Zombie));
-            addObject(new Zombie(100+r.nextInt(1000), (int) (Main.window.frame.getHeight() * (.89)-96), 64, 64, false, this, main, ID.Zombie));
+            addObject(new Zombie(64 + r.nextInt(1000), (int) (Main.window.frame.getHeight() * (.89) - 96), 64, 64, false, this, main, ID.Zombie));
+            addObject(new Zombie(100 + r.nextInt(1000), (int) (Main.window.frame.getHeight() * (.89) - 96), 64, 64, false, this, main, ID.Zombie));
         }
     }
 
@@ -137,32 +136,26 @@ public class Handler {
         tile.add(newTile);
     }
 
-    public void LoadImageLevel(BufferedImage image){
+    public void LoadImageLevel(BufferedImage image) {
         int w = image.getWidth();
         int h = image.getHeight();
 
         //System.out.println("Width: " + w + "Height: "+ h);
 
-        for(int i = 0; i < w; i++){
-            for(int j = 0; j < h; j++) {
+        for (int i = 0; i < w; i++) {
+            for (int j = 0; j < h; j++) {
                 int pixel = image.getRGB(i, j);
                 int red = (pixel >> 16) & 0xff;
                 int green = (pixel >> 8) & 0xff;
                 int blue = (pixel) & 0xff;
 
-                if (levelCount == 1){
-                    if (red == 255 && green == 255 && blue == 255)
-                        addTile(new Grass((i * 51), (j * 54), 51, 54, true, ID.Tile));
-                }
-                if (levelCount == 3){
-                    if (red == 255 && green == 255 && blue == 255)
-                        addTile(new Stone((i * 51), (j * 54), 51, 54, true, ID.Tile));
-                }
-                if (levelCount == 2){
-                    if (red == 255 && green == 255 && blue == 255)
-                        addTile(new FloatPlat((i * 51), (j * 54), 51, 54, true, ID.Tile));
-                }
-                if(counterp == 1) {
+                if (green == 255)
+                    addTile(new Grass((i * 51), (j * 54), 51, 54, true, ID.Tile));
+                if (blue == 255)
+                    addTile(new FloatPlat((i * 51), (j * 54), 51, 54, true, ID.Tile));
+                if (red == 255 && green == 255 && blue == 255)
+                    addTile(new Stone((i * 51), (j * 54), 51, 54, true, ID.Tile));
+                if (counterp == 1) {
                     if (red == 100 && green == 100 && blue == 100) {
                         Main.player.setX(i * 51);
                         Main.player.setY(j * 54);
@@ -171,34 +164,11 @@ public class Handler {
                 }
 
 
-
             }
         }
 
     }
 
-
-    public void createLevel() {
-        for (int i = 0; i <= 50; i++) {
-
-            addTile(new Grass((i * 51), (int) (Main.window.frame.getHeight() * (.89)), 51, 54, true, ID.Tile));
-        }
-        for (int i = 0; i <= 22; i++) {
-           // addTile(new Stone(0, (i * 32), 96, 96, true, ID.Tile));
-            //addTile(new Lava(0, (i * 32), 96, 96, true, ID.Tile));
-        }
-        for (int i = 0; i < 3; i++) {
-            addTile(new Stone((i * 51), (int) (Main.window.frame.getHeight() * (.5)), 51, 54, true, ID.Tile));
-            addTile(new Stone((i*51) + 200, (int) (Main.window.frame.getHeight() * (.5)), 51, 54, true, ID.Tile));
-            addTile(new Stone((i*51) + 600, (int) (Main.window.frame.getHeight() * (.65)), 51, 54, true, ID.Tile));
-            addTile(new Stone((i*51) + 800, (int) (Main.window.frame.getHeight() * (.4)), 51, 54, true, ID.Tile));
-            addTile(new Stone((i*51) + 1000, (int) (Main.window.frame.getHeight() * (.2)), 51, 54, true, ID.Tile));
-            addTile(new Stone((i*51) + 1200, (int) (Main.window.frame.getHeight() * (.8)), 51, 54, true, ID.Tile));
-
-
-        }
-
-    }
 }
 
 

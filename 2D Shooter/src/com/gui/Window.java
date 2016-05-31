@@ -18,7 +18,7 @@ public class Window{
         frame = new JFrame(title);
 
         //frame.setExtendedState(JFrame.MAXIMIZED_BOTH); //full screen in window mode
-        frame.setUndecorated(true); //Gets Rid of the Bar on top of the Window
+      //  frame.setUndecorated(true); //Gets Rid of the Bar on top of the Window
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(main);

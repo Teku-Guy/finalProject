@@ -89,6 +89,7 @@ public class Zombie extends GameObject {
                 collideTop(tileRect);
                 collideLeft(tileRect);
                 collideRight(tileRect);
+
             }
         }
     }
@@ -101,6 +102,7 @@ public class Zombie extends GameObject {
             velX = 0;
             falling = true;
             jumping = false;
+
         }
     }
 
@@ -109,7 +111,6 @@ public class Zombie extends GameObject {
         Rectangle right = new Rectangle(rect.x + rect.width - 5, rect.y+(15/2), 5, rect.height-15);
         if (right.intersects(tileRect)) {
             x = ((float)tileRect.getX() - width);
-            velY = 0;
             velX = 0;
             falling = true;
             jumping = false;
@@ -163,10 +164,9 @@ public class Zombie extends GameObject {
         }
 
 
-        Graphics2D g2d = (Graphics2D) g;
 
-        g.setColor(Color.white);
-        g2d.draw(getBounds());
+
+
 
 
     }
@@ -174,7 +174,6 @@ public class Zombie extends GameObject {
     public void tick() {
         collision();
         chasePlayer();
-
 
     }
 

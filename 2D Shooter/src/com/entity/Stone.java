@@ -15,18 +15,17 @@ public class Stone extends Tile {
 
         Graphics2D g2d = (Graphics2D) g;
 
-        g.setColor(Color.white);
-        g2d.draw(getBounds());
+
 
         Rectangle rect = getBounds();
         Rectangle top = new Rectangle(rect.x+(15/2), rect.y, rect.width-15, 5);
         Rectangle bottom = new Rectangle(rect.x+(15/2), rect.y + rect.height - 5, rect.width-15, 5);
         Rectangle left = new Rectangle(rect.x, rect.y+(15/2), 5, rect.height-15);
         Rectangle right = new Rectangle(rect.x + rect.width - 5, rect.y+(15/2), 5, rect.height-15);
-        g.setColor(Color.red);
+      /*  g.setColor(Color.red);
         g2d.draw(top);
         g2d.draw(bottom);
         g2d.draw(left);
-        g2d.draw(right);
+        g2d.draw(right);*/
     }
 }

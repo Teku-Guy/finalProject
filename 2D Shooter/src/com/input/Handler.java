@@ -83,11 +83,8 @@ public class Handler {
 
     public void makeWave(int enemy_count) {
         for (int i = 0; i < (enemy_count); i++) {
-            addObject(new Zombie(r.nextInt(1000), (int) (Main.window.frame.getHeight() * (.89)-96), 64, 64, false, this, main, ID.Zombie));
+            addObject(new Zombie(64+r.nextInt(1000), (int) (Main.window.frame.getHeight() * (.89)-96), 64, 64, false, this, main, ID.Zombie));
             addObject(new Zombie(100+r.nextInt(1000), (int) (Main.window.frame.getHeight() * (.89)-96), 64, 64, false, this, main, ID.Zombie));
-            if(Main.waveCount == 3){
-                levelCount++;
-            }
         }
     }
 
@@ -153,8 +150,17 @@ public class Handler {
                 int green = (pixel >> 8) & 0xff;
                 int blue = (pixel) & 0xff;
 
-                if(red == 255 && green == 255 && blue == 255){
-                   addTile(new Stone((i * 51), (j*54), 51, 54, true, ID.Tile));
+                if (levelCount == 1){
+                    if (red == 255 && green == 255 && blue == 255)
+                        addTile(new Grass((i * 51), (j * 54), 51, 54, true, ID.Tile));
+                }
+                if (levelCount == 3){
+                    if (red == 255 && green == 255 && blue == 255)
+                        addTile(new Stone((i * 51), (j * 54), 51, 54, true, ID.Tile));
+                }
+                if (levelCount == 2){
+                    if (red == 255 && green == 255 && blue == 255)
+                        addTile(new FloatPlat((i * 51), (j * 54), 51, 54, true, ID.Tile));
                 }
                 if(counterp == 1) {
                     if (red == 100 && green == 100 && blue == 100) {

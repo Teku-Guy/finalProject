@@ -138,6 +138,15 @@ public class Player extends GameObject {
         }
         for (int i = 0; i < handler.tile.size(); i++) {
             Tile tempTile = handler.tile.get(i);
+            Tile tempLava;
+            if(tempTile.getId() == ID.Lava){
+                 tempLava = handler.tile.get(i);
+                 Rectangle lavaRect = tempLava.getBounds();
+                 if(getBounds().intersects(lavaRect)){
+                     HUD.HEALTH -= .25;
+                 }
+
+            }
             if (tempTile.getId() == ID.Bounds) {
                 if (getBounds().intersects(tempTile.getBounds()) || getBounds().intersects(tempTile.getBounds()))
                     velX = 0;
@@ -155,6 +164,7 @@ public class Player extends GameObject {
                 collideBottom(tileRect);
                 collideLeft(tileRect);
                 collideRight(tileRect);
+
             }
         }
     }
@@ -207,6 +217,8 @@ public class Player extends GameObject {
     public void tick() {
         move();
         collision();
+
+
 
     }
 

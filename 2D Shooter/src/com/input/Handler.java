@@ -155,6 +155,8 @@ public class Handler {
                     addTile(new FloatPlat((i * 51), (j * 54), 51, 54, true, ID.Tile));
                 if (red == 255 && green == 255 && blue == 255)
                     addTile(new Stone((i * 51), (j * 54), 51, 54, true, ID.Tile));
+                if(red == 255 && green == 0 && blue == 0)
+                    addTile(new Lava((i * 51), (j * 54), 51, 54, true, ID.Lava));
                 if (counterp == 1) {
                     if (red == 100 && green == 100 && blue == 100) {
                         Main.player.setX(i * 51);

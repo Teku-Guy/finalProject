@@ -8,6 +8,7 @@ public enum ID {
     Player(),
     Tile(),
     Grass(),
+    Lava(),
     Bounds(),
     Bullet(),
     Zombie()

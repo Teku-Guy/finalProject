@@ -133,7 +133,7 @@ public class Main extends Canvas implements Runnable {
 
         level1 = loader.loadImage("/res/level1.png");
         level2 = loader.loadImage("/res/level2.png");
-        level3 = loader.loadImage("/res/level2.png");
+        level3 = loader.loadImage("/res/level3.png");
 
         BulletSheet = new SpriteSheet("/res/player/Bullet.png");
         GrassSheet = new SpriteSheet("/res/blocks/Grass.png");

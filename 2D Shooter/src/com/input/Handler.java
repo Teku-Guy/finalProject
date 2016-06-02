@@ -55,6 +55,7 @@ public class Handler {
     public void render(Graphics g) {
         tile.clear();
         //createLevel();
+        System.out.println(levelCount);
         if (levelCount == 1) {
             LoadImageLevel(Main.level1);
         } else if (levelCount == 2) {

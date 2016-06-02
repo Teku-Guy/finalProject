@@ -149,9 +149,9 @@ public class Handler {
                 int green = (pixel >> 8) & 0xff;
                 int blue = (pixel) & 0xff;
 
-                if (green == 255)
+                if (red == 0 && green == 255 && blue == 0)
                     addTile(new Grass((i * 51), (j * 54), 51, 54, true, ID.Tile));
-                if (blue == 255)
+                if (red == 0 && blue == 255 && green == 0)
                     addTile(new FloatPlat((i * 51), (j * 54), 51, 54, true, ID.Tile));
                 if (red == 255 && green == 255 && blue == 255)
                     addTile(new Stone((i * 51), (j * 54), 51, 54, true, ID.Tile));

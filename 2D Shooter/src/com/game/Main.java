@@ -211,7 +211,7 @@ public class Main extends Canvas implements Runnable {
         }
 
         System.out.println("Background loaded!");
-        backgroundMusic = new Sound("/res/sounds/backMusic.wav");
+        backgroundMusic = new Sound("/res/sounds/backMusic_01.wav");
         backgroundMusic.loop();
 
         System.out.println("Sound loaded!");
@@ -273,12 +273,15 @@ public class Main extends Canvas implements Runnable {
                 delta--;
             }
 
-            render();
+            if(running)
+                render();
+
             frames++;
 
             if (System.currentTimeMillis() - timer > 1000) {
                 timer += 10000;
                 System.out.println("FPS: " + frames);
+                frames = 0;
             }
         }
         stop();
@@ -353,10 +356,6 @@ public class Main extends Canvas implements Runnable {
 
         Graphics g2d = (Graphics2D) g;
 
-        //g.setColor(Color.BLACK);
-        // g.setColor(Color.LIGHT_GRAY);
-
-        //g.fillRect(0, 0, WIDTH, HEIGHT);
 
 
         if (gameState == STATE.Game) {

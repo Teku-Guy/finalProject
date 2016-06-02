@@ -48,7 +48,7 @@ public class Handler {
             bulletObject.tick();
 
         }
-        System.out.println(levelCount);
+
 
     }
 

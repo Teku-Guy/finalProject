@@ -195,7 +195,7 @@ public class Player extends GameObject {
         Rectangle rect = getBounds();
         Rectangle top = new Rectangle(rect.x+(15/2), rect.y, rect.width-15, 5);
         if (top.intersects(tileRect)) {
-            y = (float)tileRect.getY() + (float)(height/1.25);
+            y = (float)tileRect.getY() + (float)(height);
             velY = 1;
             jump = 0;
             falling = true;

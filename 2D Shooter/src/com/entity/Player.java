@@ -144,6 +144,7 @@ public class Player extends GameObject {
                  Rectangle lavaRect = tempLava.getBounds();
                  if(getBounds().intersects(lavaRect)){
                      HUD.HEALTH -= .25;
+
                  }
 
             }

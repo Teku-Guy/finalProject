@@ -15,12 +15,9 @@ import com.entity.ID;
 import com.graphics.Sprite;
 import com.graphics.SpriteSheet;
 import com.input.KeyInput;
-import com.sun.corba.se.impl.encoding.BufferManagerFactory;
-import com.sun.corba.se.spi.ior.ObjectId;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.Objects;
 
 import com.gui.HUD;
 
@@ -135,7 +132,7 @@ public class Player extends GameObject {
             GameObject tempObject = handler.object.get(i);
             if (tempObject.getId() == ID.Zombie) {
                 if (getBounds().intersects(tempObject.getBounds())) {
-                    HUD.HEALTH -= 1;
+                    HUD.HEALTH -= .65;
                 }
             }
         }
@@ -166,7 +163,7 @@ public class Player extends GameObject {
         Rectangle rect = getBounds();
         Rectangle left = new Rectangle(rect.x, rect.y+(15/2), 5, rect.height-15);
         if (left.intersects(tileRect)) {
-            x = (float)(tileRect.getX() + (width-12));
+            x = (float)(tileRect.getX() + (width -12));
             velX = 0;
             falling = true;
             jumping = false;
@@ -198,7 +195,7 @@ public class Player extends GameObject {
         Rectangle rect = getBounds();
         Rectangle top = new Rectangle(rect.x+(15/2), rect.y, rect.width-15, 5);
         if (top.intersects(tileRect)) {
-            y = (float)tileRect.getY() + (float)(height/1.125);
+            y = (float)tileRect.getY() + (float)(height/1.25);
             velY = 1;
             jump = 0;
             falling = true;

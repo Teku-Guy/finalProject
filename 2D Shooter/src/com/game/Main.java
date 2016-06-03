@@ -50,6 +50,8 @@ public class Main extends Canvas implements Runnable {
 
     public static Sprite[] PlayerJumpL = new Sprite[1];
     public static Sprite[] PlayerJumpR = new Sprite[1];
+    public static Sprite[] BossShootR = new Sprite[1];
+    public static Sprite[] BossShootL = new Sprite[1];
     public static Sprite[] PlayerWalkR = new Sprite[5];
     public static Sprite[] PlayerWalkL = new Sprite[5];
     public static Sprite[] BWalkR = new Sprite[3];
@@ -62,6 +64,8 @@ public class Main extends Canvas implements Runnable {
 
     public static Sprite PJumpLeft;
     public static Sprite PJumpRight;
+    public static Sprite BShootRight;
+    public static Sprite BShootLeft;
     public static Sprite Bullet;
     public static Sprite BBullet;
     public static Sprite Grass;
@@ -77,6 +81,8 @@ public class Main extends Canvas implements Runnable {
 
     public static SpriteSheet PJumpLSheet;
     public static SpriteSheet PJumpRSheet;
+    public static SpriteSheet BShootRSheet;
+    public static SpriteSheet BShootLSheet;
     public static SpriteSheet PWalkRSheet;
     public static SpriteSheet PWalkLSheet;
     public static SpriteSheet ZWalkRSheet;
@@ -86,6 +92,7 @@ public class Main extends Canvas implements Runnable {
     public static SpriteSheet PShootL;
     public static SpriteSheet PShootR;
     public static SpriteSheet BulletSheet;
+    public static SpriteSheet BBulletSheet;
     public static SpriteSheet GrassSheet;
     public static SpriteSheet HPSheet;
     public static SpriteSheet StoneSheet;
@@ -143,6 +150,7 @@ public class Main extends Canvas implements Runnable {
         level2 = loader.loadImage("/res/level2.png");
         level3 = loader.loadImage("/res/level3.png");
 
+        BBulletSheet = new SpriteSheet("/res/enemies/BBullet.png");
         BulletSheet = new SpriteSheet("/res/player/Bullet.png");
         GrassSheet = new SpriteSheet("/res/blocks/Grass.png");
         HPSheet = new SpriteSheet("/res/blocks/HP.png");
@@ -151,6 +159,7 @@ public class Main extends Canvas implements Runnable {
         LavaSheet = new SpriteSheet("/res/blocks/Lava.png");
 
         Bullet = Sprite.fromSheet(BulletSheet, 0, 0, 64, 64);
+        BBullet = Sprite.fromSheet(BBulletSheet,0 ,0, 192, 192);
         Grass = Sprite.fromSheet(GrassSheet, 0, 0, 51, 54);
         HP = Sprite.fromSheet(HPSheet, 0, 0, 32, 32);
         Stone = Sprite.fromSheet(StoneSheet, 0, 0, 51, 54);
@@ -212,6 +221,9 @@ public class Main extends Canvas implements Runnable {
 
         BWalkRSheet = new SpriteSheet("/res/enemies/BWalkingRight.png");
         BWalkLSheet = new SpriteSheet("/res/enemies/BWalkingLeft.png");
+        BShootLSheet = new SpriteSheet("/res/enemies/BShootLeft.png");
+        BShootRSheet = new SpriteSheet("/res/enemies/BShootRight.png");
+
         for (int i = 0; i < BWalkR.length; i++) {
             BWalkR[i] = Sprite.fromSheet(BWalkRSheet, i, 0, 192, 192);
         }
@@ -219,6 +231,13 @@ public class Main extends Canvas implements Runnable {
         for (int i = 0; i < BWalkL.length; i++) {
             BWalkL[i] = Sprite.fromSheet(BWalkLSheet, i, 0, 192, 192);
         }
+        for (int i = 0; i < BossShootR.length; i++) {
+            BossShootR[i] = Sprite.fromSheet(BShootRSheet, i, 0, 64, 64);
+        }
+        for (int i = 0; i < BossShootL.length; i++) {
+            PlayerShootL[i] = Sprite.fromSheet(BShootLSheet, i, 0, 64, 64);
+        }
+
 
 
         try {

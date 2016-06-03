@@ -19,6 +19,7 @@ public class Boss extends GameObject {
     private boolean still = false;
     private int counter = 0;
     private boolean jumping;
+    private boolean shoot = false;
     private float gravity = 0.1f;
     private final float MAX_SPEED = 10;
     public static boolean isDead = false;
@@ -60,6 +61,9 @@ public class Boss extends GameObject {
             jumping = true;
         } else if (y < Main.player.y) {
             jumping = false;
+        }
+        if(Main.player.x == x){
+            shoot = true;
         }
 
 
@@ -158,6 +162,9 @@ public class Boss extends GameObject {
             } else {
                 g.drawImage(Main.BWalkR[phase].getBufferedImage(), (int) x, (int) y, null);
 
+            }
+            if(shoot){
+                //todo
             }
 
         }

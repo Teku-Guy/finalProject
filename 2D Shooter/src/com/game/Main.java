@@ -54,12 +54,16 @@ public class Main extends Canvas implements Runnable {
     public static Sprite[] PlayerWalkL = new Sprite[5];
     public static Sprite[] ZWalkR = new Sprite[3];
     public static Sprite[] ZWalkL = new Sprite[3];
+    public static Sprite[] BWalkR = new Sprite[3];
+    public static Sprite[] BWalkL = new Sprite[3];
     public static Sprite[] PlayerShootL = new Sprite[2];
     public static Sprite[] PlayerShootR = new Sprite[2];
     public static Sprite[] LavaFlow = new Sprite[5];
 
     public static Sprite PJumpLeft;
     public static Sprite PJumpRight;
+    public static Sprite BWalkLeft;
+    public static Sprite BWalkRight;
     public static Sprite Bullet;
     public static Sprite Grass;
     public static Sprite Stone;
@@ -77,6 +81,8 @@ public class Main extends Canvas implements Runnable {
     public static SpriteSheet PWalkLSheet;
     public static SpriteSheet ZWalkRSheet;
     public static SpriteSheet ZWalkLSheet;
+    public static SpriteSheet BWalkRSheet;
+    public static SpriteSheet BWalkLSheet;
     public static SpriteSheet PShootL;
     public static SpriteSheet PShootR;
     public static SpriteSheet BulletSheet;
@@ -200,6 +206,18 @@ public class Main extends Canvas implements Runnable {
             ZWalkL[i] = Sprite.fromSheet(ZWalkLSheet, i, 0, 64, 64);
         }
         System.out.println("Zombie Sprites loaded");
+
+        BWalkRSheet = new SpriteSheet("/res/enemies/BWalkingRight.png");
+        BWalkLSheet = new SpriteSheet("/res/enemies/BWalkingLeft.png");
+
+        for (int i = 0; i < BWalkR.length; i++) {
+            BWalkR[i] = Sprite.fromSheet(BWalkRSheet, i, 0, 192, 192);
+        }
+
+        for (int i = 0; i < BWalkL.length; i++) {
+            BWalkL[i] = Sprite.fromSheet(BWalkLSheet, i, 0, 192, 192);
+        }
+        System.out.println("Boss Sprites Loaded");
 
 
         try {
@@ -333,7 +351,7 @@ public class Main extends Canvas implements Runnable {
                 }
                 if (waveCount == 3) {
                     Handler.levelCount++;
-                    if(Handler.levelCount > 3){
+                    if(Handler.levelCount >= 3){
                         Handler.levelCount = 3;
                     }
                     changeLevel();

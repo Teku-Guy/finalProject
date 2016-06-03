@@ -82,6 +82,7 @@ public class Handler {
         for (int i = 0; i < (enemy_count); i++) {
             addObject(new Zombie(64 + r.nextInt(1000), (int) (Main.window.frame.getHeight() * (.89) - 96), 64, 64, false, this, main, ID.Zombie));
             addObject(new Zombie(100 + r.nextInt(1000), (int) (Main.window.frame.getHeight() * (.89) - 96), 64, 64, false, this, main, ID.Zombie));
+            addObject(new Boss(100 + r.nextInt(1000), (int) (Main.window.frame.getHeight() * (.89) - 96), 192, 192, false, this, main, ID.Boss));
         }
     }
 

@@ -10,6 +10,7 @@ public enum ID {
     Grass(),
     Lava(),
     HealthPack(),
+    Boss(),
     Bounds(),
     Bullet(),
     Zombie()

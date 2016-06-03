@@ -148,9 +148,10 @@ public class Player extends GameObject {
                 Rectangle healthRect = tempHealth.getBounds();
                 if(getBounds().intersects(healthRect)){
                     HUD.HEALTH = 100;
-
+                    handler.tile.remove(i);
+                    i--;
+                    System.err.println("Removed health pack.");
                 }
-
             }
             if (tempTile.getId() == ID.Bounds) {
                 if (getBounds().intersects(tempTile.getBounds()) || getBounds().intersects(tempTile.getBounds()))

@@ -2,21 +2,22 @@ package com.game; /**
  * Created by Gustavo & Jessus on 5/9/16.
  */
 
+import com.entity.ID;
+import com.entity.Player;
 import com.entity.tiles.Grass;
-import com.entity.*;
+import com.graphics.Sprite;
+import com.graphics.SpriteSheet;
 import com.gui.*;
 import com.gui.Menu;
 import com.gui.Window;
 import com.input.Handler;
 import com.input.KeyInput;
-import com.graphics.Sprite;
-import com.graphics.SpriteSheet;
 import com.input.MouseInput;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
-import javax.imageio.ImageIO;
 import java.io.IOException;
 
 public class Main extends Canvas implements Runnable {
@@ -120,8 +121,8 @@ public class Main extends Canvas implements Runnable {
         player = new Player(0, 0, 64, 64, handler, ID.Player);
         handler.addObject(player);
         handler.makeWave(enemyCount);
-            //handler.addObject(new Zombie(300, 100, 32, 32, false, handler, ID.Zombie));
-            //handler.addObject(player);
+        //handler.addObject(new Zombie(300, 100, 32, 32, false, handler, ID.Zombie));
+        //handler.addObject(player);
 
         WIDTH = window.frame.getWidth();
         HEIGHT = window.frame.getHeight();
@@ -146,7 +147,7 @@ public class Main extends Canvas implements Runnable {
         Stone = Sprite.fromSheet(StoneSheet, 0, 0, 51, 54);
         Floating = Sprite.fromSheet(FloatingSheet, 0, 0, 51, 54);
 
-        for(int i = 0; i < LavaFlow.length; i++) {
+        for (int i = 0; i < LavaFlow.length; i++) {
             LavaFlow[i] = new Sprite(LavaSheet.getSprite(i * 96, 0, 55, 57), 55, 57);
         }
 
@@ -158,8 +159,6 @@ public class Main extends Canvas implements Runnable {
         PJumpLSheet = new SpriteSheet("/res/player/PJumpLeft.png");
         PShootL = new SpriteSheet("/res/player/PShootL.png");
         PShootR = new SpriteSheet("/res/player/PShootR.png");
-
-
 
 
         PJumpLeft = Sprite.fromSheet(PJumpLSheet, 0, 0, 64, 64);
@@ -180,11 +179,11 @@ public class Main extends Canvas implements Runnable {
         for (int i = 0; i < PlayerJumpL.length; i++) {
             PlayerJumpL[i] = Sprite.fromSheet(PJumpLSheet, i, 0, 64, 64);
         }
-        for(int i = 0; i < PlayerShootR.length; i++){
-            PlayerShootR[i] = Sprite.fromSheet(PShootR,i ,0 ,64,64);
+        for (int i = 0; i < PlayerShootR.length; i++) {
+            PlayerShootR[i] = Sprite.fromSheet(PShootR, i, 0, 64, 64);
         }
-        for(int i = 0; i < PlayerShootL.length; i++){
-            PlayerShootL[i] = Sprite.fromSheet(PShootL,i , 0 , 64, 64);
+        for (int i = 0; i < PlayerShootL.length; i++) {
+            PlayerShootL[i] = Sprite.fromSheet(PShootL, i, 0, 64, 64);
         }
 
 
@@ -228,7 +227,7 @@ public class Main extends Canvas implements Runnable {
 
         System.out.println("Bounds loaded!");
 
-       // map.readFile("/res/Map.txt");
+        // map.readFile("/res/Map.txt");
         //map.createMap();
 
         //LoadImageLevel(level);
@@ -264,6 +263,7 @@ public class Main extends Canvas implements Runnable {
         long timer = System.currentTimeMillis();
         frames = 0;
 
+        changeLevel();
         while (running) {
             long now = System.nanoTime();
             delta += (now - lastTime) / ns;
@@ -273,7 +273,7 @@ public class Main extends Canvas implements Runnable {
                 delta--;
             }
 
-            if(running)
+            if (running)
                 render();
 
             frames++;
@@ -292,7 +292,7 @@ public class Main extends Canvas implements Runnable {
     private void tick() {
         if (gameState == STATE.Game) {
             handler.tick();
-            if(hud.HEALTH == 0){
+            if (hud.HEALTH == 0) {
                 gameState = STATE.End;
             }
             for (int i = 0; i < handler.object.size(); i++) {
@@ -302,7 +302,16 @@ public class Main extends Canvas implements Runnable {
             }
             hud.tick();
             if (Handler.killCount >= enemyCount) {
-                if(Handler.levelCount == 1) {
+                if (Handler.levelCount == 1) {
+                    if (waveCount < 3) {
+                        handler.clearEnemies();
+                        enemyCount += 1;
+                        waveCount++;
+                        Handler.killCount = 0;
+                        handler.makeWave(enemyCount);
+                    }
+                }
+                if (Handler.levelCount == 2) {
 
                     if (waveCount < 3) {
                         handler.clearEnemies();
@@ -312,7 +321,7 @@ public class Main extends Canvas implements Runnable {
                         handler.makeWave(enemyCount);
                     }
                 }
-                if(Handler.levelCount == 2){
+                if (Handler.levelCount == 3) {
 
                     if (waveCount < 3) {
                         handler.clearEnemies();
@@ -322,23 +331,30 @@ public class Main extends Canvas implements Runnable {
                         handler.makeWave(enemyCount);
                     }
                 }
-                if(Handler.levelCount == 3){
-
-                    if (waveCount < 3) {
-                        handler.clearEnemies();
-                        enemyCount += 1;
-                        waveCount++;
-                        Handler.killCount = 0;
-                        handler.makeWave(enemyCount);
-                    }
-                }
-                if(waveCount == 3){
+                if (waveCount == 3) {
                     Handler.levelCount++;
+                    if(Handler.levelCount > 3){
+                        Handler.levelCount = 3;
+                    }
+                    changeLevel();
                 }
 
             } else if (gameState == STATE.Menu || gameState == STATE.End) {
                 menu.tick();
             }
+        }
+    }
+
+    private void changeLevel() {
+        handler.tile.clear();
+        if (handler.levelCount == 1) {
+            handler.LoadImageLevel(Main.level1);
+        } else if (handler.levelCount == 2) {
+            handler.LoadImageLevel(Main.level2);
+        } else if (handler.levelCount == 3) {
+            handler.LoadImageLevel(Main.level3);
+        } else {
+            throw new RuntimeException("too many level loads");
         }
     }
 
@@ -357,9 +373,8 @@ public class Main extends Canvas implements Runnable {
         Graphics g2d = (Graphics2D) g;
 
 
-
         if (gameState == STATE.Game) {
-            g2d.translate((int)cam.getX(), (int)cam.getY());
+            g2d.translate((int) cam.getX(), (int) cam.getY());
             g.drawImage(Main.Background, -1801, -1350, null);
             //handler.LoadImageLevel(level);
 
@@ -367,12 +382,12 @@ public class Main extends Canvas implements Runnable {
             hud.render(g);
 
 
-            g2d.translate((int)cam.getX(), (int)cam.getY());
+            g2d.translate((int) cam.getX(), (int) cam.getY());
             g.setColor(Color.WHITE);
             //g.drawString("FPS: " + frames, 10, 15);
 
 
-            g2d.translate((int)-cam.getX(), (int)-cam.getY());
+            g2d.translate((int) -cam.getX(), (int) -cam.getY());
         } else if (gameState == STATE.Menu ||
                 gameState == STATE.GameMenu ||
                 gameState == STATE.Help ||
@@ -398,14 +413,13 @@ public class Main extends Canvas implements Runnable {
             return var;
     }
 
-    public int getEnemyCount(){
+    public int getEnemyCount() {
         return enemyCount;
     }
-    public void setEnemyCount(int enemyCount)
-    {
+
+    public void setEnemyCount(int enemyCount) {
         this.enemyCount = enemyCount;
     }
-
 
 
     public static void main(String[] args) {

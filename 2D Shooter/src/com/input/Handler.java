@@ -50,16 +50,16 @@ public class Handler {
     }
 
     public void render(Graphics g) {
-        tile.clear();
+        //tile.clear();
         //createLevel();
-        System.out.println(levelCount);
+        /*System.out.println(levelCount);
         if (levelCount == 1) {
             LoadImageLevel(Main.level1);
         } else if (levelCount == 2) {
             LoadImageLevel(Main.level2);
         } else if (levelCount == 3) {
             LoadImageLevel(Main.level3);
-        }
+        }*/
 
         for (int i = 0; i < object.size(); i++) {
             GameObject tempObject = object.get(i);

@@ -2,6 +2,7 @@ package com.entity;/**
  * Created by jessus on 5/11/16.
  */
 
+import com.entity.tiles.Tile;
 import com.game.Main;
 import com.input.Handler;
 

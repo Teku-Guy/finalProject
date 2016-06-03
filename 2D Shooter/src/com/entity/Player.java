@@ -8,16 +8,10 @@ import java.awt.*;
 import java.awt.Graphics;
 
 
+import com.entity.tiles.Tile;
 import com.input.KeyInput;
 import com.game.Main;
 import com.input.Handler;
-import com.entity.ID;
-import com.graphics.Sprite;
-import com.graphics.SpriteSheet;
-import com.input.KeyInput;
-
-import java.util.ArrayList;
-import java.util.LinkedList;
 
 import com.gui.HUD;
 
@@ -132,13 +126,14 @@ public class Player extends GameObject {
             GameObject tempObject = handler.object.get(i);
             if (tempObject.getId() == ID.Zombie) {
                 if (getBounds().intersects(tempObject.getBounds())) {
-                    HUD.HEALTH -= .65;
+                    HUD.HEALTH -= .5;
                 }
             }
         }
         for (int i = 0; i < handler.tile.size(); i++) {
             Tile tempTile = handler.tile.get(i);
             Tile tempLava;
+            Tile tempHealth;
             if(tempTile.getId() == ID.Lava){
                  tempLava = handler.tile.get(i);
                  Rectangle lavaRect = tempLava.getBounds();
@@ -146,6 +141,15 @@ public class Player extends GameObject {
                      HUD.HEALTH -= .25;
 
                  }
+
+            }
+            if(tempTile.getId() == ID.HealthPack){
+                tempHealth = handler.tile.get(i);
+                Rectangle healthRect = tempHealth.getBounds();
+                if(getBounds().intersects(healthRect)){
+                    HUD.HEALTH = 100;
+
+                }
 
             }
             if (tempTile.getId() == ID.Bounds) {

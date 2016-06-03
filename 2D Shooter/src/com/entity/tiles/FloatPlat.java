@@ -1,8 +1,10 @@
-package com.entity;/**
+package com.entity.tiles;/**
  * Created by Gustavo_Muratalla on 5/18/16.
  */
 
 import java.awt.*;
+
+import com.entity.ID;
 import com.game.Main;
 
 public class FloatPlat extends Tile {

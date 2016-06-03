@@ -1,6 +1,7 @@
-package com.entity;/**
+package com.entity.tiles;/**
  * Created by jessus on 5/11/16.
  */
+import com.entity.ID;
 import com.game.Main;
 import java.awt.*;
 

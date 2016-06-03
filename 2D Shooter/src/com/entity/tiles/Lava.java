@@ -1,5 +1,6 @@
-package com.entity;
+package com.entity.tiles;
 
+import com.entity.ID;
 import com.game.Main;
 
 import java.awt.*;

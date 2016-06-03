@@ -1,7 +1,9 @@
-package com.entity;/**
+package com.entity.tiles;/**
  * Created by jessus on 5/11/16.
  */
 import java.awt.*;
+
+import com.entity.ID;
 import com.game.Main;
 
 public class Grass extends Tile {

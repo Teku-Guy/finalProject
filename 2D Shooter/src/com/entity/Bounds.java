@@ -1,9 +1,9 @@
 package com.entity;
 
+import com.entity.tiles.Tile;
 import com.game.Main;
 
 import java.awt.*;
-import java.awt.image.BufferedImage;
 
 /**
  * Created by jessus on 5/18/16.

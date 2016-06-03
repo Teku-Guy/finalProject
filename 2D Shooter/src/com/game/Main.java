@@ -2,7 +2,7 @@ package com.game; /**
  * Created by Gustavo & Jessus on 5/9/16.
  */
 
-import com.entity.Grass;
+import com.entity.tiles.Grass;
 import com.entity.*;
 import com.gui.*;
 import com.gui.Menu;

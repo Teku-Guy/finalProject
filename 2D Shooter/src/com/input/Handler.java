@@ -3,14 +3,11 @@ package com.input; /**
  */
 
 import com.entity.*;
+import com.entity.tiles.*;
 import com.game.Main;
-import com.gui.Window;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
-import java.io.*;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -152,12 +149,19 @@ public class Handler {
 
                 if (red == 0 && green == 255 && blue == 0)
                     addTile(new Grass((i * 51), (j * 54), 51, 54, true, ID.Tile));
-                if (red == 0 && blue == 255 && green == 0)
+
+                if (red == 0 && green == 0 && blue == 255)
                     addTile(new FloatPlat((i * 51), (j * 54), 51, 54, true, ID.Tile));
+
                 if (red == 255 && green == 255 && blue == 255)
                     addTile(new Stone((i * 51), (j * 54), 51, 54, true, ID.Tile));
+
+                if(red == 255 && green == 255 && blue == 0)
+                    addTile(new HealthPack((i * 51), (j * 54), 51, 54, true, ID.HealthPack));
+
                 if(red == 255 && green == 0 && blue == 0)
                     addTile(new Lava((i * 51), (j * 54), 51, 54, true, ID.Lava));
+
                 if (counterp == 1) {
                     if (red == 100 && green == 100 && blue == 100) {
                         Main.player.setX(i * 51);
@@ -165,8 +169,6 @@ public class Handler {
                         counterp--;
                     }
                 }
-
-
             }
         }
 

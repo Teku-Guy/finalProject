@@ -302,7 +302,7 @@ public class Main extends Canvas implements Runnable {
             }
             hud.tick();
             if (Handler.killCount >= enemyCount) {
-                if (Handler.levelCount == 1) {
+                if (Handler.levelCount == 0) {
                     if (waveCount < 3) {
                         handler.clearEnemies();
                         enemyCount += 1;
@@ -311,7 +311,7 @@ public class Main extends Canvas implements Runnable {
                         handler.makeWave(enemyCount);
                     }
                 }
-                if (Handler.levelCount == 2) {
+                if (Handler.levelCount == 1) {
 
                     if (waveCount < 3) {
                         handler.clearEnemies();
@@ -321,7 +321,7 @@ public class Main extends Canvas implements Runnable {
                         handler.makeWave(enemyCount);
                     }
                 }
-                if (Handler.levelCount == 3) {
+                if (Handler.levelCount == 2) {
 
                     if (waveCount < 3) {
                         handler.clearEnemies();
@@ -347,11 +347,11 @@ public class Main extends Canvas implements Runnable {
 
     private void changeLevel() {
         handler.tile.clear();
-        if (handler.levelCount == 1) {
+        if (handler.levelCount == 0) {
             handler.LoadImageLevel(Main.level1);
-        } else if (handler.levelCount == 2) {
+        } else if (handler.levelCount == 1) {
             handler.LoadImageLevel(Main.level2);
-        } else if (handler.levelCount == 3) {
+        } else if (handler.levelCount == 2) {
             handler.LoadImageLevel(Main.level3);
         } else {
             throw new RuntimeException("too many level loads");

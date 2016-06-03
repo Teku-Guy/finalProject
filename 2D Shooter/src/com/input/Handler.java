@@ -156,7 +156,7 @@ public class Handler {
                     addTile(new Stone((i * 51), (j * 54), 51, 54, true, ID.Tile));
 
                 if(red == 255 && green == 255 && blue == 0)
-                    addTile(new HealthPack((i * 51), (j * 54), 51, 54, true, ID.HealthPack));
+                    addTile(new HealthPack((i * 51), (j * 54), 32, 32, true, ID.HealthPack));
 
                 if(red == 255 && green == 0 && blue == 0)
                     addTile(new Lava((i * 51), (j * 54), 51, 54, true, ID.Lava));

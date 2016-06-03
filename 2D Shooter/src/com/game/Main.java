@@ -52,6 +52,8 @@ public class Main extends Canvas implements Runnable {
     public static Sprite[] PlayerJumpR = new Sprite[1];
     public static Sprite[] PlayerWalkR = new Sprite[5];
     public static Sprite[] PlayerWalkL = new Sprite[5];
+    public static Sprite[] BWalkR = new Sprite[3];
+    public static Sprite[] BWalkL = new Sprite[3];
     public static Sprite[] ZWalkR = new Sprite[3];
     public static Sprite[] ZWalkL = new Sprite[3];
     public static Sprite[] PlayerShootL = new Sprite[2];
@@ -61,6 +63,7 @@ public class Main extends Canvas implements Runnable {
     public static Sprite PJumpLeft;
     public static Sprite PJumpRight;
     public static Sprite Bullet;
+    public static Sprite BBullet;
     public static Sprite Grass;
     public static Sprite Stone;
     public static Sprite Floating;
@@ -77,6 +80,8 @@ public class Main extends Canvas implements Runnable {
     public static SpriteSheet PWalkLSheet;
     public static SpriteSheet ZWalkRSheet;
     public static SpriteSheet ZWalkLSheet;
+    public static SpriteSheet BWalkRSheet;
+    public static SpriteSheet BWalkLSheet;
     public static SpriteSheet PShootL;
     public static SpriteSheet PShootR;
     public static SpriteSheet BulletSheet;
@@ -201,6 +206,16 @@ public class Main extends Canvas implements Runnable {
         }
         System.out.println("Zombie Sprites loaded");
 
+        BWalkRSheet = new SpriteSheet("/res/enemies/BWalkingRight.png");
+        BWalkLSheet = new SpriteSheet("/res/enemies/BWalkingLeft.png");
+        for (int i = 0; i < BWalkR.length; i++) {
+            BWalkR[i] = Sprite.fromSheet(BWalkRSheet, i, 0, 192, 192);
+        }
+
+        for (int i = 0; i < BWalkL.length; i++) {
+            BWalkL[i] = Sprite.fromSheet(BWalkLSheet, i, 0, 192, 192);
+        }
+
 
         try {
             Background = ImageIO.read(getClass().getResourceAsStream("/res/Background.png"));
@@ -302,7 +317,7 @@ public class Main extends Canvas implements Runnable {
             }
             hud.tick();
             if (Handler.killCount >= enemyCount) {
-                if (Handler.levelCount == 1) {
+                if (Handler.levelCount == 0) {
                     if (waveCount < 3) {
                         handler.clearEnemies();
                         enemyCount += 1;
@@ -311,7 +326,7 @@ public class Main extends Canvas implements Runnable {
                         handler.makeWave(enemyCount);
                     }
                 }
-                if (Handler.levelCount == 2) {
+                if (Handler.levelCount == 1) {
 
                     if (waveCount < 3) {
                         handler.clearEnemies();
@@ -321,7 +336,7 @@ public class Main extends Canvas implements Runnable {
                         handler.makeWave(enemyCount);
                     }
                 }
-                if (Handler.levelCount == 3) {
+                if (Handler.levelCount == 2) {
 
                     if (waveCount < 3) {
                         handler.clearEnemies();
@@ -347,11 +362,11 @@ public class Main extends Canvas implements Runnable {
 
     private void changeLevel() {
         handler.tile.clear();
-        if (handler.levelCount == 1) {
+        if (handler.levelCount == 0) {
             handler.LoadImageLevel(Main.level1);
-        } else if (handler.levelCount == 2) {
+        } else if (handler.levelCount == 1) {
             handler.LoadImageLevel(Main.level2);
-        } else if (handler.levelCount == 3) {
+        } else if (handler.levelCount == 2) {
             handler.LoadImageLevel(Main.level3);
         } else {
             throw new RuntimeException("too many level loads");

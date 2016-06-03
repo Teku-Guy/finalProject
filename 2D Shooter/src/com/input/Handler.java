@@ -19,7 +19,7 @@ public class Handler {
 
     public static int killCount = 0;
     public static int points = 0;
-    public static int levelCount = 1;
+    public static int levelCount = 0;
 
     private int readMapWidth = Main.WIDTH / 2;
     private int readMapHeight = Main.HEIGHT / 2;
@@ -50,8 +50,6 @@ public class Handler {
     }
 
     public void render(Graphics g) {
-        //tile.clear();
-        //createLevel();
         /*System.out.println(levelCount);
         if (levelCount == 1) {
             LoadImageLevel(Main.level1);

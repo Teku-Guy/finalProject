@@ -13,9 +13,7 @@ public class HealthPack extends Tile {
     }
 
     public void render(Graphics g) {
-        g.setColor(Color.cyan);
-        g.drawRect(x,y,width,height);
-        //g.drawImage(Main.Grass.getBufferedImage(), x, y, width, height, null);
+        g.drawImage(Main.HP.getBufferedImage(), x, y, width, height, null);
     }
 
 }

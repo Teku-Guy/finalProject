@@ -1,5 +1,5 @@
 package com.game; /**
- * Created by Gustavo & Jessus on 5/9/16.
+ * Created by Gustavo on 5/9/16.
  */
 
 import com.entity.ID;
@@ -65,6 +65,7 @@ public class Main extends Canvas implements Runnable {
     public static Sprite Bullet;
     public static Sprite BBullet;
     public static Sprite Grass;
+    public static Sprite HP;
     public static Sprite Stone;
     public static Sprite Floating;
     public static Sprite BoundR;
@@ -86,6 +87,7 @@ public class Main extends Canvas implements Runnable {
     public static SpriteSheet PShootR;
     public static SpriteSheet BulletSheet;
     public static SpriteSheet GrassSheet;
+    public static SpriteSheet HPSheet;
     public static SpriteSheet StoneSheet;
     public static SpriteSheet FloatingSheet;
     public static SpriteSheet LavaSheet;
@@ -143,12 +145,14 @@ public class Main extends Canvas implements Runnable {
 
         BulletSheet = new SpriteSheet("/res/player/Bullet.png");
         GrassSheet = new SpriteSheet("/res/blocks/Grass.png");
+        HPSheet = new SpriteSheet("/res/blocks/HP.png");
         StoneSheet = new SpriteSheet("/res/blocks/Stone.png");
         FloatingSheet = new SpriteSheet("/res/blocks/FloatingPlat.png");
         LavaSheet = new SpriteSheet("/res/blocks/Lava.png");
 
         Bullet = Sprite.fromSheet(BulletSheet, 0, 0, 64, 64);
         Grass = Sprite.fromSheet(GrassSheet, 0, 0, 51, 54);
+        HP = Sprite.fromSheet(HPSheet, 0, 0, 32, 32);
         Stone = Sprite.fromSheet(StoneSheet, 0, 0, 51, 54);
         Floating = Sprite.fromSheet(FloatingSheet, 0, 0, 51, 54);
 

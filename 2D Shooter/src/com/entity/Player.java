@@ -91,10 +91,10 @@ public class Player extends GameObject {
         g2d.draw(getBounds());
 
         Rectangle rect = getBounds();
-        Rectangle top = new Rectangle(rect.x+(15/2), rect.y, rect.width-15, 5);
-        Rectangle bottom = new Rectangle(rect.x+(15/2), rect.y + rect.height - 5, rect.width-15, 5);
-        Rectangle left = new Rectangle(rect.x, rect.y+(15/2), 5, rect.height-15);
-        Rectangle right = new Rectangle(rect.x + rect.width - 5, rect.y+(15/2), 5, rect.height-15);
+        Rectangle top = new Rectangle(rect.x + (15 / 2), rect.y, rect.width - 15, 5);
+        Rectangle bottom = new Rectangle(rect.x + (15 / 2), rect.y + rect.height - 5, rect.width - 15, 5);
+        Rectangle left = new Rectangle(rect.x, rect.y + (15 / 2), 5, rect.height - 15);
+        Rectangle right = new Rectangle(rect.x + rect.width - 5, rect.y + (15 / 2), 5, rect.height - 15);
     /*    g.setColor(Color.red);
         g2d.draw(top);
         g.setColor(Color.blue);
@@ -130,23 +130,34 @@ public class Player extends GameObject {
                 }
             }
         }
+        for (int i = 0; i < Handler.bullet.size(); i++) {
+            Bullet tempBullet = Handler.bullet.get(i);
+            if (tempBullet instanceof BulletBoss) {
+                if (getBounds().intersects(tempBullet.getBounds())) {
+                    handler.clearBullet(tempBullet);
+                    handler.kill(this);
+                    HUD.HEALTH = 0;
+                    //System.out.println("Dead");
+                }
+            }
+        }
         for (int i = 0; i < handler.tile.size(); i++) {
             Tile tempTile = handler.tile.get(i);
             Tile tempLava;
             Tile tempHealth;
-            if(tempTile.getId() == ID.Lava){
-                 tempLava = handler.tile.get(i);
-                 Rectangle lavaRect = tempLava.getBounds();
-                 if(getBounds().intersects(lavaRect)){
-                     HUD.HEALTH -= .25;
+            if (tempTile.getId() == ID.Lava) {
+                tempLava = handler.tile.get(i);
+                Rectangle lavaRect = tempLava.getBounds();
+                if (getBounds().intersects(lavaRect)) {
+                    HUD.HEALTH -= .25;
 
-                 }
+                }
 
             }
-            if(tempTile.getId() == ID.HealthPack){
+            if (tempTile.getId() == ID.HealthPack) {
                 tempHealth = handler.tile.get(i);
                 Rectangle healthRect = tempHealth.getBounds();
-                if(getBounds().intersects(healthRect)){
+                if (getBounds().intersects(healthRect)) {
                     HUD.HEALTH = 100;
                     handler.tile.remove(i);
                     i--;
@@ -177,9 +188,9 @@ public class Player extends GameObject {
 
     private void collideLeft(Rectangle tileRect) {
         Rectangle rect = getBounds();
-        Rectangle left = new Rectangle(rect.x, rect.y+(15/2), 5, rect.height-15);
+        Rectangle left = new Rectangle(rect.x, rect.y + (15 / 2), 5, rect.height - 15);
         if (left.intersects(tileRect)) {
-            x = (float)(tileRect.getX() + (width -12));
+            x = (float) (tileRect.getX() + (width - 12));
             velX = 0;
             falling = true;
             jumping = false;
@@ -188,20 +199,21 @@ public class Player extends GameObject {
 
     private void collideRight(Rectangle tileRect) {
         Rectangle rect = getBounds();
-        Rectangle right = new Rectangle(rect.x + rect.width - 5, rect.y+(15/2), 5, rect.height-15);
+        Rectangle right = new Rectangle(rect.x + rect.width - 5, rect.y + (15 / 2), 5, rect.height - 15);
         if (right.intersects(tileRect)) {
-            x = ((float)tileRect.getX() - width);
+            x = ((float) tileRect.getX() - width);
             velY = 0;
             velX = 0;
             falling = true;
             jumping = false;
         }
     }
+
     private void collideBottom(Rectangle tileRect) {
         Rectangle rect = getBounds();
-        Rectangle bottom = new Rectangle(rect.x+(15/2), rect.y + rect.height - 5, rect.width-15, 5);
+        Rectangle bottom = new Rectangle(rect.x + (15 / 2), rect.y + rect.height - 5, rect.width - 15, 5);
         if (bottom.intersects(tileRect)) {
-            y = (float)tileRect.getY() - height;
+            y = (float) tileRect.getY() - height;
             velY = 0;
             falling = true;
         }
@@ -209,9 +221,9 @@ public class Player extends GameObject {
 
     private void collideTop(Rectangle tileRect) {
         Rectangle rect = getBounds();
-        Rectangle top = new Rectangle(rect.x+(15/2), rect.y, rect.width-15, 5);
+        Rectangle top = new Rectangle(rect.x + (15 / 2), rect.y, rect.width - 15, 5);
         if (top.intersects(tileRect)) {
-            y = (float)tileRect.getY() + (float)(height);
+            y = (float) tileRect.getY() + (float) (height);
             velY = 1;
             jump = 0;
             falling = true;
@@ -223,7 +235,6 @@ public class Player extends GameObject {
     public void tick() {
         move();
         collision();
-
 
 
     }

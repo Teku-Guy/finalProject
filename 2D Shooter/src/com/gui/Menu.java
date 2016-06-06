@@ -104,7 +104,7 @@ public class Menu extends MouseAdapter{
             Font fnt = new Font("arial", 1, 70);
             Font fnt2 = new Font("arial", 1, 30);
 
-            g.drawImage(Main.Background, 0, 0, null);
+            g.drawImage(Main.Background, -1801, -1350, null);
             g.setFont(fnt);
             g.setColor(Color.WHITE);
             int w2 = g.getFontMetrics().stringWidth(title) / 2;

@@ -10,7 +10,6 @@ import java.awt.*;
  * Created by APCS1 on 6/3/2016.
  */
 public class Boss extends GameObject {
-    private Handler handler;
     private Player player;
     private Main main;
 
@@ -18,10 +17,13 @@ public class Boss extends GameObject {
     private int facing = 0;
     private boolean still = false;
     private int counter = 0;
+    private int shootCount = 0;
     private boolean jumping;
     private boolean shoot = false;
     private float gravity = 0.1f;
     private final float MAX_SPEED = 10;
+    private int bossHealth = 1000;
+    private Handler handler = new Handler();
     public static boolean isDead = false;
 
 
@@ -62,8 +64,14 @@ public class Boss extends GameObject {
         } else if (y < Main.player.y) {
             jumping = false;
         }
-        if(Main.player.x == x){
+        double playerY = Main.player.y + Main.player.height;
+        double yOff = y + height;
+        double yMax = yOff + 0.1;
+        double yMin = yOff - 0.1;
+        if(yMin < playerY && playerY < yMax){
             shoot = true;
+            handler.addBullet(new BulletBoss(getX(), getY(), width, height, ID.Bullet, 5, 0, false));
+
         }
 
 
@@ -73,8 +81,15 @@ public class Boss extends GameObject {
     private void collision() {
         for (int i = 0; i < Handler.bullet.size(); i++) {
             Bullet tempBullet = Handler.bullet.get(i);
+            if (tempBullet instanceof BulletBoss) {
+                continue;
+            }
             if (getBounds().intersects(tempBullet.getBounds())) {
                 handler.clearBullet(tempBullet);
+                bossHealth -= 100;
+                if(bossHealth == 0){
+                    handler.kill(this);
+                }
                 isDead = true;
                 //System.out.println("Dead");
             }
@@ -146,7 +161,9 @@ public class Boss extends GameObject {
         if (counter % 15 == 0) {
             counter = 0;
             phase++;
+            shootCount++;
             phase %= Main.ZWalkL.length;
+            shootCount %= Main.BossShootL.length;
         }
         if (facing == 0) {
             if (still) {
@@ -163,9 +180,14 @@ public class Boss extends GameObject {
                 g.drawImage(Main.BWalkR[phase].getBufferedImage(), (int) x, (int) y, null);
 
             }
-            if(shoot){
-                //todo
+           if(shoot){
+               if(Main.player.getX() > getX()){
+                   g.drawImage(Main.BossShootR[shootCount].getBufferedImage(), (int) x, (int) y, null);
             }
+
+               if(Main.player.getX() < getX()){
+                   g.drawImage(Main.BossShootL[shootCount].getBufferedImage(), (int) x, (int) y, null);
+               }
 
         }
 
@@ -176,7 +198,7 @@ public class Boss extends GameObject {
 
 
     }
-
+}
     public void tick() {
         collision();
         chasePlayer();

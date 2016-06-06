@@ -32,8 +32,6 @@ public class Bullet extends GameObject {
 
     public void render(Graphics g) {
         g.drawImage(Main.Bullet.getBufferedImage(), (int) x, (int) y, null);
-
-
     }
 
 

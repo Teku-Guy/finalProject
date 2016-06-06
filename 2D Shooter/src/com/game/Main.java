@@ -232,10 +232,10 @@ public class Main extends Canvas implements Runnable {
             BWalkL[i] = Sprite.fromSheet(BWalkLSheet, i, 0, 192, 192);
         }
         for (int i = 0; i < BossShootR.length; i++) {
-            BossShootR[i] = Sprite.fromSheet(BShootRSheet, i, 0, 64, 64);
+            BossShootR[i] = Sprite.fromSheet(BShootRSheet, i, 0, 192, 192);
         }
         for (int i = 0; i < BossShootL.length; i++) {
-            PlayerShootL[i] = Sprite.fromSheet(BShootLSheet, i, 0, 64, 64);
+            BossShootL[i] = Sprite.fromSheet(BShootLSheet, i, 0, 192, 192);
         }
 
 
@@ -351,6 +351,7 @@ public class Main extends Canvas implements Runnable {
                 }
                 if (Handler.levelCount == 1) {
 
+
                     if (waveCount < 3) {
                         handler.clearEnemies();
                         enemyCount += 1;
@@ -371,8 +372,8 @@ public class Main extends Canvas implements Runnable {
                 }
                 if (waveCount == 3) {
                     Handler.levelCount++;
-                    if(Handler.levelCount > 3){
-                        Handler.levelCount = 3;
+                    if(Handler.levelCount > 2){
+                        throw new IllegalStateException("end of gamewa");
                     }
                     changeLevel();
                 }
@@ -384,6 +385,7 @@ public class Main extends Canvas implements Runnable {
     }
 
     private void changeLevel() {
+        waveCount = 0;
         handler.tile.clear();
         if (handler.levelCount == 0) {
             handler.LoadImageLevel(Main.level1);

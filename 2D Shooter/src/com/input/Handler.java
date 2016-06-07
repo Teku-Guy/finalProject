@@ -21,6 +21,8 @@ public class Handler {
     public static int points = 0;
     public static int levelCount = 2;
 
+    public int ii, jj;
+
     private int readMapWidth = Main.WIDTH / 2;
     private int readMapHeight = Main.HEIGHT / 2;
 
@@ -180,14 +182,23 @@ public class Handler {
 
                 if (counterp == 1) {
                     if (red == 100 && green == 100 && blue == 100) {
-                        Main.player.setX(i * 51);
-                        Main.player.setY(j * 54);
+                        ii = i * 51;
+                        jj = j * 54;
+                        Main.player.setX(ii);
+                        Main.player.setY(jj);
                         counterp--;
                     }
                 }
             }
         }
 
+    }
+
+    public int getII(){
+        return ii;
+    }
+    public int getJJ(){
+        return jj;
     }
 
 }

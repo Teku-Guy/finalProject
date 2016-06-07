@@ -86,11 +86,15 @@ public class Menu extends MouseAdapter{
         else if(this.main.gameState == STATE.End){
             //try again
             if(mouseOver(mx, my, Main.WIDTH/2 - 200, 350, 200, 64)){
-                handler.clearAll();
-                handler.addObject(Main.player);
                 Handler.levelCount = 0;
-                HUD.HEALTH = 100;
+                Handler.points = 0;
+                handler.clearAll();
                 handler.counterp = 1;
+                main.player.setX(handler.getII());
+                main.player.setY(handler.getJJ());
+                handler.addObject(Main.player);
+                handler.makeWave(main.enemyCount);
+                HUD.HEALTH = 100;
                 main.gameState = STATE.Game;
                 return;
             }

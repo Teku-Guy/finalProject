@@ -32,7 +32,7 @@ public class Main extends Canvas implements Runnable {
     private Thread thread;
     private boolean running = false;
 
-    private int enemyCount = 10;
+    public int enemyCount = 10;
     public static int waveCount = 0;
     private int mapCounter = 0;
 

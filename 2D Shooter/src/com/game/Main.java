@@ -159,7 +159,7 @@ public class Main extends Canvas implements Runnable {
         LavaSheet = new SpriteSheet("/res/blocks/Lava.png");
 
         Bullet = Sprite.fromSheet(BulletSheet, 0, 0, 64, 64);
-        BBullet = Sprite.fromSheet(BBulletSheet,0 ,0, 192, 192);
+        BBullet = Sprite.fromSheet(BBulletSheet,0 ,0, 78, 42);
         Grass = Sprite.fromSheet(GrassSheet, 0, 0, 51, 54);
         HP = Sprite.fromSheet(HPSheet, 0, 0, 32, 32);
         Stone = Sprite.fromSheet(StoneSheet, 0, 0, 51, 54);

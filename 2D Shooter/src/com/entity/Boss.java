@@ -70,12 +70,11 @@ public class Boss extends GameObject {
         double yMin = yOff - 0.1;
         if(yMin < playerY && playerY < yMax && Main.player.getX() > getX()){
             shoot = true;
-            handler.addBullet(new BulletBoss(getX(), getY() + 50, width, height, ID.BossBullet, 5, 0, false));
-
+            handler.addBullet(new BulletBoss(getX(), getY() + 192/2, 72, 48, ID.BossBullet, 5, 0, false));
         }
         if(yMin < playerY && playerY < yMax && Main.player.getX() < getX()){
             shoot = true;
-            handler.addBullet(new BulletBoss(getX(), getY() + 50, width, height, ID.BossBullet, -5, 0, false));
+            handler.addBullet(new BulletBoss(getX(), getY() + 192/2, 72, 48, ID.BossBullet, -5, 0, false));
 
         }
 

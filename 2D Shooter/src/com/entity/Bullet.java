@@ -8,9 +8,6 @@ import com.input.Handler;
 import java.awt.*;
 
 public class Bullet extends GameObject {
-    public float x, y;
-
-    public int width, height;
 
     public float velY, velX;
 
@@ -34,7 +31,6 @@ public class Bullet extends GameObject {
         g.drawImage(Main.Bullet.getBufferedImage(), (int) x, (int) y, null);
     }
 
-
     public void collisoinWithBlock() {
         for (int i = 0; i < Handler.tile.size(); i++)
             for (int j = 0; j < Handler.bullet.size(); j++) {
@@ -46,25 +42,14 @@ public class Bullet extends GameObject {
             }
     }
 
-    public Rectangle getBounds() {
-        return new Rectangle((int) getX() + 20, (int) getY() + 25, 20, 15);
-    }
-
     public void tick() {
         x += velX;
         y += velY;
         collisoinWithBlock();
     }
 
-    public float getX() {
-        return x;
-    }
-
     public void hit() {
         this.ifShotHits = true;
     }
 
-    public float getY() {
-        return y;
-    }
 }

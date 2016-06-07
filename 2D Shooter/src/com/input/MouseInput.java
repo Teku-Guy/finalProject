@@ -2,10 +2,7 @@ package com.input;/**
  * Created by APCS1 on 5/13/2016.
  */
 
-import com.entity.Bullet;
-import com.entity.GameObject;
-import com.entity.ID;
-import com.entity.Player;
+import com.entity.*;
 
 
 import java.awt.*;
@@ -20,7 +17,7 @@ public class MouseInput extends MouseAdapter {
     private Handler handler;
     private Player player;
 
-    public int width, height;
+    public int width = 20, height = 15;
 
 
     public MouseInput(Handler handler){

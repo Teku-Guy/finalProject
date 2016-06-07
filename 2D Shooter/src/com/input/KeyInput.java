@@ -18,7 +18,7 @@ public class KeyInput extends KeyAdapter {
     public int tempPhase = 0;
 
     public boolean[] keyDown = new boolean[5];
-    private int width, height;
+    private int width = 20, height = 15;
 
 
     public KeyInput(Handler handler){
@@ -86,9 +86,9 @@ public class KeyInput extends KeyAdapter {
                     Player.still = false;
                     Player.shoot = true;
                     if (Player.facing == 1)
-                        handler.addBullet(new Bullet(tempObject.getX(), tempObject.getY(), width, height, ID.Bullet, 5, 0, false));
+                        handler.addBullet(new Bullet(tempObject.getX() + 20, tempObject.getY() + 25, width, height, ID.Bullet, 5, 0, false));
                     else if (Player.facing == 0)
-                        handler.addBullet(new Bullet(tempObject.getX(), tempObject.getY(), width, height, ID.Bullet, -5, 0, false));
+                        handler.addBullet(new Bullet(tempObject.getX() + 20, tempObject.getY() + 25, width, height, ID.Bullet, -5, 0, false));
                 }
             }
         }

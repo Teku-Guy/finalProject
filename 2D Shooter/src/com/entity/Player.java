@@ -137,6 +137,7 @@ public class Player extends GameObject {
 
                     handler.clearBullet(tempBullet);
                     HUD.HEALTH -= 25;
+                    System.err.println("clear");
 
 
                     //System.out.println("Dead");

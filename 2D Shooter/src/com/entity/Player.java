@@ -135,8 +135,7 @@ public class Player extends GameObject {
             if (tempBullet instanceof BulletBoss) {
                 if (getBounds().intersects(tempBullet.getBounds())) {
                     handler.clearBullet(tempBullet);
-                    HUD.HEALTH = 0;
-                    handler.kill(this);
+                    HUD.HEALTH -= 25;
 
 
                     //System.out.println("Dead");
@@ -152,6 +151,7 @@ public class Player extends GameObject {
                 Rectangle lavaRect = tempLava.getBounds();
                 if (getBounds().intersects(lavaRect)) {
                     HUD.HEALTH -= .25;
+
 
                 }
 
@@ -237,7 +237,7 @@ public class Player extends GameObject {
     public void tick() {
         move();
         collision();
-        if(HUD.HEALTH == 0){
+        if(HUD.HEALTH <= 0){
             handler.kill(this);
         }
 

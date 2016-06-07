@@ -100,6 +100,20 @@ public class Handler {
         }
     }
 
+    public void clearAll(){
+        for (int i = 0; i < object.size(); i++) {
+            GameObject tempObject = object.get(i);
+            if (tempObject.getId() != ID.Player) {
+                object.remove(i);
+                i--;
+
+                //This removes the player after they lost
+                if(Main.gameState != Main.STATE.End)
+                    addObject(Main.player);
+            }
+        }
+    }
+
     public void kill(GameObject z) {
         object.remove(z);
         killCount++;

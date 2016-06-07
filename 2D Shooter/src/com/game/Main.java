@@ -416,7 +416,6 @@ public class Main extends Canvas implements Runnable {
         if (gameState == STATE.Game) {
             g2d.translate((int) cam.getX(), (int) cam.getY());
             g.drawImage(Main.Background, -1801, -1350, null);
-            //handler.LoadImageLevel(level);
 
             handler.render(g);
             hud.render(g);
@@ -424,7 +423,6 @@ public class Main extends Canvas implements Runnable {
 
             g2d.translate((int) cam.getX(), (int) cam.getY());
             g.setColor(Color.WHITE);
-            //g.drawString("FPS: " + frames, 10, 15);
 
 
             g2d.translate((int) -cam.getX(), (int) -cam.getY());

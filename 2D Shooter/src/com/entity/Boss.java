@@ -68,9 +68,14 @@ public class Boss extends GameObject {
         double yOff = y + height;
         double yMax = yOff + 0.1;
         double yMin = yOff - 0.1;
-        if(yMin < playerY && playerY < yMax){
+        if(yMin < playerY && playerY < yMax && Main.player.getX() > getX()){
             shoot = true;
-            handler.addBullet(new BulletBoss(getX(), getY(), width, height, ID.Bullet, 5, 0, false));
+            handler.addBullet(new BulletBoss(getX(), getY() + 50, width, height, ID.Bullet, 5, 0, false));
+
+        }
+        if(yMin < playerY && playerY < yMax && Main.player.getX() < getX()){
+            shoot = true;
+            handler.addBullet(new BulletBoss(getX(), getY() + 50, width, height, ID.Bullet, -5, 0, false));
 
         }
 
@@ -176,9 +181,6 @@ public class Boss extends GameObject {
         } else if (facing == 1) {
             if (still) {
                 g.drawImage(Main.BWalkR[0].getBufferedImage(), (int) x, (int) y, null);
-            } else {
-                g.drawImage(Main.BWalkR[phase].getBufferedImage(), (int) x, (int) y, null);
-
             }
            if(shoot){
                if(Main.player.getX() > getX()){

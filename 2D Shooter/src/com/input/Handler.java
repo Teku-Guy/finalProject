@@ -19,7 +19,7 @@ public class Handler {
 
     public static int killCount = 0;
     public static int points = 0;
-    public static int levelCount = 2;
+    public static int levelCount = 0;
 
     public int ii, jj;
 
@@ -120,7 +120,7 @@ public class Handler {
         object.remove(z);
         killCount++;
         points += 100;
-        System.out.println(killCount);
+        //System.out.println(killCount);
     }
 
     public void clearBullet(Bullet b) {

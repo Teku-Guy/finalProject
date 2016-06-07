@@ -27,7 +27,7 @@ public class Handler {
     private Bullet bull;
     private Main main;
 
-    private int counterp = 1;
+    public int counterp = 1;
 
     private int counter = 0;
     private Random r = new Random();

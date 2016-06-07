@@ -134,6 +134,7 @@ public class Player extends GameObject {
             Bullet tempBullet = Handler.bullet.get(i);
             if (tempBullet instanceof BulletBoss) {
                 if (getBounds().intersects(tempBullet.getBounds())) {
+
                     handler.clearBullet(tempBullet);
                     HUD.HEALTH -= 25;
 

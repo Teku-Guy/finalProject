@@ -70,12 +70,12 @@ public class Boss extends GameObject {
         double yMin = yOff - 0.1;
         if(yMin < playerY && playerY < yMax && Main.player.getX() > getX()){
             shoot = true;
-            handler.addBullet(new BulletBoss(getX(), getY() + 50, width, height, ID.Bullet, 5, 0, false));
+            handler.addBullet(new BulletBoss(getX(), getY() + 50, width, height, ID.BossBullet, 5, 0, false));
 
         }
         if(yMin < playerY && playerY < yMax && Main.player.getX() < getX()){
             shoot = true;
-            handler.addBullet(new BulletBoss(getX(), getY() + 50, width, height, ID.Bullet, -5, 0, false));
+            handler.addBullet(new BulletBoss(getX(), getY() + 50, width, height, ID.BossBullet, -5, 0, false));
 
         }
 
@@ -93,6 +93,7 @@ public class Boss extends GameObject {
                 handler.clearBullet(tempBullet);
                 bossHealth -= 100;
                 if(bossHealth == 0){
+                    handler.points = 10000;
                     handler.kill(this);
                 }
                 isDead = true;

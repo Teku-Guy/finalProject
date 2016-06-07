@@ -91,7 +91,7 @@ public class Menu extends MouseAdapter{
                 Handler.levelCount = 0;
                 HUD.HEALTH = 100;
                 handler.counterp = 1;
-                main.gameState = STATE. Menu;
+                main.gameState = STATE.Game;
                 return;
             }
             //quit

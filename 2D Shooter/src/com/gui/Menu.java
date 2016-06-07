@@ -82,6 +82,22 @@ public class Menu extends MouseAdapter{
                 return;
             }
         }
+
+        else if(this.main.gameState == STATE.End){
+            //try again
+            if(mouseOver(mx, my, Main.WIDTH/2 - 200, 350, 200, 64)){
+                handler.clearEnemies();
+                Handler.levelCount = 0;
+                handler.counterp = 1;
+                main.gameState = STATE.Game;
+                return;
+            }
+            //quit
+            if(mouseOver(mx, my, Main.WIDTH / 2 + 10, 350, 200, 64)){
+                System.exit(1);
+                return;
+            }
+        }
     }
 
     private boolean mouseOver(int mx, int my, int x, int y, int width, int height){
@@ -189,18 +205,18 @@ public class Menu extends MouseAdapter{
 
             g.setFont(fnt);
             g.setColor(Color.WHITE);
-            g.drawString("Game Over", 170, 70);
+            g.drawString("Game Over", Main.WIDTH / 2 - (g.getFontMetrics().stringWidth("Game Over") / 2), 70);
 
             //g.setFont(fnt3);
              g.drawString("You lost! Your Score: " + Handler.points, 190, 210);
 
             g.setFont(fnt2);
-            g.drawRect(110, 350, 200, 64);
-            g.drawString("Try Again", 135, 390);
+            g.drawRect(Main.WIDTH/2 - 200, 350, 200, 64);
+            g.drawString("Try Again", Main.WIDTH / 2 - (g.getFontMetrics().stringWidth("Try Again"))-25, 390);
 
             g.setFont(fnt2);
-            g.drawRect(330, 350, 200, 64);
-            g.drawString("Quit", 395, 390);
+            g.drawRect(Main.WIDTH / 2 + 10, 350, 200, 64);
+            g.drawString("Quit", Main.WIDTH / 2 + (g.getFontMetrics().stringWidth("Quit")), 390);
 
         }
 

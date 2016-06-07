@@ -89,7 +89,7 @@ public class Menu extends MouseAdapter{
                 handler.clearEnemies();
                 Handler.levelCount = 0;
                 handler.counterp = 1;
-                main.gameState = STATE.Game;
+                main.gameState = STATE. Menu;
                 return;
             }
             //quit

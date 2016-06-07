@@ -112,8 +112,9 @@ public class Handler {
     }
 
     public void limitBullets(Bullet b) {
-        if (bullet.size() > 5) {
+        if (bullet.size() > 10) {
             for (int i = 0; i < bullet.size(); i++)
+
                 bullet.remove(i);
         }
     }

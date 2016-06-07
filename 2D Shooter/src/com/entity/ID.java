@@ -11,6 +11,7 @@ public enum ID {
     Lava(),
     HealthPack(),
     Boss(),
+    BossBullet(),
     Bounds(),
     Bullet(),
     Zombie()

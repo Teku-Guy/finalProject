@@ -1,4 +1,4 @@
-# finalProject
+# Steve's Nightmare
 
 #### Java Final Project 2D Shooter
 ---

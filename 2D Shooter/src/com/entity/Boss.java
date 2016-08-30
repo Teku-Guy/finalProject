@@ -163,7 +163,7 @@ public class Boss extends GameObject {
 
     public void render(Graphics g) {
         counter++;
-        if (counter % 15 == 0) {
+        if (counter % 100 == 0) {
             counter = 0;
             phase++;
             shootCount++;

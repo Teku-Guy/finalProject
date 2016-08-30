@@ -394,7 +394,7 @@ public class Main extends Canvas implements Runnable {
         } else if (handler.levelCount == 2) {
             handler.LoadImageLevel(Main.level3);
         } else {
-            throw new RuntimeException("too many level loads");
+           // throw new RuntimeException("too many level loads");
         }
     }
 

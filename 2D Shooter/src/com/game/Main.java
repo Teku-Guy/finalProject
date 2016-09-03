@@ -300,24 +300,34 @@ public class Main extends Canvas implements Runnable {
         double delta = 0;
         long timer = System.currentTimeMillis();
         frames = 0;
+        Sync sync = new Sync();
+
+
 
         changeLevel();
         while (running) {
+
             long now = System.nanoTime();
             delta += (now - lastTime) / ns;
             lastTime = now;
+            sync.sync(60);
             while (delta >= 1) {
                 tick();
                 delta--;
+                frames++;
             }
 
             if (running)
+
                 render();
 
-            frames++;
+
+
+
+
 
             if (System.currentTimeMillis() - timer > 1000) {
-                timer += 10000;
+                timer += 1000;
                 System.out.println("FPS: " + frames);
                 frames = 0;
             }

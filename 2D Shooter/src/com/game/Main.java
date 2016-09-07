@@ -307,12 +307,13 @@ public class Main extends Canvas implements Runnable {
             long now = System.nanoTime();
             delta += (now - lastTime) / ns;
             lastTime = now;
-            Sync.sync(60);
+
 
 
 
             while (delta >= 1) {
                 tick();
+                Sync.sync(100);
                 delta--;
                 frames++;
             }

@@ -47,7 +47,14 @@ public class Player extends GameObject {
 
        handlePhases();
         if (shoot) {
-            g.drawImage(Main.PlayerShootR[phaseShoot].getBufferedImage(), (int) x, (int) y, null);
+            if(facing == 0){
+                g.drawImage(Main.PlayerShootL[phaseShoot].getBufferedImage(), (int) x, (int) y, null);
+            }
+            if(facing == 1){
+                g.drawImage(Main.PlayerShootR[phaseShoot].getBufferedImage(), (int) x, (int) y, null);
+
+            }
+
         }
         else{
             if (facing == 0) {

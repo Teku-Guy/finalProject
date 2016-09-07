@@ -14,7 +14,7 @@ public class Bullet extends GameObject {
     public ID id;
 
     public boolean ifShotHits = false;
-    private Handler handler;
+
 
     public Bullet(float x, float y, int width, int height, ID id, int velX, int velY, boolean ifShotHits) {
         super(x, y, width, height, id);
@@ -31,7 +31,7 @@ public class Bullet extends GameObject {
         g.drawImage(Main.Bullet.getBufferedImage(), (int) x, (int) y, null);
     }
 
-    public void collisoinWithBlock() {
+    public void collisionWithBlock() {
         for (int i = 0; i < Handler.tile.size(); i++)
             for (int j = 0; j < Handler.bullet.size(); j++) {
                 Bullet tempBullet = Handler.bullet.get(j);
@@ -45,7 +45,7 @@ public class Bullet extends GameObject {
     public void tick() {
         x += velX;
         y += velY;
-        collisoinWithBlock();
+        collisionWithBlock();
     }
 
     public void hit() {

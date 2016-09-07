@@ -40,6 +40,7 @@ public class Zombie extends GameObject {
         y += velY;
 
 
+
         float diffX = x - Main.player.getX();
         float diffY = y - Main.player.getY();
         float distance = (float) Math.sqrt((x - Main.player.getX()) * (x - Main.player.getX()) + (y - Main.player.getY()) * (y - Main.player.getY()));
@@ -61,6 +62,7 @@ public class Zombie extends GameObject {
             jumping = true;
         } else if (y < Main.player.y) {
             jumping = false;
+
         }
 
 
@@ -101,6 +103,7 @@ public class Zombie extends GameObject {
         if (left.intersects(tileRect)) {
             x = (float)(tileRect.getX() + (width-12));
             velX = 0;
+            velY -= 2;
             falling = true;
             jumping = false;
 
@@ -113,6 +116,7 @@ public class Zombie extends GameObject {
         if (right.intersects(tileRect)) {
             x = ((float)tileRect.getX() - width);
             velX = 0;
+            velY -= 2;
             falling = true;
             jumping = false;
         }
@@ -132,7 +136,7 @@ public class Zombie extends GameObject {
         Rectangle top = new Rectangle(rect.x+(15/2), rect.y, rect.width-15, 5);
         if (top.intersects(tileRect)) {
             y = (float)tileRect.getY() + (float)(height/1.125);
-            velY = 1;
+            velY += 1;
             falling = true;
             jumping = false;
             //collided = true;

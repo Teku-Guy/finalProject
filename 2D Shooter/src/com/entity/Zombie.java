@@ -138,14 +138,19 @@ public class Zombie extends GameObject {
             //collided = true;
         }
     }
-
-    public void render(Graphics g) {
+    public void handlePhases(){
         counter++;
         if (counter % 100 == 0) {
             counter = 0;
             phase++;
             phase %= Main.ZWalkL.length;
         }
+    }
+
+    public void render(Graphics g) {
+
+        handlePhases();
+
         if (facing == 0) {
             if (still) {
 

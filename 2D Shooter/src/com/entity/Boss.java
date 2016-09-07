@@ -161,15 +161,19 @@ public class Boss extends GameObject {
         }
     }
 
-    public void render(Graphics g) {
+    public void handlePhases(){
         counter++;
         if (counter % 100 == 0) {
             counter = 0;
             phase++;
-            shootCount++;
             phase %= Main.ZWalkL.length;
-            shootCount %= Main.BossShootL.length;
         }
+    }
+
+    public void render(Graphics g) {
+
+        handlePhases();
+
         if (facing == 0) {
             if (still) {
 

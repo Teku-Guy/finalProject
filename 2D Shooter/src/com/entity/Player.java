@@ -45,65 +45,55 @@ public class Player extends GameObject {
 
     public void render(Graphics g) {
 
-        counter++;
-        if (counter % 100 == 0) {
-            counter = 0;
-            phaseWalking++;
-            phaseShoot++;
-            phaseShoot %= Main.PlayerShootL.length;
-            phaseWalking %= Main.PlayerWalkL.length;
+       handlePhases();
+        if (shoot) {
+            g.drawImage(Main.PlayerShootR[phaseShoot].getBufferedImage(), (int) x, (int) y, null);
         }
+        else{
+            if (facing == 0) {
+                if (jumping) {
+                    g.drawImage(Main.PJumpLeft.getBufferedImage(), (int) x, (int) y, null);
 
-        if (facing == 0) {
-            if (jumping) {
-                g.drawImage(Main.PJumpLeft.getBufferedImage(), (int) x, (int) y, null);
+                } else if (still) {
+                    g.drawImage(Main.PlayerWalkL[0].getBufferedImage(), (int) x, (int) y, null);
 
-            } else if (still) {
-                g.drawImage(Main.PlayerWalkL[0].getBufferedImage(), (int) x, (int) y, null);
+                } else if (walking) {
+                    g.drawImage(Main.PlayerWalkL[phaseWalking].getBufferedImage(), (int) x, (int) y, null);
+                }
+            }
+            else if (facing == 1) {
+                if (jumping) {
+                    g.drawImage(Main.PJumpRight.getBufferedImage(), (int) x, (int) y, null);
+
+                } else if (still) {
+                    g.drawImage(Main.PlayerWalkR[0].getBufferedImage(), (int) x, (int) y, null);
+                } else if (walking) {
+                    g.drawImage(Main.PlayerWalkR[phaseWalking].getBufferedImage(), (int) x, (int) y, null);
+
+                }
 
             }
-            else  if (shoot) {
-                g.drawImage(Main.PlayerShootL[phaseShoot].getBufferedImage(), (int) x, (int) y, null);
-            } else if (walking) {
-                g.drawImage(Main.PlayerWalkL[phaseWalking].getBufferedImage(), (int) x, (int) y, null);
-            }
-        }
-        else if (facing == 1) {
-            if (jumping) {
-                g.drawImage(Main.PJumpRight.getBufferedImage(), (int) x, (int) y, null);
-
-            } else if (still) {
-                g.drawImage(Main.PlayerWalkR[0].getBufferedImage(), (int) x, (int) y, null);
-            }
-
-            else if (shoot) {
-                g.drawImage(Main.PlayerShootR[phaseShoot].getBufferedImage(), (int) x, (int) y, null);
-            } else if (walking) {
-                g.drawImage(Main.PlayerWalkR[phaseWalking].getBufferedImage(), (int) x, (int) y, null);
-
-            }
-
         }
 
 
-        Graphics2D g2d = (Graphics2D) g;
+
+
+       /* Graphics2D g2d = (Graphics2D) g;
 
         g.setColor(Color.cyan);
         g2d.draw(getBounds());
 
         Rectangle rect = getBounds();
-        Rectangle top = new Rectangle(rect.x + (15 / 2), rect.y, rect.width - 15, 5);
-        Rectangle bottom = new Rectangle(rect.x + (15 / 2), rect.y + rect.height - 5, rect.width - 15, 5);
-        Rectangle left = new Rectangle(rect.x, rect.y + (15 / 2), 5, rect.height - 15);
-        Rectangle right = new Rectangle(rect.x + rect.width - 5, rect.y + (15 / 2), 5, rect.height - 15);
-    /*    g.setColor(Color.red);
+
+        g.setColor(Color.red);
         g2d.draw(top);
         g.setColor(Color.blue);
         g2d.draw(bottom);
         g.setColor(Color.green);
         g2d.draw(left);
         g.setColor(Color.white);
-        g2d.draw(right);*/
+        g2d.draw(right);
+        */
 
 
     }
@@ -120,6 +110,18 @@ public class Player extends GameObject {
 
         //x = Main.clamp((int) x, 0, Main.WIDTH);
         y = Main.clamp((int) y, 0, Main.HEIGHT - 53);
+    }
+    public void handlePhases(){
+        counter++;
+        if (counter % 100 == 0) {
+            counter = 0;
+            phaseWalking++;
+            phaseShoot++;
+            phaseShoot %= Main.PlayerShootL.length;
+            phaseWalking %= Main.PlayerWalkL.length;
+        }
+
+
     }
 
     private void collision() {

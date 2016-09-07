@@ -62,12 +62,13 @@ public class Player extends GameObject {
                 g.drawImage(Main.PlayerWalkL[0].getBufferedImage(), (int) x, (int) y, null);
 
             }
-            if (shoot) {
+            else  if (shoot) {
                 g.drawImage(Main.PlayerShootL[phaseShoot].getBufferedImage(), (int) x, (int) y, null);
             } else if (walking) {
                 g.drawImage(Main.PlayerWalkL[phaseWalking].getBufferedImage(), (int) x, (int) y, null);
             }
-        } else if (facing == 1) {
+        }
+        else if (facing == 1) {
             if (jumping) {
                 g.drawImage(Main.PJumpRight.getBufferedImage(), (int) x, (int) y, null);
 
@@ -75,7 +76,7 @@ public class Player extends GameObject {
                 g.drawImage(Main.PlayerWalkR[0].getBufferedImage(), (int) x, (int) y, null);
             }
 
-            if (shoot) {
+            else if (shoot) {
                 g.drawImage(Main.PlayerShootR[phaseShoot].getBufferedImage(), (int) x, (int) y, null);
             } else if (walking) {
                 g.drawImage(Main.PlayerWalkR[phaseWalking].getBufferedImage(), (int) x, (int) y, null);

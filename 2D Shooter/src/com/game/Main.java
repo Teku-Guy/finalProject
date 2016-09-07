@@ -249,7 +249,7 @@ public class Main extends Canvas implements Runnable {
 
         System.out.println("Background loaded!");
         backgroundMusic = new Sound("/res/sounds/backMusic_01.wav");
-        backgroundMusic.loop();
+        //backgroundMusic.loop();
 
         System.out.println("Sound loaded!");
 
@@ -311,6 +311,7 @@ public class Main extends Canvas implements Runnable {
             delta += (now - lastTime) / ns;
             lastTime = now;
             sync.sync(60);
+
             while (delta >= 1) {
                 tick();
                 delta--;

@@ -58,8 +58,11 @@ public class Zombie extends GameObject {
 
         velY += gravity;
         if ((y - 100) > Main.player.y && !jumping) {//&& distance >= 2) {
-            velY = -5;
-            jumping = true;
+           if(!falling){
+               velY = -5;
+               jumping = true;
+           }
+
         } else if (y < Main.player.y) {
             jumping = false;
 
@@ -127,7 +130,7 @@ public class Zombie extends GameObject {
         if (bottom.intersects(tileRect)) {
             y = (float)tileRect.getY() - height;
             velY = 0;
-            falling = true;
+            falling = false;
         }
     }
 

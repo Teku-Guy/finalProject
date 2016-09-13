@@ -313,7 +313,7 @@ public class Main extends Canvas implements Runnable {
 
             while (delta >= 1) {
                 tick();
-                Sync.sync(100);
+              //  Sync.sync(100);
                 delta--;
                 frames++;
             }

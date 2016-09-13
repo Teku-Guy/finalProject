@@ -23,6 +23,8 @@ public class Player extends GameObject {
     public int phaseWalking = 0;
     public int phaseShoot = 0;
     public static int facing = 0;
+    public boolean hasSpecialEffect = false;
+    public int tickCount = 0;
     public KeyInput key;
 
     private int counter = 0;
@@ -105,6 +107,7 @@ public class Player extends GameObject {
 
     }
 
+
     public void move() {
         x += velX;
         y += velY;
@@ -173,6 +176,11 @@ public class Player extends GameObject {
                 Rectangle healthRect = tempHealth.getBounds();
                 if (getBounds().intersects(healthRect)) {
                     HUD.HEALTH = 100;
+                    hasSpecialEffect = true;
+                    System.out.println("Special Effect Gained");
+                    if(tickCount == 500){
+                        hasSpecialEffect = false;
+                    }
                     handler.tile.remove(i);
                     i--;
                     System.err.println("Removed health pack.");
@@ -245,10 +253,19 @@ public class Player extends GameObject {
             //collided = true;
         }
     }
+    public boolean getEffect(){
+        return hasSpecialEffect;
+    }
 
     public void tick() {
         move();
         collision();
+        tickCount++;
+        if(tickCount == 500){
+            System.out.println("Tick Count :" + tickCount);
+            tickCount = 0;
+        }
+
         if(HUD.HEALTH <= 0){
             handler.kill(this);
         }

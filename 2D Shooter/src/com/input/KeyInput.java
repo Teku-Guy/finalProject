@@ -12,12 +12,13 @@ import java.awt.event.KeyEvent;
 
 public class KeyInput extends KeyAdapter {
 
-    private Handler handler;
+    public static Handler handler;
     private Main main;
+    private Player player;
 
     public int tempPhase = 0;
 
-    public boolean[] keyDown = new boolean[5];
+    public boolean[] keyDown = new boolean[6];
     private int width = 20, height = 15;
 
 
@@ -29,6 +30,7 @@ public class KeyInput extends KeyAdapter {
         keyDown[2] = false;
         keyDown[3] = false;
         keyDown[4] = false;
+        keyDown[5] = false;
     }
 
     public void keyPressed(KeyEvent e){
@@ -89,7 +91,14 @@ public class KeyInput extends KeyAdapter {
                         handler.addBullet(new Bullet(tempObject.getX(), tempObject.getY(), width, height, ID.Bullet, 5, 0, false));
                     else if (Player.facing == 0)
                         handler.addBullet(new Bullet(tempObject.getX(), tempObject.getY(), width, height, ID.Bullet, -5, 0, false));
+
                 }
+
+
+
+
+
+
             }
         }
 

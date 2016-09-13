@@ -4,12 +4,15 @@ package com.entity;/**
 
 import com.game.Main;
 import com.input.Handler;
+import com.input.KeyInput;
 
 import java.awt.*;
 
 public class Bullet extends GameObject {
 
     public float velY, velX;
+
+    private Handler handler;
 
     public ID id;
 
